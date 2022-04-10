@@ -2,6 +2,12 @@
 
 [![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
 
+## Status
+
+|  Environment | Build Status |
+| :------------ |:------------- |
+| Production      | [![Deploy](https://github.com/brionmario/brionmario.com/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/brionmario/brionmario.com/actions/workflows/publish.yml) |
+
 This is an official Yarn v1 starter turborepo.
 
 ## What's inside?

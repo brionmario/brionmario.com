@@ -11,7 +11,7 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint -- -- --fix",
-    "semantic-release": "semantic-release"
+    "publish:release": "semantic-release"
   },
   "devDependencies": {
     "@semantic-release/changelog": "^6.0.1",
