@@ -8,6 +8,9 @@ on:
       - main
   workflow_dispatch:
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
 jobs:
   build:
     name: 🚧 Build
@@ -69,7 +72,7 @@ jobs:
         uses: bobheadxi/deployments@v0.4.3
         with:
           step: start
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ env.GITHUB_TOKEN }}
           env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }} 
 
       - name: ⬇️ Checkout
@@ -100,8 +103,6 @@ jobs:
           npm install -g yarn
           yarn install --frozen-lockfile
           yarn run publish:release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: 🏁 Finish Deployment
         id: finish-deployment
@@ -109,6 +110,6 @@ jobs:
         if: always()
         with:
           step: finish
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ env.GITHUB_TOKEN }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}

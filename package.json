@@ -13,7 +13,7 @@
   "homepage": "https://github.com/brionmario/brionmario.com#readme",
   "repository": {
       "type": "git",
-      "url": "https://github.com/brionmario/brionmario.com"
+      "url": "https://github.com/brionmario/brionmario.com.git"
   },
   "bugs": {
       "url": "https://github.com/brionmario/brionmario.com/issues"
