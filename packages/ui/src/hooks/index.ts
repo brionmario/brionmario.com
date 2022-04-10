@@ -22,10 +22,7 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+import { GeistUIThemes, useTheme } from "@geist-ui/core";
+
+export type Theme = GeistUIThemes;
+export { useTheme };

@@ -22,10 +22,32 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+import { Brand, Header, TestableComponent } from "@brionmario/ui";
+import { FunctionComponent, ReactElement } from "react";
+
+export type AppHeaderProps = TestableComponent;
+
+export const AppHeader: FunctionComponent<AppHeaderProps> = (props: AppHeaderProps): ReactElement => {
+
+  const {
+    "data-testid": testId,
+    ...rest
+  } = props;
+
+  return (
+    <Header
+      data-testid={ testId }
+      brand={ (
+        <Brand
+          displayName="Brion Mario" data-testid="brand"
+        />
+      ) }
+      links={[]}
+      { ...rest }
+    />
+  );
+};
+
+const defaultProps: Partial<AppHeaderProps> = {};
+
+AppHeader.defaultProps = defaultProps;

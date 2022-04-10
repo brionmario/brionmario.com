@@ -22,10 +22,13 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+import Footer from "./footer";
+import FooterColumn from "./footer-column";
+import FooterGroup from "./footer-group";
+import FooterLink from "./footer-link";
+
+Footer.Group = FooterGroup;
+Footer.Link = FooterLink;
+Footer.Column = FooterColumn;
+
+export default Footer;

@@ -22,10 +22,5 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+export * from "./app-footer";
+export * from "./app-header";

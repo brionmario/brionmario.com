@@ -22,10 +22,25 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+/** @jsxImportSource @emotion/react */
+import { Text as GeistText, TextProps as GeistTextProps } from "@geist-ui/core";
+import { FunctionComponent, ReactElement } from "react";
+import { TestableComponent } from "../../models";
+
+interface Props extends GeistTextProps, TestableComponent { }
+
+const defaultProps = {};
+
+export type TextProps = Props & typeof defaultProps;
+
+export const Text: FunctionComponent<TextProps> = (props: TextProps): ReactElement => {
+
+  const {
+    "data-testid": testId,
+    ...rest
+  } = props;
+
+  return <GeistText data-testid={ testId } { ...rest } />;
+};
+
+Text.defaultProps = defaultProps;

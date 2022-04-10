@@ -22,10 +22,10 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+export * from "./brand";
+export * from "./button";
+
+export { default as Footer } from "./footer";
+export * from "./header";
+export * from "./hero";
+export * from "./typography";

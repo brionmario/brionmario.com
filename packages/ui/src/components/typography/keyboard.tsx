@@ -22,10 +22,25 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+/** @jsxImportSource @emotion/react */
+import { Keyboard as GeistKeyboard, KeyboardProps as GeistKeyboardProps } from "@geist-ui/core";
+import { FunctionComponent, ReactElement } from "react";
+import { TestableComponent } from "../../models";
+
+interface Props extends GeistKeyboardProps, TestableComponent { }
+
+export type KeyboardProps = Props & typeof defaultProps;
+
+export const Keyboard: FunctionComponent<KeyboardProps> = (props: KeyboardProps): ReactElement => {
+
+  const {
+    "data-testid": testId,
+    ...rest
+  } = props;
+
+  return <GeistKeyboard data-testid={ testId } { ...rest } />;
+};
+
+const defaultProps = {};
+
+Keyboard.defaultProps = defaultProps;

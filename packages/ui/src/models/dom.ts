@@ -23,9 +23,15 @@
  */
 
 /**
- * Enum for theme types.
+ * Interface to be extended to inherit props to uniquely identify an element in Test Executions.
+ * @example
+ * <div data-componentid="register-button" />
+ *
+ * // In Cypress Tests.
+ * cy.dataComponentId("register-button");
+ * // In React Unit Tests.
+ * screen.getByTestId("register-button");
  */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
+export interface TestableComponent {
+  "data-testid": string;
 }

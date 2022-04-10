@@ -22,10 +22,18 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
+import { createContext, useContext } from "react";
+
+export interface FooterConfigs {
+  maxWidth: string
+  breakPoint: string
 }
+
+const defaultContext = {
+  breakPoint: "960px",
+  maxWidth: "1000px"
+};
+
+export const FooterContext = createContext<FooterConfigs>(defaultContext);
+
+export const useFooterContext = (): FooterConfigs => useContext<FooterConfigs>(FooterContext);

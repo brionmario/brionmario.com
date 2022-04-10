@@ -22,54 +22,131 @@
  * SOFTWARE.
  */
 
-import { Button } from "@brionmario/ui";
-import { Display, Grid, Image, Page, Text } from "@geist-ui/core";
+/** @jsxImportSource @emotion/react */
+import { Hero, Keyboard, SiteLayout , Text , Theme, useTheme } from "@brionmario/ui";
+import { ClassNames } from "@emotion/react";
 import Head from "next/head";
+import Image from "next/image";
+import { FC } from "react";
+import { AppFooter, AppHeader } from "../components";
+import { ThemeTypes } from "../models";
 
-const gh = "https://github.com/geist-org/geist-ui";
-const docs = "https://geist-ui.dev";
+export type HomePageProps = {};
 
-export default function IndexPage() {
-  const redirect = (url: string) => window.open(url);
+const HomePage: FC<HomePageProps> = () => {
+
+  const theme: Theme = useTheme();
+
+  const _css: string = getCSS();
+
+  const getWSO2LogoURL = (theme: ThemeTypes | string): string => {
+
+    if (theme === ThemeTypes.DARK) {
+      return "/assets/images/wso2-logo-white.svg";
+    }
+
+    return "/assets/images/wso2-logo-black.svg";
+  };
 
   return (
-    <div>
-      <Head>
-        <title>Geist UI with NextJS</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <Page dotBackdrop width="800px" padding={0}>
-        <Display
-          title="Geist UI"
-          caption={
-            <>
-              Welcome to{" "}
-              <Text span b>
-                Geist UI
-              </Text>{" "}
-              and start learning more !
-            </>
-          }>
-          <Image src="/geist-banner.png" alt="geist ui banner" draggable={false} />
-        </Display>
-        <Grid.Container justify="center" gap={3} mt="100px">
-          <Grid xs={20} sm={7} justify="center">
-            <Button
-              shadow
-              type="secondary-light"
-              width="100%"
-              onClick={() => redirect(gh)}>
-              GitHub Repo
-            </Button>
-          </Grid>
-          <Grid xs={0} sm={3} />
-          <Grid xs={20} sm={7} justify="center">
-            <Button width="100%" onClick={() => redirect(docs)}>
-              Documentation Site
-            </Button>
-          </Grid>
-        </Grid.Container>
-      </Page>
-    </div>
+    <ClassNames>
+      { ({ css, cx }) => (
+        <SiteLayout
+          fluid
+          css={ css(_css) }
+          className={ cx(_css, "home-page") }
+          header={ <AppHeader data-testid="app-header" /> }
+          footer={ <AppFooter data-testid="app-footer" /> }
+          data-testid="site-layout"
+        >
+          <div>
+            <Head>
+              <title>Geist UI with NextJS</title>
+              <link rel="icon" href="/favicon.ico" />
+            </Head>
+            <Hero
+              data-testid="hero"
+              greeting={ (
+                <span className="hero__greeting">
+                  <span className="hero__greeting__wave">👋</span>
+                HI THERE! I&apos;M
+                </span>
+              ) }
+              title={ [
+                "Brion",
+                "Mario"
+              ] }
+              tagline={ (
+                <Text b data-testid="hero-tagline" className="hero__tagline">
+                  &#123;
+                  { " " }
+                  <Keyboard className="hero__tagline__eat" data-testid="hero-tagline-eat">EAT</Keyboard>
+                  { " " }.{ " " }
+                  <Keyboard className="hero__tagline__code" data-testid="hero-tagline-code">CODE</Keyboard>
+                  { " " }.{ " " }
+                  <Keyboard className="hero__tagline__sleep" data-testid="hero-tagline-sleep">SLEEP</Keyboard>
+                  { " " }.{ " " }
+                  <Keyboard className="hero__tagline__repeat" data-testid="hero-tagline-repeat">REPEAT</Keyboard>
+                  { " " }
+                  &#125;
+                </Text>
+              ) }
+              caption={
+                <Text data-testid="hero-caption" className="hero__greeting__caption" type="secondary">
+                  <div>A front-end enthusiast based in Sri Lanka 🇱🇰.</div>
+                  <div className="hero__greeting__caption__employment">
+                    Currently working as a Senior Software Engineer at
+                    <a
+                      href="https://wso2.com"
+                      className="hero__greeting__caption__employment__wso2"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Image
+                        alt="wso2 logo"
+                        src={ getWSO2LogoURL(theme.type) }
+                        width="50px"
+                        height="15px"
+                      />
+                    </a>
+                  </div>
+                </Text>
+              }
+              image="https://i1.wp.com/hypebeast.com/image/2020/07/apple-memoji-update-headwear-masks-hairstyles-3.png?w=1600"
+            />
+          </div>
+        </SiteLayout>
+      ) }
+    </ClassNames>
   );
-}
+};
+
+const getCSS = (): string => `
+  .hero__greeting {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      align-items: center;
+  }
+  .hero__greeting__wave {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  .hero__caption {
+    max-width: 400px;
+  }
+  .hero__caption__employment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+  }
+  .hero__greeting__caption__employment__wso2 {
+    position: absolute;
+    margin-top: 4px;
+  }
+`;
+
+export default HomePage;

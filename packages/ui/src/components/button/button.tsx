@@ -22,10 +22,18 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+import { Button as GeistButton, ButtonProps as GeistButtonProps  } from "@geist-ui/core";
+import { FunctionComponent, ReactElement } from "react";
+import { TestableComponent } from "../../models";
+
+export type ButtonProps = GeistButtonProps & TestableComponent;
+
+export const Button: FunctionComponent<ButtonProps> = (props: ButtonProps): ReactElement  => {
+
+  const {
+    "data-testid": testId,
+    ...rest
+  } = props;
+
+  return <GeistButton data-testid={ testId } {...rest } />;
+};

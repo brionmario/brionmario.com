@@ -22,10 +22,27 @@
  * SOFTWARE.
  */
 
-/**
- * Enum for theme types.
- */
-export enum ThemeTypes {
-  "LIGHT" = "light",
-  "DARK" = "dark"
-}
+import { FC, HTMLAttributes, PropsWithChildren, memo } from "react";
+import { TestableComponent } from "../../models";
+
+type Props = TestableComponent;
+
+const defaultProps = { };
+
+type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>
+
+export type FooterColumnProps = Props & typeof defaultProps & NativeAttrs;
+
+const FooterColumn: FC<PropsWithChildren<FooterColumnProps>> = (props: FooterColumnProps) => {
+
+  const {
+    children,
+    ...rest
+  } = props;
+
+  return <div {...rest }>{ children }</div>;
+};
+
+const MemoFooterColumn = memo(FooterColumn);
+
+export default MemoFooterColumn;
