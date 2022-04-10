@@ -26,6 +26,6 @@
  * Enum for theme types.
  */
 export enum ThemeTypes {
-  "LIGHT" = "LIGHT",
-  "DARK" = "DARK"
+  "LIGHT" = "light",
+  "DARK" = "dark"
 }

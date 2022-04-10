@@ -29,7 +29,7 @@ import { ThemeTypes } from "../models";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  const [ themeType, setThemeType ] = useState<ThemeTypes>(ThemeTypes.LIGHT);
+  const [ themeType, setThemeType ] = useState<ThemeTypes>(ThemeTypes.DARK);
 
   // eslint-disable-next-line no-unused-vars
   const switchTheme = (): void => {
