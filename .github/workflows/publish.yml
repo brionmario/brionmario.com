@@ -96,7 +96,7 @@ jobs:
 
       - name: ☄️ Release Project
         id: release-project
-        run: yarn semantic-release
+        run: yarn run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
