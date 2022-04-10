@@ -1,6 +1,6 @@
 {
   "name": "turborepo-basic-shared",
-  "version": "0.0.0",
+  "version": "0.0.0-semantically-released",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -10,10 +10,13 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "lint:fix": "turbo run lint -- -- --fix",
+    "semantic-release": "semantic-release"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
     "prettier": "^2.5.1",
+    "semantic-release": "^19.0.2",
     "turbo": "latest"
   },
   "engines": {

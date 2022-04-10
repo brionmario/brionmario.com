@@ -22,7 +22,8 @@
  * SOFTWARE.
  */
 
-import { Button, Display, Grid, Image, Page, Text } from "@geist-ui/core";
+import { Button } from "@brionmario/ui";
+import { Display, Grid, Image, Page, Text } from "@geist-ui/core";
 import Head from "next/head";
 
 const gh = "https://github.com/geist-org/geist-ui";
