@@ -33,7 +33,9 @@ jobs:
 
       - name: 🛠️ Bootstrap Dependencies
         id: bootstrap-dependencies-with-cache
-        run: yarn install --immutable --immutable-cache --check-cache --ignore-engines
+        run: |
+          npm install -g yarn
+          yarn install --immutable --immutable-cache --check-cache --ignore-engines
 
       - name: 🏗️ Build
         id: build-the-project
@@ -67,8 +69,8 @@ jobs:
       deployments: write
     steps:
       - name: 👩‍🚀 Start Deployment
-        uses: bobheadxi/deployments@v0.4.3
         id: start-deployment
+        uses: bobheadxi/deployments@v0.4.3
         with:
           step: start
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -107,3 +109,13 @@ jobs:
         run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: 🏁 Finish Deployment
+        id: finish-deployment
+        uses: bobheadxi/deployments@v0.4.3
+        if: always()
+        with:
+          step: finish
+          token: ${{ secrets.GITHUB_TOKEN }}
+          status: ${{ job.status }}
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
