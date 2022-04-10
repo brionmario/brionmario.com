@@ -102,8 +102,8 @@ jobs:
           scope: ${{ secrets.VERCEL_ORG_ID}}
           working-directory: ./
 
-      - name: ☄️ Release
-        id: deploy-to-vercel
+      - name: ☄️ Release Project
+        id: release-project
         run: yarn semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
