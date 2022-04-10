@@ -41,13 +41,6 @@ jobs:
         id: build-the-project
         run: yarn build
 
-      - name: 🆙 Upload Website
-        id: upload-website-artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: website-artifact
-          path: ./apps/website/.next
-
       - name: 🔆 Cache Dependencies
         id: cache-npm-modules
         uses: actions/cache@v2
@@ -86,12 +79,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'yarn'
-
-      - name: ⏬ Download Website
-        id: download-website-artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: website-artifact
 
       - name: 🔭 Deploy to Vercel
         id: deploy-to-vercel
