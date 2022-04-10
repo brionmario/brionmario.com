@@ -5,18 +5,18 @@
   "license": "MIT",
   "author": "Brion Mario",
   "keywords": [
-      "portfolio",
-      "developer",
-      "nextjs",
-      "geist-ui"
+    "portfolio",
+    "developer",
+    "nextjs",
+    "geist-ui"
   ],
   "homepage": "https://github.com/brionmario/brionmario.com#readme",
   "repository": {
-      "type": "git",
-      "url": "https://github.com/brionmario/brionmario.com.git"
+    "type": "git",
+    "url": "https://github.com/brionmario/brionmario.com.git"
   },
   "bugs": {
-      "url": "https://github.com/brionmario/brionmario.com/issues"
+    "url": "https://github.com/brionmario/brionmario.com/issues"
   },
   "workspaces": [
     "apps/*",
@@ -33,6 +33,7 @@
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
+    "conventional-changelog-conventionalcommits": "^4.6.3",
     "prettier": "^2.5.1",
     "semantic-release": "^19.0.2",
     "turbo": "latest"
