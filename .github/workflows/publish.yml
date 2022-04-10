@@ -41,14 +41,17 @@ jobs:
         id: build-the-project
         run: yarn build
 
-      - name: 🔆 Cache Dependencies
-        id: cache-npm-modules
-        uses: actions/cache@v2
+      - name: 🐱 Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v3
+        id: yarn-cache
         with:
-          path: node_modules/.cache/turbo
-          key: turbo-${{ github.job }}-${{ github.ref_name }}-${{ github.sha }}
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
-            turbo-${{ github.job }}-${{ github.ref_name }}-
+            ${{ runner.os }}-yarn-
   deploy:
     name: 🚀 Deploy
     if: github.repository_owner == 'brionmario' && github.event_name == 'push'
