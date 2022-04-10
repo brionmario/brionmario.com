@@ -1,5 +1,6 @@
 {
-  "name": "turborepo-basic-shared",
+  "name": "@brionmario/portfolio-project",
+  "description": "Welcome to the source code for my personal website",
   "version": "0.0.0-semantically-released",
   "private": true,
   "license": "MIT",
