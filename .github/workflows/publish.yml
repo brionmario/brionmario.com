@@ -96,7 +96,10 @@ jobs:
 
       - name: ☄️ Release Project
         id: release-project
-        run: yarn run semantic-release
+        run: |
+          npm install -g yarn
+          yarn install --frozen-lockfile
+          yarn run semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
