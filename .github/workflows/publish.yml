@@ -1,0 +1,109 @@
+# This workflow will build PRs submitted to the main branch.
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: 🚧 Build
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node-version: [ "16.x" ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 2
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: 🛠️ Bootstrap Dependencies
+        id: bootstrap-dependencies-with-cache
+        run: yarn install --immutable --immutable-cache --check-cache --ignore-engines
+
+      - name: 🏗️ Build
+        id: build-the-project
+        run: yarn build
+
+      - name: 🆙 Upload Website
+        id: upload-website-artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: website-artifact
+          path: ./apps/website/.next
+
+      - name: 🔆 Cache Dependencies
+        id: cache-npm-modules
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+  deploy:
+    name: 🚀 Deploy
+    if: github.repository_owner == 'brionmario' && github.event_name == 'push'
+    needs: [ build ]
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node-version: [ "16.x" ]
+    runs-on: ${{ matrix.os }}
+    permissions: 
+      deployments: write
+    steps:
+      - name: 👩‍🚀 Start Deployment
+        uses: bobheadxi/deployments@v0.4.3
+        id: start-deployment
+        with:
+          step: start
+          token: ${{ secrets.GITHUB_TOKEN }}
+          env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }} 
+
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'yarn'
+
+      - name: ⏬ Download Website
+        id: download-website-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: website-artifact
+
+      - name: 🔭 Deploy to Vercel
+        id: deploy-to-vercel
+        uses: amondnet/vercel-action@v20.0.1
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/main'] }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} 
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
+          scope: ${{ secrets.VERCEL_ORG_ID}}
+          working-directory: ./
+
+      - name: ☄️ Release
+        id: deploy-to-vercel
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
