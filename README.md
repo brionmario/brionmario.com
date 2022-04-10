@@ -1,5 +1,7 @@
 # Turborepo starter
 
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
 This is an official Yarn v1 starter turborepo.
 
 ## What's inside?
