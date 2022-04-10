@@ -219,6 +219,7 @@ module.exports = {
       }
     ],
     "no-unreachable": SEVERITY.ERROR,
+    "no-trailing-spaces": SEVERITY.ERROR,
     "object-curly-spacing": [
       SEVERITY.WARN,
       "always"
