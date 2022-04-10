@@ -69,7 +69,7 @@ jobs:
         uses: bobheadxi/deployments@v0.4.3
         with:
           step: start
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
           env: ${{ fromJSON('["Production", "Preview"]')[github.ref != 'refs/heads/main'] }} 
 
       - name: ⬇️ Checkout
@@ -99,9 +99,9 @@ jobs:
         run: |
           npm install -g yarn
           yarn install --frozen-lockfile
-          yarn run semantic-release
+          yarn run publish:release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
 
       - name: 🏁 Finish Deployment
         id: finish-deployment
@@ -109,6 +109,6 @@ jobs:
         if: always()
         with:
           step: finish
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SEMANTIC_RELEASE_TOKEN }}
           status: ${{ job.status }}
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
