@@ -122,6 +122,23 @@ const HomePage: FC<HomePageProps> = () => {
 };
 
 const getCSS = (): string => `
+  .hero__title {
+    &:first-of-type {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-animation: hue 10s infinite linear;
+      background-image: linear-gradient(90deg,#007CF0,#00DFD8);
+    }
+  }
+  @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+  }
   .hero__greeting {
       display: flex;
       flex-direction: row;

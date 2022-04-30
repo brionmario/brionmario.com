@@ -117,12 +117,6 @@ const getCSS = (theme: Theme): string => `
   letter-spacing: -.01em;
   padding-right: 8px;
 
-  &:first-of-type {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(90deg,#007CF0,#00DFD8);
-  }
   @media (min-width: 1200px) {
     font-size: 10rem;
   }
