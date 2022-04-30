@@ -1,11 +1,11 @@
 # This workflow will build PRs submitted to the main branch.
 
-name: Deploy
+name: 🚀 [DEV] Deploy
 
 on:
   push:
     branches:
-      - main
+      - dev-001
     paths:
       - "apps/**"
       - "packages/**"
@@ -35,29 +35,25 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
 
-      - name: 🛠️ Bootstrap Dependencies
-        id: bootstrap-dependencies-with-cache
-        run: |
-          npm install -g yarn
-          yarn install --frozen-lockfile
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+          run_install: true
 
       - name: 🏗️ Build
-        id: build-the-project
-        run: yarn build
+        id: build-the-mono-repo
+        run: pnpm build
 
-      - name: 🐱 Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
-
-      - uses: actions/cache@v3
-        id: yarn-cache
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v2
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-
+
   deploy:
     name: 🚀 Deploy
     if: github.repository_owner == 'brionmario' && github.event_name == 'push'
@@ -80,6 +76,7 @@ jobs:
         id: checkout
         uses: actions/checkout@v2.3.3
         with:
+          fetch-depth: 2
           token: ${{ env.GITHUB_TOKEN }}
 
       - name: 🟢 Setup node
@@ -87,25 +84,37 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
 
-      - name: 🔭 Deploy to Vercel
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+          run_install: true
+
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: pnpm build
+
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
+
+      - name: ▲ Deploy to Vercel
         id: deploy-to-vercel
         uses: amondnet/vercel-action@v20.0.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: ${{ fromJSON('["--prod", ""]')[github.ref != 'refs/heads/main'] }}
+          vercel-args: ${{ fromJSON('["--production", ""]')[github.ref != 'refs/heads/main'] }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} 
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
           scope: ${{ secrets.VERCEL_ORG_ID}}
           working-directory: ./
-
-      - name: ☄️ Release Project
-        id: release-project
-        run: |
-          npm install -g yarn
-          yarn install --frozen-lockfile
-          yarn run publish:release
+          alias-domains: |
+            dev.brionmario.com
 
       - name: 🏁 Finish Deployment
         id: finish-deployment
