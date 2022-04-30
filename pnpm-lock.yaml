@@ -1,5 +1,9 @@
 lockfileVersion: 5.3
 
+overrides:
+  react: ^17.0.2
+  react-dom: ^17.0.2
+
 importers:
 
   .:
@@ -33,8 +37,8 @@ importers:
       inter-ui: ^3.19.3
       next: 12.0.8
       next-transpile-modules: 9.0.0
-      react: 17.0.2
-      react-dom: 17.0.2
+      react: ^17.0.2
+      react-dom: ^17.0.2
       typescript: ^4.5.3
     dependencies:
       '@brionmario/ui': link:../../packages/ui
@@ -91,7 +95,7 @@ importers:
       babel-loader: ^8.2.4
       clsx: ^1.1.1
       jest: ^27.5.1
-      react: 17.0.2
+      react: ^17.0.2
       react-dom: ^17.0.2
       react-feather: ^2.0.9
       typescript: ^4.5.3
