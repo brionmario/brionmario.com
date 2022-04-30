@@ -19,10 +19,6 @@
   "bugs": {
     "url": "https://github.com/brionmario/brionmario.com/issues"
   },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
@@ -43,5 +39,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@1.22.11"
+  "packageManager": "pnpm@6.32.7"
 }
