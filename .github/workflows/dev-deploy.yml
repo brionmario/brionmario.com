@@ -15,44 +15,47 @@ env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
 
 jobs:
-  # build:
-  #   name: 🚧 Build
-  #   timeout-minutes: 15
-  #   strategy:
-  #     matrix:
-  #       os: [ ubuntu-latest ]
-  #       node-version: [ "16.x" ]
-  #   runs-on: ${{ matrix.os }}
-  #   steps:
-  #     - name: ⬇️ Checkout
-  #       id: checkout
-  #       uses: actions/checkout@v2.3.3
-  #       with:
-  #         fetch-depth: 2
+  build:
+    name: 🚧 Build
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        os: [ ubuntu-latest ]
+        node-version: [ "16.x" ]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 2
 
-  #     - name: 🟢 Setup node
-  #       id: setup-node
-  #       uses: actions/setup-node@v2
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
 
-  #     - name: 🥡 Setup pnpm
-  #       uses: pnpm/action-setup@v2.1.0
-  #       with:
-  #         version: 6.0.2
-  #         run_install: true
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: 6.0.2
+          run_install: true
 
-  #     - name: 🏗️ Build
-  #       id: build-the-mono-repo
-  #       run: pnpm build
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: |
+          touch .env.local
+          echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          pnpm build
 
-  #     - name: 🔆 Cache pnpm modules
-  #       uses: actions/cache@v2
-  #       with:
-  #         path: ~/.pnpm-store
-  #         key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-  #         restore-keys: |
-  #           ${{ runner.os }}-
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-
 
   deploy:
     name: 🚀 Deploy
@@ -93,7 +96,10 @@ jobs:
 
       - name: 🏗️ Build
         id: build-the-mono-repo
-        run: pnpm build
+        run: |
+          touch .env.local
+          echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          pnpm build
 
       - name: ▲ Deploy to Vercel
         id: deploy-to-vercel
