@@ -22,8 +22,23 @@
  * SOFTWARE.
  */
 
-export * from "./exceptions";
-export * from "./components";
-export * from "./hooks";
-export * from "./layouts";
-export * from "./models";
+/**
+ * Base exception class for UI Exceptions.
+ */
+export class UIException extends Error {
+
+  public name: string;
+  public stack: string;
+
+  /**
+   * Constructor.
+   * @param message - Message for the exception.
+   * @param stack - Stack trace for the error.
+   */
+  constructor(message?: string, stack?: any) {
+    super(message);
+    this.name = this.constructor.name;
+    this.stack = stack;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+}

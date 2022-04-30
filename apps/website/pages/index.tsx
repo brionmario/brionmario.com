@@ -54,7 +54,7 @@ const HomePage: FC<HomePageProps> = () => {
         <SiteLayout
           fluid
           css={ css(_css) }
-          className={ cx(_css, "home-page") }
+          className={ cx("home-page") }
           header={ <AppHeader data-testid="app-header" /> }
           footer={ <AppFooter data-testid="app-footer" /> }
           data-testid="site-layout"

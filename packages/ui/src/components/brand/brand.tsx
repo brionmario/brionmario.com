@@ -22,13 +22,22 @@
  * SOFTWARE.
  */
 
-import { Image as GeistImage, ImageProps as GeistImageProps, Text as GiestText } from "@geist-ui/core";
-import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode } from "react";
+/** @jsxImportSource @emotion/react */
+import { ClassNames } from "@emotion/react";
+import {
+  Badge,
+  Image,
+  ImageProps,
+  Link
+} from "@geist-ui/core";
+import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode, isValidElement } from "react";
+import { UIException } from "../../exceptions";
 import { TestableComponent } from "../../models";
 
 interface Props extends TestableComponent {
+  badge?: ReactNode;
   displayName?: string;
-  logo?: GeistImageProps;
+  logo?: ImageProps;
 }
 
 const defaultProps = {
@@ -36,12 +45,14 @@ const defaultProps = {
 };
 
 type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
- 
+
 export type BrandProps = Props & typeof defaultProps & NativeAttrs;
 
 export const Brand: FunctionComponent<BrandProps> = (props: BrandProps): ReactElement => {
 
   const {
+    badge,
+    className,
     children,
     displayName,
     logo,
@@ -49,11 +60,43 @@ export const Brand: FunctionComponent<BrandProps> = (props: BrandProps): ReactEl
     ...rest
   } = props;
 
+  const _css: string = getCSS();
+
   const renderContent = (): ReactNode => {
-    
+
     if (children) {
       return children;
     }
+
+    // If Brand Logo and Brand Displayname are not defined, throw...
+    if (!logo && !displayName) {
+      throw new UIException("A Brand Logo or a Brand Displayname is not defined. Atleast one of these are required.");
+    }
+
+    const resolveBadge = (): ReactNode => {
+
+      if (!badge) {
+        return null;
+      }
+
+      if (typeof badge === "string") {
+        return (
+          <Badge
+            className="brand__badge"
+            scale={ 0.1 }
+            type="error"
+          >
+            { badge }
+          </Badge>
+        );
+      }
+
+      if (isValidElement(badge)) {
+        return badge;
+      }
+
+      return null;
+    };
 
     if (logo) {
       const {
@@ -62,25 +105,48 @@ export const Brand: FunctionComponent<BrandProps> = (props: BrandProps): ReactEl
       } = logo;
 
       return (
-        <GeistImage
-          width="40px"
-          height="40px"
-          src={ src }
-          { ...logoRest }
-        />
+        <Badge.Anchor>
+          { resolveBadge() }
+          <Image
+            alt={ logo.alt || "Logo" }
+            width="40px"
+            height="40px"
+            src={ src }
+            { ...logoRest }
+          />
+        </Badge.Anchor>
       );
     }
 
     return (
-      <div>{ displayName }</div>
+      <Badge.Anchor>
+        { resolveBadge() }
+        <Link>{ displayName }</Link>
+      </Badge.Anchor>
     );
   };
 
   return (
-    <div data-testid={ testId } { ...rest }>
-      { renderContent() }
-    </div>
+    <ClassNames>
+      { ({ css, cx }) => (
+        <div
+          css={ css(_css) }
+          className={ cx("brand", className) }
+          data-testid={ testId }
+          { ...rest }
+        >
+          { renderContent() }
+        </div>
+      ) }
+    </ClassNames>
   );
 };
+
+const getCSS = (): string => `
+  .brand__badge {
+    margin-right: 24px !important;
+    margin-top: -8px !important;
+  }
+`;
 
 Brand.defaultProps = defaultProps;
