@@ -6,9 +6,9 @@
   "license": "MIT",
   "scripts": {
     "build:storybook": "build-storybook",
-    "dev": "pnpm storybook",
+    "dev": "yarn storybook",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx ./src",
-    "lint:fix": "pnpm lint --fix",
+    "lint:fix": "yarn lint --fix",
     "storybook": "start-storybook -p 6006"
   },
   "devDependencies": {
