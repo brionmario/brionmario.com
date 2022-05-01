@@ -6,9 +6,6 @@ on:
   push:
     branches:
       - dev-001
-    paths:
-      - "apps/**"
-      - "packages/**"
   workflow_dispatch:
 
 env:
