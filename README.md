@@ -1,10 +1,18 @@
-# Turborepo starter with pnpm
+# Turborepo starter
 
-This is an official starter turborepo.
+[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+
+## Status
+
+|  Environment | Build Status |
+| :------------ |:------------- |
+| Production      | [![Deploy](https://github.com/brionmario/brionmario.com/actions/workflows/publish.yml/badge.svg?branch=main)](https://github.com/brionmario/brionmario.com/actions/workflows/publish.yml) |
+
+This is an official Yarn v1 starter turborepo.
 
 ## What's inside?
 
-This turborepo uses [pnpm](https://pnpm.io) as a packages manager. It includes the following packages/apps:
+This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
 
 ### Apps and Packages
 
@@ -26,7 +34,7 @@ This turborepo has some additional tools already setup for you:
 
 ## Setup
 
-This repository is used in the `npx create-turbo@latest` command, and selected when choosing which package manager you wish to use with your monorepo (PNPM).
+This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
 
 ### Build
 
@@ -34,7 +42,7 @@ To build all apps and packages, run the following command:
 
 ```
 cd my-turborepo
-pnpm run build
+yarn run build
 ```
 
 ### Develop
@@ -43,7 +51,7 @@ To develop all apps and packages, run the following command:
 
 ```
 cd my-turborepo
-pnpm run dev
+yarn run dev
 ```
 
 ### Remote Caching
@@ -54,7 +62,7 @@ By default, Turborepo will cache locally. To enable Remote Caching (Beta) you wi
 
 ```
 cd my-turborepo
-pnpx turbo login
+npx turbo login
 ```
 
 This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
@@ -62,7 +70,7 @@ This will authenticate the Turborepo CLI with your [Vercel account](https://verc
 Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
 
 ```
-pnpx turbo link
+npx turbo link
 ```
 
 ## Useful Links
