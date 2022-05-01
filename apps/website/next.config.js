@@ -1,11 +1,8 @@
 const withTM = require("next-transpile-modules")([ "@brionmario/ui" ]);
 
-module.exports = withTM({
-  reactStrictMode: true
-});
-
 /** @type {import('next').NextConfig} */
-module.exports = {
+module.exports = withTM({
+  reactStrictMode: true,
   webpack: (config) => {
 
     config.resolve.alias = {
@@ -16,5 +13,4 @@ module.exports = {
 
     return config;
   }
-};
-
+});
