@@ -6,7 +6,8 @@ interface SiteConfigSchema {
       facebook: string;
       github: string;
       instagram: string;
-      linkedin: string;
+      linkedIn: string;
+      medium: string;
       pinterest: string;
       soundcloud: string;
       tumblr: string;
@@ -29,7 +30,8 @@ const siteConfig: SiteConfigType = {
       facebook: "https://www.facebook.com/brion.mario/",
       github: "https://github.com/brionmario",
       instagram: "https://www.instagram.com/brionmario/",
-      linkedin: "https://www.linkedin.com/in/brionmario/",
+      linkedIn: "https://www.linkedin.com/in/brionmario/",
+      medium: "https://medium.com/@brionmario",
       pinterest: "https://www.pinterest.com/brionmario",
       soundcloud: "https://soundcloud.com/brionmario",
       tumblr: "https://brionmario.tumblr.com/",

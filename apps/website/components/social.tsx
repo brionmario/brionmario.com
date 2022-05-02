@@ -27,9 +27,10 @@ import { Link, Spacer, Tooltip } from "@geist-ui/core";
 import Facebook from "@geist-ui/icons/facebook";
 import Github from "@geist-ui/icons/github";
 import Instagram from "@geist-ui/icons/instagram";
-import Linkedin from "@geist-ui/icons/linkedin";
+import LinkedIn from "@geist-ui/icons/linkedin";
 import Twitter from "@geist-ui/icons/twitter";
 import Youtube from "@geist-ui/icons/youtube";
+import capitalize from "lodash-es/capitalize";
 import { FC, Fragment, ReactElement } from "react";
 import SiteConfig from "../site.config";
 
@@ -78,8 +79,8 @@ export const Social: FC<SocialProps> = (props: SocialProps): ReactElement => {
           return Twitter;
         case "github":
           return Github;
-        case "linkedin":
-          return Linkedin;
+        case "linkedIn":
+          return LinkedIn;
         case "instagram":
           return Instagram;
         case "youtube":
@@ -110,7 +111,7 @@ export const Social: FC<SocialProps> = (props: SocialProps): ReactElement => {
               data-testid={ `social-link-${ key }` }
               rel="noopener noreferrer"
             >
-              <Tooltip text={ key }>
+              <Tooltip text={ capitalize(key) }>
                 <Icon size={ 16 } />
               </Tooltip>
               <Spacer inline w={ 2 } />
