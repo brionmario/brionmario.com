@@ -24,11 +24,10 @@
 
 /** @jsxImportSource @emotion/react */
 import { ClassNames } from "@emotion/react";
-import { Grid, Image, ImageProps } from "@geist-ui/core";
-import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode } from "react";
+import { Grid, Image, ImageProps, Text } from "@geist-ui/core";
+import { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
 import { Theme, useTheme } from "../../hooks";
 import { TestableComponent } from "../../models";
-import { Text } from "../typography";
 
 interface Props extends TestableComponent {
   caption: ReactNode;
@@ -42,7 +41,7 @@ type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type HeroProps = Props & typeof defaultProps & NativeAttrs;
 
-export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactElement => {
+export const Hero: FC<HeroProps> = (props: HeroProps): ReactElement => {
 
   const {
     caption,
@@ -74,8 +73,8 @@ export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactEleme
           <Grid>
             <Image
               src={ typeof image === "string" ? image : image.src }
-              alt="geist ui banner"
-              draggable={false}
+              alt={ typeof image === "string" ? "Hero Image" : image?.alt }
+              draggable={ false }
               height="600px"
               { ...(typeof image === "string" ? {} : { ...image }) }
             />

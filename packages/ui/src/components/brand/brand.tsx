@@ -30,7 +30,7 @@ import {
   ImageProps,
   Link
 } from "@geist-ui/core";
-import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode, isValidElement } from "react";
+import { FC, HTMLAttributes, ReactElement, ReactNode, isValidElement } from "react";
 import { UIException } from "../../exceptions";
 import { TestableComponent } from "../../models";
 
@@ -48,7 +48,7 @@ type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type BrandProps = Props & typeof defaultProps & NativeAttrs;
 
-export const Brand: FunctionComponent<BrandProps> = (props: BrandProps): ReactElement => {
+export const Brand: FC<BrandProps> = (props: BrandProps): ReactElement => {
 
   const {
     badge,
