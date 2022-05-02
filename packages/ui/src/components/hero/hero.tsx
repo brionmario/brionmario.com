@@ -24,15 +24,14 @@
 
 /** @jsxImportSource @emotion/react */
 import { ClassNames } from "@emotion/react";
-import { Grid, Image, ImageProps, Text } from "@geist-ui/core";
+import { GeistUIThemes, Grid, Image, ImageProps, ScaleProps, Text, useTheme } from "@geist-ui/core";
 import { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
-import { Theme, useTheme } from "../../hooks";
 import { TestableComponent } from "../../models";
 
 interface Props extends TestableComponent {
   caption: ReactNode;
   tagline: ReactNode;
-  image: string | ImageProps;
+  image: string | ImageProps & ScaleProps;
   greeting: ReactNode;
   title: ReactNode | ReactNode[];
 }
@@ -54,7 +53,7 @@ export const Hero: FC<HeroProps> = (props: HeroProps): ReactElement => {
     ...rest
   } = props;
 
-  const theme: Theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   const _css = getCSS(theme);
 
@@ -103,7 +102,7 @@ export const Hero: FC<HeroProps> = (props: HeroProps): ReactElement => {
   );
 };
 
-const getCSS = (theme: Theme): string => `
+const getCSS = (theme: GeistUIThemes): string => `
 .hero__greeting {
   letter-spacing: 2px !important;
   margin-bottom: 0;

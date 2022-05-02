@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { useTheme } from "@geist-ui/core";
+import { GeistUIThemes, useTheme } from "@geist-ui/core";
 import {
   FC,
   HTMLAttributes,
@@ -57,7 +57,7 @@ const FooterGroup: FC<PropsWithChildren<FooterGroupProps>> = (props: FooterGroup
     ...rest
   } = props;
 
-  const theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   const { breakPoint } = useFooterContext();
 

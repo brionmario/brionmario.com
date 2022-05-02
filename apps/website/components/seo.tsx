@@ -22,7 +22,46 @@
  * SOFTWARE.
  */
 
-import { GeistUIThemes, useTheme } from "@geist-ui/core";
+import Head from "next/head";
+import { FC, ReactElement } from "react";
 
-export type Theme = GeistUIThemes;
-export { useTheme };
+export interface SEOProps {
+  /**
+   * Page Title.
+   */
+  title: string;
+  /**
+   * Page Description.
+   */
+  description: string;
+}
+
+/**
+ * SEO component to be added for pages.
+ *
+ * @param props - SEO component properties.
+ * @returns A ReactElement wrapped with `Head` from `next/head`.
+ */
+export const SEO: FC<SEOProps> = (props: SEOProps): ReactElement => {
+
+  const {
+    description,
+    title
+  } = props;
+
+  return (
+    <Head>
+      <title>{ title }</title>
+      <meta name="description" content={ description } />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    </Head>
+  );
+};
+
+const defaultProps: Partial<SEOProps> = {
+  description: "Hi, I'm Brion Mario. I write software and love to share what i learn with the world.",
+  title: "Brion Mario"
+};
+
+SEO.defaultProps = defaultProps;
