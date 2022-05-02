@@ -23,11 +23,11 @@
  */
 
 import { Brand, Header, TestableComponent } from "@brionmario/ui";
-import { FunctionComponent, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
 export type AppHeaderProps = TestableComponent;
 
-export const AppHeader: FunctionComponent<AppHeaderProps> = (props: AppHeaderProps): ReactElement => {
+export const AppHeader: FC<AppHeaderProps> = (props: AppHeaderProps): ReactElement => {
 
   const {
     "data-testid": testId,

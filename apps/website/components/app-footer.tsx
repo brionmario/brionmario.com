@@ -1,9 +1,9 @@
 import { Footer, TestableComponent } from "@brionmario/ui";
-import { FunctionComponent, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
 export type AppFooterProps = TestableComponent;
 
-export const AppFooter: FunctionComponent<AppFooterProps> = (props: AppFooterProps): ReactElement => {
+export const AppFooter: FC<AppFooterProps> = (props: AppFooterProps): ReactElement => {
 
   const {
     "data-testid": testId,
