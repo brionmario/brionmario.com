@@ -64,7 +64,7 @@ jobs:
 
   deploy:
     name: 🚀 Deploy
-    if: github.repository_owner == 'brionmario' && github.event_name == 'push'
+    if: github.repository_owner == 'brionmario'
     needs: [ build ]
     strategy:
       matrix:
