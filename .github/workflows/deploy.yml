@@ -112,7 +112,7 @@ jobs:
         uses: amondnet/vercel-action@v20.0.1
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: ${{ fromJSON('["--development", ""]')[github.ref != 'refs/heads/main'] }}
+          vercel-args: ${{ fromJSON('["--preview", ""]')[github.ref != 'refs/heads/main'] }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} 
           vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID}} 
           scope: ${{ secrets.VERCEL_ORG_ID}}
