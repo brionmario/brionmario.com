@@ -14,7 +14,6 @@
   "devDependencies": {
     "@babel/core": "^7.17.9",
     "@brionmario/eslint-config": "*",
-    "@emotion/css": "^11.9.0",
     "@storybook/addon-actions": "^6.4.21",
     "@storybook/addon-essentials": "^6.4.21",
     "@storybook/addon-interactions": "^6.4.21",
@@ -29,15 +28,16 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.4",
     "jest": "^27.5.1",
-    "react": "17.0.2",
-    "react-dom": "^17.0.2",
-    "tsconfig": "*",
+    "@brionmario/tsconfig": "*",
     "typescript": "^4.5.3"
   },
   "dependencies": {
+    "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.0",
     "@geist-ui/core": "^2.3.8",
     "clsx": "^1.1.1",
+    "react": "17.0.2",
+    "react-dom": "^17.0.2",
     "react-feather": "^2.0.9"
   },
   "peerDependencies": {

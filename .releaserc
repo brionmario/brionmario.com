@@ -31,11 +31,6 @@
     [
       "@semantic-release/git",
       {
-        "assets": [
-          "CHANGELOG.md",
-          "package.json",
-          "yarn.lock"
-        ],
         "message": "chore(release): ${nextRelease.gitTag} \n\n${nextRelease.notes}"
       }
     ],
@@ -45,6 +40,7 @@
         "assets": [
           { "path": "apps/website/.next", "label": "Website" }
         ],
+        "addReleases": "top",
         "successComment": false
       }
     ]

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
+export * from "./exceptions";
 export * from "./components";
-export * from "./hooks";
 export * from "./layouts";
 export * from "./models";

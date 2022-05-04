@@ -23,9 +23,7 @@
  */
 
 export * from "./brand";
-export * from "./button";
 
 export { default as Footer } from "./footer";
 export * from "./header";
 export * from "./hero";
-export * from "./typography";

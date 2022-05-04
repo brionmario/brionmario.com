@@ -24,16 +24,14 @@
 
 /** @jsxImportSource @emotion/react */
 import { ClassNames } from "@emotion/react";
-import { Grid, Image, ImageProps } from "@geist-ui/core";
-import { FunctionComponent, HTMLAttributes, ReactElement, ReactNode } from "react";
-import { Theme, useTheme } from "../../hooks";
+import { GeistUIThemes, Grid, Image, ImageProps, ScaleProps, Text, useTheme } from "@geist-ui/core";
+import { FC, HTMLAttributes, ReactElement, ReactNode } from "react";
 import { TestableComponent } from "../../models";
-import { Text } from "../typography";
 
 interface Props extends TestableComponent {
   caption: ReactNode;
   tagline: ReactNode;
-  image: string | ImageProps;
+  image: string | ImageProps & ScaleProps;
   greeting: ReactNode;
   title: ReactNode | ReactNode[];
 }
@@ -42,7 +40,7 @@ type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type HeroProps = Props & typeof defaultProps & NativeAttrs;
 
-export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactElement => {
+export const Hero: FC<HeroProps> = (props: HeroProps): ReactElement => {
 
   const {
     caption,
@@ -55,7 +53,7 @@ export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactEleme
     ...rest
   } = props;
 
-  const theme: Theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   const _css = getCSS(theme);
 
@@ -74,8 +72,8 @@ export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactEleme
           <Grid>
             <Image
               src={ typeof image === "string" ? image : image.src }
-              alt="geist ui banner"
-              draggable={false}
+              alt={ typeof image === "string" ? "Hero Image" : image?.alt }
+              draggable={ false }
               height="600px"
               { ...(typeof image === "string" ? {} : { ...image }) }
             />
@@ -104,7 +102,7 @@ export const Hero: FunctionComponent<HeroProps> = (props: HeroProps): ReactEleme
   );
 };
 
-const getCSS = (theme: Theme): string => `
+const getCSS = (theme: GeistUIThemes): string => `
 .hero__greeting {
   letter-spacing: 2px !important;
   margin-bottom: 0;
@@ -117,12 +115,6 @@ const getCSS = (theme: Theme): string => `
   letter-spacing: -.01em;
   padding-right: 8px;
 
-  &:first-of-type {
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(90deg,#007CF0,#00DFD8);
-  }
   @media (min-width: 1200px) {
     font-size: 10rem;
   }

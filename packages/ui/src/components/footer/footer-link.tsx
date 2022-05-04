@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { useTheme } from "@geist-ui/core";
+import { GeistUIThemes, useTheme } from "@geist-ui/core";
 import {
   AnchorHTMLAttributes,
   FC,
@@ -52,7 +52,7 @@ const FooterLink: FC<PropsWithChildren<FooterLinkProps>> = (props: FooterLinkPro
     ...rest
   } = props;
 
-  const theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   let footerLinkElement: ReactElement | null = null;
 

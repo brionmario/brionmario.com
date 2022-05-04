@@ -22,25 +22,24 @@
  * SOFTWARE.
  */
 
-import { FunctionComponent, ReactElement } from "react";
+import { Button, GeistUIThemes, useTheme } from "@geist-ui/core";
+import { FC, ReactElement } from "react";
 import { Moon, Sun } from "react-feather";
-import { useTheme } from "../../hooks";
 import { TestableComponent } from "../../models";
-import { Button } from "../button";
 
 export interface HeaderProps extends TestableComponent {
   brand?: ReactElement;
   links: any[];
 }
 
-export const Header: FunctionComponent<HeaderProps> = (props: HeaderProps): ReactElement => {
+export const Header: FC<HeaderProps> = (props: HeaderProps): ReactElement => {
 
   const {
     brand,
     links
   } = props;
 
-  const theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   return (
     <>

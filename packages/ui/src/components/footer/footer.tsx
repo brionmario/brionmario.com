@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import { useTheme } from "@geist-ui/core";
+import { GeistUIThemes, useTheme } from "@geist-ui/core";
 import { FC, HTMLAttributes, NamedExoticComponent, PropsWithChildren, ReactNode, memo } from "react";
 import FooterColumn from "./footer-column";
 import { FooterContext } from "./footer-context";
@@ -60,7 +60,7 @@ const Footer: FC<PropsWithChildren<FooterProps>> = (props: FooterProps) => {
     ...rest
   } = props;
 
-  const theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
   const bgColor = reverse ? `${theme.palette.background}` : `${theme.palette.accents_1}`;
 
   return (

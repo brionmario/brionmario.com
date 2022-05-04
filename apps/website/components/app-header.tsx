@@ -23,11 +23,11 @@
  */
 
 import { Brand, Header, TestableComponent } from "@brionmario/ui";
-import { FunctionComponent, ReactElement } from "react";
+import { FC, ReactElement } from "react";
 
 export type AppHeaderProps = TestableComponent;
 
-export const AppHeader: FunctionComponent<AppHeaderProps> = (props: AppHeaderProps): ReactElement => {
+export const AppHeader: FC<AppHeaderProps> = (props: AppHeaderProps): ReactElement => {
 
   const {
     "data-testid": testId,
@@ -39,7 +39,9 @@ export const AppHeader: FunctionComponent<AppHeaderProps> = (props: AppHeaderPro
       data-testid={ testId }
       brand={ (
         <Brand
-          displayName="Brion Mario" data-testid="brand"
+          badge={ process.env.NEXT_PUBLIC_ENVIRONMENT }
+          displayName="Brion Mario"
+          data-testid="brand"
         />
       ) }
       links={[]}

@@ -25,7 +25,7 @@
 /** @jsxImportSource @emotion/react */
 import { ClassNames } from "@emotion/react";
 import { Page, PageProps } from "@geist-ui/core";
-import { FunctionComponent, HTMLAttributes, PropsWithChildren, ReactElement } from "react";
+import { FC, HTMLAttributes, PropsWithChildren, ReactElement } from "react";
 import { TestableComponent } from "../models";
 
 interface Props extends PageProps, TestableComponent {
@@ -38,7 +38,7 @@ type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>;
 
 export type SiteLayoutProps = Props & typeof defaultProps & NativeAttrs;
 
-export const SiteLayout: FunctionComponent<PropsWithChildren<SiteLayoutProps>> = (
+export const SiteLayout: FC<PropsWithChildren<SiteLayoutProps>> = (
   props: PropsWithChildren<SiteLayoutProps>
 ): ReactElement  => {
 

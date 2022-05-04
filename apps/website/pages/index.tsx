@@ -23,19 +23,19 @@
  */
 
 /** @jsxImportSource @emotion/react */
-import { Hero, Keyboard, SiteLayout , Text , Theme, useTheme } from "@brionmario/ui";
+import { Hero, SiteLayout } from "@brionmario/ui";
 import { ClassNames } from "@emotion/react";
-import Head from "next/head";
+import { GeistUIThemes, Keyboard, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import { FC } from "react";
-import { AppFooter, AppHeader } from "../components";
+import { AppFooter, AppHeader, SEO } from "../components";
 import { ThemeTypes } from "../models";
 
 export type HomePageProps = {};
 
 const HomePage: FC<HomePageProps> = () => {
 
-  const theme: Theme = useTheme();
+  const theme: GeistUIThemes = useTheme();
 
   const _css: string = getCSS();
 
@@ -54,16 +54,16 @@ const HomePage: FC<HomePageProps> = () => {
         <SiteLayout
           fluid
           css={ css(_css) }
-          className={ cx(_css, "home-page") }
+          className={ cx("home-page") }
           header={ <AppHeader data-testid="app-header" /> }
           footer={ <AppFooter data-testid="app-footer" /> }
           data-testid="site-layout"
         >
           <div>
-            <Head>
-              <title>Geist UI with NextJS</title>
-              <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <SEO
+              title="Brion Mario"
+              description="Hi, I'm Brion Mario. I write software and love to share what i learn with the world."
+            />
             <Hero
               data-testid="hero"
               greeting={ (
@@ -112,7 +112,12 @@ const HomePage: FC<HomePageProps> = () => {
                   </div>
                 </Text>
               }
-              image="https://i1.wp.com/hypebeast.com/image/2020/07/apple-memoji-update-headwear-masks-hairstyles-3.png?w=1600"
+              image={ {
+                alt: "Brion Wearing a Mask.",
+                className: "hero__memoji",
+                height: "500px",
+                src: "assets/images/memoji/brion-landing-memoji.png"
+              } }
             />
           </div>
         </SiteLayout>
@@ -122,6 +127,23 @@ const HomePage: FC<HomePageProps> = () => {
 };
 
 const getCSS = (): string => `
+  .hero__title {
+    &:first-of-type {
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -webkit-animation: hue 10s infinite linear;
+      background-image: linear-gradient(90deg,#007CF0,#00DFD8);
+    }
+  }
+  @-webkit-keyframes hue {
+    from {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    to {
+      -webkit-filter: hue-rotate(360deg);
+    }
+  }
   .hero__greeting {
       display: flex;
       flex-direction: row;
@@ -135,13 +157,6 @@ const getCSS = (): string => `
   }
   .hero__caption {
     max-width: 400px;
-  }
-  .hero__caption__employment {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-content: center;
-    align-items: center;
   }
   .hero__greeting__caption__employment__wso2 {
     position: absolute;

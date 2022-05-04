@@ -22,25 +22,46 @@
  * SOFTWARE.
  */
 
-/** @jsxImportSource @emotion/react */
-import { Keyboard as GeistKeyboard, KeyboardProps as GeistKeyboardProps } from "@geist-ui/core";
-import { FunctionComponent, ReactElement } from "react";
-import { TestableComponent } from "../../models";
+import Head from "next/head";
+import { FC, ReactElement } from "react";
 
-interface Props extends GeistKeyboardProps, TestableComponent { }
+export interface SEOProps {
+  /**
+   * Page Title.
+   */
+  title: string;
+  /**
+   * Page Description.
+   */
+  description: string;
+}
 
-export type KeyboardProps = Props & typeof defaultProps;
-
-export const Keyboard: FunctionComponent<KeyboardProps> = (props: KeyboardProps): ReactElement => {
+/**
+ * SEO component to be added for pages.
+ *
+ * @param props - SEO component properties.
+ * @returns A ReactElement wrapped with `Head` from `next/head`.
+ */
+export const SEO: FC<SEOProps> = (props: SEOProps): ReactElement => {
 
   const {
-    "data-testid": testId,
-    ...rest
+    description,
+    title
   } = props;
 
-  return <GeistKeyboard data-testid={ testId } { ...rest } />;
+  return (
+    <Head>
+      <title>{ title }</title>
+      <meta name="description" content={ description } />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    </Head>
+  );
 };
 
-const defaultProps = {};
+const defaultProps: Partial<SEOProps> = {
+  description: "Hi, I'm Brion Mario. I write software and love to share what i learn with the world.",
+  title: "Brion Mario"
+};
 
-Keyboard.defaultProps = defaultProps;
+SEO.defaultProps = defaultProps;

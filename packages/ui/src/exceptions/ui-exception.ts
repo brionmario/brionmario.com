@@ -22,7 +22,23 @@
  * SOFTWARE.
  */
 
-import { GeistUIThemes, useTheme } from "@geist-ui/core";
+/**
+ * Base exception class for UI Exceptions.
+ */
+export class UIException extends Error {
 
-export type Theme = GeistUIThemes;
-export { useTheme };
+  public name: string;
+  public stack: string;
+
+  /**
+   * Constructor.
+   * @param message - Message for the exception.
+   * @param stack - Stack trace for the error.
+   */
+  constructor(message?: string, stack?: any) {
+    super(message);
+    this.name = this.constructor.name;
+    this.stack = stack;
+    Object.setPrototypeOf(this, new.target.prototype);
+  }
+}
