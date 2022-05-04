@@ -1,7 +1,7 @@
 {
   "name": "@brionmario/portfolio-project",
   "description": "Welcome to the source code for my personal website",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "license": "MIT",
   "author": "Brion Mario",
