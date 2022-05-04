@@ -106,7 +106,7 @@ jobs:
           cd apps/website
           touch .env.local
           echo "MAINTENANCE_MODE='true'" >> .env.local
-          echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          echo "NEXT_PUBLIC_ENVIRONMENT=''" >> .env.local
           cd ../..
           yarn build
 
