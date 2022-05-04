@@ -103,8 +103,11 @@ jobs:
       - name: 🏗️ Build
         id: build-the-mono-repo
         run: |
+          cd apps/website
           touch .env.local
+          echo "MAINTENANCE_MODE='true'" >> .env.local
           echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          cd ../..
           yarn build
 
       - name: ▲ Deploy to Vercel
