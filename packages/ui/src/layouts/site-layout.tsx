@@ -53,14 +53,14 @@ export const SiteLayout: FC<PropsWithChildren<SiteLayoutProps>> = (
   return (
     <ClassNames>
       { ({ css, cx }) => (
-        <Page css={ css`${ _css }` } className={ cx({ "--fluid": fluid }, "site-layout", className) }>
-          <Page.Header>
+        <Page css={ css`${ _css }` } className={ cx({ "fluid": fluid }, "site_layout", className) }>
+          <Page.Header className="site_layout__header_wrapper">
             { header }
           </Page.Header>
-          <Page.Content>
+          <Page.Content className="site_layout__content_wrapper">
             { children }
           </Page.Content>
-          <Page.Footer className="site-layout__footer-wrapper">
+          <Page.Footer className="site_layout__footer_wrapper">
             { footer }
           </Page.Footer>
         </Page>
@@ -70,11 +70,15 @@ export const SiteLayout: FC<PropsWithChildren<SiteLayoutProps>> = (
 };
 
 const _css = `
-  &.--fluid {
+  &.fluid {
     padding: 0;
     width: unset;
   }
-  .site-layout__footer-wrapper {
+  .site_layout__content_wrapper {
+    padding-right: 10vw;
+    padding-left: 10vw;
+  }
+  .site_layout__footer_wrapper {
     position: unset;
   }
 `;

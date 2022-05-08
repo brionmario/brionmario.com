@@ -25,7 +25,7 @@
 /** @jsxImportSource @emotion/react */
 import { Hero, SiteLayout } from "@brionmario/ui";
 import { ClassNames } from "@emotion/react";
-import { GeistUIThemes, Keyboard, Text, useTheme } from "@geist-ui/core";
+import { GeistUIThemes, Keyboard, Link, Text, useTheme } from "@geist-ui/core";
 import Image from "next/image";
 import { FC } from "react";
 import { AppFooter, AppHeader, SEO } from "../components";
@@ -96,7 +96,7 @@ const HomePage: FC<HomePageProps> = () => {
                   <div>A front-end enthusiast based in Sri Lanka 🇱🇰.</div>
                   <div className="hero__greeting__caption__employment">
                     Currently working as a Senior Software Engineer at
-                    <a
+                    <Link
                       href="https://wso2.com"
                       className="hero__greeting__caption__employment__wso2"
                       target="_blank"
@@ -108,7 +108,7 @@ const HomePage: FC<HomePageProps> = () => {
                         width="50px"
                         height="15px"
                       />
-                    </a>
+                    </Link>
                   </div>
                 </Text>
               }
@@ -159,8 +159,12 @@ const getCSS = (): string => `
     max-width: 400px;
   }
   .hero__greeting__caption__employment__wso2 {
-    position: absolute;
-    margin-top: 4px;
+
+  }
+  @media screen and (min-width: 821px) {
+    .hero__memoji {
+      margin-right: 5rem;
+    }
   }
 `;
 
