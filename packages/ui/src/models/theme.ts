@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2022, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,13 +22,10 @@
  * SOFTWARE.
  */
 
-import Footer from "./footer";
-import FooterColumn from "./footer-column";
-import FooterGroup from "./footer-group";
-import FooterLink from "./footer-link";
-
-Footer.Group = FooterGroup;
-Footer.Link = FooterLink;
-Footer.Column = FooterColumn;
-
-export default Footer;
+/**
+ * Enum for theme types.
+ */
+export enum ThemeTypes {
+  'DARK' = 'dark',
+  'LIGHT' = 'light',
+}

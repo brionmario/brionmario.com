@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2022, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,4 +22,20 @@
  * SOFTWARE.
  */
 
-export * from "./hero";
+import {ComponentPropsWithoutRef, ComponentPropsWithRef, ElementType} from 'react';
+
+/**
+ * Interface to be extended to make a component polymorphic.
+ * i.e A polymorphic component is a component that can be rendered with a different container element / node.
+ *
+ * @example
+ * ```jsx
+ * <Avatar as='a' />
+ * ```
+ * In here, `Avatar` container will be an anchor element rather than the usual `div`.
+ */
+export type PolymorphicComponent<T extends ElementType> = ComponentPropsWithoutRef<T> & {
+  as?: T;
+};
+
+export type PolymorphicRef<T extends ElementType> = ComponentPropsWithRef<T>['ref'];

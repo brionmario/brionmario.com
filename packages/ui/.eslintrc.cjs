@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2022, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,27 +22,29 @@
  * SOFTWARE.
  */
 
-import { FC, HTMLAttributes, PropsWithChildren, memo } from "react";
-import { TestableComponent } from "../../models";
+const path = require('path');
 
-type Props = TestableComponent;
-
-const defaultProps = { };
-
-type NativeAttrs = Omit<HTMLAttributes<HTMLDivElement>, keyof Props>
-
-export type FooterColumnProps = Props & typeof defaultProps & NativeAttrs;
-
-const FooterColumn: FC<PropsWithChildren<FooterColumnProps>> = (props: FooterColumnProps) => {
-
-  const {
-    children,
-    ...rest
-  } = props;
-
-  return <div {...rest }>{ children }</div>;
+module.exports = {
+  plugins: ['@brionmario'],
+  extends: [
+    '../../.eslintrc.js',
+    'plugin:@brionmario/typescript',
+    'plugin:@brionmario/react',
+    'plugin:@brionmario/strict',
+    'plugin:@brionmario/internal',
+    'plugin:@brionmario/jest',
+    'plugin:@brionmario/prettier',
+    'plugin:@brionmario/next',
+    'plugin:mdx/recommended',
+    'plugin:react/jsx-runtime',
+  ],
+  parserOptions: {
+    project: [path.resolve(__dirname, 'tsconfig.json')],
+  },
+  overrides: [
+    {
+      files: '*.mdx',
+      parser: 'eslint-mdx',
+    },
+  ],
 };
-
-const MemoFooterColumn = memo(FooterColumn);
-
-export default MemoFooterColumn;
