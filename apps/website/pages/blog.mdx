@@ -1,0 +1,19 @@
+---
+description: The latest of my writing on different topics.
+type: posts
+---
+
+import BlogIndex from '../components/pages/blog';
+import {FadeIn} from '../components/pages/home-shared/FadeIn';
+import {PageHeader, SectionSubtext} from '../components/pages/home-shared/Headings';
+
+<div className="max-w-screen-lg pt-16">
+  <FadeIn className="flex flex-col items-baseline gap-5 md:gap-6">
+    <PageHeader>Blog</PageHeader>
+    <SectionSubtext className="lg:max-w-[750px]" textAlign="left">
+      Checkout the my articles on front end technologies, IAM concepts, tips and prettymuch anything that interests me.
+    </SectionSubtext>
+  </FadeIn>
+</div>
+<hr class="my-16 h-px bg-gray-200 border-0 dark:bg-gray-700" />
+<BlogIndex />

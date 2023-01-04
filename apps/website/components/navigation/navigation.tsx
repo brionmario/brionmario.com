@@ -22,14 +22,15 @@
  * SOFTWARE.
  */
 
+import {Menu, MenuButton, MenuItems, MenuLink, MenuPopover, useMenuButtonContext} from '@reach/menu-button';
 import clsx from 'clsx';
+import {useReducedMotion, AnimatePresence, motion, useAnimation} from 'framer-motion';
 import Link, {LinkProps} from 'next/link';
 import {NextRouter, useRouter} from 'next/router';
-import {PropsWithChildren, ReactElement, ReactNode} from 'react';
+import React from 'react';
+import {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
 import DarkModeSwitch from '../dark-mode-switch/dark-mode-switch';
 import HeaderLogo from '../HeaderLogo';
-import MenuButton from './menu/menu-button';
-import MenuItem from './menu/menu-item';
 
 interface NavigationItem extends LinkProps {
   name?: string;
@@ -66,7 +67,7 @@ const NavLink = ({href, title, ...rest}: PropsWithChildren<NavigationItem>): Rea
 };
 
 const Navigation = ({items}: NavigationProps): ReactElement => (
-  <div className="py-9 lg:py-12">
+  <div className="py-9">
     <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
       <div className="flex justify-center gap-4 align-middle">
         <HeaderLogo />
@@ -81,13 +82,209 @@ const Navigation = ({items}: NavigationProps): ReactElement => (
           ))}
         </ul>
         <div className="flex items-center justify-center">
-          <div className="noscript-hidden hidden lg:block">
-            <DarkModeSwitch />
+          <div className="block lg:hidden">
+            <MobileMenu items={items} />
+          </div>
+          <div className="noscript-hidden lg:block">
+            <DarkModeSwitch className="ml-4" />
           </div>
         </div>
       </div>
     </nav>
   </div>
 );
+
+function MobileMenuList({items}) {
+  const {isExpanded} = useMenuButtonContext();
+  const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    if (isExpanded) {
+      // don't use overflow-hidden, as that toggles the scrollbar and causes layout shift
+      document.body.classList.add('fixed');
+      document.body.classList.add('overflow-y-scroll');
+      // alternatively, get bounding box of the menu, and set body height to that.
+      document.body.style.height = '100vh';
+    } else {
+      document.body.classList.remove('fixed');
+      document.body.classList.remove('overflow-y-scroll');
+      document.body.style.removeProperty('height');
+    }
+  }, [isExpanded]);
+
+  return (
+    <AnimatePresence>
+      {isExpanded ? (
+        <MenuPopover
+          position={r => ({
+            top: `calc(${Number(r?.top) + Number(r?.height)}px + 2.25rem)`, // 2.25 rem = py-9 from navbar
+            left: 0,
+            bottom: 0,
+            right: 0,
+          })}
+          style={{display: 'block'}}
+          className="z-50"
+        >
+          <motion.div
+            initial={{y: -50, opacity: 0}}
+            animate={{y: 0, opacity: 1}}
+            exit={{y: -50, opacity: 0}}
+            transition={{
+              duration: shouldReduceMotion ? 0 : 0.15,
+              ease: 'linear',
+            }}
+            className="bg-primary flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
+          >
+            <MenuItems className="border-none bg-transparent p-0">
+              {items.map(link => (
+                <Link key={link.route} href={link.route}>
+                  <MenuLink
+                    className="bg-white dark:bg-gray-900 focus:bg-white dark:focus:bg-gray-900 text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
+                    as="a"
+                  >
+                    {link.title}
+                  </MenuLink>
+                </Link>
+              ))}
+            </MenuItems>
+          </motion.div>
+        </MenuPopover>
+      ) : null}
+    </AnimatePresence>
+  );
+}
+
+const topVariants = {
+  open: {rotate: 45, y: 7},
+  closed: {rotate: 0, y: 0},
+};
+
+const centerVariants = {
+  open: {opacity: 0},
+  closed: {opacity: 1},
+};
+
+const bottomVariants = {
+  open: {rotate: -45, y: -5},
+  closed: {rotate: 0, y: 0},
+};
+
+function MobileMenu({items}) {
+  const shouldReduceMotion = useReducedMotion();
+  const transition = shouldReduceMotion ? {duration: 0} : {};
+  return (
+    <Menu>
+      {({isExpanded}) => {
+        const state = isExpanded ? 'open' : 'closed';
+        return (
+          <>
+            <MenuButton className="focus:border-primary hover:border-primary border-secondary text-primary inline-flex h-14 w-14 items-center justify-center rounded-full border-2 p-1 transition focus:outline-none">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <motion.rect
+                  animate={state}
+                  variants={topVariants}
+                  transition={transition}
+                  x="6"
+                  y="9"
+                  width="20"
+                  height="2"
+                  rx="1"
+                  fill="currentColor"
+                />
+                <motion.rect
+                  animate={state}
+                  variants={centerVariants}
+                  transition={transition}
+                  x="6"
+                  y="15"
+                  width="20"
+                  height="2"
+                  rx="1"
+                  fill="currentColor"
+                />
+                <motion.rect
+                  animate={state}
+                  variants={bottomVariants}
+                  transition={transition}
+                  x="6"
+                  y="21"
+                  width="20"
+                  height="2"
+                  rx="1"
+                  fill="currentColor"
+                />
+              </svg>
+            </MenuButton>
+
+            <MobileMenuList items={items} />
+          </>
+        );
+      }}
+    </Menu>
+  );
+}
+
+// Timing durations used to control the speed of the team ring in the profile button.
+// Time is seconds per full rotation
+const durations = {
+  initial: 40,
+  hover: 3,
+  focus: 3,
+  active: 0.25,
+};
+
+function ProfileButton({
+  imageUrl,
+  imageAlt,
+  team,
+  magicLinkVerified,
+}: {
+  imageUrl: string;
+  imageAlt: string;
+  team: OptionalTeam;
+  magicLinkVerified: boolean | undefined;
+}) {
+  const user = useOptionalUser();
+  const controls = useAnimation();
+  const [ref, state] = useElementState();
+  const shouldReduceMotion = useReducedMotion();
+
+  React.useEffect(() => {
+    void controls.start((_, {rotate = 0}) => {
+      const target = typeof rotate === 'number' ? (state === 'initial' ? rotate - 360 : rotate + 360) : 360;
+
+      return shouldReduceMotion
+        ? {}
+        : {
+            rotate: [rotate, target],
+            transition: {
+              duration: durations[state],
+              repeat: Infinity,
+              ease: 'linear',
+            },
+          };
+    });
+  }, [state, controls, shouldReduceMotion]);
+
+  return (
+    <Link
+      prefetch="intent"
+      to={user ? '/me' : magicLinkVerified ? '/signup' : '/login'}
+      aria-label={user ? 'My Account' : magicLinkVerified ? 'Finish signing up' : 'Login'}
+      className={clsx('ml-4 inline-flex h-14 w-14 items-center justify-center rounded-full focus:outline-none')}
+      ref={ref}
+    >
+      <motion.div className="absolute" animate={controls}>
+        <TeamCircle size={56} team={team} />
+      </motion.div>
+      <img
+        className={clsx('inline w-10 select-none rounded-full')}
+        src={imageUrl}
+        alt={imageAlt}
+        crossOrigin="anonymous"
+      />
+    </Link>
+  );
+}
 
 export default Navigation;

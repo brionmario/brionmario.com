@@ -28,10 +28,11 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
     "clsx": "^1.2.1"
   },
   "devDependencies": {
-    "@brionmario/eslint-plugin": "^0.2.3",
+    "@brionmario/eslint-plugin": "^0.2.7",
     "@brionmario/prettier-config": "^0.1.0",
     "@testing-library/react": "^13.4.0",
     "@types/jest": "^29.2.3",
