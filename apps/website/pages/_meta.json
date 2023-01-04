@@ -1,0 +1,29 @@
+{
+  "*": {
+    "type": "page"
+  },
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "layout": "raw",
+      "sidebar": false,
+      "toc": true
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "type": "page",
+    "theme": {
+      "layout": "full",
+      "timestamp": false
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "type": "page",
+    "theme": {
+      "layout": "full",
+      "timestamp": false
+    }
+  }
+}

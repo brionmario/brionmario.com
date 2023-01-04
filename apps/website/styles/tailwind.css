@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind screens;
+@tailwind variants;
+
+@font-face {
+  font-family: 'Good Brush';
+  font-style: normal;
+  font-weight: 400;
+  src: url(/assets/fonts/good-brush/Good\ Brush.woff) format('woff2');
+}
+
+@layer base {
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none; /* Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  @keyframes slidein {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-100%, 0, 0);
+    }
+  }
+
+  .bg-primary {
+    @apply bg-white dark:bg-gray-900;
+  }
+
+  .bg-secondary {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .bg-alt {
+    @apply bg-gray-200 dark:bg-gray-700;
+  }
+
+  .bg-inverse {
+    @apply bg-black dark:bg-white;
+  }
+
+  .border-primary {
+    @apply border-gray-900 dark:border-white;
+  }
+
+  .border-secondary {
+    @apply border-gray-200 dark:border-gray-600;
+  }
+
+  .text-primary {
+    @apply text-black dark:text-white;
+  }
+
+  .text-secondary {
+    @apply dark:text-slate-500 text-gray-500;
+  }
+
+  .text-inverse {
+    @apply text-white dark:text-black;
+  }
+
+  .wrapper {
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+    animation: slidein 120s linear infinite;
+    filter: grayscale(100%);
+  }
+}

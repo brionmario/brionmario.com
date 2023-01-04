@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2022, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,27 +22,45 @@
  * SOFTWARE.
  */
 
-import { CssBaseline, GeistProvider } from "@geist-ui/core";
-import type { AppProps } from "next/app";
-import { useState } from "react";
-import { ThemeTypes } from "../models";
+import '../styles/vendor.css';
+import '../styles/custom.css';
+import '../styles/tailwind.css';
+import {SSRProvider} from '@react-aria/ssr';
+import {Analytics} from '@vercel/analytics/react';
+import type {AppProps} from 'next/app';
+import type {ReactElement, ReactNode} from 'react';
 
-function MyApp({ Component, pageProps }: AppProps) {
-
-  const [ themeType, setThemeType ] = useState<ThemeTypes>(ThemeTypes.DARK);
-
-  // eslint-disable-next-line no-unused-vars
-  const switchTheme = (): void => {
-
-    setThemeType((last) => (last === ThemeTypes.DARK ? ThemeTypes.LIGHT : ThemeTypes.DARK));
+type NextraAppProps = AppProps & {
+  Component: AppProps['Component'] & {
+    // eslint-disable-next-line no-unused-vars
+    getLayout: (page: ReactNode) => ReactNode;
   };
+};
 
-  return (
-    <GeistProvider themeType={ themeType }>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </GeistProvider>
-  );
+// Shim requestIdleCallback in Safari
+if (typeof window !== 'undefined' && !('requestIdleCallback' in window)) {
+  window.requestIdleCallback = fn => setTimeout(fn, 1);
+  window.cancelIdleCallback = e => clearTimeout(e);
 }
 
-export default MyApp;
+const Nextra = ({Component, pageProps}: NextraAppProps): ReactElement => (
+  <SSRProvider>
+    <>
+      {/**
+       * Globally defined svg linear gradient, for use in icons
+       */}
+      <svg height="0px" width="0px">
+        <defs>
+          <linearGradient id="pink-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="rgba(156, 81, 161, 1)" />
+            <stop offset="70%" stopColor="rgba(255, 30, 86, 1)" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </>
+    <Component {...pageProps} />
+    <Analytics />
+  </SSRProvider>
+);
+
+export default Nextra;

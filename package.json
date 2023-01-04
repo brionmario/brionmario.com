@@ -8,8 +8,7 @@
   "keywords": [
     "portfolio",
     "developer",
-    "nextjs",
-    "geist-ui"
+    "nextjs"
   ],
   "homepage": "https://github.com/brionmario/brionmario.com#readme",
   "repository": {
@@ -26,16 +25,18 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx}\"",
     "lint": "turbo run lint",
-    "lint:fix": "turbo run lint -- -- --fix",
     "publish:release": "semantic-release"
   },
   "devDependencies": {
+    "@brionmario/eslint-plugin": "^0.2.7",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/exec": "^6.0.3",
     "@semantic-release/git": "^10.0.1",
     "conventional-changelog-conventionalcommits": "^4.6.3",
-    "prettier": "^2.5.1",
+    "eslint": "^8.29.0",
+    "eslint-config-turbo": "^0.0.7",
     "semantic-release": "^19.0.2",
     "turbo": "latest"
   },
@@ -43,5 +44,5 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@1.22.11"
+  "packageManager": "pnpm@7.9.5"
 }

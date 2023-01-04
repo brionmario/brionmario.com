@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2022, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,5 +33,5 @@
  * screen.getByTestId("register-button");
  */
 export interface TestableComponent {
-  "data-testid": string;
+  'data-testid': string;
 }

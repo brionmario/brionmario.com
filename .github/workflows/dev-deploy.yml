@@ -64,7 +64,6 @@ jobs:
 
   deploy:
     name: 🚀 Deploy
-    if: github.repository_owner == 'brionmario' && github.event_name == 'push'
     needs: [ build ]
     strategy:
       matrix:
@@ -103,8 +102,11 @@ jobs:
       - name: 🏗️ Build
         id: build-the-mono-repo
         run: |
+          cd apps/website
           touch .env.local
+          echo "MAINTENANCE_MODE='false'" >> .env.local
           echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          cd ../..
           yarn build
 
       - name: ▲ Deploy to Vercel

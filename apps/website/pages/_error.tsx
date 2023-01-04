@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,22 +22,15 @@
  * SOFTWARE.
  */
 
-function Error({ statusCode }) {
-  return (
-    <p>
-      {
-        statusCode
-          ? `An error ${statusCode} occurred on server`
-          : "An error occurred on client"
-      }
-    </p>
-  );
-}
+import NextErrorComponent from 'next/error';
+import {ReactElement} from 'react';
 
-Error.getInitialProps = ({ res, err }) => {
-  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+const CustomErrorComponent = ({statusCode}: {statusCode: number}): ReactElement => (
+  <NextErrorComponent statusCode={statusCode} />
+);
 
-  return { statusCode };
-};
+CustomErrorComponent.getInitialProps = async contextData =>
+  // This will contain the status code of the response
+  NextErrorComponent.getInitialProps(contextData);
 
-export default Error;
+export default CustomErrorComponent;

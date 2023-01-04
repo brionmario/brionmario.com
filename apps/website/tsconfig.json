@@ -1,5 +1,22 @@
 {
-  "extends": "@brionmario/tsconfig/nextjs.json",
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/components/app-headertsx"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "allowJs": false,
+    "types": ["next"],
+    "jsxImportSource": "@emotion/react"
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "../../packages/ui/src/models/theme.ts"],
   "exclude": ["node_modules"]
 }
