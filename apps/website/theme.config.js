@@ -22,11 +22,16 @@
  * SOFTWARE.
  */
 
+/* eslint-disable react/jsx-filename-extension */
+
+import {useRouter} from 'next/router';
 import {useConfig, useTheme} from 'nextra-theme-docs';
 import {Footer} from './components/Footer';
 import Navigation from './components/navigation';
 import HeaderLogo from './components/HeaderLogo';
 import DarkModeSwitch from './components/dark-mode-switch/dark-mode-switch';
+
+const SITE_ROOT = 'https://brionmario.com';
 
 /**
  * @type {import('nextra-theme-docs').DocsThemeConfig}
@@ -57,7 +62,16 @@ const theme = {
   logo: HeaderLogo,
   logoLink: false,
   head: function Head() {
+    const {asPath} = useRouter();
     const {systemTheme = 'dark'} = useTheme();
+    const {frontMatter} = useConfig();
+
+    const fullUrl = asPath === '/' ? SITE_ROOT : `${SITE_ROOT}${asPath}`;
+    let ogImage = `${SITE_ROOT}/og-image.png`;
+
+    if (frontMatter?.ogImage) {
+      ogImage = `${SITE_ROOT}${frontMatter.ogImage}`;
+    }
 
     return (
       <>
@@ -73,10 +87,10 @@ const theme = {
         <meta name="twitter:site" content="@brion_mario" />
         <meta name="twitter:creator" content="@brion_mario" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://brionmario.com" />
-        <link rel="canonical" href="https://brionmario.com" />
-        <meta property="twitter:image" content="https://brionmario.com" />
-        <meta property="og:image" content="https://brionmario.com" />
+        <meta property="og:url" content={fullUrl} />
+        <link rel="canonical" href={fullUrl} />
+        <meta property="twitter:image" content={ogImage} />
+        <meta property="og:image" content={ogImage} />
         <meta property="og:locale" content="en_IE" />
         <meta property="og:site_name" content="Brion Mario" />
       </>
