@@ -26,7 +26,7 @@
 import {TestableComponent} from '@brionmario/ui';
 import Image from 'next/future/image';
 import type {FC, HTMLAttributes, ReactElement} from 'react';
-import * as dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import Avatar from '../avatar';
 import {Author, BlogPostFrontMatter} from '../../models';
 
@@ -88,38 +88,6 @@ const BlogCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
                 alt={`${author.name}'s Avatar`}
               />
             ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  return (
-    <div
-      className="box-border relative flex flex-col gap-5 p-0 overflow-hidden text-black no-underline border dark:text-white rounded-md dark:border-neutral-800 w-full dark:bg-bunker"
-      {...rest}
-    >
-      <div className="flex flex-col gap-2 h-full justify-between">
-        <a href="#">
-          <img className="rounded-t-lg" src={bannerImage} alt="" />
-        </a>
-
-        <div className="flex flex-col gap-2 dark:bg-black">
-          <p className="m-0 leading-6 opacity-70 px-3 pt-5 h-24 line-clamp-3 font-space-grotesk">{description}</p>
-          <div className="flex flex-row items-center justify-between p-3 border-t dark:border-neutral-800">
-            <div className="flex -space-x-4">
-              {authors.map(author => (
-                <Avatar
-                  as={Image}
-                  data-testid="project-avatar-contributor"
-                  src={author.image}
-                  width={20}
-                  height={20}
-                  // alt={`${fullName} Contributor ${contributor.login}`}
-                />
-              ))}
-            </div>
-            {/* <div className="text-xs opacity-70">{language}</div> */}
           </div>
         </div>
       </div>

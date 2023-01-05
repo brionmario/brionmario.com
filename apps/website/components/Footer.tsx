@@ -104,15 +104,7 @@ export function FooterContent() {
         <div className="xl:grid xl:grid-cols-2 xl:gap-8">
           <div className="flex">
             <div>
-              <a
-                className="text-current"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="vercel.com homepage"
-                href="https://vercel.com?utm_source=turbo.build&utm_medium=referral&utm_campaign=footer-logoLink"
-              >
-                <Logo alt="logo" width={150} />
-              </a>
+              <Logo alt="logo" width={150} />
               <p className="mt-1 text-xs text-gray-500 dark:text-[#888888]">
                 &copy; {new Date().getFullYear()} brionmario.com. All rights reserved.
               </p>

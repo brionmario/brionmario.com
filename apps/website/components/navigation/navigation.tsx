@@ -27,8 +27,7 @@ import clsx from 'clsx';
 import {useReducedMotion, AnimatePresence, motion, useAnimation} from 'framer-motion';
 import Link, {LinkProps} from 'next/link';
 import {NextRouter, useRouter} from 'next/router';
-import React from 'react';
-import {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
+import React, {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
 import DarkModeSwitch from '../dark-mode-switch/dark-mode-switch';
 import HeaderLogo from '../HeaderLogo';
 
@@ -94,9 +93,9 @@ const Navigation = ({items}: NavigationProps): ReactElement => (
   </div>
 );
 
-function MobileMenuList({items}) {
+const MobileMenuList = ({items}): ReactElement => {
   const {isExpanded} = useMenuButtonContext();
-  const shouldReduceMotion = useReducedMotion();
+  const shouldReduceMotion: boolean = useReducedMotion();
 
   useEffect(() => {
     if (isExpanded) {
@@ -152,7 +151,7 @@ function MobileMenuList({items}) {
       ) : null}
     </AnimatePresence>
   );
-}
+};
 
 const topVariants = {
   open: {rotate: 45, y: 7},
@@ -169,7 +168,7 @@ const bottomVariants = {
   closed: {rotate: 0, y: 0},
 };
 
-function MobileMenu({items}) {
+const MobileMenu = ({items}) => {
   const shouldReduceMotion = useReducedMotion();
   const transition = shouldReduceMotion ? {duration: 0} : {};
   return (
@@ -222,7 +221,7 @@ function MobileMenu({items}) {
       }}
     </Menu>
   );
-}
+};
 
 // Timing durations used to control the speed of the team ring in the profile button.
 // Time is seconds per full rotation
@@ -233,17 +232,17 @@ const durations = {
   active: 0.25,
 };
 
-function ProfileButton({
+const ProfileButton = ({
   imageUrl,
   imageAlt,
   team,
   magicLinkVerified,
 }: {
-  imageUrl: string;
   imageAlt: string;
-  team: OptionalTeam;
+  imageUrl: string;
   magicLinkVerified: boolean | undefined;
-}) {
+  team: OptionalTeam;
+}) => {
   const user = useOptionalUser();
   const controls = useAnimation();
   const [ref, state] = useElementState();
@@ -285,6 +284,6 @@ function ProfileButton({
       />
     </Link>
   );
-}
+};
 
 export default Navigation;

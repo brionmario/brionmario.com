@@ -51,8 +51,9 @@ export const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = (props: Featu
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
         {data.featured.map((project: Project) => (
-          <FadeIn className="flex" key={project.id}>
+          <FadeIn className="flex" key={`${project.id}-wrapper`}>
             <ProjectCard
+              key={project.id}
               data-testid={`featured-project-${project.id}`}
               project={project}
               onClick={(): void => handleProjectNavigate(project.html_url)}

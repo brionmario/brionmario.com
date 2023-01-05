@@ -57,8 +57,9 @@ export const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = (props: FeaturedBlo
         {getPagesUnderRoute('/blog')
           .slice(0, BLOG_RECOMMENDATIONS_MAX_LIMIT)
           .map((page: Page & any) => (
-            <FadeIn className="flex" key={page.route.replace(/\s+/g, '-').toLowerCase()}>
+            <FadeIn className="flex" key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}>
               <BlogCard
+                key={page.route.replace(/\s+/g, '-').toLowerCase()}
                 data-testid={`blog-${page.route}`}
                 frontMatter={page.children[0].frontMatter}
                 onClick={(): void => handleBlogNavigate(page.route)}
