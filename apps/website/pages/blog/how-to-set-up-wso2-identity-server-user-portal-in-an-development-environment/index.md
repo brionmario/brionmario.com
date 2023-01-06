@@ -19,6 +19,7 @@ tags:
   - "wso2"
   - "wso2is"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png"
   - "https://cdn-images-1.medium.com/max/2600/1*8GEH34emQnw4oa_Wx5cBew.png"
@@ -92,7 +93,7 @@ Whitelist the dev URL in the FIDO configurations found in the following file.
 
 4\. Configure the callback URLs for the User Portal.
 
-Log in to the management console [https://<SERVER_HOST>/carbon](https://localhost:9443/carbon/application/configure-authentication-flow.jsp?spName=travelocity.com)
+Log in to the management console <a href="https://localhost:9443/carbon/application/configure-authentication-flow.jsp?spName=travelocity.com" class="fenced-link">https://SERVER_HOST/carbon</a>
 
 Go to service provider listing and click on edit in User Portal portal list item.
 

@@ -19,6 +19,7 @@ tags:
   - "ciam"
   - "identity-management"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png"
   - "https://cdn-images-1.medium.com/max/2600/1*Unxci9gqt5oJTJ5mN3xeIg.png"

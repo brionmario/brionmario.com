@@ -19,6 +19,7 @@ tags:
   - "create-react-app"
   - "react"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png"
   - "https://cdn-images-1.medium.com/max/2600/1*QdthOmmdeSYlASN7ARjrfw.png"

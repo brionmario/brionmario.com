@@ -18,6 +18,7 @@ tags:
   - "mdx"
   - "static-site-generator"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*N8EhWzgtyz9SssAjqPmmcw.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*N8EhWzgtyz9SssAjqPmmcw.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*N8EhWzgtyz9SssAjqPmmcw.png"
   - "https://cdn-images-1.medium.com/max/2600/1*px0soks_sucnmE90M7U5Yg.png"

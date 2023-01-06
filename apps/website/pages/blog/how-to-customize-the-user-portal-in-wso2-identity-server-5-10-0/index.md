@@ -19,6 +19,7 @@ tags:
   - "theming"
   - "semantic-ui"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png"
   - "https://cdn-images-1.medium.com/max/2600/1*LIlXpVhBWQ3vtFtcBjMsWQ.png"
@@ -257,7 +258,7 @@ window["runConfig"] = {
 
 Replace **favicon.ico** at the root of the user-portal web app with the desired icon. You can use an online generator like [favicon.i](https://favicon.io/)o to generate a favicon for free.
 
-To change the title, in **index.jsp** file of the web app, change the <title> tag.
+To change the title, in **index.jsp** file of the web app, change the `<title>` tag.
 
 ```js
 <title>Night Owl Express</title>

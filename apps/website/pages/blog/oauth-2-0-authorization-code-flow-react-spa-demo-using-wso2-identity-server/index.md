@@ -19,6 +19,7 @@ tags:
   - "react"
   - "react-oidc"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*Z7rCncgTk8CyubIxl2bj_Q.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*Z7rCncgTk8CyubIxl2bj_Q.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*Z7rCncgTk8CyubIxl2bj_Q.png"
   - "https://cdn-images-1.medium.com/max/2600/1*SynoQXI02y06qiOioh3HEw.png"

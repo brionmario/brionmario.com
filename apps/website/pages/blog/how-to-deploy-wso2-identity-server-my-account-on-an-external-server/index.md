@@ -19,6 +19,7 @@ tags:
   - "tomcat"
   - "firebase"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*vR9zGGWPCS8NSpck2Gl2DA.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*vR9zGGWPCS8NSpck2Gl2DA.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*vR9zGGWPCS8NSpck2Gl2DA.png"
   - "https://cdn-images-1.medium.com/max/2600/1*lXoukPHUjXLbUeFkO73CnQ.png"

@@ -19,6 +19,7 @@ tags:
   - "testing"
   - "code-quality"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*pYn5hJ5wC5zFUp6CbycUuw@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*pYn5hJ5wC5zFUp6CbycUuw@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*pYn5hJ5wC5zFUp6CbycUuw@2x.png"
   - "https://cdn-images-1.medium.com/max/2600/1*ehZQoXOYsH2nKlGjdQWLXg.png"

@@ -19,6 +19,7 @@ tags:
   - "eslint"
   - "front-end-development"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*r-qkOyGrghFGU23p6yRmGw@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*r-qkOyGrghFGU23p6yRmGw@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*r-qkOyGrghFGU23p6yRmGw@2x.png"
   - "https://cdn-images-1.medium.com/max/2600/1*oo7gjgIuuLNGIj4euQz-tA.png"

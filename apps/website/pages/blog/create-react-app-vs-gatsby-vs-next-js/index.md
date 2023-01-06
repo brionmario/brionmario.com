@@ -19,6 +19,7 @@ tags:
   - "comparison"
   - "front-end-development"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*JIbwahXrdjFBqZ_VRhujXA@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*JIbwahXrdjFBqZ_VRhujXA@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*JIbwahXrdjFBqZ_VRhujXA@2x.png"
 

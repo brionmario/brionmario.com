@@ -19,6 +19,7 @@ tags:
   - "unit-testing"
   - "quality-assurance"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png"
   - "https://cdn-images-1.medium.com/max/2600/1*kp1adyTmpP0voiL26uSLMA.png"

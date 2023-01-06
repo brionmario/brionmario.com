@@ -19,6 +19,7 @@ tags:
   - "ciam"
   - "idaas"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
 images:
   - "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
   - "https://cdn-images-1.medium.com/max/2600/1*0obr30ejPhFU7t26csMRvQ.png"
