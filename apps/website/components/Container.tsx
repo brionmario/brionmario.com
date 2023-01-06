@@ -1,4 +1,5 @@
-/* * MIT License
+/**
+ * MIT License
  *
  * Copyright (c) 2022, Brion Mario
  *
@@ -27,6 +28,4 @@ type Props = {
   children?: ReactNode;
 };
 
-export const Container = ({children}: Props) => {
-  return <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>;
-};
+export const Container = ({children}: Props) => <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">{children}</div>;

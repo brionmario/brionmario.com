@@ -134,4 +134,4 @@ Hope you found this blog post useful. Feel free to try this out and if you have 
 
 *   [Source Code](https://github.com/brionmario/gatsby-starter/tree/init-lint-staged-and-husky)
 
-Happy Coding! ❤️
+Signing off… ✌️❤️

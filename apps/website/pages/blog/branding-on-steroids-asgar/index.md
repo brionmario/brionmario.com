@@ -405,8 +405,6 @@ If you have any further requests or suggestions, please reach out to the team th
 
 Signing off… ✌️❤️
 
-[https://youtu.be/yXhSaNUMMN4](https://youtu.be/yXhSaNUMMN4)
-
 ### References
 
 *   [Official Documentation on Branding](https://wso2.com/asgardeo/docs/guides/branding)

@@ -15,6 +15,10 @@ code {
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
+html[class~=dark] .nextra-scrollbar .nx-items-start {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
 .dark .invert-on-dark {
   filter: invert(1) brightness(1.8);
 }

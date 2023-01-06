@@ -276,8 +276,6 @@ This script will watch files for changes and rerun tests related to changed file
 npm run test:unit:watch
 ```
 
-### — — — — -— — — -— All Done 🎉 — — — — — — — — — -
-
 ### Conclusion
 
 Hope you found this blog post useful. Feel free to try this out and if you have any suggestions regarding the blog you can log an issue in [this repo](https://github.com/brionmario/blog-resources/issues).
@@ -286,4 +284,4 @@ Hope you found this blog post useful. Feel free to try this out and if you have 
 
 *   [Source Code](https://github.com/brionmario/gatsby-starter/tree/init-unit-testing)
 
-Happy Coding! ❤️
+Signing off… ✌️❤️

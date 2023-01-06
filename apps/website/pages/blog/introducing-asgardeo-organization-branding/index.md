@@ -82,3 +82,15 @@ The split view has a preview window that reflects the changes you do in real-tim
 #### Centralized Branding
 
 The changes you do here will be reflected in the login, sign-up, recovery, and MFA flows. So, you don’t need to replicate the process in multiple steps.
+
+### Concluding Remarks 🔚
+
+Asgardeo RnD team is tirelessly working on improving the feature further.
+
+If you have any further requests or suggestions, please reach out to the team though [our community](https://iam4devs.wso2.com/asgardeo-1) or via [asgardeo-help@wso2.com](mailto:asgardeo-help@wso2.com).
+
+Signing off… ✌️❤️
+
+#### References
+
+*   [Official Documentation on Branding](https://wso2.com/asgardeo/docs/guides/branding)

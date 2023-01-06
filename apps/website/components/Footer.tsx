@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,11 +25,10 @@
 import cn from 'classnames';
 import Link from 'next/link';
 import {useRouter} from 'next/router';
-import {ThemeSwitch} from 'nextra-theme-docs';
 import {ReactElement, ReactNode, useState} from 'react';
 import Logo from './logos/logo';
 
-function FooterLink({href, children}: {href: string; children: ReactNode}) {
+const FooterLink = ({href, children}: {children: ReactNode; href: string}) => {
   const classes =
     'text-sm text-[#666666] dark:text-[#888888] no-underline betterhover:hover:text-gray-700 betterhover:hover:dark:text-white transition';
   if (href.startsWith('http')) {
@@ -43,11 +43,11 @@ function FooterLink({href, children}: {href: string; children: ReactNode}) {
       <a className={classes}>{children}</a>
     </Link>
   );
-}
+};
 
-function FooterHeader({children}: {children: ReactNode}) {
-  return <h3 className="text-sm text-black dark:text-white">{children}</h3>;
-}
+const FooterHeader = ({children}: {children: ReactNode}) => (
+  <h3 className="text-sm text-black dark:text-white">{children}</h3>
+);
 
 const navigation = {
   general: [
@@ -94,23 +94,22 @@ const navigation = {
   ],
 };
 
-export function FooterContent() {
-  return (
-    <div className="w-full" aria-labelledby="footer-heading">
-      <h2 id="footer-heading" className="sr-only">
-        Footer
-      </h2>
-      <div className="w-full py-8 mx-auto">
-        <div className="xl:grid xl:grid-cols-2 xl:gap-8">
-          <div className="flex">
-            <div>
-              <Logo alt="logo" width={150} />
-              <p className="mt-1 text-xs text-gray-500 dark:text-[#888888]">
-                &copy; {new Date().getFullYear()} brionmario.com. All rights reserved.
-              </p>
-            </div>
+export const FooterContent = () => (
+  <div className="w-full" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" className="sr-only">
+      Footer
+    </h2>
+    <div className="w-full py-8 mx-auto">
+      <div className="xl:grid xl:grid-cols-2 xl:gap-8">
+        <div className="flex">
+          <div>
+            <Logo alt="logo" width={150} />
+            <p className="mt-1 text-xs text-gray-500 dark:text-[#888888]">
+              &copy; {new Date().getFullYear()} brionmario.com. All rights reserved.
+            </p>
           </div>
-          {/* <div className="grid grid-cols-1 gap-8 xl:col-span-2">
+        </div>
+        {/* <div className="grid grid-cols-1 gap-8 xl:col-span-2">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 md:gap-8">
               <div className="mt-12 md:!mt-0">
                 <FooterHeader>Resources</FooterHeader>
@@ -180,10 +179,10 @@ export function FooterContent() {
               Subscribe to the Turbo newsletter and stay updated on new releases and features, guides, and case studies.
             </p>
             <SubmitForm />
-          </div>*/}
-        </div>
+          </div> */}
+      </div>
 
-        {/* <div className="pt-8 mt-8 sm:flex sm:items-center sm:justify-between">
+      {/* <div className="pt-8 mt-8 sm:flex sm:items-center sm:justify-between">
           <div>
             <a
               className="text-current"
@@ -199,12 +198,11 @@ export function FooterContent() {
             </p>
           </div>
         </div> */}
-      </div>
     </div>
-  );
-}
+  </div>
+);
 
-function SubmitForm() {
+const SubmitForm = () => {
   const [email, setEmail] = useState('');
   const router = useRouter();
   return (
@@ -219,9 +217,7 @@ function SubmitForm() {
           body: JSON.stringify({email}),
         })
           .then(res => res.json())
-          .then(() => {
-            return router.push('/confirm');
-          });
+          .then(() => router.push('/confirm'));
         e.preventDefault();
       }}
     >
@@ -249,20 +245,18 @@ function SubmitForm() {
       </div>
     </form>
   );
-}
+};
 
-export function Footer({menu}: {menu?: boolean}): ReactElement {
-  return (
-    <footer className="bg-[#FAFAFA] pb-[env(safe-area-inset-bottom)] relative dark:bg-[#111111]">
-      <hr className="dark:border-neutral-800" />
-      <div
-        className={cn(
-          'mx-auto max-w-[90rem] py-12 flex justify-center md:justify-center text-black dark:text-white',
-          'pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]',
-        )}
-      >
-        <FooterContent />
-      </div>
-    </footer>
-  );
-}
+export const Footer = ({menu}: {menu?: boolean}): ReactElement => (
+  <footer className="bg-[#FAFAFA] pb-[env(safe-area-inset-bottom)] relative dark:bg-[#111111]">
+    <hr className="dark:border-neutral-800" />
+    <div
+      className={cn(
+        'mx-auto max-w-[90rem] py-12 flex justify-center md:justify-center text-black dark:text-white',
+        'pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]',
+      )}
+    >
+      <FooterContent />
+    </div>
+  </footer>
+);

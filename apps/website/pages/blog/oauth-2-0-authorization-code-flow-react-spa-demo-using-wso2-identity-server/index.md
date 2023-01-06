@@ -158,4 +158,4 @@ If the login is successful, you will see the “Token Response” and the “ID 
 
 Explore the source code further especially the API requests under the actions folder. If you have any issues or concerns, feel free to raise them at [https://github.com/brionmario/is-samples/issues](https://github.com/brionmario/is-samples/issues).
 
-Happy Coding!
+Signing off… ✌️❤️

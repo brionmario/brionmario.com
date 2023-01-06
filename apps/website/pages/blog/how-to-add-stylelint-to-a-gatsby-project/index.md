@@ -154,8 +154,6 @@ Execute the below command to see the result.
 
 ![Stylelint in Action](https://cdn-images-1.medium.com/max/800/1*ehZQoXOYsH2nKlGjdQWLXg.png)
 
-### — — — — — — — — — -All Done 🥳 — — — — — — — — —
-
 ### Conclusion
 
 Hope you found this blog post useful. Feel free to try this out and if you have any suggestions regarding the blog you can log an issue in [this repo](https://github.com/brionmario/blog-resources/issues).
@@ -164,4 +162,4 @@ Hope you found this blog post useful. Feel free to try this out and if you have 
 
 *   [Source Code](https://github.com/brionmario/gatsby-starter/tree/init-stylelint)
 
-Happy Coding! ❤️
+Signing off… ✌️❤️

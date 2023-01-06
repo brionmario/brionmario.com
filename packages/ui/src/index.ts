@@ -22,5 +22,4 @@
  * SOFTWARE.
  */
 
-
-export * from "./public-api";
+export * from './public-api';

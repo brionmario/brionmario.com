@@ -300,8 +300,6 @@ The final compiled theme bundle can be found [here](https://github.com/brionmari
 
 Feel free to try this out and if you have any suggestions regarding the blog you can log an issue in [this repo](https://github.com/brionmario/blog-resources/issues) and also if you have any issues or suggestions regarding the user portal, please consider logging them [here](https://github.com/wso2/identity-apps/issues).
 
-Happy Coding!
-
 \[1\] [https://github.com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default](https://github.com/Semantic-Org/Semantic-UI-LESS/tree/master/themes/default)
 
 \[2\] [https://semantic-ui.com/usage/theming.html](https://semantic-ui.com/usage/theming.html)
@@ -309,3 +307,5 @@ Happy Coding!
 \[3\] [https://github.com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables](https://github.com/Semantic-Org/Semantic-UI-LESS/blob/master/themes/default/globals/site.variables)
 
 \[4\] Icons made by Freepik [www.flaticon.com](http://www.flaticon.com)
+
+Signing off… ✌️❤️

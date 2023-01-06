@@ -1,4 +1,5 @@
-/* * MIT License
+/**
+ * MIT License
  *
  * Copyright (c) 2022, Brion Mario
  *
@@ -22,7 +23,7 @@
  */
 
 import {ExclamationCircleIcon, ExclamationIcon, InformationCircleIcon, LightBulbIcon} from '@heroicons/react/solid';
-import React, {ReactElement, ReactNode} from 'react';
+import {ReactElement, ReactNode} from 'react';
 
 const THEMES = {
   info: {
@@ -43,26 +44,26 @@ const THEMES = {
   },
 };
 
-export default function Callout({
+const Callout = ({
   children,
   type = 'default',
   icon,
 }: {
   children: ReactNode;
-  type: keyof typeof THEMES;
   icon: ReactElement;
-}) {
-  return (
-    <div className={`${THEMES[type].classes} flex rounded-lg callout mt-6`}>
-      <div
-        className="py-2 pl-3 pr-2 text-xl select-none"
-        style={{
-          fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-        }}
-      >
-        {icon || THEMES[type].icon}
-      </div>
-      <div className="py-2 pr-4 overflow-auto">{children}</div>
+  type: keyof typeof THEMES;
+}) => (
+  <div className={`${THEMES[type].classes} flex rounded-lg callout mt-6`}>
+    <div
+      className="py-2 pl-3 pr-2 text-xl select-none"
+      style={{
+        fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+      }}
+    >
+      {icon || THEMES[type].icon}
     </div>
-  );
-}
+    <div className="py-2 pr-4 overflow-auto">{children}</div>
+  </div>
+);
+
+export default Callout;

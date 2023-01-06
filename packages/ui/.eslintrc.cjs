@@ -47,4 +47,7 @@ module.exports = {
       parser: 'eslint-mdx',
     },
   ],
+  rules: {
+    'import/prefer-default-export': 'off',
+  },
 };

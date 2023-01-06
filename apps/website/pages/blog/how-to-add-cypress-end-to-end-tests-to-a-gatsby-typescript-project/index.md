@@ -266,8 +266,6 @@ npm install --save-dev start-server-and-test
 
 Now if you execute `npm run test:e2e` , the script will execute `npm run start` and will fire up the application and after it is up, it’ll run Cypress in interactive mode.
 
-### — — — — -— — -— — We are Done 🎉 — — — — -— - — —
-
 ### Conclusion
 
 Hope you found this blog post useful. Feel free to try this out and if you have any suggestions regarding the blog you can log an issue in [this repo](https://github.com/brionmario/blog-resources/issues).
@@ -276,4 +274,4 @@ Hope you found this blog post useful. Feel free to try this out and if you have 
 
 *   [Source Code](https://github.com/brionmario/gatsby-starter/tree/init-cypress-e2e)
 
-Happy Coding! ❤️
+Signing off… ✌️❤️

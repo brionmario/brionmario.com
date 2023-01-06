@@ -1,3 +1,27 @@
+/**
+ * MIT License
+ *
+ * Copyright (c) 2023, Brion Mario
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
   themeConfig: './theme.config.js',
@@ -6,117 +30,6 @@ const withNextra = require('nextra')({
 });
 
 const nextConfig = withNextra({
-  reactStrictMode: true,
-  experimental: {
-    legacyBrowsers: false,
-  },
-  webpack: (config, {webpack}) => {
-    // return the modified config
-    return config;
-  },
-  rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/sitemap.xml',
-          destination: 'https://crawled-sitemap.vercel.sh/turbobuild-sitemap.xml',
-        },
-      ],
-    };
-  },
-  async redirects() {
-    return [
-      {
-        source: '/usage',
-        destination: '/reference/command-line-reference',
-        permanent: true,
-      },
-      {
-        source: '/docs/core-concepts/running-tasks',
-        destination: '/repo/docs/core-concepts/monorepos/running-tasks',
-        permanent: true,
-      },
-      {
-        source: '/docs/core-concepts/why-turborepo',
-        destination: '/repo/docs/core-concepts/monorepos',
-        permanent: true,
-      },
-      {
-        source: '/docs/core-concepts/filtering',
-        destination: '/repo/docs/core-concepts/monorepos/filtering',
-        permanent: true,
-      },
-      {
-        source: '/docs/guides/workspaces',
-        destination: '/docs/handbook/workspaces',
-        permanent: true,
-      },
-      {
-        source: '/docs/core-concepts/workspaces',
-        destination: '/docs/handbook/workspaces',
-        permanent: true,
-      },
-      {
-        source: '/docs/core-concepts/pipelines',
-        destination: '/docs/core-concepts/running-tasks',
-        permanent: true,
-      },
-      {
-        source: '/docs/guides/migrate-from-lerna',
-        destination: '/docs/handbook/migrating-to-a-monorepo',
-        permanent: true,
-      },
-      {
-        source: '/docs/getting-started',
-        destination: '/docs',
-        permanent: true,
-      },
-      {
-        source: '/discord{/}?',
-        permanent: true,
-        destination: 'https://discord.gg/sSzyjxvbf5',
-      },
-      {
-        source: '/docs/changelog',
-        permanent: true,
-        destination: 'https://github.com/vercel/turbo/releases',
-      },
-      {
-        source: '/docs/guides/complimentary-tools',
-        permanent: true,
-        destination: '/docs/handbook',
-      },
-      {
-        source: '/docs/guides/monorepo-tools',
-        permanent: true,
-        destination: '/docs/handbook',
-      },
-      {
-        source: '/docs/glossary',
-        permanent: true,
-        destination: '/docs/handbook',
-      },
-      {
-        source: '/docs/guides/continuous-integration',
-        permanent: true,
-        destination: '/docs/ci',
-      },
-      {
-        source: '/docs/features/:path*',
-        permanent: true,
-        destination: '/docs/core-concepts/:path*',
-      },
-      {
-        source: '/docs/:path*',
-        permanent: true,
-        destination: '/repo/docs/:path*',
-      },
-    ];
-  },
-});
-
-module.exports = {
-  ...nextConfig,
   images: {
     remotePatterns: [
       {
@@ -139,4 +52,24 @@ module.exports = {
       },
     ],
   },
-};
+  reactStrictMode: true,
+  experimental: {
+    legacyBrowsers: false,
+  },
+  webpack: config => config,
+  rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: '/sitemap.xml',
+          destination: 'https://brionmario.com/sitemap.xml',
+        },
+      ],
+    };
+  },
+  async redirects() {
+    return [];
+  },
+});
+
+module.exports = nextConfig;

@@ -38,7 +38,7 @@ const SITE_ROOT = 'https://brionmario.com';
  */
 const theme = {
   chat: false,
-  docsRepositoryBase: 'https://github.com/brionmario/brionmario.com/tree/main/apps/website/pages',
+  docsRepositoryBase: 'https://github.com/brionmario/brionmario.com/tree/main/apps/website',
   getNextSeoProps: function SEO() {
     const {frontMatter} = useConfig();
     const defaultTitle = frontMatter.overrideTitle || 'Brion Mario';
@@ -56,9 +56,7 @@ const theme = {
     float: true,
   },
   font: false,
-  feedback: {
-    link: 'Question? Give us feedback →',
-  },
+  feedback: false,
   logo: HeaderLogo,
   logoLink: false,
   head: function Head() {

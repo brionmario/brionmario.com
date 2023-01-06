@@ -556,4 +556,4 @@ Hope you found this blog post useful.
 
 *   [https://github.com/brionmario/gatsby-starter/pull/9](https://github.com/brionmario/gatsby-starter/pull/9)
 
-Happy Coding! ❤️
+Signing off… ✌️❤️
