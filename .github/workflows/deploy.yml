@@ -20,8 +20,8 @@ jobs:
     timeout-minutes: 15
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
-        node-version: [ "16.x" ]
+        os: [ubuntu-latest]
+        node-version: ["16.x"]
     runs-on: ${{ matrix.os }}
     steps:
       - name: ⬇️ Checkout
@@ -73,11 +73,11 @@ jobs:
   deploy:
     name: 🚀 Deploy
     if: github.repository_owner == 'brionmario'
-    needs: [ build ]
+    needs: [build]
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
-        node-version: [ "16.x" ]
+        os: [ubuntu-latest]
+        node-version: ["16.x"]
     runs-on: ${{ matrix.os }}
     steps:
       - name: 👩‍🚀 Start Deployment
@@ -133,6 +133,7 @@ jobs:
           touch .env.local
           echo "MAINTENANCE_MODE='true'" >> .env.local
           echo "NEXT_PUBLIC_ENVIRONMENT=''" >> .env.local
+          echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{secrets.GTM_CONTAINER_ID}}'" >> .env.local
           cd ../..
           yarn build
 
