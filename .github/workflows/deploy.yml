@@ -74,6 +74,8 @@ jobs:
 
           cd ../..
           pnpm build
+
+          cd apps/website
           pnpm generate:site-maps
 
   deploy:
@@ -145,6 +147,8 @@ jobs:
 
           cd ../..
           pnpm build
+
+          cd apps/website
           pnpm generate:site-maps
 
       - name: ▲ Deploy to Vercel
