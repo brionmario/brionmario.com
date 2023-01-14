@@ -12,6 +12,9 @@
 }
 
 @layer base {
+  :root {
+    --bm-color-primary: #5c6ac4;
+  }
   body {
     font-family: 'Space Grotesk', sans-serif;
   }
