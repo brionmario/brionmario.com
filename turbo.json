@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "env": ["NEXT_PUBLIC_GTM_CONTAINER_ID"],
+      "env": ["NEXT_PUBLIC_GTM_CONTAINER_ID", "SITE_URL"],
       "outputs": ["dist/**", ".next/**"]
     },
     "lint": {

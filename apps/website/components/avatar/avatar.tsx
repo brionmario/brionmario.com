@@ -46,14 +46,14 @@ export type AvatarProps<T extends ElementType> = PolymorphicComponent<T> & Testa
  */
 const Avatar: PolymorphicAvatarComponent = forwardRef(
   <T extends ElementType>(props: AvatarProps<T>, ref: PolymorphicRef<T>) => {
-    const {as, children, className, ...rest} = props;
+    const {as, children, className, key, ...rest} = props;
 
     const {classes, css, cx} = useStyles();
 
     const Element: T | ElementType = as || 'img';
 
     return (
-      <Element ref={ref} css={css} className={cx(classes.root, className)} width={20} height={20} {...rest}>
+      <Element ref={ref} key={key} css={css} className={cx(classes.root, className)} width={20} height={20} {...rest}>
         {children}
       </Element>
     );

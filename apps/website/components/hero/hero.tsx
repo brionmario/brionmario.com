@@ -27,6 +27,7 @@ import Image from 'next/future/image';
 import Link from 'next/link';
 import {useTheme} from 'nextra-theme-docs';
 import {ReactElement} from 'react';
+import Logo from '../logos/logo';
 import {CTAButton} from '../pages/home-shared/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {Gradient} from '../pages/home-shared/Gradient';
@@ -61,7 +62,7 @@ const Hero = (props: HeroProps): ReactElement => {
             </span>
           </SectionSubtext>
           <HeroText h1>
-            Brion <span className="hero__title">Mario</span>
+            <Logo alt="Hero section Logo" width={500} height={85} className="hero__logo" />
           </HeroText>
           <SectionSubtext hero>
             <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>

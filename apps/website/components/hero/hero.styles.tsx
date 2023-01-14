@@ -39,13 +39,9 @@ const useStyles = (): {
     .bm-Hero-root {
       background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMicgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyBmaWxsPSdub25lJyBzdHJva2U9J3JnYigyNTUgMjU1IDI1NS8gMC4wMTUpJz48cGF0aCBkPSdNMCAuNUgzMS41VjMyJy8+PC9zdmc+);
     }
-    .hero__title {
-      &:first-of-type {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: hue 10s infinite linear;
-        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+    .hero__logo {
+      .logo-text.mario {
+        fill: var(--bm-color-primary);
       }
     }
     @-webkit-keyframes hue {

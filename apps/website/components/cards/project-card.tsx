@@ -72,6 +72,7 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
             <div className="flex -space-x-4">
               {contributors.map((contributor: ProjectContributor) => (
                 <Avatar
+                  key={contributor.id}
                   as={Image}
                   data-testid="project-avatar-contributor"
                   src={contributor.avatar_url}

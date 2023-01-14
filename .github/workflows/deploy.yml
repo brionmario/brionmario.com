@@ -65,10 +65,16 @@ jobs:
         id: build-the-mono-repo
         run: |
           cd apps/website
+
+          # Set ENV
           touch .env.local
-          echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
+          echo "MAINTENANCE_MODE='true'" >> .env.local
+          echo "NEXT_PUBLIC_ENVIRONMENT=''" >> .env.local
+          echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{secrets.GTM_CONTAINER_ID}}'" >> .env.local
+
           cd ../..
-          yarn build
+          pnpm build
+          pnpm generate:site-maps
 
   deploy:
     name: 🚀 Deploy
@@ -130,12 +136,16 @@ jobs:
         id: build-the-mono-repo
         run: |
           cd apps/website
+
+          # Set ENV
           touch .env.local
           echo "MAINTENANCE_MODE='true'" >> .env.local
           echo "NEXT_PUBLIC_ENVIRONMENT=''" >> .env.local
           echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{secrets.GTM_CONTAINER_ID}}'" >> .env.local
+
           cd ../..
-          yarn build
+          pnpm build
+          pnpm generate:site-maps
 
       - name: ▲ Deploy to Vercel
         id: deploy-to-vercel
@@ -151,9 +161,7 @@ jobs:
       - name: ☄️ Release Project
         id: release-project
         run: |
-          npm install -g yarn
-          yarn install --frozen-lockfile
-          yarn run publish:release
+          pnpm publish:release
 
       - name: 🏁 Finish Deployment
         id: finish-deployment

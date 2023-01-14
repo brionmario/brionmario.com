@@ -25,8 +25,8 @@
 import {TestableComponent} from '@brionmario/ui';
 import {NextRouter, useRouter} from 'next/router';
 import {Page} from 'nextra';
-import {getPagesUnderRoute} from 'nextra/context';
 import {FC, ReactElement, ReactNode} from 'react';
+import {Blogs, useBlogs} from '../../hooks';
 import BlogCard from '../cards/blog-card';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
@@ -42,6 +42,7 @@ export const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = (props: FeaturedBlo
   const {heading, description} = props;
 
   const router: NextRouter = useRouter();
+  const {blogs}: Blogs = useBlogs({limit: BLOG_RECOMMENDATIONS_MAX_LIMIT});
 
   const handleBlogNavigate = (path: string): void => {
     router.push(path);
@@ -54,18 +55,16 @@ export const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = (props: FeaturedBlo
         <SectionSubtext>{description}</SectionSubtext>
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
-        {getPagesUnderRoute('/blog')
-          .slice(0, BLOG_RECOMMENDATIONS_MAX_LIMIT)
-          .map((page: Page & any) => (
-            <FadeIn className="flex" key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}>
-              <BlogCard
-                key={page.route.replace(/\s+/g, '-').toLowerCase()}
-                data-testid={`blog-${page.route}`}
-                frontMatter={page.children[0].frontMatter}
-                onClick={(): void => handleBlogNavigate(page.route)}
-              />
-            </FadeIn>
-          ))}
+        {blogs.map((page: Page & any) => (
+          <FadeIn className="flex" key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}>
+            <BlogCard
+              key={page.route.replace(/\s+/g, '-').toLowerCase()}
+              data-testid={`blog-${page.route}`}
+              frontMatter={page.children[0].frontMatter}
+              onClick={(): void => handleBlogNavigate(page.route)}
+            />
+          </FadeIn>
+        ))}
       </div>
     </section>
   );

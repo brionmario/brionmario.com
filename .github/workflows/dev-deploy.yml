@@ -65,10 +65,19 @@ jobs:
         id: build-the-mono-repo
         run: |
           cd apps/website
+
+          # Set ENV
           touch .env.local
+          echo "MAINTENANCE_MODE='false'" >> .env.local
           echo "NEXT_PUBLIC_ENVIRONMENT='DEV'" >> .env.local
-          cd ../..
-          yarn build
+
+          # Disable crawlers
+          cd public
+          touch robots.txt
+          echo "# Block all crawlers for DEV deployment\nUser-agent: *\nDisallow: /" >> robots.txt
+
+          cd ../../..
+          pnpm build
 
   deploy:
     name: 🚀 Deploy
@@ -138,12 +147,10 @@ jobs:
           # Disable crawlers
           cd public
           touch robots.txt
-          echo "# Block all crawlers for DEV deployment
-User-agent: *
-Disallow: /" >> robots.txt
+          echo "# Block all crawlers for DEV deployment\nUser-agent: *\nDisallow: /" >> robots.txt
 
           cd ../../..
-          yarn build
+          pnpm build
 
       - name: ▲ Deploy to Vercel
         id: deploy-to-vercel
