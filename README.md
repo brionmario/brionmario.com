@@ -1,6 +1,13 @@
-# Turborepo starter
-
-[![semantic-release: angular](https://img.shields.io/badge/semantic--release-angular-e10079?logo=semantic-release)](https://github.com/semantic-release/semantic-release)
+<p align="center" style="color: #343a40">
+  <img
+    src="https://user-images.githubusercontent.com/25959096/206864705-83b29b8f-049d-45d2-8ed4-06ec38d0bcad.svg" alt="Brion Marios's memoji" height="80" width="auto"
+  >
+  <h1 align="center">
+    <img
+      src="https://user-images.githubusercontent.com/25959096/206865437-92fa4df7-2f76-40a2-9298-ad433997d028.png" alt="Brion Mario's logo" height="24" width="auto" style="margin-right: -5px"
+    >
+  </h1>
+</p>
 
 ## Status
 
