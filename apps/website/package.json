@@ -14,7 +14,7 @@
   "author": "Jared Palmer",
   "license": "MPL-2.0",
   "dependencies": {
-    "@brionmario/ui": "*",
+    "@brionmario/ui": "workspace:*",
     "@emotion/css": "^11.10.5",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
