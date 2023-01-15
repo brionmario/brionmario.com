@@ -69,9 +69,10 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
         <div className="flex flex-col gap-2 dark:bg-black">
           <p className="m-0 leading-6 opacity-70 px-3 pt-5 h-24 line-clamp-3 font-space-grotesk">{description}</p>
           <div className="flex flex-row items-center justify-between p-3 border-t dark:border-neutral-800">
-            <div className="flex -space-x-4">
+            <div className="flex -space-x-4 hover:-space-x-0">
               {contributors.map((contributor: ProjectContributor) => (
                 <Avatar
+                  className="transition-all ease-in-out"
                   key={contributor.id}
                   as={Image}
                   data-testid="project-avatar-contributor"
