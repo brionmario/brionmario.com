@@ -25,7 +25,7 @@
 import cn from 'classnames';
 import gradients from './gradients.module.css';
 
-export function Gradient({
+export const Gradient = ({
   width = 1000,
   height = 200,
   opacity,
@@ -36,36 +36,34 @@ export function Gradient({
   className,
   small,
 }: {
-  width?: number | string;
+  blue?: boolean;
+  className?: string;
+  conic?: boolean;
+  gray?: boolean;
   height?: number | string;
   opacity?: number;
   pink?: boolean;
-  blue?: boolean;
-  conic?: boolean;
-  gray?: boolean;
-  className?: string;
   small?: boolean;
-}) {
-  return (
-    <span
-      className={cn(
-        'absolute',
-        gradients.glow,
-        {
-          [gradients.glowPink]: pink,
-          [gradients.glowBlue]: blue,
-          [gradients.glowConic]: conic,
-          [gradients.glowSmall]: small,
-          [gradients.glowGray]: gray,
-        },
-        className,
-      )}
-      style={{
-        width,
-        height,
-        opacity,
-        borderRadius: '100%',
-      }}
-    />
-  );
-}
+  width?: number | string;
+}) => (
+  <span
+    className={cn(
+      'absolute',
+      gradients.glow,
+      {
+        [gradients.glowPink]: pink,
+        [gradients.glowBlue]: blue,
+        [gradients.glowConic]: conic,
+        [gradients.glowSmall]: small,
+        [gradients.glowGray]: gray,
+      },
+      className,
+    )}
+    style={{
+      width,
+      height,
+      opacity,
+      borderRadius: '100%',
+    }}
+  />
+);

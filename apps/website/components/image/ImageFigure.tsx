@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,14 +28,14 @@ import React from 'react';
 type ImageProps = Parameters<typeof Image>[0];
 
 export type ImageFigureProps = ImageProps & {
-  caption?: string;
-  margin?: number;
-  captionSpacing?: number;
-  shadow?: boolean;
   borderRadius?: boolean;
+  caption?: string;
+  captionSpacing?: number;
+  margin?: number;
+  shadow?: boolean;
 };
 
-export function ImageFigure(props: ImageFigureProps): React.ReactNode {
+export const ImageFigure = (props: ImageFigureProps): React.ReactNode => {
   // TODO: Fix types
   // eslint-disable-next-line no-unused-vars
   const {caption, margin = 40, captionSpacing = null, shadow = false, borderRadius = false, ...rest} = props;
@@ -55,4 +56,4 @@ export function ImageFigure(props: ImageFigureProps): React.ReactNode {
       )}
     </figure>
   );
-}
+};

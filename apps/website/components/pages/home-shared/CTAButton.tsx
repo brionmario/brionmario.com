@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,17 +26,17 @@ import cn from 'classnames';
 import {MouseEventHandler} from 'react';
 import gradients from './gradients.module.css';
 
-export function CTAButton({
+export const CTAButton = ({
   children,
   outline,
   onClick,
   monospace,
 }: {
-  outline?: boolean;
   children: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
   monospace?: boolean;
-}) {
+  onClick?: MouseEventHandler<HTMLButtonElement>;
+  outline?: boolean;
+}) => {
   const outlineClasses =
     'border dark:border-neutral-400  dark:text-neutral-200 dark:hover:border-white dark:hover:text-white border-[#EAEAEA] text-neutral-800 hover:border-black hover:text-black';
   const filledClasses = 'dark:text-black text-white border-transparent bg-black dark:bg-white';
@@ -43,6 +44,7 @@ export function CTAButton({
   return (
     <div className="relative w-full group">
       <button
+        type="button"
         onClick={onClick}
         className={`w-full min-w-[120px] text-base font-medium no-underline ${
           outline ? outlineClasses : filledClasses
@@ -60,4 +62,4 @@ export function CTAButton({
       )}
     </div>
   );
-}
+};

@@ -24,10 +24,10 @@
 
 import {Menu, MenuButton, MenuItems, MenuLink, MenuPopover, useMenuButtonContext} from '@reach/menu-button';
 import clsx from 'clsx';
-import {useReducedMotion, AnimatePresence, motion, useAnimation} from 'framer-motion';
+import {useReducedMotion, AnimatePresence, motion} from 'framer-motion';
 import Link, {LinkProps} from 'next/link';
 import {NextRouter, useRouter} from 'next/router';
-import React, {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
+import {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
 import DarkModeSwitch from '../dark-mode-switch/dark-mode-switch';
 import HeaderLogo from '../HeaderLogo';
 

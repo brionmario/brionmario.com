@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,29 +26,25 @@ import cn from 'classnames';
 import {FadeIn} from './FadeIn';
 import gradients from './gradients.module.css';
 
-export function GradientSectionBorder({children}: {children: React.ReactNode}) {
-  return (
-    <section className={cn('relative overflow-hidden')}>
-      <FadeIn noVertical viewTriggerOffset>
-        <span
-          className={cn('w-full absolute white h-[1px] top-0 opacity-25', gradients.gradientSectionBorderDivider)}
-        />
-        <span
-          className={cn(
-            gradients.gradientSectionBorder,
-            gradients.gradientSectionBorderLeft,
-            'dark:opacity-35 opacity-[0.15]',
-          )}
-        />
-        <span
-          className={cn(
-            gradients.gradientSectionBorder,
-            gradients.gradientSectionBorderRight,
-            'dark:opacity-35 opacity-[0.15]',
-          )}
-        />
-      </FadeIn>
-      {children}
-    </section>
-  );
-}
+export const GradientSectionBorder = ({children}: {children: React.ReactNode}) => (
+  <section className={cn('relative overflow-hidden')}>
+    <FadeIn noVertical viewTriggerOffset>
+      <span className={cn('w-full absolute white h-[1px] top-0 opacity-25', gradients.gradientSectionBorderDivider)} />
+      <span
+        className={cn(
+          gradients.gradientSectionBorder,
+          gradients.gradientSectionBorderLeft,
+          'dark:opacity-35 opacity-[0.15]',
+        )}
+      />
+      <span
+        className={cn(
+          gradients.gradientSectionBorder,
+          gradients.gradientSectionBorderRight,
+          'dark:opacity-35 opacity-[0.15]',
+        )}
+      />
+    </FadeIn>
+    {children}
+  </section>
+);

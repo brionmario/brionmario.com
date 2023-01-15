@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-import clsx from 'clsx';
 import {FC, ReactElement, SVGProps} from 'react';
 
 type LogoProps = SVGProps<SVGSVGElement> & {alt: string};
