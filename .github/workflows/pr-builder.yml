@@ -107,6 +107,10 @@ jobs:
         id: install-dependencies
         run: pnpm install
 
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: pnpm build
+
       - name: ☄️ Check Type Errors
         run: pnpm typecheck
 
