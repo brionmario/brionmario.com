@@ -23,7 +23,6 @@
  */
 
 import NextImage from 'next/future/image';
-import React from 'react';
 
 export interface Image {
   height: number;

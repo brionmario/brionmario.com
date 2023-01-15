@@ -65,35 +65,8 @@ const NavLink = ({href, title, ...rest}: PropsWithChildren<NavigationItem>): Rea
   );
 };
 
-const Navigation = ({items}: NavigationProps): ReactElement => (
-  <div className="py-9">
-    <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
-      <div className="flex justify-center gap-4 align-middle">
-        <HeaderLogo />
-      </div>
-
-      <div className="flex">
-        <ul className="hidden lg:flex">
-          {items.map((item: NavigationItem) => (
-            <NavLink key={item.route} href={item.route} title={item.title}>
-              {item.name}
-            </NavLink>
-          ))}
-        </ul>
-        <div className="flex items-center justify-center">
-          <div className="block lg:hidden">
-            <MobileMenu items={items} />
-          </div>
-          <div className="noscript-hidden lg:block">
-            <DarkModeSwitch className="ml-4" />
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-);
-
-const MobileMenuList = ({items}): ReactElement => {
+// TODO: Fix types
+const MobileMenuList = ({items}: any): ReactElement => {
   const {isExpanded} = useMenuButtonContext();
   const shouldReduceMotion: boolean = useReducedMotion();
 
@@ -168,7 +141,8 @@ const bottomVariants = {
   closed: {rotate: 0, y: 0},
 };
 
-const MobileMenu = ({items}) => {
+// TODO: Fix types
+const MobileMenu = ({items}: any) => {
   const shouldReduceMotion = useReducedMotion();
   const transition = shouldReduceMotion ? {duration: 0} : {};
   return (
@@ -223,13 +197,32 @@ const MobileMenu = ({items}) => {
   );
 };
 
-// Timing durations used to control the speed of the team ring in the profile button.
-// Time is seconds per full rotation
-const durations = {
-  initial: 40,
-  hover: 3,
-  focus: 3,
-  active: 0.25,
-};
+const Navigation = ({items}: NavigationProps): ReactElement => (
+  <div className="py-9">
+    <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
+      <div className="flex justify-center gap-4 align-middle">
+        <HeaderLogo />
+      </div>
+
+      <div className="flex">
+        <ul className="hidden lg:flex">
+          {items.map((item: NavigationItem) => (
+            <NavLink key={item.route} href={item.route} title={item.title}>
+              {item.name}
+            </NavLink>
+          ))}
+        </ul>
+        <div className="flex items-center justify-center">
+          <div className="block lg:hidden">
+            <MobileMenu items={items} />
+          </div>
+          <div className="noscript-hidden lg:block">
+            <DarkModeSwitch className="ml-4" />
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+);
 
 export default Navigation;

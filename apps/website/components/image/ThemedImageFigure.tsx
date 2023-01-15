@@ -32,7 +32,7 @@ export type ThemedImageFigureProps = Omit<ImageFigureProps, 'src'> & ThemedImage
 export const ThemedImageFigure = (props: ThemedImageFigureProps): React.ReactNode => {
   // TODO: Fix types
   // eslint-disable-next-line no-unused-vars
-  const {caption, margin = 40, captionSpacing = null, shadow = false, borderRadius = false, ...rest} = props;
+  const {caption, margin = 40, captionSpacing = null, borderRadius = false, ...rest} = props;
 
   return (
     <figure

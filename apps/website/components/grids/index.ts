@@ -22,6 +22,5 @@
  * SOFTWARE.
  */
 
-
 export * from './featured-blogs-grid';
 export * from './featured-projects-grid';

@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@brionmario/eslint-plugin': ^0.2.7
+      '@brionmario/eslint-plugin': ^0.2.9
       '@semantic-release/changelog': ^6.0.1
       '@semantic-release/exec': ^6.0.3
       '@semantic-release/git': ^10.0.1
@@ -14,7 +14,7 @@ importers:
       semantic-release: ^19.0.2
       turbo: latest
     devDependencies:
-      '@brionmario/eslint-plugin': 0.2.7_eslint@8.29.0
+      '@brionmario/eslint-plugin': 0.2.9_eslint@8.29.0
       '@semantic-release/changelog': 6.0.2_semantic-release@19.0.5
       '@semantic-release/exec': 6.0.3_semantic-release@19.0.5
       '@semantic-release/git': 10.0.1_semantic-release@19.0.5
@@ -27,7 +27,7 @@ importers:
   apps/website:
     specifiers:
       '@babel/core': 7.19.3
-      '@brionmario/eslint-plugin': ^0.2.7
+      '@brionmario/eslint-plugin': ^0.2.9
       '@brionmario/prettier-config': ^0.1.0
       '@brionmario/ui': workspace:*
       '@emotion/css': ^11.10.5
@@ -113,7 +113,7 @@ importers:
       swr: 1.3.0_react@18.2.0
     devDependencies:
       '@babel/core': 7.19.3
-      '@brionmario/eslint-plugin': 0.2.7_6rep66rojmwsn4bfraotajskeu
+      '@brionmario/eslint-plugin': 0.2.9_6rep66rojmwsn4bfraotajskeu
       '@brionmario/prettier-config': 0.1.0_xwureqoch7frpr2i35ruxzci5i
       '@types/node': 16.18.6
       '@types/react': 18.0.21
@@ -136,7 +136,7 @@ importers:
 
   packages/ui:
     specifiers:
-      '@brionmario/eslint-plugin': ^0.2.7
+      '@brionmario/eslint-plugin': ^0.2.9
       '@brionmario/prettier-config': ^0.1.0
       '@emotion/react': ^11.10.5
       '@testing-library/react': ^13.4.0
@@ -157,7 +157,7 @@ importers:
       '@emotion/react': 11.10.5_kzbn2opkn2327fwg5yzwzya5o4
       clsx: 1.2.1
     devDependencies:
-      '@brionmario/eslint-plugin': 0.2.7_qtt5kpxtywcg363kom674r3niu
+      '@brionmario/eslint-plugin': 0.2.9_qtt5kpxtywcg363kom674r3niu
       '@brionmario/prettier-config': 0.1.0_dwcmg7j3s65kdkfd55lzy6diba
       '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/jest': 29.2.4
@@ -574,8 +574,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@brionmario/eslint-plugin/0.2.7_6rep66rojmwsn4bfraotajskeu:
-    resolution: {integrity: sha512-OyqMf97nOuxBnvhRb15y3igqi6MGIyOkghziloyWGMM+oOLUISPS8iSQDHlj12/eHyVpRO/svHQWQfoOjvLtOw==}
+  /@brionmario/eslint-plugin/0.2.9_6rep66rojmwsn4bfraotajskeu:
+    resolution: {integrity: sha512-8CiTzJXqUFIbLOsLcjVzQmGldEuZEbu4rN2xPiKQFZmy5fU3DCv/JJLAWz3blH1K2JAR2SADtcDyBlZ+E06J7w==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -617,8 +617,8 @@ packages:
       - supports-color
     dev: true
 
-  /@brionmario/eslint-plugin/0.2.7_eslint@8.29.0:
-    resolution: {integrity: sha512-OyqMf97nOuxBnvhRb15y3igqi6MGIyOkghziloyWGMM+oOLUISPS8iSQDHlj12/eHyVpRO/svHQWQfoOjvLtOw==}
+  /@brionmario/eslint-plugin/0.2.9_eslint@8.29.0:
+    resolution: {integrity: sha512-8CiTzJXqUFIbLOsLcjVzQmGldEuZEbu4rN2xPiKQFZmy5fU3DCv/JJLAWz3blH1K2JAR2SADtcDyBlZ+E06J7w==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=8.0.0'
@@ -659,8 +659,8 @@ packages:
       - supports-color
     dev: true
 
-  /@brionmario/eslint-plugin/0.2.7_qtt5kpxtywcg363kom674r3niu:
-    resolution: {integrity: sha512-OyqMf97nOuxBnvhRb15y3igqi6MGIyOkghziloyWGMM+oOLUISPS8iSQDHlj12/eHyVpRO/svHQWQfoOjvLtOw==}
+  /@brionmario/eslint-plugin/0.2.9_qtt5kpxtywcg363kom674r3niu:
+    resolution: {integrity: sha512-8CiTzJXqUFIbLOsLcjVzQmGldEuZEbu4rN2xPiKQFZmy5fU3DCv/JJLAWz3blH1K2JAR2SADtcDyBlZ+E06J7w==}
     engines: {node: ^14.17.0 || ^16.0.0 || >= 18.0.0}
     peerDependencies:
       eslint: '>=8.0.0'

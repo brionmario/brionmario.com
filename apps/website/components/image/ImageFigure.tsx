@@ -38,7 +38,7 @@ export type ImageFigureProps = ImageProps & {
 export const ImageFigure = (props: ImageFigureProps): React.ReactNode => {
   // TODO: Fix types
   // eslint-disable-next-line no-unused-vars
-  const {caption, margin = 40, captionSpacing = null, shadow = false, borderRadius = false, ...rest} = props;
+  const {caption, margin = 40, captionSpacing = null, ...rest} = props;
 
   return (
     <figure className="block text-center" style={{margin: `${margin}px 0`}}>
