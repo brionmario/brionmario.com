@@ -55,5 +55,14 @@ module.exports = {
   rules: {
     'react/no-unknown-property': ['error', {ignore: ['css']}],
     'import/prefer-default-export': 'off',
+    // TODO: Disable this in the shared config.
+    'no-restricted-exports': [
+      'error',
+      {
+        restrictedNamedExports: [
+          'then', // this will cause tons of confusion when your module is dynamically `import()`ed, and will break in most node ESM versions
+        ],
+      },
+    ],
   },
 };

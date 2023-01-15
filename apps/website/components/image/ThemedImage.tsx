@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,42 +23,39 @@
  */
 
 import NextImage from 'next/future/image';
-import React from 'react';
 
 export interface Image {
   height: number;
-  width: number;
   source: string;
+  width: number;
 }
 
 export interface ThemedImageProps {
-  title?: string;
   dark?: Image;
   light?: Image;
   priority?: boolean;
+  title?: string;
 }
 
-export function ThemedImage({title, light, dark, priority = false}: ThemedImageProps) {
-  return (
-    <>
-      <div className="block w-full dark:hidden">
-        <NextImage
-          alt={title as string}
-          src={light?.source as string}
-          width={light?.width as number}
-          height={light?.height as number}
-          priority={priority as boolean}
-        />
-      </div>
-      <div className="hidden w-full dark:block">
-        <NextImage
-          alt={title as string}
-          src={dark?.source as string}
-          width={dark?.width as number}
-          height={dark?.height as number}
-          priority={priority as boolean}
-        />
-      </div>
-    </>
-  );
-}
+export const ThemedImage = ({title, light, dark, priority = false}: ThemedImageProps) => (
+  <>
+    <div className="block w-full dark:hidden">
+      <NextImage
+        alt={title as string}
+        src={light?.source as string}
+        width={light?.width as number}
+        height={light?.height as number}
+        priority={priority as boolean}
+      />
+    </div>
+    <div className="hidden w-full dark:block">
+      <NextImage
+        alt={title as string}
+        src={dark?.source as string}
+        width={dark?.width as number}
+        height={dark?.height as number}
+        priority={priority as boolean}
+      />
+    </div>
+  </>
+);

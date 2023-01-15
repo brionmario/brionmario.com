@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +30,10 @@ import useSWR from 'swr';
 export {Tab};
 
 export const Tabs: FC<{
-  storageKey?: string;
-  items: string[];
   children: ReactElement;
-}> = function ({storageKey = 'tab-index', items, children = null, ...props}) {
+  items: string[];
+  storageKey?: string;
+}> = ({storageKey = 'tab-index', items, children = null, ...props}) => {
   // Use SWR so all tabs with the same key can sync their states.
   const {data, mutate} = useSWR(storageKey, key => {
     try {

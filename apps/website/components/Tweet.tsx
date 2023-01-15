@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,34 +25,32 @@
 import Image from 'next/image';
 
 // TODO: Fix Types
-function TweetLink({href, children}: any) {
-  return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block text-[#35ACDF]">
-      {children}
-    </a>
-  );
-}
+const TweetLink = ({href, children}: any) => (
+  <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block text-[#35ACDF]">
+    {children}
+  </a>
+);
 
 // TODO: Fix Types
-export function Mention({children}: any) {
-  return <TweetLink href={`https://twitter.com/${children.replace('@', '')}`}>{children}</TweetLink>;
-}
+export const Mention = ({children}: any) => (
+  <TweetLink href={`https://twitter.com/${children.replace('@', '')}`}>{children}</TweetLink>
+);
 
 // TODO: Fix Types
-export default function Tweet({username, name, avatar, date, children}: any) {
-  return (
-    <div className="flex p-4 bg-white rounded-md shadow-xl dark:bg-opacity-10">
-      <div className="flex-shrink-0 mr-4">
-        <Image className="w-12 h-12 rounded-full" width={42} height={42} src={avatar} alt={`${name} twitter avatar`} />
-      </div>
-      <div>
-        <div className="flex items-center space-x-1 text-sm">
-          <h4 className="font-medium dark:text-white">{name}</h4>
-          <div className="truncate dark:text-gray-400">@{username}</div>
-          <div className="dark:text-gray-500 md:hidden xl:block">• {date}</div>
-        </div>
-        <div className="mt-1 text-sm dark:text-gray-200">{children}</div>
-      </div>
+const Tweet = ({username, name, avatar, date, children}: any) => (
+  <div className="flex p-4 bg-white rounded-md shadow-xl dark:bg-opacity-10">
+    <div className="flex-shrink-0 mr-4">
+      <Image className="w-12 h-12 rounded-full" width={42} height={42} src={avatar} alt={`${name} twitter avatar`} />
     </div>
-  );
-}
+    <div>
+      <div className="flex items-center space-x-1 text-sm">
+        <h4 className="font-medium dark:text-white">{name}</h4>
+        <div className="truncate dark:text-gray-400">@{username}</div>
+        <div className="dark:text-gray-500 md:hidden xl:block">• {date}</div>
+      </div>
+      <div className="mt-1 text-sm dark:text-gray-200">{children}</div>
+    </div>
+  </div>
+);
+
+export default Tweet;

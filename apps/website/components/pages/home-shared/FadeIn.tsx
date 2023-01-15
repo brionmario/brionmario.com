@@ -25,7 +25,7 @@
 import {motion, useInView} from 'framer-motion';
 import {useRef} from 'react';
 
-export function FadeIn({
+export const FadeIn = ({
   children,
   className,
   noVertical,
@@ -34,10 +34,10 @@ export function FadeIn({
 }: {
   children: React.ReactNode;
   className?: string;
-  noVertical?: boolean;
   delay?: number;
+  noVertical?: boolean;
   viewTriggerOffset?: boolean;
-}) {
+}) => {
   const ref = useRef(null);
   const inView = useInView(ref, {
     once: true,
@@ -71,4 +71,4 @@ export function FadeIn({
       {children}
     </motion.div>
   );
-}
+};

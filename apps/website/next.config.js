@@ -40,19 +40,16 @@ const nextConfig = withNextra({
       {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
-        port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'miro.medium.com',
-        port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'cdn-images-1.medium.com',
-        port: '',
         pathname: '/**',
       },
     ],
