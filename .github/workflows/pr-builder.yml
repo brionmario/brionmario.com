@@ -225,4 +225,4 @@ jobs:
 
           # SEO work
           cd apps/website
-          pnpm generate:site-maps
+          pnpm generate:site-map
