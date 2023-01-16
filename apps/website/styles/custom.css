@@ -8,15 +8,16 @@ code {
 
 .dark footer,
 .dark body {
-  background-color: #0d1117 !important;
+  background-color: var(--brionmario-palette-background-main) !important;
 }
 
 .dark .nextra-nav-container .nextra-nav-container-blur {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: var(--brionmario-palette-background-main) !important;
 }
 
 html[class~=dark] .nextra-scrollbar .nx-items-start {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: var(--brionmario-palette-background-main) !important;
+  box-shadow: none;
 }
 
 .dark .invert-on-dark {
