@@ -111,7 +111,7 @@ const MobileMenuList = ({items}: any): ReactElement => {
               {items.map(link => (
                 <Link key={link.route} href={link.route}>
                   <MenuLink
-                    className="bg-white dark:bg-gray-900 focus:bg-white dark:focus:bg-gray-900 text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
+                    className="bg-white dark:bg-gray-900 focus:bg-white dark:focus:bg-gray-900 text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
                     as="a"
                   >
                     {link.title}

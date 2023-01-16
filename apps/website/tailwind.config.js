@@ -62,7 +62,10 @@ module.exports = {
         yellow: colors.yellow,
         'pink-gradient-start': 'rgba(255, 30, 86, 1)',
         bunker: '#161b22',
-        primary: 'var(--bm-color-primary)',
+        primary: 'var(--brionmario-palette-primary-main)',
+        background: {
+          surface: 'var(--brionmario-palette-background-surface)',
+        },
         slate: {
           500: '#a9adc1',
         },
