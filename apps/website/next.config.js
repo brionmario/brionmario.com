@@ -59,16 +59,6 @@ const nextConfig = withNextra({
     legacyBrowsers: false,
   },
   webpack: config => config,
-  rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/sitemap.xml',
-          destination: 'https://brionmario.com/sitemap.xml',
-        },
-      ],
-    };
-  },
   async redirects() {
     return [];
   },
