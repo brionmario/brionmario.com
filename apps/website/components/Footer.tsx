@@ -47,7 +47,7 @@ export const FooterContent = () => (
 );
 
 export const Footer = (): ReactElement => (
-  <footer className="bg-[#FAFAFA] pb-[env(safe-area-inset-bottom)] relative dark:bg-[#111111]">
+  <footer className="bg-background-main pb-[env(safe-area-inset-bottom)] relative">
     <hr className="dark:border-neutral-800" />
     <div
       className={cn(
