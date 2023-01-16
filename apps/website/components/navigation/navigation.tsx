@@ -105,13 +105,13 @@ const MobileMenuList = ({items}: any): ReactElement => {
               duration: shouldReduceMotion ? 0 : 0.15,
               ease: 'linear',
             }}
-            className="bg-primary flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
+            className="bg-background-main flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
           >
             <MenuItems className="border-none bg-transparent p-0">
               {items.map(link => (
                 <Link key={link.route} href={link.route}>
                   <MenuLink
-                    className="bg-white dark:bg-gray-900 focus:bg-white dark:focus:bg-gray-900 text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
+                    className="bg-background-main hover:bg-background-light focus:bg-background-light text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
                     as="a"
                   >
                     {link.title}

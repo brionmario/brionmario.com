@@ -64,6 +64,8 @@ module.exports = {
         bunker: '#161b22',
         primary: 'var(--brionmario-palette-primary-main)',
         background: {
+          main: 'var(--brionmario-palette-background-main)',
+          light: 'var(--brionmario-palette-background-light)',
           surface: 'var(--brionmario-palette-background-surface)',
         },
         slate: {
