@@ -57,7 +57,7 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
 
   return (
     <div
-      className="box-border relative flex flex-col gap-5 p-0 overflow-hidden text-black no-underline border dark:text-white rounded-md w-full dark:border-neutral-800 dark:bg-black hover:border-neutral-500 dark:hover:border-neutral-100 hover:cursor-pointer"
+      className="relative flex flex-col gap-5 p-0 overflow-hidden bg-white text-black no-underline border border-gray-200 hover:border-transparent dark:text-white rounded-md w-full dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface hover:shadow-lg focus-ring hover:cursor-pointer"
       {...rest}
     >
       <div className="flex flex-col gap-2 h-full justify-between">
@@ -66,7 +66,7 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
           <p className="m-0 font-medium leading-5 text-gray-900 dark:text-white">{fullName}</p>
         </div>
 
-        <div className="flex flex-col gap-2 dark:bg-black">
+        <div className="flex flex-col gap-2 dark:bg-background-surface">
           <p className="m-0 leading-6 opacity-70 px-3 pt-5 h-24 line-clamp-3 font-space-grotesk">{description}</p>
           <div className="flex flex-row items-center justify-between p-3 border-t dark:border-neutral-800">
             <div className="flex -space-x-4 hover:-space-x-0">
