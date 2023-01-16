@@ -30,7 +30,6 @@ import {ReactElement} from 'react';
 import Logo from '../logos/logo';
 import {CTAButton} from '../pages/home-shared/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';
-import {Gradient} from '../pages/home-shared/Gradient';
 import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
 import useStyles from './hero.styles';
 
