@@ -69,6 +69,7 @@ const NavLink = ({href, title, ...rest}: PropsWithChildren<NavigationItem>): Rea
 const MobileMenuList = ({items}: any): ReactElement => {
   const {isExpanded} = useMenuButtonContext();
   const shouldReduceMotion: boolean = useReducedMotion();
+  const router = useRouter();
 
   useEffect(() => {
     if (isExpanded) {
@@ -83,6 +84,10 @@ const MobileMenuList = ({items}: any): ReactElement => {
       document.body.style.removeProperty('height');
     }
   }, [isExpanded]);
+
+  const handleRouting = (path: string): void => {
+    router.push(path);
+  };
 
   return (
     <AnimatePresence>
@@ -100,7 +105,7 @@ const MobileMenuList = ({items}: any): ReactElement => {
           <motion.div
             initial={{y: -50, opacity: 0}}
             animate={{y: 0, opacity: 1}}
-            exit={{y: -50, opacity: 0}}
+            exit={{y: -50, opacity: 0, transition: {delay: 1}}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.15,
               ease: 'linear',
@@ -109,14 +114,14 @@ const MobileMenuList = ({items}: any): ReactElement => {
           >
             <MenuItems className="border-none bg-transparent p-0">
               {items.map(link => (
-                <Link key={link.route} href={link.route}>
-                  <MenuLink
-                    className="bg-background-main hover:bg-background-light focus:bg-background-light text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
-                    as="a"
-                  >
-                    {link.title}
-                  </MenuLink>
-                </Link>
+                <MenuLink
+                  key={link.route}
+                  className="bg-background-main hover:bg-background-light focus:bg-background-light text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
+                  as="a"
+                  onClick={() => handleRouting(link.route)}
+                >
+                  {link.title}
+                </MenuLink>
               ))}
             </MenuItems>
           </motion.div>
