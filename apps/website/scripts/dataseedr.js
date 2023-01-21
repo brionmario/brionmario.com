@@ -23,6 +23,12 @@
  * SOFTWARE.
  */
 
+/**
+ * @fileoverview Data Seeder Script for the Website.
+ * Call this script like follows.
+ *     node dataseedr.js --token=<YOUR GITHUB PAT>
+ */
+
 import yargs from 'yargs';
 import {hideBin} from 'yargs/helpers';
 import fetch from 'node-fetch';
@@ -37,7 +43,7 @@ const __filename = fileURLToPath(import.meta.url);
 // eslint-disable-next-line no-underscore-dangle
 const __dirname = dirname(__filename);
 
-const argv = yargs(hideBin(process.argv));
+const {argv} = yargs(hideBin(process.argv));
 
 // Constants.
 const Logger = Object.freeze({
@@ -163,7 +169,7 @@ const generateGhProjects = async () => {
   } while (hasNextPage);
 
   try {
-    fs.writeJsonSync(GH_PROJECTS_OUTPUT_PATH, projects);
+    fs.writeFileSync(GH_PROJECTS_OUTPUT_PATH, JSON.stringify(projects, null, 2));
     Logger.info('\n✅ GitHub projects were written to the JSON at the following location.');
     Logger.info(`\n    → ${GH_PROJECTS_OUTPUT_PATH}\n`);
   } catch (e) {
