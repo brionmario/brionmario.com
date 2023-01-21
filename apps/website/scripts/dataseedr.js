@@ -61,7 +61,7 @@ const GH_PER_PAGE_DEFAULT_COUNT = 100;
 const GH_PROJECTS_OUTPUT_PATH = join(__dirname, '..', 'data', 'autogen', 'gh_projects.json');
 
 // Resolved CLI args.
-const GH_ACCESS_TOKEN = argv[SUPPORTED_CLI_ARGS.TOKEN] || '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';
+const GH_ACCESS_TOKEN = argv[SUPPORTED_CLI_ARGS.TOKEN];
 const SITE_NAME = argv[SUPPORTED_CLI_ARGS.SITE_NAME] || CLI_ARG_DEFAULTS.SITE_NAME;
 const GH_REPO_OWNER = argv[SUPPORTED_CLI_ARGS.GH_REPO_OWNER] || CLI_ARG_DEFAULTS.GH_REPO_OWNER;
 
