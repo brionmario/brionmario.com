@@ -29,19 +29,11 @@
  *     node dataseedr.js --token=<YOUR GITHUB PAT>
  */
 
-import yargs from 'yargs';
-import {hideBin} from 'yargs/helpers';
-import fetch from 'node-fetch';
-import fs from 'fs-extra';
-import {fileURLToPath} from 'url';
-import {dirname, join} from 'path';
-
-// __dirname is not available in ESM.
-// https://stackoverflow.com/a/64383997
-// eslint-disable-next-line no-underscore-dangle
-const __filename = fileURLToPath(import.meta.url);
-// eslint-disable-next-line no-underscore-dangle
-const __dirname = dirname(__filename);
+const yargs = require('yargs');
+const {hideBin} = require('yargs/helpers');
+const fetch = require('node-fetch');
+const fs = require('fs-extra');
+const path = require('path');
 
 const {argv} = yargs(hideBin(process.argv));
 
@@ -64,7 +56,7 @@ const CLI_ARG_DEFAULTS = Object.freeze({
   GH_REPO_OWNER: 'brionmario',
 });
 const GH_PER_PAGE_DEFAULT_COUNT = 100;
-const GH_PROJECTS_OUTPUT_PATH = join(__dirname, '..', 'data', 'autogen', 'gh_projects.json');
+const GH_PROJECTS_OUTPUT_PATH = path.join(__dirname, '..', 'data', 'autogen', 'gh_projects.json');
 
 // Resolved CLI args.
 const GH_ACCESS_TOKEN = argv[SUPPORTED_CLI_ARGS.TOKEN];
