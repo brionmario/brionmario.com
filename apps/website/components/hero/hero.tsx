@@ -63,7 +63,7 @@ const Hero = (props: HeroProps): ReactElement => {
           </HeroText>
           <SectionSubtext hero>
             <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>
-            <div>
+            <div className="hero__greeting__caption__employment">
               Currently working as a Senior Software Engineer at
               <Link href="https://wso2.com" target="_blank" rel="noopener noreferrer">
                 <span className="hero__greeting__caption__employment__wso2">
