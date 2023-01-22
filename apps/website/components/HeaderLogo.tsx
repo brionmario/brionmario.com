@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,15 +26,13 @@ import Link from 'next/link';
 import styles from './header-logo.module.css';
 import Logo, {LogoMobile} from './logos/logo';
 
-function HeaderLogo() {
-  return (
-    <Link href="/" passHref>
-      <a title="Home" className="hover:opacity-75">
-        <LogoMobile alt="Site mobile logo" height={40} width={40} className={styles.mobileLogo} />
-        <Logo alt="Site logo" height={32} width={200} className={styles.desktopLogo} />
-      </a>
-    </Link>
-  );
-}
+const HeaderLogo = () => (
+  <Link href="/" passHref>
+    <a title="Home" href="/" className="hover:opacity-75">
+      <LogoMobile alt="Site mobile logo" height={40} width={40} className={styles.mobileLogo} />
+      <Logo alt="Site logo" height={32} width={200} className={styles.desktopLogo} />
+    </a>
+  </Link>
+);
 
 export default HeaderLogo;

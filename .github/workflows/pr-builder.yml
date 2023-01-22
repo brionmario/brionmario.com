@@ -1,0 +1,229 @@
+# This workflow will build PRs submitted to the main branch.
+
+name: 👷 PR Builder
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths-ignore:
+      - "**.md"
+      - "LICENSE"
+  workflow_dispatch:
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+  lint:
+    name: ⬣ ESLint (STATIC ANALYSIS)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*]
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          # We need to fetch all branches and commits so that Nx affected has a base to compare against.
+          fetch-depth: 0
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 🥡 Setup pnpm
+        id: setup-pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+          run_install: false
+
+      - name: 🎈 Get pnpm store directory
+        id: get-pnpm-cache-dir
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: ${{ steps.get-pnpm-cache-dir.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🦄 Lint All Files
+        id: lint-with-eslint
+        run: pnpm lint
+
+  typecheck:
+    name: ʦ Typecheck (STATIC ANALYSIS)
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*]
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+          run_install: false
+
+      - name: 🎈 Get pnpm store directory
+        id: get-pnpm-cache-dir
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: ${{ steps.get-pnpm-cache-dir.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: pnpm build
+
+      - name: ☄️ Check Type Errors
+        run: pnpm typecheck
+
+  test:
+    name: 👾 Unit Test (TESTING)
+    needs: [lint, typecheck]
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [lts/*]
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 🥡 Setup pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+          run_install: false
+
+      - name: 🎈 Get pnpm store directory
+        id: get-pnpm-cache-dir
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: ${{ steps.get-pnpm-cache-dir.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🃏 Run Jest & Collect Coverage
+        id: run-jest-test-and-coverage
+        run: pnpm test
+
+  build:
+    name: 🚧 Build
+    needs: [lint, typecheck, test]
+    timeout-minutes: 15
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [lts/*]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+
+      - name: 🟢 Setup node
+        id: setup-node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: 🥡 Setup pnpm
+        id: setup-pnpm
+        uses: pnpm/action-setup@v2.1.0
+        with:
+          version: latest
+          run_install: false
+
+      - name: 🎈 Get pnpm store directory
+        id: get-pnpm-cache-dir
+        run: |
+          echo "::set-output name=pnpm_cache_dir::$(pnpm store path)"
+
+      - name: 🔆 Cache pnpm modules
+        uses: actions/cache@v3
+        id: pnpm-cache
+        with:
+          path: ${{ steps.get-pnpm-cache-dir.outputs.pnpm_cache_dir }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: 🧩 Install Dependencies
+        id: install-dependencies
+        run: pnpm install
+
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: |
+          cd apps/website
+
+          # Set ENV
+          touch .env.local
+          echo "NEXT_PUBLIC_ENVIRONMENT='PROD'" >> .env.local
+          echo "MAINTENANCE_MODE='false'" >> .env.local
+          echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{secrets.GTM_CONTAINER_ID}}'" >> .env.local
+          echo "SITE_URL='https://brionmario.com'" >> .env.local
+
+          cd ../..
+          pnpm build
+
+          # SEO work
+          cd apps/website
+          pnpm generate:site-map

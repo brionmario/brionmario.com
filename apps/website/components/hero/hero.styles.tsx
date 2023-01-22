@@ -36,16 +36,15 @@ const useStyles = (): {
     root: 'bm-Hero-root w-auto pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-40 flex justify-between gap-8 items-center flex-col relative z-0',
   },
   css: css`
-    .bm-Hero-root {
-      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAzMiAzMicgd2lkdGg9JzMyJyBoZWlnaHQ9JzMyJyBmaWxsPSdub25lJyBzdHJva2U9J3JnYigyNTUgMjU1IDI1NS8gMC4wMTUpJz48cGF0aCBkPSdNMCAuNUgzMS41VjMyJy8+PC9zdmc+);
-    }
-    .hero__title {
-      &:first-of-type {
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: hue 10s infinite linear;
-        background-image: linear-gradient(90deg, #007cf0, #00dfd8);
+    .hero__logo {
+      width: 100%;
+
+      .logo-text.mario {
+        fill: var(--brionmario-palette-primary-main);
+      }
+
+      .logo-text.brion {
+        fill: var(--brionmario-palette-current-main);
       }
     }
     @-webkit-keyframes hue {
@@ -62,10 +61,11 @@ const useStyles = (): {
       flex-wrap: nowrap;
       align-content: center;
       align-items: center;
-    }
-    .hero__greeting__wave {
-      font-size: 2em;
-      margin-right: 10px;
+
+      &__wave {
+        font-size: 2em;
+        margin-right: 10px;
+      }
     }
     .hero__caption {
       max-width: 400px;
@@ -76,8 +76,8 @@ const useStyles = (): {
       margin-left: 5px;
     }
     .mask {
-      mask-image: linear-gradient(black, transparent);
-      -webkit-mask-image: linear-gradient(black, transparent);
+      mask-image: linear-gradient(var(--brionmario-palette-background-main), transparent);
+      -webkit-mask-image: linear-gradient(var(--brionmario-palette-background-main), transparent);
       filter: grayscale(1);
       mix-blend-mode: lighten;
       z-index: -1;

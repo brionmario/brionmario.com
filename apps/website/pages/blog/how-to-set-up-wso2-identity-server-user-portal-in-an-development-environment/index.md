@@ -37,7 +37,7 @@ In order to achieve the above, a centralized theming mechanism is a must. Theref
 When the final version of the WSO2 Identity Server 5.10.0 is released, the user portal will be available under the following URl.
 
 ```js
-_http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/user-portal_
+_http(s)://SERVER_HOST/t/TENANT_DOMAIN/user-portal_
 ```
 
 If you are planning on setting up the repo in a development environment follow the steps below.
@@ -93,7 +93,7 @@ Whitelist the dev URL in the FIDO configurations found in the following file.
 
 4\. Configure the callback URLs for the User Portal.
 
-Log in to the management console <a href="https://localhost:9443/carbon/application/configure-authentication-flow.jsp?spName=travelocity.com" class="fenced-link">https://SERVER_HOST/carbon</a>
+Log in to the management console [https://SERVER_HOST/carbon](https://localhost:9443/carbon/application/configure-authentication-flow.jsp?spName=travelocity.com)
 
 Go to service provider listing and click on edit in User Portal portal list item.
 

@@ -57,7 +57,7 @@ const BlogCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
 
   return (
     <div
-      className="flex flex-col gap-2 h-full justify-between bg-white border border-gray-200 rounded-md text-black no-underline dark:text-white dark:border-neutral-800 dark:bg-black hover:border-neutral-500 dark:hover:border-neutral-100 hover:cursor-pointer"
+      className="flex flex-col gap-2 h-full justify-between bg-white border border-gray-200 hover:border-transparent rounded-md text-black no-underline dark:text-white dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface focus-ring hover:cursor-pointer"
       {...rest}
     >
       <div className="relative h-52">

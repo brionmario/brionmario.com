@@ -40,19 +40,16 @@ const nextConfig = withNextra({
       {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
-        port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'miro.medium.com',
-        port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'cdn-images-1.medium.com',
-        port: '',
         pathname: '/**',
       },
     ],
@@ -62,16 +59,6 @@ const nextConfig = withNextra({
     legacyBrowsers: false,
   },
   webpack: config => config,
-  rewrites() {
-    return {
-      beforeFiles: [
-        {
-          source: '/sitemap.xml',
-          destination: 'https://brionmario.com/sitemap.xml',
-        },
-      ],
-    };
-  },
   async redirects() {
     return [];
   },

@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,53 +22,29 @@
  * SOFTWARE.
  */
 
-import {motion, useInView} from 'framer-motion';
-import {useRef} from 'react';
+import {css, SerializedStyles} from '@emotion/react';
+import cx from 'clsx';
 
-export const FadeIn = ({
-  children,
-  className,
-  noVertical,
-  delay,
-  viewTriggerOffset,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  noVertical?: boolean;
-  viewTriggerOffset?: boolean;
-}) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, {
-    once: true,
-    margin: viewTriggerOffset ? '-128px' : '0px',
-  });
-
-  const fadeUpVariants = {
-    initial: {
-      opacity: 0,
-      y: noVertical ? 0 : 24,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-    },
+const useStyles = (): {
+  classes: {
+    extra: string;
+    root: string;
+    stack: string;
   };
+  css: SerializedStyles;
+  cx: typeof cx;
+} => ({
+  classes: {
+    extra:
+      'flex items-center justify-center w-6 h-6 text-xs text-[8px] text-white bg-gray-500 border-2 border-white rounded-full dark:border-gray-800',
+    root: 'MarioUI-AvatarGroup-root flex hover:-space-x-0',
+    stack: '-space-x-4',
+  },
+  css: css`
+    .MarioUI-AvatarGroup-root {
+    }
+  `,
+  cx,
+});
 
-  return (
-    <motion.div
-      ref={ref}
-      animate={inView ? 'animate' : 'initial'}
-      variants={fadeUpVariants}
-      className={className}
-      initial={false}
-      transition={{
-        duration: 1,
-        delay: delay || 0,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+export default useStyles;

@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022, Brion Mario.
+ * Copyright (c) 2023, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,16 +22,22 @@
  * SOFTWARE.
  */
 
-import {ElementType, forwardRef, ReactElement} from 'react';
+import {ElementType, forwardRef, ReactElement, ReactNode} from 'react';
 import type {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
-import useStyles from './avatar.styles';
+import useStyles from './avatar-group.styles';
 
-type PolymorphicAvatarComponent = <T extends ElementType = 'img'>(props: AvatarProps<T>) => ReactElement | null;
+type PolymorphicAvatarGroupComponent = <T extends ElementType = 'div'>(
+  props: AvatarGroupProps<T>,
+) => ReactElement | null;
 
-export type AvatarProps<T extends ElementType> = PolymorphicComponent<T> & TestableComponent;
+export type AvatarGroupProps<T extends ElementType> = PolymorphicComponent<T> &
+  TestableComponent & {
+    max: number;
+    stack?: boolean;
+  };
 
 /**
- * `Avatar` is a React component designed to portrait a person.
+ * `AvatarGroup` is a React component designed to portrait a set of Avatars.
  *
  * @remarks This component is also Polymorphic.
  *
@@ -42,22 +48,39 @@ export type AvatarProps<T extends ElementType> = PolymorphicComponent<T> & Testa
  *     ```
  *
  * @param props - Props for the component.
- * @returns Avatar as a React Component.
+ * @returns Avatar Group as a React Component.
  */
-const Avatar: PolymorphicAvatarComponent = forwardRef(
-  <T extends ElementType>(props: AvatarProps<T>, ref: PolymorphicRef<T>) => {
-    const {as, children, className, key, ...rest} = props;
+const AvatarGroup: PolymorphicAvatarGroupComponent = forwardRef(
+  <T extends ElementType>(props: AvatarGroupProps<T>, ref: PolymorphicRef<T>) => {
+    const {as, children, className, key, max, stack, ...rest} = props;
 
     const {classes, css, cx} = useStyles();
 
-    const Element: T | ElementType = as || 'img';
+    const Element: T | ElementType = as || 'div';
+
+    const moderateChildren = (): ReactNode[] => {
+      let childrenClone: ReactNode[] = [...children];
+
+      if (children.length > max) {
+        childrenClone = childrenClone.splice(0, max);
+        childrenClone.push(<div className={classes.extra}>+{children.length - max}</div>);
+      }
+
+      return childrenClone;
+    };
 
     return (
-      <Element ref={ref} key={key} css={css} className={cx(classes.root, className)} width={20} height={20} {...rest}>
-        {children}
+      <Element
+        ref={ref}
+        key={key}
+        css={css}
+        className={cx(classes.root, {[classes.stack]: stack}, className)}
+        {...rest}
+      >
+        {moderateChildren()}
       </Element>
     );
   },
 );
 
-export default Avatar;
+export default AvatarGroup;

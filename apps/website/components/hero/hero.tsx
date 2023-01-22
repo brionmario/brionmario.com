@@ -27,9 +27,9 @@ import Image from 'next/future/image';
 import Link from 'next/link';
 import {useTheme} from 'nextra-theme-docs';
 import {ReactElement} from 'react';
+import Logo from '../logos/logo';
 import {CTAButton} from '../pages/home-shared/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';
-import {Gradient} from '../pages/home-shared/Gradient';
 import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
 import useStyles from './hero.styles';
 
@@ -51,8 +51,6 @@ const Hero = (props: HeroProps): ReactElement => {
   return (
     <div css={css}>
       <FadeIn noVertical className={cx(classes.root, className)}>
-        <Gradient width={1000} height={1000} className="top-[-500px] dark:opacity-20 opacity-[0.15]" conic />
-        <div className="absolute top-0 z-10 w-full h-48 dark:from-black from-white to-transparent bg-gradient-to-b" />
         <FadeIn delay={0.15} className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6">
           <SectionSubtext hero data-testid="hero-greeting-wrapper" className="hero__greeting">
             <span className="hero__greeting">
@@ -61,7 +59,7 @@ const Hero = (props: HeroProps): ReactElement => {
             </span>
           </SectionSubtext>
           <HeroText h1>
-            Brion <span className="hero__title">Mario</span>
+            <Logo alt="Hero section Logo" width={500} height={85} className="hero__logo" />
           </HeroText>
           <SectionSubtext hero>
             <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>
@@ -85,7 +83,7 @@ const Hero = (props: HeroProps): ReactElement => {
           </div>
         </FadeIn>
         <FadeIn delay={0.45} className="mask">
-          <Image alt="" src={`/images/people/brion-headshot-${theme ?? 'dark'}-001.jpg`} width={400} height={800} />
+          <Image alt="" src="/images/people/brion-headshot-transparent-001.png" width={400} height={800} />
         </FadeIn>
       </FadeIn>
     </div>

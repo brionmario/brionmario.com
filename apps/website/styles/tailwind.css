@@ -12,6 +12,22 @@
 }
 
 @layer base {
+  :root {
+    --brionmario-palette-primary-main: #5c6ac4;
+    --brionmario-palette-background-main: rgba(255,255,255);
+    --brionmario-palette-background-dark: rgba(255,255,255);
+    --brionmario-palette-background-light: #FAFAFA;
+    --brionmario-palette-current-main: #000000;
+  }
+
+  .dark {
+    --brionmario-palette-background-main: #0d1117;
+    --brionmario-palette-background-dark: black;
+    --brionmario-palette-background-light: #12171e;
+    --brionmario-palette-background-surface: #161b22;
+    --brionmario-palette-current-main: #ffffff;
+  }
+
   body {
     font-family: 'Space Grotesk', sans-serif;
   }
@@ -42,8 +58,12 @@
     }
   }
 
-  .bg-primary {
-    @apply bg-white dark:bg-gray-900;
+  .focus-ring {
+    @apply focus:outline-none focus-within:outline-none ring-current ring-offset-4 ring-offset-white transition duration-300 focus-within:ring-2 focus-within:ring-current hover:ring-2 hover:ring-current focus:ring-2 focus:ring-current disabled:ring-0 group-hover:ring-2 group-hover:ring-current group-focus:ring-2 group-focus:ring-current dark:ring-offset-gray-900;
+  }
+
+  .focus-ring.danger {
+    @apply ring-red-500 focus-within:ring-red-500 hover:ring-red-500 focus:ring-red-500 group-hover:ring-red-500 group-focus:ring-red-500 dark:focus-within:ring-red-500 dark:hover:ring-red-500 dark:focus:ring-red-500 dark:group-hover:ring-red-500 group-focus:dark:ring-red-500;
   }
 
   .bg-secondary {
@@ -59,7 +79,7 @@
   }
 
   .border-primary {
-    @apply border-gray-900 dark:border-white;
+    @apply border-gray-900 dark:border-neutral-800;
   }
 
   .border-secondary {

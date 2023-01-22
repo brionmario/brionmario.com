@@ -1,6 +1,7 @@
-/* * MIT License
+/**
+ * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,12 +26,13 @@ import cn from 'classnames';
 import React from 'react';
 import {ImageFigureProps} from './ImageFigure';
 import {ThemedImage, ThemedImageProps} from './ThemedImage';
+
 export type ThemedImageFigureProps = Omit<ImageFigureProps, 'src'> & ThemedImageProps;
 
-export function ThemedImageFigure(props: ThemedImageFigureProps): React.ReactNode {
+export const ThemedImageFigure = (props: ThemedImageFigureProps): React.ReactNode => {
   // TODO: Fix types
   // eslint-disable-next-line no-unused-vars
-  const {caption, margin = 40, captionSpacing = null, shadow = false, borderRadius = false, ...rest} = props;
+  const {caption, margin = 40, captionSpacing = null, borderRadius = false, ...rest} = props;
 
   return (
     <figure
@@ -55,4 +57,4 @@ export function ThemedImageFigure(props: ThemedImageFigureProps): React.ReactNod
       )}
     </figure>
   );
-}
+};

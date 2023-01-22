@@ -24,13 +24,14 @@
 
 import {NextRouter, useRouter} from 'next/router';
 import {Page} from 'nextra';
-import {getPagesUnderRoute} from 'nextra/context';
 import {ReactElement} from 'react';
+import {Blogs, useBlogs} from '../../hooks';
 import BlogCard from '../cards/blog-card';
 import {FadeIn} from './home-shared/FadeIn';
 
 const BlogPage = (): ReactElement => {
   const router: NextRouter = useRouter();
+  const {blogs}: Blogs = useBlogs();
 
   const handleBlogNavigate = (path: string): void => {
     router.push(path);
@@ -38,7 +39,7 @@ const BlogPage = (): ReactElement => {
 
   return (
     <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
-      {getPagesUnderRoute('/blog').map((page: Page & any) => (
+      {blogs.map((page: Page & any) => (
         <FadeIn className="flex" key={page.route.replace(/\s+/g, '-').toLowerCase()}>
           <BlogCard
             data-testid={`${page.route}-blog`}

@@ -2,15 +2,17 @@
   "$schema": "./docs/public/schema.json",
   "pipeline": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "dist/**",
-        ".next/**"
-      ]
+      "dependsOn": ["^build"],
+      "env": ["NEXT_PUBLIC_GTM_CONTAINER_ID", "SITE_URL"],
+      "outputs": ["dist/**", ".next/**"]
     },
     "lint": {
+      "outputs": []
+    },
+    "typecheck": {
+      "outputs": []
+    },
+    "test": {
       "outputs": []
     },
     "dev": {

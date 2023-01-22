@@ -24,10 +24,10 @@
 
 import {Menu, MenuButton, MenuItems, MenuLink, MenuPopover, useMenuButtonContext} from '@reach/menu-button';
 import clsx from 'clsx';
-import {useReducedMotion, AnimatePresence, motion, useAnimation} from 'framer-motion';
+import {useReducedMotion, AnimatePresence, motion} from 'framer-motion';
 import Link, {LinkProps} from 'next/link';
 import {NextRouter, useRouter} from 'next/router';
-import React, {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
+import {PropsWithChildren, ReactElement, ReactNode, useEffect} from 'react';
 import DarkModeSwitch from '../dark-mode-switch/dark-mode-switch';
 import HeaderLogo from '../HeaderLogo';
 
@@ -65,37 +65,11 @@ const NavLink = ({href, title, ...rest}: PropsWithChildren<NavigationItem>): Rea
   );
 };
 
-const Navigation = ({items}: NavigationProps): ReactElement => (
-  <div className="py-9">
-    <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
-      <div className="flex justify-center gap-4 align-middle">
-        <HeaderLogo />
-      </div>
-
-      <div className="flex">
-        <ul className="hidden lg:flex">
-          {items.map((item: NavigationItem) => (
-            <NavLink key={item.route} href={item.route} title={item.title}>
-              {item.name}
-            </NavLink>
-          ))}
-        </ul>
-        <div className="flex items-center justify-center">
-          <div className="block lg:hidden">
-            <MobileMenu items={items} />
-          </div>
-          <div className="noscript-hidden lg:block">
-            <DarkModeSwitch className="ml-4" />
-          </div>
-        </div>
-      </div>
-    </nav>
-  </div>
-);
-
-const MobileMenuList = ({items}): ReactElement => {
+// TODO: Fix types
+const MobileMenuList = ({items}: any): ReactElement => {
   const {isExpanded} = useMenuButtonContext();
   const shouldReduceMotion: boolean = useReducedMotion();
+  const router = useRouter();
 
   useEffect(() => {
     if (isExpanded) {
@@ -110,6 +84,10 @@ const MobileMenuList = ({items}): ReactElement => {
       document.body.style.removeProperty('height');
     }
   }, [isExpanded]);
+
+  const handleRouting = (path: string): void => {
+    router.push(path);
+  };
 
   return (
     <AnimatePresence>
@@ -127,23 +105,23 @@ const MobileMenuList = ({items}): ReactElement => {
           <motion.div
             initial={{y: -50, opacity: 0}}
             animate={{y: 0, opacity: 1}}
-            exit={{y: -50, opacity: 0}}
+            exit={{y: -50, opacity: 0, transition: {delay: 1}}}
             transition={{
               duration: shouldReduceMotion ? 0 : 0.15,
               ease: 'linear',
             }}
-            className="bg-primary flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
+            className="bg-background-main flex h-full flex-col overflow-y-scroll border-t border-gray-200 pb-12 dark:border-gray-600"
           >
             <MenuItems className="border-none bg-transparent p-0">
               {items.map(link => (
-                <Link key={link.route} href={link.route}>
-                  <MenuLink
-                    className="bg-white dark:bg-gray-900 focus:bg-white dark:focus:bg-gray-900 text-primary border-b border-gray-200 px-5vw py-9 hover:text-team-current dark:border-gray-600"
-                    as="a"
-                  >
-                    {link.title}
-                  </MenuLink>
-                </Link>
+                <MenuLink
+                  key={link.route}
+                  className="bg-background-main hover:bg-background-light focus:bg-background-light text-primary border-b border-gray-200 px-5vw py-9 hover:text-current dark:border-gray-600"
+                  as="a"
+                  onClick={() => handleRouting(link.route)}
+                >
+                  {link.title}
+                </MenuLink>
               ))}
             </MenuItems>
           </motion.div>
@@ -168,7 +146,8 @@ const bottomVariants = {
   closed: {rotate: 0, y: 0},
 };
 
-const MobileMenu = ({items}) => {
+// TODO: Fix types
+const MobileMenu = ({items}: any) => {
   const shouldReduceMotion = useReducedMotion();
   const transition = shouldReduceMotion ? {duration: 0} : {};
   return (
@@ -223,13 +202,32 @@ const MobileMenu = ({items}) => {
   );
 };
 
-// Timing durations used to control the speed of the team ring in the profile button.
-// Time is seconds per full rotation
-const durations = {
-  initial: 40,
-  hover: 3,
-  focus: 3,
-  active: 0.25,
-};
+const Navigation = ({items}: NavigationProps): ReactElement => (
+  <div className="py-9">
+    <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
+      <div className="flex justify-center gap-4 align-middle">
+        <HeaderLogo />
+      </div>
+
+      <div className="flex">
+        <ul className="hidden lg:flex">
+          {items.map((item: NavigationItem) => (
+            <NavLink key={item.route} href={item.route} title={item.title}>
+              {item.name}
+            </NavLink>
+          ))}
+        </ul>
+        <div className="flex items-center justify-center">
+          <div className="block lg:hidden">
+            <MobileMenu items={items} />
+          </div>
+          <div className="noscript-hidden lg:block">
+            <DarkModeSwitch className="ml-4" />
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+);
 
 export default Navigation;

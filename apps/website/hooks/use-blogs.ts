@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,53 +22,37 @@
  * SOFTWARE.
  */
 
-import {motion, useInView} from 'framer-motion';
-import {useRef} from 'react';
+import {Page} from 'nextra';
+import {getPagesUnderRoute} from 'nextra/context';
+import {useMemo} from 'react';
 
-export const FadeIn = ({
-  children,
-  className,
-  noVertical,
-  delay,
-  viewTriggerOffset,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  noVertical?: boolean;
-  viewTriggerOffset?: boolean;
-}) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, {
-    once: true,
-    margin: viewTriggerOffset ? '-128px' : '0px',
-  });
+export interface Blogs {
+  /**
+   * List of blogs.
+   */
+  blogs?: (Page & any)[];
+}
 
-  const fadeUpVariants = {
-    initial: {
-      opacity: 0,
-      y: noVertical ? 0 : 24,
-    },
-    animate: {
-      opacity: 1,
-      y: 0,
-    },
-  };
-
-  return (
-    <motion.div
-      ref={ref}
-      animate={inView ? 'animate' : 'initial'}
-      variants={fadeUpVariants}
-      className={className}
-      initial={false}
-      transition={{
-        duration: 1,
-        delay: delay || 0,
-        ease: [0.21, 0.47, 0.32, 0.98],
-      }}
-    >
-      {children}
-    </motion.div>
+/**
+ * Hook to retrieve the Blog index.
+ *
+ * @param options - Set of options.
+ * @returns Blogs.
+ */
+export const useBlogs = (options?: {limit: number}): Blogs => {
+  let sortedBlogs: (Page & any)[] = useMemo(
+    () =>
+      getPagesUnderRoute('/blog').sort((a: Page & any, b: Page & any) =>
+        b.children[0].frontMatter.date.localeCompare(a.children[0].frontMatter.date),
+      ),
+    [getPagesUnderRoute('/blog')],
   );
+
+  if (options?.limit) {
+    sortedBlogs = sortedBlogs.slice(0, options.limit);
+  }
+
+  return {
+    blogs: sortedBlogs,
+  };
 };
