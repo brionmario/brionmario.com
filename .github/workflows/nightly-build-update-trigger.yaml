@@ -20,6 +20,12 @@ jobs:
         node-version: [lts/*]
     runs-on: ${{ matrix.os }}
     steps:
+      - name: ⬇️ Checkout
+        id: checkout
+        uses: actions/checkout@v2.3.3
+        with:
+          fetch-depth: 0
+
       - name: 🐜 Create Pull Request
         id: create-pr
         uses: repo-sync/pull-request@v2
