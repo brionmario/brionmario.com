@@ -1,4 +1,4 @@
-# This workflow will build the repo and updates data every night.
+# This workflow will run at 12.00 every night and will commit the changes to the `nightly` branch.
 
 name: 🌛 Nightly Build
 

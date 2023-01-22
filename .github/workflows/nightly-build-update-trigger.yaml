@@ -1,4 +1,4 @@
-# This workflow will build the repo and updates data every night.
+# This workflow will send a PR to main with the nightly updates.
 
 name: 🌛 Nightly Build
 
