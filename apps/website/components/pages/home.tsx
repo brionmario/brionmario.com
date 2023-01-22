@@ -22,48 +22,54 @@
  * SOFTWARE.
  */
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import {ReactElement} from 'react';
 import {FeaturedProjectsGrid, FeaturedBlogsGrid} from '../grids';
 import Hero from '../hero';
 import {CTAButton} from './home-shared/CTAButton';
 import {FadeIn} from './home-shared/FadeIn';
+import {GradientSectionBorder} from './home-shared/GradientSectionBorder';
 
 const HomePage = (): ReactElement => (
   <main className="relative">
     <Hero data-testid="home-page-hero" />
-    <FadeIn className="py-16 md:py-24 lg:py-32">
-      <FeaturedProjectsGrid
-        heading="Opensource Projects"
-        description="Here are some of the noteworthy projects I've contributed over the years."
-        data-testid="featured-projects-grid"
-      />
-      <FadeIn noVertical className="relative flex justify-center w-full">
-        <div className="max-w-[180px] w-full">
-          <CTAButton outline>
-            <Link href="/projects">
-              <span className="block py-3">Show More</span>
-            </Link>
-          </CTAButton>
-        </div>
+    <section className={clsx('relative overflow-hidden')}>
+      <FadeIn className="py-16 md:py-24 lg:py-32">
+        <FeaturedProjectsGrid
+          heading="Opensource Projects"
+          description="Here are some of the noteworthy projects I've contributed over the years."
+          data-testid="featured-projects-grid"
+        />
+        <FadeIn noVertical className="relative flex justify-center w-full">
+          <div className="max-w-[180px] w-full">
+            <CTAButton outline>
+              <Link href="/projects">
+                <span className="block py-3">Show More</span>
+              </Link>
+            </CTAButton>
+          </div>
+        </FadeIn>
       </FadeIn>
-    </FadeIn>
-    <FadeIn className="py-16 md:py-24 lg:py-32">
-      <FeaturedBlogsGrid
-        heading="Blog Recommendations"
-        description="Here are some of my latest writing curated specially for you."
-        data-testid="featured-blogs-grid"
-      />
-      <FadeIn noVertical className="relative flex justify-center w-full">
-        <div className="max-w-[180px] w-full">
-          <CTAButton outline>
-            <Link href="/blog">
-              <span className="block py-3">Show More</span>
-            </Link>
-          </CTAButton>
-        </div>
+    </section>
+    <section className={clsx('relative overflow-hidden')}>
+      <FadeIn className="py-16 md:py-24 lg:py-32">
+        <FeaturedBlogsGrid
+          heading="Blog Recommendations"
+          description="Here are some of my latest writing curated specially for you."
+          data-testid="featured-blogs-grid"
+        />
+        <FadeIn noVertical className="relative flex justify-center w-full">
+          <div className="max-w-[180px] w-full">
+            <CTAButton outline>
+              <Link href="/blog">
+                <span className="block py-3">Show More</span>
+              </Link>
+            </CTAButton>
+          </div>
+        </FadeIn>
       </FadeIn>
-    </FadeIn>
+    </section>
   </main>
 );
 
