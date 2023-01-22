@@ -96,7 +96,7 @@ const Hero = (props: HeroProps): ReactElement => {
               </Link>
             </CTAButton>
             <CTAButton outline onClick={onResumeDownload}>
-              <div className="flex flex-column items-center align-middle justify-items-center">
+              <div className="flex flex-row content-center align-middle justify-center items-center">
                 <span className="block py-3 px-3">Download Resume</span>
                 <motion.div
                   initial={{opacity: 0.6}}

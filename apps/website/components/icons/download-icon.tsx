@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-import { DownloadIcon } from '@heroicons/react/solid';
 import cx from 'clsx';
 import {ReactElement, SVGProps} from 'react';
 
@@ -38,7 +37,7 @@ import {ReactElement, SVGProps} from 'react';
  * @param props - Props for the component.
  * @returns Download icon as a React Component.
  */
-const GitHubProjectIcon = (props: SVGProps<SVGSVGElement>): ReactElement => {
+const DownloadIcon = (props: SVGProps<SVGSVGElement>): ReactElement => {
   const {className, width = 16, height = 16, ...rest} = props;
 
   return (
