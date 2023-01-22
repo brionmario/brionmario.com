@@ -23,6 +23,8 @@
  */
 
 import {TestableComponent, ThemeTypes} from '@brionmario/ui';
+import {DownloadIcon} from '@heroicons/react/solid';
+import {motion} from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import {useTheme} from 'nextra-theme-docs';
@@ -46,6 +48,19 @@ const Hero = (props: HeroProps): ReactElement => {
     }
 
     return '/images/logos/black/wso2.svg';
+  };
+
+  /**
+   * TODO: Extract this to a hook.
+   */
+  const onResumeDownload = () => {
+    const a = document.createElement('a');
+
+    a.style.display = 'none';
+    a.href = `/assets/resume/resume.pdf`;
+    a.download = 'Brion Mario - Resume.pdf';
+    document.body.appendChild(a);
+    a.click();
   };
 
   return (
@@ -74,11 +89,27 @@ const Hero = (props: HeroProps): ReactElement => {
           </SectionSubtext>
         </FadeIn>
         <FadeIn delay={0.3} className="z-50 flex flex-col items-center w-full max-w-md gap-5 px-6 md:max-w-lg">
-          <div className="flex flex-col w-80 gap-3 md:!flex-row">
+          <div className="flex flex-col w-116 gap-3 md:!flex-row">
             <CTAButton>
               <Link href="/blog">
                 <span className="block py-3">Read the blog</span>
               </Link>
+            </CTAButton>
+            <CTAButton outline onClick={onResumeDownload}>
+              <div className="flex flex-column items-center align-middle justify-items-center">
+                <span className="block py-3 px-3">Download Resume</span>
+                <motion.div
+                  initial={{opacity: 0.6}}
+                  whileHover={{
+                    scale: 1.2,
+                    transition: {duration: 0.4},
+                  }}
+                  whileTap={{scale: 0.9}}
+                  whileInView={{opacity: 1}}
+                >
+                  <DownloadIcon height={20} />
+                </motion.div>
+              </div>
             </CTAButton>
           </div>
         </FadeIn>

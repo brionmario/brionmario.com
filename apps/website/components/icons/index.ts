@@ -22,4 +22,5 @@
  * SOFTWARE.
  */
 
+export {default} from './download-icon';
 export {default} from './github-project-icon';
