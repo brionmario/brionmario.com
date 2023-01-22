@@ -51,6 +51,7 @@ module.exports = {
         '5vw': '5vw', // pull featured sections and navbar in the margin
         '8vw': '8vw', // positions hero img inside the margin
         '10vw': '10vw', // page margin
+        116: '28rem',
       },
       colors: {
         dark: '#000',

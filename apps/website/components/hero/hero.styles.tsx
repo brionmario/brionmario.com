@@ -70,8 +70,15 @@ const useStyles = (): {
     .hero__caption {
       max-width: 400px;
     }
+    .hero__greeting__caption__employment {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
     .hero__greeting__caption__employment__wso2 {
-      position: absolute;
       margin-top: 4px;
       margin-left: 5px;
     }
