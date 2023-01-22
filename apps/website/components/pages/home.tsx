@@ -29,7 +29,6 @@ import {FeaturedProjectsGrid, FeaturedBlogsGrid} from '../grids';
 import Hero from '../hero';
 import {CTAButton} from './home-shared/CTAButton';
 import {FadeIn} from './home-shared/FadeIn';
-import {GradientSectionBorder} from './home-shared/GradientSectionBorder';
 
 const HomePage = (): ReactElement => (
   <main className="relative">
