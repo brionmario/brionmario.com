@@ -22,18 +22,18 @@
  * SOFTWARE.
  */
 
+import clsx from 'clsx';
 import Link from 'next/link';
 import {ReactElement} from 'react';
 import {FeaturedProjectsGrid, FeaturedBlogsGrid} from '../grids';
 import Hero from '../hero';
 import {CTAButton} from './home-shared/CTAButton';
 import {FadeIn} from './home-shared/FadeIn';
-import {GradientSectionBorder} from './home-shared/GradientSectionBorder';
 
 const HomePage = (): ReactElement => (
   <main className="relative">
     <Hero data-testid="home-page-hero" />
-    <GradientSectionBorder>
+    <section className={clsx('relative overflow-hidden')}>
       <FadeIn className="py-16 md:py-24 lg:py-32">
         <FeaturedProjectsGrid
           heading="Opensource Projects"
@@ -50,8 +50,8 @@ const HomePage = (): ReactElement => (
           </div>
         </FadeIn>
       </FadeIn>
-    </GradientSectionBorder>
-    <GradientSectionBorder>
+    </section>
+    <section className={clsx('relative overflow-hidden')}>
       <FadeIn className="py-16 md:py-24 lg:py-32">
         <FeaturedBlogsGrid
           heading="Blog Recommendations"
@@ -68,7 +68,7 @@ const HomePage = (): ReactElement => (
           </div>
         </FadeIn>
       </FadeIn>
-    </GradientSectionBorder>
+    </section>
   </main>
 );
 

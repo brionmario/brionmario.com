@@ -25,10 +25,15 @@
 import GitHubProjects from '../data/autogen/gh_projects.json';
 import {Project, RequestResultInterface} from '../models';
 
-export const useProjects = <
-  Data = {featured: Project[]; projects: Project[]},
-  Error = unknown,
->(): RequestResultInterface<Data> => {
+/**
+ * Hook to retrieve the Projects index.
+ *
+ * @param options - Set of options.
+ * @returns Projects.
+ */
+export const useProjects = <Data = {featured: Project[]; projects: Project[]}, Error = unknown>(options?: {
+  limit: number;
+}): RequestResultInterface<Data> => {
   const FEATURED_TOPICS: string[] = ['featured-project'];
 
   const filterFeatured = (): Project[] =>
@@ -36,9 +41,15 @@ export const useProjects = <
       project.topics.some((topic: string) => FEATURED_TOPICS.includes(topic)),
     );
 
+  let sortedProjects: Project[] = filterFeatured();
+
+  if (options?.limit) {
+    sortedProjects = sortedProjects.slice(0, options.limit);
+  }
+
   return {
     data: {
-      featured: filterFeatured(),
+      featured: sortedProjects,
       projects: GitHubProjects,
     } as Data,
     error: null as Error,

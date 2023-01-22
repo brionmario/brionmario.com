@@ -4,13 +4,6 @@
 @tailwind screens;
 @tailwind variants;
 
-@font-face {
-  font-family: 'Good Brush';
-  font-style: normal;
-  font-weight: 400;
-  src: url(/assets/fonts/good-brush/Good\ Brush.woff) format('woff2');
-}
-
 @layer base {
   :root {
     --brionmario-palette-primary-main: #5c6ac4;

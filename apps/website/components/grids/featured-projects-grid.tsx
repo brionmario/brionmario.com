@@ -35,9 +35,11 @@ export interface FeaturedProjectsGridProps extends TestableComponent {
   heading: ReactNode;
 }
 
+const FEATURED_PROJECTS_MAX_LIMIT: number = 6;
+
 export const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = (props: FeaturedProjectsGridProps): ReactElement => {
   const {heading, description} = props;
-  const {data} = useProjects();
+  const {data} = useProjects({limit: FEATURED_PROJECTS_MAX_LIMIT});
 
   const handleProjectNavigate = (path: string): void => {
     window.open(path, '_blank', 'noopener, noreferrer');
