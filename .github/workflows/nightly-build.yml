@@ -13,7 +13,6 @@ env:
 jobs:
   build:
     name: 🚧 Build
-    if: github.ref == 'refs/heads/dev-001'
     timeout-minutes: 15
     strategy:
       matrix:
@@ -87,7 +86,6 @@ jobs:
 
   seed:
     name: 🌳 Run Data Seeder
-    if: github.ref == 'refs/heads/dev-001'
     timeout-minutes: 15
     needs: [build]
     strategy:
