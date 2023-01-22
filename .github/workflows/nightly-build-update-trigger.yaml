@@ -1,6 +1,6 @@
 # This workflow will send a PR to main with the nightly updates.
 
-name: 🌛 Nightly Build
+name: 🌚 Nightly Build Trigger
 
 on:
   push:
