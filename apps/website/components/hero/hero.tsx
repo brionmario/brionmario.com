@@ -24,7 +24,6 @@
 
 import {TestableComponent, ThemeTypes} from '@brionmario/ui';
 import {DownloadIcon} from '@heroicons/react/solid';
-import {motion} from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import {useTheme} from 'nextra-theme-docs';
@@ -95,20 +94,10 @@ const Hero = (props: HeroProps): ReactElement => {
                 <span className="block py-3">Read the blog</span>
               </Link>
             </CTAButton>
-            <CTAButton outline onClick={onResumeDownload}>
+            <CTAButton outline onClick={() => onResumeDownload()}>
               <div className="flex flex-row content-center align-middle justify-center items-center">
                 <span className="block py-3 px-3">Download Resume</span>
-                <motion.div
-                  initial={{opacity: 0.6}}
-                  whileHover={{
-                    scale: 1.2,
-                    transition: {duration: 0.4},
-                  }}
-                  whileTap={{scale: 0.9}}
-                  whileInView={{opacity: 1}}
-                >
-                  <DownloadIcon height={20} />
-                </motion.div>
+                <DownloadIcon height={20} />
               </div>
             </CTAButton>
           </div>
