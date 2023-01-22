@@ -164,6 +164,7 @@ jobs:
 
   build:
     name: 🚧 Build
+    needs: [lint, typecheck, test]
     timeout-minutes: 15
     strategy:
       matrix:

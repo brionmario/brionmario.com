@@ -28,6 +28,7 @@ import Image from 'next/future/image';
 import type {FC, HTMLAttributes, ReactElement} from 'react';
 import {Project, ProjectContributor} from '../../models';
 import Avatar from '../avatar';
+import AvatarGroup from '../avatar-group';
 import GitHubProjectIcon from '../icons/github-project-icon';
 
 type Props = {
@@ -69,7 +70,7 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
         <div className="flex flex-col gap-2 dark:bg-background-surface">
           <p className="m-0 leading-6 opacity-70 px-3 pt-5 h-24 line-clamp-3 font-space-grotesk">{description}</p>
           <div className="flex flex-row items-center justify-between p-3 border-t dark:border-neutral-800">
-            <div className="flex -space-x-4 hover:-space-x-0">
+            <AvatarGroup data-testid="project-avatar-contributors" max={4}>
               {contributors.map((contributor: ProjectContributor) => (
                 <Avatar
                   className="transition-all ease-in-out"
@@ -82,7 +83,7 @@ const ProjectCard: FC<BlogCardProps> = (props: BlogCardProps): ReactElement => {
                   alt={`${fullName} Contributor ${contributor.login}`}
                 />
               ))}
-            </div>
+            </AvatarGroup>
             <div className="text-xs opacity-70">{language}</div>
           </div>
         </div>
