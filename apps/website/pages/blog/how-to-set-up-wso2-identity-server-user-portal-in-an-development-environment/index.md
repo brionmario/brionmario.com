@@ -7,7 +7,7 @@ authors:
   - id: "ca410be341b9"
     name: "Brion Mario"
     username: "brionmario"
-    image: "https://miro.medium.com/fit/c/176/176/1*vSMWBwWmwDsLJ1px0jb07g.jpeg"
+    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
     bio: "Software Engineer working at WSO2."
     twitterScreenName: "brion_mario"
 readingTime: "3 min read"
@@ -37,7 +37,7 @@ In order to achieve the above, a centralized theming mechanism is a must. Theref
 When the final version of the WSO2 Identity Server 5.10.0 is released, the user portal will be available under the following URl.
 
 ```js
-_http(s)://SERVER_HOST/t/TENANT_DOMAIN/user-portal_
+_http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/user-portal_
 ```
 
 If you are planning on setting up the repo in a development environment follow the steps below.

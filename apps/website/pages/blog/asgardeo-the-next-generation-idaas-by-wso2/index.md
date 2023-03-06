@@ -7,7 +7,7 @@ authors:
   - id: "ca410be341b9"
     name: "Brion Mario"
     username: "brionmario"
-    image: "https://miro.medium.com/fit/c/176/176/1*vSMWBwWmwDsLJ1px0jb07g.jpeg"
+    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
     bio: "Software Engineer working at WSO2."
     twitterScreenName: "brion_mario"
 readingTime: "4 min read"
@@ -81,9 +81,9 @@ The My Account is the self-service portal for Asgardeo users.
 
 As an organization owner, if you want to manage your own profile, you can head on to **My Account** from the user dropdown link, or by navigating to [https://myaccount.asgardeo.io](https://myaccount.asgardeo.io/).
 
-The customers of your organization could navigate to the My Account portal for your organization to manage their profiles. The pattern of the URL would look something the following. Replace the `{{YOUR_ORGANIZATION}}` placeholder with the actual organization name.
+The customers of your organization could navigate to the My Account portal for your organization to manage their profiles. The pattern of the URL would look something the following. Replace the `<YOUR_ORGANIZATION>` placeholder with the actual organization name.
 
-<a href="https://myaccount.asgardeo.io/t/{{YOUR_ORGANIZATION}}" class="fenced-link">https://myaccount.asgardeo.io/t/{{YOUR_ORGANIZATION}}</a>
+<a href="https://myaccount.asgardeo.io/t/%3CYOUR_ORGANIZATION%3E" class="fenced-link">https://myaccount.asgardeo.io/t/<YOUR_ORGANIZATION></a>
 
 ![Asgardeo My Account](https://cdn-images-1.medium.com/max/800/1*hsjGRPELhA0k-k-duyJc-Q.png)
 
