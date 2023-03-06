@@ -37,7 +37,7 @@ In order to achieve the above, a centralized theming mechanism is a must. Theref
 When the final version of the WSO2 Identity Server 5.10.0 is released, the user portal will be available under the following URl.
 
 ```js
-_http(s)://<SERVER_HOST>/t/<TENANT_DOMAIN>/user-portal_
+_http(s)://SERVER_HOST/t/TENANT_DOMAIN/user-portal_
 ```
 
 If you are planning on setting up the repo in a development environment follow the steps below.
