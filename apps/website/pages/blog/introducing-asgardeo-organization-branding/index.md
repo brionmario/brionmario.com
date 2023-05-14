@@ -7,7 +7,7 @@ authors:
   - id: "ca410be341b9"
     name: "Brion Mario"
     username: "brionmario"
-    image: "https://miro.medium.com/fit/c/176/176/1*vSMWBwWmwDsLJ1px0jb07g.jpeg"
+    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
     bio: "Software Engineer working at WSO2."
     twitterScreenName: "brion_mario"
 readingTime: "2 min read"
