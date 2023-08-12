@@ -24,17 +24,38 @@
 
 import {ElementType, forwardRef, ReactElement, ReactNode} from 'react';
 import type {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
-import useStyles from './avatar-group.styles';
+import {cx} from '@emotion/css';
+import {css, SerializedStyles} from '@emotion/react';
 
+/**
+ * Interface for the polymorphic Avatar Group component that renders a group of avatar components.
+ */
 type PolymorphicAvatarGroupComponent = <T extends ElementType = 'div'>(
   props: AvatarGroupProps<T>,
 ) => ReactElement | null;
 
+/**
+ * The `AvatarGroupProps` interface represents the props accepted by the `AvatarGroup` component.
+ * @template T - The HTML element type to be used for the component.
+ */
 export type AvatarGroupProps<T extends ElementType> = PolymorphicComponent<T> &
   TestableComponent & {
+    /**
+     * The maximum number of avatars to be displayed in the group.
+     */
     max: number;
+    /**
+     * Whether to stack the avatars when the maximum number is reached.
+     */
     stack?: boolean;
   };
+
+/**
+ * CSS for the `AvatarGroup` component.
+ */
+const avatarGroupCss: SerializedStyles = css`
+  /* Custom styles go here */
+`;
 
 /**
  * `AvatarGroup` is a React component designed to portrait a set of Avatars.
@@ -51,11 +72,10 @@ export type AvatarGroupProps<T extends ElementType> = PolymorphicComponent<T> &
  * @returns Avatar Group as a React Component.
  */
 const AvatarGroup: PolymorphicAvatarGroupComponent = forwardRef(
-  <T extends ElementType>(props: AvatarGroupProps<T>, ref: PolymorphicRef<T>) => {
-    const {as, children, className, key, max, stack, ...rest} = props;
-
-    const {classes, css, cx} = useStyles();
-
+  <T extends ElementType>(
+    {as, children, className, key, max, stack, ...rest}: AvatarGroupProps<T>,
+    ref: PolymorphicRef<T>,
+  ): ReactElement => {
     const Element: T | ElementType = as || 'div';
 
     const moderateChildren = (): ReactNode[] => {
@@ -63,7 +83,11 @@ const AvatarGroup: PolymorphicAvatarGroupComponent = forwardRef(
 
       if (children.length > max) {
         childrenClone = childrenClone.splice(0, max);
-        childrenClone.push(<div className={classes.extra}>+{children.length - max}</div>);
+        childrenClone.push(
+          <div className="flex items-center justify-center w-6 h-6 text-xs text-[8px] text-white bg-gray-500 border-2 border-white rounded-full dark:border-gray-800">
+            +{children.length - max}
+          </div>,
+        );
       }
 
       return childrenClone;
@@ -73,8 +97,8 @@ const AvatarGroup: PolymorphicAvatarGroupComponent = forwardRef(
       <Element
         ref={ref}
         key={key}
-        css={css}
-        className={cx(classes.root, {[classes.stack]: stack}, className)}
+        css={avatarGroupCss}
+        className={cx('bmui-avatar-group', 'flex hover:-space-x-0', {'-space-x-4': stack}, className)}
         {...rest}
       >
         {moderateChildren()}
