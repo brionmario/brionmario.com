@@ -23,30 +23,80 @@
  */
 
 import {TestableComponent} from '@brionmario/ui';
-import {FC, ReactElement, ReactNode} from 'react';
+import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
+import {cx} from '@emotion/css';
 import {useProjects} from '../../api';
 import {Project} from '../../models';
-import ProjectCard from '../cards/project-card';
+import ProjectCard from '../ProjectCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
 
-export interface FeaturedProjectsGridProps extends TestableComponent {
+/**
+ * The `FeaturedProjectsGridProps` interface represents the props accepted by the `FeaturedProjectsGrid` component.
+ */
+export interface FeaturedProjectsGridProps extends HTMLAttributes<HTMLDivElement>, TestableComponent {
+  /**
+   * The description of the featured projects grid.
+   */
   description: ReactNode;
+  /**
+   * The heading of the featured projects grid.
+   */
   heading: ReactNode;
+  /**
+   * The maximum number of blogs to be displayed.
+   */
+  limit?: number;
 }
 
-const FEATURED_PROJECTS_MAX_LIMIT: number = 6;
+const FEATURED_PROJECTS_DEFAULT_MAX_LIMIT: number = 6;
 
-export const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = (props: FeaturedProjectsGridProps): ReactElement => {
-  const {heading, description} = props;
-  const {data} = useProjects({limit: FEATURED_PROJECTS_MAX_LIMIT});
+/**
+ * `FeaturedProjectsGrid` is a React component that displays a grid of featured project cards.
+ *
+ * @remarks
+ * This component fetches the featured projects using the `useProjects` hook from the `api` module.
+ *
+ * Usage:
+ *
+ * ```jsx
+ * <FeaturedProjectsGrid
+ *   heading="Featured Projects"
+ *   description="Check out some of our featured projects."
+ *   className="my-4"
+ * />
+ * ```
+ *
+ * @param props - Props for the component.
+ * @returns FeaturedProjectsGrid as a React component.
+ */
+const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = ({
+  heading,
+  description,
+  className,
+  limit = FEATURED_PROJECTS_DEFAULT_MAX_LIMIT,
+  ...rest
+}: FeaturedProjectsGridProps): ReactElement => {
+  const {data} = useProjects({limit});
 
+  /**
+   * Handles the navigation to a project page.
+   *
+   * @param path - The URL of the project page to navigate to.
+   */
   const handleProjectNavigate = (path: string): void => {
-    window.open(path, '_blank', 'noopener, noreferrer');
+    window.open(path, '_blank', 'noopener,noreferrer');
   };
 
   return (
-    <section className="relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14">
+    <section
+      className={cx(
+        'bmui-featured-projects-grid',
+        'relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14',
+        className,
+      )}
+      {...rest}
+    >
       <FadeIn className="flex flex-col items-center gap-5 md:gap-6">
         <SectionHeader>{heading}</SectionHeader>
         <SectionSubtext>{description}</SectionSubtext>
@@ -66,3 +116,5 @@ export const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = (props: Featu
     </section>
   );
 };
+
+export default FeaturedProjectsGrid;

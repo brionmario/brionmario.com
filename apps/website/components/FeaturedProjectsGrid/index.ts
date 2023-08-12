@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export * from './featured-blogs-grid';
-export * from './featured-projects-grid';
+export {default} from './FeaturedProjectsGrid';
+export type {FeaturedProjectsGridProps} from './FeaturedProjectsGrid';
