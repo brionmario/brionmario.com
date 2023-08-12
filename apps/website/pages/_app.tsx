@@ -22,6 +22,7 @@
  * SOFTWARE.
  */
 
+import '../shims';
 import '../styles/vendor.css';
 import '../styles/custom.css';
 import '../styles/tailwind.css';
@@ -36,12 +37,6 @@ type NextraAppProps = AppProps & {
     getLayout: (page: ReactNode) => ReactNode;
   };
 };
-
-// Shim requestIdleCallback in Safari
-if (typeof window !== 'undefined' && !('requestIdleCallback' in window)) {
-  window.requestIdleCallback = fn => setTimeout(fn, 1);
-  window.cancelIdleCallback = e => clearTimeout(e);
-}
 
 const Nextra = ({Component, pageProps}: NextraAppProps): ReactElement => (
   <SSRProvider>
