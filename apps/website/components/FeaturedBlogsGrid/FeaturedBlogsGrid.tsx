@@ -25,31 +25,89 @@
 import {TestableComponent} from '@brionmario/ui';
 import {NextRouter, useRouter} from 'next/router';
 import {Page} from 'nextra';
-import {FC, ReactElement, ReactNode} from 'react';
+import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
+import {cx} from '@emotion/css';
+import {css, SerializedStyles} from '@emotion/react';
 import {Blogs, useBlogs} from '../../hooks';
-import BlogCard from '../cards/blog-card';
+import BlogCard from '../BlogCard/BlogCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
 
-export interface FeaturedBlogsGridProps extends TestableComponent {
+/**
+ * The `FeaturedBlogsGridProps` interface represents the props accepted by the `FeaturedBlogsGrid` component.
+ */
+export interface FeaturedBlogsGridProps extends HTMLAttributes<HTMLDivElement>, TestableComponent {
+  /**
+   * The description of the featured blogs grid.
+   */
   description: ReactNode;
+  /**
+   * The heading of the featured blogs grid.
+   */
   heading: ReactNode;
+  /**
+   * The maximum number of blogs to be displayed.
+   */
+  limit?: number;
 }
 
-const BLOG_RECOMMENDATIONS_MAX_LIMIT: number = 6;
+const BLOG_RECOMMENDATIONS_DEFAULT_MAX_LIMIT: number = 6;
 
-export const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = (props: FeaturedBlogsGridProps): ReactElement => {
-  const {heading, description} = props;
+/**
+ * CSS for the `FeaturedBlogGrid` component.
+ */
+const featuredBlogsGridCss: SerializedStyles = css`
+  /* Custom styles go here */
+`;
 
+/**
+ * `FeaturedBlogsGrid` is a React component that displays a grid of featured blog cards.
+ *
+ * @remarks
+ * This component fetches the blogs using the `useBlogs` hook from the `hooks` module.
+ *
+ * Usage:
+ *
+ * ```jsx
+ * <FeaturedBlogsGrid
+ *   heading="Featured Blogs"
+ *   description="Explore our featured blog posts."
+ *   className="my-4"
+ * />
+ * ```
+ *
+ * @param props - Props for the component.
+ * @returns FeaturedBlogsGrid as a React component.
+ */
+const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = ({
+  heading,
+  description,
+  className,
+  limit = BLOG_RECOMMENDATIONS_DEFAULT_MAX_LIMIT,
+  ...rest
+}: FeaturedBlogsGridProps): ReactElement => {
   const router: NextRouter = useRouter();
-  const {blogs}: Blogs = useBlogs({limit: BLOG_RECOMMENDATIONS_MAX_LIMIT});
+  const {blogs}: Blogs = useBlogs({limit});
 
+  /**
+   * Handles the navigation to a blog page.
+   *
+   * @param path - The path of the blog page to navigate to.
+   */
   const handleBlogNavigate = (path: string): void => {
     router.push(path);
   };
 
   return (
-    <section className="relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14">
+    <section
+      css={featuredBlogsGridCss}
+      className={cx(
+        'bmui-featured-blogs-grid',
+        'relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14',
+        className,
+      )}
+      {...rest}
+    >
       <FadeIn className="flex flex-col items-center gap-5 md:gap-6">
         <SectionHeader>{heading}</SectionHeader>
         <SectionSubtext>{description}</SectionSubtext>
@@ -69,3 +127,5 @@ export const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = (props: FeaturedBlo
     </section>
   );
 };
+
+export default FeaturedBlogsGrid;
