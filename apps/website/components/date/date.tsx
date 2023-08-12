@@ -24,11 +24,25 @@
 
 import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {ElementType, forwardRef, ReactElement} from 'react';
-import useStyles from './date.styles';
+import {cx} from '@emotion/css';
+import {css, SerializedStyles} from '@emotion/react';
 
+/**
+ * Type definition for the polymorphic component that renders a date.
+ */
 type PolymorphicDateComponent = <T extends ElementType = 'div'>(props: DateProps<T>) => ReactElement | null;
 
+/**
+ * The `DateProps` interface represents the props accepted by the `Date` component.
+ */
 export type DateProps<T extends ElementType> = PolymorphicComponent<T> & TestableComponent;
+
+/**
+ * CSS for the `Date` component.
+ */
+const dateCss: SerializedStyles = css`
+  /* Custom styles go here */
+`;
 
 /**
  * `Date` is a React component designed to display dates.
@@ -45,15 +59,22 @@ export type DateProps<T extends ElementType> = PolymorphicComponent<T> & Testabl
  * @returns Date as a React Component.
  */
 const Date: PolymorphicDateComponent = forwardRef(
-  <T extends ElementType>(props: DateProps<T>, ref: PolymorphicRef<T>) => {
-    const {as, children, className, ...rest} = props;
-
-    const {classes, css, cx} = useStyles();
-
+  <T extends ElementType>({as, children, className, ...rest}: DateProps<T>, ref: PolymorphicRef<T>): ReactElement => {
     const Element: T | ElementType = as || 'div';
 
     return (
-      <Element ref={ref} css={css} className={cx(classes.root, className)} width={20} height={20} {...rest}>
+      <Element
+        ref={ref}
+        css={dateCss}
+        className={cx(
+          'bmui-date',
+          'text-sm mt-2 text-center text-gray-500 dark:text-gray-400 font-space-grotesk',
+          className,
+        )}
+        width={20}
+        height={20}
+        {...rest}
+      >
         {children}
       </Element>
     );
