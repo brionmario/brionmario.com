@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export {default} from './hero';
-export * from './hero';
+export {default} from './Hero';
+export type {HeroProps} from './Hero';
