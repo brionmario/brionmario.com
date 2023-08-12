@@ -23,15 +23,43 @@
  */
 
 import {useTheme} from 'next-themes';
-import clsx from 'clsx';
+import {ElementType, FC, ReactElement, SVGProps, forwardRef} from 'react';
+import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
+import {cx} from '@emotion/css';
+import {css, SerializedStyles} from '@emotion/react';
 
+/**
+ * The `Theme` enum represents the available themes for the application.
+ */
 enum Theme {
+  /**
+   * The dark theme.
+   */
   DARK = 'dark',
+
+  /**
+   * The light theme.
+   */
   LIGHT = 'light',
 }
 
-export const SunIcon = () => (
-  <svg className="w-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+/**
+ * SVG component for the sun icon.
+ */
+export const SunIcon: FC<SVGProps<SVGSVGElement>> = ({
+  height = 14,
+  width = 14,
+  ...rest
+}: SVGProps<SVGSVGElement>): ReactElement => (
+  <svg
+    className="w-full"
+    viewBox={`0 0 ${height} ${width}`}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    {...rest}
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -89,8 +117,23 @@ export const SunIcon = () => (
   </svg>
 );
 
-export const MoonIcon = () => (
-  <svg className="w-full" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+/**
+ * SVG component for the moon icon.
+ */
+export const MoonIcon: FC<SVGProps<SVGSVGElement>> = ({
+  height = 14,
+  width = 14,
+  ...rest
+}: SVGProps<SVGSVGElement>): ReactElement => (
+  <svg
+    className="w-full"
+    viewBox={`0 0 ${height} ${width}`}
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    height={height}
+    width={width}
+    {...rest}
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"
@@ -100,49 +143,94 @@ export const MoonIcon = () => (
   </svg>
 );
 
-const iconTransformOrigin = {transformOrigin: '50% 100px'};
-const DarkModeSwitch = ({variant = 'icon', className}: {className?: string; variant?: 'icon' | 'labelled'}) => {
-  const {resolvedTheme, setTheme} = useTheme();
+/**
+ * Type definition for the polymorphic `ThemeSwitch` component that renders a theme switcher.
+ */
+type PolymorphicThemeSwitchComponent = <T extends ElementType = 'button'>(
+  props: ThemeSwitchProps<T>,
+) => ReactElement | null;
 
-  return (
-    <button
-      type="button"
-      onClick={() => {
-        setTheme(resolvedTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
-      }}
-      className={clsx(
-        'border-secondary hover:border-primary focus:border-primary inline-flex h-14 items-center justify-center overflow-hidden rounded-full border-2 p-1 transition focus:outline-none',
-        {
-          'w-14': variant === 'icon',
-          'px-8': variant === 'labelled',
-        },
-        className,
-      )}
-    >
-      {/* note that the duration is longer then the one on body, controlling the bg-color */}
-      <div className="relative h-8 w-8">
-        <span
-          className="absolute inset-0 rotate-90 transform text-black transition duration-1000 motion-reduce:duration-[0s] dark:rotate-0 dark:text-white"
-          style={iconTransformOrigin}
-        >
-          <MoonIcon />
-        </span>
-        <span
-          className="absolute inset-0 rotate-0 transform text-black transition duration-1000 motion-reduce:duration-[0s] dark:-rotate-90 dark:text-white"
-          style={iconTransformOrigin}
-        >
-          <SunIcon />
-        </span>
-      </div>
-      {/* <span
-        className={clsx('ml-4 text-black dark:text-white', {
-          'sr-only': variant === 'icon',
-        })}
+/**
+ * The `ThemeSwitchProps` interface represents the props accepted by the `ThemeSwitch` component.
+ */
+export type ThemeSwitchProps<T extends ElementType> = PolymorphicComponent<T> &
+  TestableComponent & {
+    /**
+     * The variant of the theme switch component.
+     * It can be either `'icon'` or `'labelled'`.
+     *
+     * @defaultValue `'icon'`
+     */
+    variant?: 'icon' | 'labelled';
+  };
+
+/**
+ * CSS styles for the `ThemeSwitch` component.
+ */
+const themeSwitch: SerializedStyles = css`
+  /* Custom styles go here */
+`;
+
+/**
+ * `ThemeSwitch` is a React component that allows users to toggle between light and dark themes.
+ *
+ * @remarks  This component is also Polymorphic & uses the `useTheme` hook from the `next-themes` library.
+ *
+ * @example
+ * ```jsx
+ * <ThemeSwitch variant="icon" className="my-4" />;
+ * ```
+ *
+ * @param props - Props for the component.
+ * @returns ThemeSwitch as a React component.
+ */
+const ThemeSwitch: PolymorphicThemeSwitchComponent = forwardRef(
+  <T extends ElementType>(
+    {as, children, className, key, variant = 'icon', bordered, ...rest}: ThemeSwitchProps<T>,
+    ref: PolymorphicRef<T>,
+  ): ReactElement => {
+    const {resolvedTheme, setTheme} = useTheme();
+
+    const Element: T | ElementType = as || 'button';
+
+    return (
+      <Element
+        ref={ref}
+        key={key}
+        type="button"
+        onClick={() => {
+          setTheme(resolvedTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
+        }}
+        className={cx(
+          'bmui-theme-switcher',
+          'inline-flex h-14 items-center justify-center overflow-hidden rounded-full p-1 transition',
+          {
+            'border-secondary hover:border-primary focus:border-primary border-2 focus:outline-none': bordered,
+            'w-14': variant === 'icon',
+            'px-8': variant === 'labelled',
+          },
+          className,
+        )}
+        css={themeSwitch}
+        {...rest}
       >
-        <Themed dark="switch to light mode" light="switch to dark mode" />
-      </span> */}
-    </button>
-  );
-};
+        <div className="relative h-8 w-8">
+          <span
+            className="absolute inset-0 rotate-90 transform text-gray-500 hover:text-black transition duration-1000 motion-reduce:duration-[0s] dark:rotate-0 dark:hover:text-white dark:text-slate-500"
+            style={{transformOrigin: '50% 100px'}}
+          >
+            <MoonIcon height={32} width={32} />
+          </span>
+          <span
+            className="absolute inset-0 rotate-0 transform text-gray-500 hover:text-black transition duration-1000 motion-reduce:duration-[0s] dark:-rotate-90 dark:hover:text-white dark:text-slate-500"
+            style={{transformOrigin: '50% 100px'}}
+          >
+            <SunIcon height={32} width={32} />
+          </span>
+        </div>
+      </Element>
+    );
+  },
+);
 
-export default DarkModeSwitch;
+export default ThemeSwitch;

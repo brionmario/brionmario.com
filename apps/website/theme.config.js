@@ -29,7 +29,7 @@ import {useConfig, useTheme} from 'nextra-theme-docs';
 import {Footer} from './components/Footer';
 import Navigation from './components/navigation';
 import HeaderLogo from './components/HeaderLogo';
-import DarkModeSwitch from './components/dark-mode-switch/dark-mode-switch';
+import ThemeSwitch from './components/ThemeSwitch';
 
 const SITE_ROOT = 'https://brionmario.com';
 
@@ -99,7 +99,7 @@ const theme = {
   },
   navbar: {
     component: Navigation,
-    extraContent: DarkModeSwitch,
+    extraContent: ThemeSwitch,
   },
   footer: {
     component: Footer,
