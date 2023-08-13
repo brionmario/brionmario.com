@@ -26,7 +26,7 @@
 
 import {useRouter} from 'next/router';
 import {useConfig, useTheme} from 'nextra-theme-docs';
-import {Footer} from './components/Footer';
+import Footer from './components/Footer';
 import Navigation from './components/navigation';
 import HeaderLogo from './components/HeaderLogo';
 import ThemeSwitch from './components/ThemeSwitch';
@@ -102,7 +102,7 @@ const theme = {
     extraContent: ThemeSwitch,
   },
   footer: {
-    component: Footer,
+    component: <Footer />,
   },
   nextThemes: {
     defaultTheme: 'dark',
