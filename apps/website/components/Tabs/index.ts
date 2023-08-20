@@ -22,17 +22,6 @@
  * SOFTWARE.
  */
 
-import Link from 'next/link';
-import styles from './header-logo.module.css';
-import Logo, {LogoMobile} from './logos/logo';
-
-const HeaderLogo = () => (
-  <Link href="/" passHref>
-    <a title="Home" href="/" className="hover:opacity-75">
-      <LogoMobile alt="Site mobile logo" height={40} width={40} className={styles.mobileLogo} />
-      <Logo alt="Site logo" height={32} width={200} className={styles.desktopLogo} />
-    </a>
-  </Link>
-);
-
-export default HeaderLogo;
+export {default} from './Tabs';
+export {Tab} from './Tabs';
+export type {TabsProps} from './Tabs';

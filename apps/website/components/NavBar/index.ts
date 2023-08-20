@@ -22,4 +22,5 @@
  * SOFTWARE.
  */
 
-export {default} from './navigation';
+export {default} from './NavBar';
+export type {NavbarProps} from './NavBar';

@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2023, Brion Mario
+ * Copyright (c) 2022, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,40 +22,7 @@
  * SOFTWARE.
  */
 
-import {Tabs as NextraTabs, Tab} from 'nextra-theme-docs';
-import type {FC, ReactElement} from 'react';
-
-import useSWR from 'swr';
-
-export {Tab};
-
-export const Tabs: FC<{
-  children: ReactElement;
-  items: string[];
-  storageKey?: string;
-}> = ({storageKey = 'tab-index', items, children = null, ...props}) => {
-  // Use SWR so all tabs with the same key can sync their states.
-  const {data, mutate} = useSWR(storageKey, key => {
-    try {
-      return JSON.parse(localStorage.getItem(key));
-    } catch (e) {
-      return null;
-    }
-  });
-
-  const selectedIndex = items.indexOf(data);
-
-  return (
-    <NextraTabs
-      onChange={index => {
-        localStorage.setItem(storageKey, JSON.stringify(items[index]));
-        mutate(items[index], false);
-      }}
-      selectedIndex={selectedIndex === -1 ? undefined : selectedIndex}
-      items={items}
-      {...props}
-    >
-      {children}
-    </NextraTabs>
-  );
-};
+export {default} from './NavLink';
+export {MobileNavLink} from './NavLink';
+export type {NavLinkProps} from './NavLink';
+export type {MobileNavLinkProps} from './NavLink';

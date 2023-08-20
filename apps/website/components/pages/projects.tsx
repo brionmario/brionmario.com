@@ -25,7 +25,7 @@
 import {ReactElement} from 'react';
 import {useProjects} from '../../api';
 import {Project} from '../../models';
-import ProjectCard from '../cards';
+import ProjectCard from '../ProjectCard';
 import {FadeIn} from './home-shared/FadeIn';
 
 const ProjectsPage = (): ReactElement => {
