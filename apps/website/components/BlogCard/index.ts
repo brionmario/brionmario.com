@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2023, Brion Mario.
+ * Copyright (c) 2022, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,34 +22,5 @@
  * SOFTWARE.
  */
 
-import {NextRouter, useRouter} from 'next/router';
-import {Page} from 'nextra';
-import {ReactElement} from 'react';
-import {Blogs, useBlogs} from '../../hooks';
-import BlogCard from '../BlogCard';
-import {FadeIn} from './home-shared/FadeIn';
-
-const BlogPage = (): ReactElement => {
-  const router: NextRouter = useRouter();
-  const {blogs}: Blogs = useBlogs();
-
-  const handleBlogNavigate = (path: string): void => {
-    router.push(path);
-  };
-
-  return (
-    <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
-      {blogs.map((page: Page & any) => (
-        <FadeIn className="flex" key={page.route.replace(/\s+/g, '-').toLowerCase()}>
-          <BlogCard
-            data-testid={`${page.route}-blog`}
-            frontMatter={page.children[0].frontMatter}
-            onClick={(): void => handleBlogNavigate(page.route)}
-          />
-        </FadeIn>
-      ))}
-    </div>
-  );
-};
-
-export default BlogPage;
+export {default} from './BlogCard';
+export type {BlogCardProps} from './BlogCard';

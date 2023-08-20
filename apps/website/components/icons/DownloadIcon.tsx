@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2023, Brion Mario.
+ * Copyright (c) 2023, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,34 +22,42 @@
  * SOFTWARE.
  */
 
-import {NextRouter, useRouter} from 'next/router';
-import {Page} from 'nextra';
-import {ReactElement} from 'react';
-import {Blogs, useBlogs} from '../../hooks';
-import BlogCard from '../BlogCard';
-import {FadeIn} from './home-shared/FadeIn';
+import cx from 'clsx';
+import {ReactElement, SVGProps} from 'react';
 
-const BlogPage = (): ReactElement => {
-  const router: NextRouter = useRouter();
-  const {blogs}: Blogs = useBlogs();
+/**
+ * `DownloadIcon` is a React wrapper on a download icon SVG.
+ *
+ * Usage:
+ *
+ * ```jsx
+ * <DownloadIcon className="download-icon" height={20} width={20} />;
+ * ```
+ *
+ * @param props - Props for the component.
+ * @returns Download icon as a React Component.
+ */
+const DownloadIcon = ({className, width = 16, height = 16, ...rest}: SVGProps<SVGSVGElement>): ReactElement => (
+  <svg
+    aria-hidden="true"
+    height={width}
+    viewBox={`0 0 ${height} ${width}`}
+    version="1.1"
+    width={width}
+    fill="currentColor"
+    className={cx('bmui-icon', 'download-icon', 'svg', className)}
+    xmlns="http://www.w3.org/2000/svg"
+    {...rest}
+  >
+    <path
+      d="M12.5 4V17M12.5 17L7 12.2105M12.5 17L18 12.2105"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path d="M6 21H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
 
-  const handleBlogNavigate = (path: string): void => {
-    router.push(path);
-  };
-
-  return (
-    <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
-      {blogs.map((page: Page & any) => (
-        <FadeIn className="flex" key={page.route.replace(/\s+/g, '-').toLowerCase()}>
-          <BlogCard
-            data-testid={`${page.route}-blog`}
-            frontMatter={page.children[0].frontMatter}
-            onClick={(): void => handleBlogNavigate(page.route)}
-          />
-        </FadeIn>
-      ))}
-    </div>
-  );
-};
-
-export default BlogPage;
+export default DownloadIcon;

@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export {default} from './avatar';
-export * from './avatar';
+export {default} from './Avatar';
+export type {AvatarProps} from './Avatar';

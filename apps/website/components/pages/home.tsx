@@ -25,8 +25,9 @@
 import clsx from 'clsx';
 import Link from 'next/link';
 import {ReactElement} from 'react';
-import {FeaturedProjectsGrid, FeaturedBlogsGrid} from '../grids';
-import Hero from '../hero';
+import FeaturedProjectsGrid from '../FeaturedProjectsGrid';
+import FeaturedBlogsGrid from '../FeaturedBlogsGrid';
+import Hero from '../Hero';
 import {CTAButton} from './home-shared/CTAButton';
 import {FadeIn} from './home-shared/FadeIn';
 

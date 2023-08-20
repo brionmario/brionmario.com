@@ -22,5 +22,5 @@
  * SOFTWARE.
  */
 
-export {default} from './date';
-export * from './date';
+export {default} from './Date';
+export type {DateProps} from './Date';
