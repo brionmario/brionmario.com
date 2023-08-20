@@ -27,8 +27,7 @@
 import {useRouter} from 'next/router';
 import {useConfig, useTheme} from 'nextra-theme-docs';
 import Footer from './components/Footer';
-import Navigation from './components/navigation';
-import HeaderLogo from './components/HeaderLogo';
+import NavBar from './components/NavBar';
 import ThemeSwitch from './components/ThemeSwitch';
 
 const SITE_ROOT = 'https://brionmario.com';
@@ -57,7 +56,6 @@ const theme = {
   },
   font: false,
   feedback: false,
-  logo: HeaderLogo,
   logoLink: false,
   head: function Head() {
     const {asPath} = useRouter();
@@ -98,7 +96,7 @@ const theme = {
     text: 'Edit this page on GitHub',
   },
   navbar: {
-    component: Navigation,
+    component: NavBar,
     extraContent: ThemeSwitch,
   },
   footer: {
