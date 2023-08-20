@@ -1,26 +1,23 @@
 {
-  "name": "@brionmario/portfolio-project",
-  "description": "Welcome to the source code for my personal website",
-  "version": "1.1.0",
   "private": true,
-  "license": "MIT",
+  "name": "@brionmario/portfolio-workspace",
+  "version": "0.1.0",
+  "description": "Welcome to the source code for my personal website.",
   "author": "Brion Mario",
-  "keywords": [
-    "portfolio",
-    "developer",
-    "nextjs"
-  ],
+  "license": "MIT",
   "homepage": "https://github.com/brionmario/brionmario.com#readme",
+  "bugs": {
+    "url": "https://github.com/brionmario/brionmario.com/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/brionmario/brionmario.com.git"
   },
-  "bugs": {
-    "url": "https://github.com/brionmario/brionmario.com/issues"
-  },
-  "workspaces": [
-    "apps/*",
-    "packages/*"
+  "keywords": [
+    "brionmario",
+    "portfolio",
+    "developer",
+    "nextjs"
   ],
   "scripts": {
     "build": "turbo run build",
