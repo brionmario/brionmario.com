@@ -26,3 +26,5 @@ if (typeof window !== 'undefined' && !('requestIdleCallback' in window)) {
   (window as Window).requestIdleCallback = fn => setTimeout(fn, 1);
   (window as Window).cancelIdleCallback = e => clearTimeout(e);
 }
+
+export {};

@@ -129,7 +129,12 @@ const NavBar = ({items}: NavbarProps): ReactElement => {
         <div className="flex">
           <ul className="hidden lg:flex">
             {items.map((item: NavBarItem) => (
-              <NavLink key={item.route} href={item.route} title={item.title}>
+              <NavLink
+                key={item.route}
+                href={item.route}
+                title={item.title as string}
+                data-testid={`navbar-item-${item.title}`}
+              >
                 {item.name}
               </NavLink>
             ))}
@@ -205,8 +210,9 @@ const NavBar = ({items}: NavbarProps): ReactElement => {
                           <MobileNavLink
                             key={item.route}
                             href={item.route}
-                            title={item.title}
+                            title={item.title as string}
                             onClick={toggleMobileMenu}
+                            data-testid={`navbar-item-${item.title}`}
                           >
                             {item.name}
                           </MobileNavLink>

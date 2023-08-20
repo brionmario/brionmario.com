@@ -174,7 +174,13 @@ const Hero: PolymorphicHeroComponent = forwardRef(
               </span>
             </SectionSubtext>
             <HeroText h1>
-              <Logo alt="Hero section Logo" width={500} height={85} className="hero__logo" />
+              <Logo
+                alt="Hero section Logo"
+                width={500}
+                height={85}
+                className="hero__logo"
+                data-testid="hero-section-logo"
+              />
             </HeroText>
             <SectionSubtext hero>
               <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>
