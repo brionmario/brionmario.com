@@ -24,9 +24,10 @@
 
 import {useTheme} from 'next-themes';
 import {ElementType, FC, ReactElement, SVGProps, forwardRef} from 'react';
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import type {TestableComponent} from '../../models/dom';
 
 /**
  * The `Theme` enum represents the available themes for the application.

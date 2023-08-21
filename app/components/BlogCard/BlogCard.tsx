@@ -24,12 +24,13 @@
 
 import Image from 'next/future/image';
 import {ElementType, forwardRef, ReactElement} from 'react';
-import type {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import dayjs from 'dayjs';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import type {TestableComponent} from '../../models/dom';
 import Avatar from '../Avatar';
-import {Author, BlogPostFrontMatter} from '../../models';
+import type {Author, BlogPostFrontMatter} from '../../models/blog';
 
 /**
  * Interface for the polymorphic Blog Card component that renders a div by default.

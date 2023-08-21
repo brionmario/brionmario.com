@@ -25,7 +25,7 @@
 import {FC, ReactElement, SVGProps} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
-import {TestableComponent} from '@brionmario/ui';
+import type {TestableComponent} from '../../models/dom';
 
 /**
  * The `MobileLogoProps` interface represents the props accepted by the `MobileLogo` component.

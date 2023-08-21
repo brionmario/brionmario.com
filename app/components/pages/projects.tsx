@@ -24,7 +24,7 @@
 
 import {ReactElement} from 'react';
 import {useProjects} from '../../api';
-import {Project} from '../../models';
+import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
 import {FadeIn} from './home-shared/FadeIn';
 

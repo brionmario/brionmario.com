@@ -22,7 +22,8 @@
  * SOFTWARE.
  */
 
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import type {TestableComponent} from '../../models/dom';
 import Image from 'next/image';
 import {ElementType, ReactElement, forwardRef, PropsWithChildren} from 'react';
 import {cx} from '@emotion/css';

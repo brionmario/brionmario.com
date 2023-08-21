@@ -23,9 +23,10 @@
  */
 
 import {ElementType, forwardRef, ReactElement, ReactNode} from 'react';
-import type {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
  * Interface for the polymorphic Avatar Group component that renders a group of avatar components.

@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-import {PolymorphicComponent, PolymorphicRef, TestableComponent, ThemeTypes} from '@brionmario/ui';
 import {DownloadIcon} from '@heroicons/react/solid';
 import Image from 'next/future/image';
 import Link from 'next/link';
@@ -30,6 +29,9 @@ import {useTheme} from 'nextra-theme-docs';
 import {ElementType, ReactElement, forwardRef} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import {ThemeTypes} from '../../models/theme';
+import type {TestableComponent} from '../../models/dom';
 import Logo from '../Logo';
 import {CTAButton} from '../pages/home-shared/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';

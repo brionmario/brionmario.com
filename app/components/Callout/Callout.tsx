@@ -26,7 +26,8 @@ import {ExclamationCircleIcon, ExclamationIcon, InformationCircleIcon, LightBulb
 import {ElementType, ReactElement, ReactNode, forwardRef} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
-import {PolymorphicComponent, TestableComponent, PolymorphicRef} from '@brionmario/ui';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 import {AvatarProps} from '../Avatar';
 
 /**

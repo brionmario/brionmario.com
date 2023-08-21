@@ -23,9 +23,10 @@
  */
 
 import {ElementType, forwardRef, ReactElement} from 'react';
-import type {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
  * Type definition for the polymorphic Avatar component that renders an avatar.

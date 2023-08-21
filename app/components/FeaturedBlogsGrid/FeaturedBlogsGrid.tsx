@@ -22,12 +22,12 @@
  * SOFTWARE.
  */
 
-import {TestableComponent} from '@brionmario/ui';
 import {NextRouter, useRouter} from 'next/router';
 import {Page} from 'nextra';
 import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
 import {Blogs, useBlogs} from '../../hooks';
 import BlogCard from '../BlogCard/BlogCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';

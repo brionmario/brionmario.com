@@ -27,7 +27,7 @@ import Link, {LinkProps} from 'next/link';
 import {useReducedMotion, AnimatePresence, motion, Transition} from 'framer-motion';
 import {NextRouter, useRouter} from 'next/router';
 import {SerializedStyles, css} from '@emotion/react';
-import {TestableComponent} from '@brionmario/ui';
+import type {TestableComponent} from '../../models/dom';
 import ThemeSwitch from '../ThemeSwitch';
 import styles from '../header-logo.module.css';
 import MobileLogo from '../MobileLogo';
