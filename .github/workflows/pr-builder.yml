@@ -212,7 +212,7 @@ jobs:
       - name: 🏗️ Build
         id: build-the-mono-repo
         run: |
-          cd apps/website
+          cd app
 
           # Set ENV
           touch .env.local
@@ -221,9 +221,9 @@ jobs:
           echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{secrets.GTM_CONTAINER_ID}}'" >> .env.local
           echo "SITE_URL='https://brionmario.com'" >> .env.local
 
-          cd ../..
+          cd ..
           pnpm build
 
           # SEO work
-          cd apps/website
+          cd app
           pnpm generate:site-map

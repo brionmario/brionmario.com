@@ -27,7 +27,7 @@ const path = require('path');
 module.exports = {
   plugins: ['@brionmario'],
   extends: [
-    '../../.eslintrc.js',
+    '../.eslintrc.js',
     'plugin:@brionmario/typescript',
     'plugin:@brionmario/react',
     // 'plugin:@brionmario/strict',

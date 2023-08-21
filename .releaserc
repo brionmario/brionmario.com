@@ -38,7 +38,7 @@
       "@semantic-release/github",
       {
         "assets": [
-          { "path": "apps/website/.next", "label": "Website" }
+          { "path": "app/.next", "label": "Website" }
         ],
         "addReleases": "top",
         "successComment": false
