@@ -1,0 +1,17 @@
+name: ❓ Question
+description: Ask a question about the project
+title: "[QUESTION] <title>"
+labels: ["Question", "Needs Triage"]
+body:
+  - type: textarea
+    attributes:
+      label: Your Question
+      description: Ask your question here. Be clear and provide context if necessary.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Details
+      description: Any additional details or context you want to provide.
+    validations:
+      required: false

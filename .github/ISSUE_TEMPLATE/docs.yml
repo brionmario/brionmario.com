@@ -1,0 +1,23 @@
+name: 📚 Documentation Improvement
+description: Suggest improvements to the documentation
+title: "[DOCS] <title>"
+labels: ["Documentation", "Needs Triage"]
+body:
+  - type: textarea
+    attributes:
+      label: Current Documentation
+      description: Describe the current documentation and what you think needs improvement.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Suggested Changes
+      description: Provide details about the changes you'd like to see in the documentation.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Additional Comments
+      description: Any additional comments or context about the documentation improvement.
+    validations:
+      required: false

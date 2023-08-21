@@ -1,8 +1,19 @@
 {
-  "name": "@brionmario/website",
-  "version": "1.1.0",
   "private": true,
-  "description": "Turborepo.org docs",
+  "name": "@brionmario/website",
+  "version": "0.1.0",
+  "description": "Brion Mario's personal website",
+  "author": "Brion Mario",
+  "license": "MIT",
+  "homepage": "https://github.com/brionmario/brionmario.com/blob/main/app#readme",
+  "bugs": {
+    "url": "https://github.com/brionmario/brionmario.com/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brionmario/brionmario.com.git",
+    "directory": "app"
+  },
   "scripts": {
     "dev": "next",
     "start": "next start",
@@ -11,8 +22,6 @@
     "generate:site-map": "next-sitemap",
     "typecheck": "tsc --noemit"
   },
-  "author": "Jared Palmer",
-  "license": "MPL-2.0",
   "dependencies": {
     "@brionmario/ui": "workspace:*",
     "@emotion/css": "^11.10.5",
