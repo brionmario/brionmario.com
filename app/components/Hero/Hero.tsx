@@ -32,7 +32,7 @@ import type {PolymorphicComponent, PolymorphicRef} from '../../models/component'
 import {ThemeTypes} from '../../models/theme';
 import type {TestableComponent} from '../../models/dom';
 import Logo from '../Logo';
-import {CTAButton} from '../pages/home-shared/CTAButton';
+import CTAButton from '../CTAButton/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
 import DownloadIcon from '../Icons/DownloadIcon';
@@ -198,12 +198,12 @@ const Hero: PolymorphicHeroComponent = forwardRef(
           </FadeIn>
           <FadeIn delay={0.3} className="z-50 flex flex-col items-center w-full max-w-md gap-5 px-6 md:max-w-lg">
             <div className="flex flex-col w-116 gap-3 md:!flex-row">
-              <CTAButton>
+              <CTAButton data-testid="read-the-blog-button">
                 <Link href="/blog">
                   <span className="block py-3">Read the blog</span>
                 </Link>
               </CTAButton>
-              <CTAButton outline onClick={() => onResumeDownload()}>
+              <CTAButton data-testid="download-resume-button" outline onClick={() => onResumeDownload()}>
                 <div className="flex flex-row content-center align-middle justify-center items-center">
                   <span className="block py-3 px-3">Download Resume</span>
                   <DownloadIcon height={20} />

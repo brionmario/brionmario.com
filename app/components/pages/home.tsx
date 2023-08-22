@@ -28,7 +28,7 @@ import {ReactElement} from 'react';
 import FeaturedProjectsGrid from '../FeaturedProjectsGrid';
 import FeaturedBlogsGrid from '../FeaturedBlogsGrid';
 import Hero from '../Hero';
-import {CTAButton} from './home-shared/CTAButton';
+import CTAButton from '../CTAButton/CTAButton';
 import {FadeIn} from './home-shared/FadeIn';
 
 const HomePage = (): ReactElement => (
@@ -43,7 +43,7 @@ const HomePage = (): ReactElement => (
         />
         <FadeIn noVertical className="relative flex justify-center w-full">
           <div className="max-w-[180px] w-full">
-            <CTAButton outline>
+            <CTAButton data-testid="show-more-button" outline>
               <Link href="/projects">
                 <span className="block py-3">Show More</span>
               </Link>
@@ -61,7 +61,7 @@ const HomePage = (): ReactElement => (
         />
         <FadeIn noVertical className="relative flex justify-center w-full">
           <div className="max-w-[180px] w-full">
-            <CTAButton outline>
+            <CTAButton outline data-testid="show-more-button">
               <Link href="/blog">
                 <span className="block py-3">Show More</span>
               </Link>
