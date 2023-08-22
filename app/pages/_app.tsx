@@ -25,7 +25,6 @@
 import '../shims';
 import '../styles/custom.css';
 import '../styles/tailwind.css';
-import {SSRProvider} from '@react-aria/ssr';
 import type {AppProps} from 'next/app';
 import type {ReactElement, ReactNode} from 'react';
 
@@ -37,7 +36,7 @@ type NextraAppProps = AppProps & {
 };
 
 const Nextra = ({Component, pageProps}: NextraAppProps): ReactElement => (
-  <SSRProvider>
+  <>
     <>
       {/**
        * Globally defined svg linear gradient, for use in icons
@@ -52,7 +51,7 @@ const Nextra = ({Component, pageProps}: NextraAppProps): ReactElement => (
       </svg>
     </>
     <Component {...pageProps} />
-  </SSRProvider>
+  </>
 );
 
 export default Nextra;

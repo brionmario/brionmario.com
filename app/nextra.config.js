@@ -26,7 +26,7 @@
 
 import {useRouter} from 'next/router';
 import {useConfig, useTheme} from 'nextra-theme-docs';
-import Footer from './components/Footer';
+import Footer from './components/Footer/Footer';
 import NavBar from './components/NavBar';
 import ThemeSwitch from './components/ThemeSwitch';
 

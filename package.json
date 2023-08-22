@@ -25,19 +25,13 @@
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx}\"",
     "lint": "turbo run lint",
-    "publish:release": "semantic-release",
     "test": "turbo run test",
     "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@brionmario/eslint-plugin": "^0.2.9",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/exec": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "conventional-changelog-conventionalcommits": "^4.6.3",
     "eslint": "^8.29.0",
     "eslint-config-turbo": "^0.0.7",
-    "semantic-release": "^19.0.2",
     "turbo": "latest"
   },
   "engines": {
