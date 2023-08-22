@@ -29,7 +29,7 @@ import type {TestableComponent} from '../../models/dom';
 import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
- * Type definition for the polymorphic SectionHeader component.
+ * Type definition for the polymorphic `SectionSubHeader` component.
  */
 type PolymorphicSectionSubHeaderComponent = <T extends ElementType = 'h2'>(
   props: SectionSubHeaderProps<T>,
@@ -65,7 +65,7 @@ const sectionSubHeaderCss: SerializedStyles = css`
  * Usage:
  *
  *     ```jsx
- *       <SectionSubHeader as="h2" className="custom-style">Section Title</SectionSubHeader>
+ *       <SectionSubHeader as="h2" className="custom-style">Section Subtitle</SectionSubHeader>
  *     ```
  *
  * @param props - Props for the component.

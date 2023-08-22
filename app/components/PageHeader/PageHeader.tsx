@@ -29,51 +29,49 @@ import type {TestableComponent} from '../../models/dom';
 import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
- * Type definition for the polymorphic `SectionHeader` component.
+ * Type definition for the polymorphic `PageHeader` component.
  */
-type PolymorphicSectionHeaderComponent = <T extends ElementType = 'h2'>(
-  props: SectionHeaderProps<T>,
-) => ReactElement | null;
+type PolymorphicPageHeaderComponent = <T extends ElementType = 'h2'>(props: PageHeaderProps<T>) => ReactElement | null;
 
 /**
- * Props for the `SectionHeader` component.
+ * Props for the `PageHeader` component.
  */
-export type SectionHeaderProps<T extends ElementType = 'h2'> = PolymorphicComponent<T> & TestableComponent;
+export type PageHeaderProps<T extends ElementType = 'h2'> = PolymorphicComponent<T> & TestableComponent;
 
 /**
- * CSS for the `SectionHeader` component.
+ * CSS for the `PageHeader` component.
  */
-const sectionHeaderCss: SerializedStyles = css`
+const pageHeaderCss: SerializedStyles = css`
   /* Custom styles go here */
 `;
 
 /**
- * A component that represents a section header.
+ * A component that represents a page header.
  *
  * @remarks This component is also Polymorphic.
  *
  * Usage:
  *
  *     ```jsx
- *       <SectionHeader as="h2" className="custom-style">Section Title</SectionHeader>
+ *       <PageHeader as="h2" className="custom-style">Page Title</PageHeader>
  *     ```
  *
  * @param props - Props for the component.
- * @returns A component displaying a section header.
+ * @returns A component displaying a page header.
  */
-const SectionHeader: PolymorphicSectionHeaderComponent = forwardRef(
-  <T extends ElementType>({as, children, className, ...rest}: SectionHeaderProps<T>, ref: PolymorphicRef<T>) => {
+const PageHeader: PolymorphicPageHeaderComponent = forwardRef(
+  <T extends ElementType>({as, children, className, ...rest}: PageHeaderProps<T>, ref: PolymorphicRef<T>) => {
     const Element = as || 'h2';
 
     return (
       <Element
         ref={ref}
         className={cx(
-          'bmui-section-header',
+          'bmui-page-header',
           'font-bold tracking-[-0.01em] pb-1 text-[32px] md:text-4xl lg:text-[40px] max-w-sm md:max-w-md lg:max-w-2xl text-center dark:text-white',
           className,
         )}
-        css={sectionHeaderCss}
+        css={pageHeaderCss}
         {...rest}
       >
         {children}
@@ -82,4 +80,4 @@ const SectionHeader: PolymorphicSectionHeaderComponent = forwardRef(
   },
 );
 
-export default SectionHeader;
+export default PageHeader;
