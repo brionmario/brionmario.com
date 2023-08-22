@@ -23,7 +23,6 @@
  */
 
 import '../shims';
-import '../styles/vendor.css';
 import '../styles/custom.css';
 import '../styles/tailwind.css';
 import {SSRProvider} from '@react-aria/ssr';

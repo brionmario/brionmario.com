@@ -27,7 +27,6 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mdx-js/react": "^2.1.4",
-    "@reach/menu-button": "^0.18.0",
     "@react-aria/ssr": "3.3.0",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/line-clamp": "^0.4.2",
