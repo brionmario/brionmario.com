@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2023, Brion Mario.
+ * Copyright (c) 2022, Brion Mario
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,40 +22,5 @@
  * SOFTWARE.
  */
 
-import {cx} from '@emotion/css';
-import {CSSProperties, ReactElement} from 'react';
-
-export const SectionSubtext = ({
-  hero,
-  children,
-  className,
-  textAlign = 'center',
-}: {
-  children: React.ReactNode;
-  className?: string;
-  hero?: boolean;
-  textAlign?: CSSProperties['textAlign'];
-}): ReactElement => {
-  const textClasses: string = hero ? 'text-[20px] lg:text-xl' : 'text-[16px] lg:text-[20px]';
-
-  return (
-    <p
-      className={cx(
-        `font-space-grotesk leading-snug dark:text-[#FFFFFFB2] text-[#00000080] ${textClasses} max-w-md md:max-w-xl lg:max-w-[640px] text-${textAlign}`,
-        className,
-      )}
-    >
-      {children}
-    </p>
-  );
-};
-
-export const PageHeader = ({children}: {children: React.ReactNode}) => (
-  <h2
-    className={cx(
-      'font-bold tracking-[-0.01em] pb-1 text-[32px] md:text-4xl lg:text-[40px] max-w-sm md:max-w-md lg:max-w-2xl text-center dark:text-white',
-    )}
-  >
-    {children}
-  </h2>
-);
+export {default} from './SectionHeader';
+export type {SectionHeaderProps} from './SectionHeader';

@@ -31,8 +31,9 @@ import type {TestableComponent} from '../../models/dom';
 import useBlogs from '../../hooks/use-blogs';
 import BlogCard from '../BlogCard/BlogCard';
 import FadeIn from '../FadeIn/FadeIn';
-import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
+import {SectionSubtext} from '../pages/home-shared/Headings';
 import {Blogs} from '../../models/blog';
+import SectionHeader from '../SectionHeader';
 
 /**
  * The `FeaturedBlogsGridProps` interface represents the props accepted by the `FeaturedBlogsGrid` component.
@@ -110,7 +111,7 @@ const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = ({
       {...rest}
     >
       <FadeIn className="flex flex-col items-center gap-5 md:gap-6">
-        <SectionHeader>{heading}</SectionHeader>
+        <SectionHeader data-testid="featured-blogs-section-header">{heading}</SectionHeader>
         <SectionSubtext>{description}</SectionSubtext>
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
