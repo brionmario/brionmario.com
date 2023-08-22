@@ -34,8 +34,8 @@ import type {TestableComponent} from '../../models/dom';
 import Logo from '../Logo';
 import CTAButton from '../CTAButton/CTAButton';
 import FadeIn from '../FadeIn/FadeIn';
-import {SectionSubtext} from '../pages/home-shared/Headings';
 import DownloadIcon from '../Icons/DownloadIcon';
+import SectionSubHeader from '../SectionSubHeader/SectionSubHeader';
 
 /**
  * Type definition for the polymorphic `Hero` component that renders a hero section.
@@ -171,12 +171,12 @@ const Hero: PolymorphicHeroComponent = forwardRef(
             className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6"
             data-testid="hero-section-slogan-fade-in"
           >
-            <SectionSubtext hero data-testid="hero-greeting-wrapper" className="hero__greeting">
+            <SectionSubHeader hero data-testid="hero-section-sub-header" className="hero__greeting">
               <span className="hero__greeting">
                 <span className="hero__greeting__wave">👋</span>
                 Hi there! I&apos;m
               </span>
-            </SectionSubtext>
+            </SectionSubHeader>
             <h1
               className={cx(
                 'font-good-brush tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[80px] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white',
@@ -191,7 +191,7 @@ const Hero: PolymorphicHeroComponent = forwardRef(
                 data-testid="hero-section-logo"
               />
             </h1>
-            <SectionSubtext hero>
+            <SectionSubHeader hero data-testid="hero-section-caption-sub-header">
               <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>
               <div className="hero__greeting__caption__employment">
                 Currently working as a Senior Software Engineer at
@@ -201,7 +201,7 @@ const Hero: PolymorphicHeroComponent = forwardRef(
                   </span>
                 </Link>
               </div>
-            </SectionSubtext>
+            </SectionSubHeader>
           </FadeIn>
           <FadeIn
             data-testid="hero-section-actions-fade-in"

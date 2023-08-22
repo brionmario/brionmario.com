@@ -29,8 +29,8 @@ import {useProjects} from '../../api/projects';
 import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
 import FadeIn from '../FadeIn/FadeIn';
-import {SectionSubtext} from '../pages/home-shared/Headings';
 import SectionHeader from '../SectionHeader';
+import SectionSubHeader from '../SectionSubHeader/SectionSubHeader';
 
 /**
  * The `FeaturedProjectsGridProps` interface represents the props accepted by the `FeaturedProjectsGrid` component.
@@ -100,7 +100,9 @@ const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = ({
     >
       <FadeIn data-testid="featured-projects-header-fade-in" className="flex flex-col items-center gap-5 md:gap-6">
         <SectionHeader data-testid="featured-projects-section-header">{heading}</SectionHeader>
-        <SectionSubtext>{description}</SectionSubtext>
+        <SectionSubHeader data-testid="featured-projects-section-sub-header" textAlign="center">
+          {description}
+        </SectionSubHeader>
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
         {data.featured.map((project: Project) => (

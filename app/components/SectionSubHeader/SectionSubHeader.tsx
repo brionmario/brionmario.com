@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import {ElementType, forwardRef, ReactElement} from 'react';
+import {CSSProperties, ElementType, forwardRef, ReactElement} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import type {TestableComponent} from '../../models/dom';
@@ -31,49 +31,64 @@ import type {PolymorphicComponent, PolymorphicRef} from '../../models/component'
 /**
  * Type definition for the polymorphic SectionHeader component.
  */
-type PolymorphicSectionHeaderComponent = <T extends ElementType = 'h2'>(
-  props: SectionHeaderProps<T>,
+type PolymorphicSectionSubHeaderComponent = <T extends ElementType = 'h2'>(
+  props: SectionSubHeaderProps<T>,
 ) => ReactElement | null;
 
 /**
- * Props for the `SectionHeader` component.
+ * Props for the `SectionSubHeader` component.
  */
-export type SectionHeaderProps<T extends ElementType = 'h2'> = PolymorphicComponent<T> & TestableComponent;
+export type SectionSubHeaderProps<T extends ElementType = 'p'> = PolymorphicComponent<T> &
+  TestableComponent & {
+    /**
+     * Should the sub header be rendered as a Hero sub header.
+     */
+    hero?: boolean;
+    /**
+     * Text alignment for the section sub header.
+     */
+    textAlign?: CSSProperties['textAlign'];
+  };
 
 /**
- * CSS for the `SectionHeader` component.
+ * CSS for the `SectionSubHeader` component.
  */
-const sectionHeaderCss: SerializedStyles = css`
+const sectionSubHeaderCss: SerializedStyles = css`
   /* Custom styles go here */
 `;
 
 /**
- * A component that represents a section header.
+ * A component that represents a section sub header.
  *
  * @remarks This component is also Polymorphic.
  *
  * Usage:
  *
  *     ```jsx
- *       <SectionHeader as="h2" className="custom-style">Section Title</SectionHeader>
+ *       <SectionSubHeader as="h2" className="custom-style">Section Title</SectionSubHeader>
  *     ```
  *
  * @param props - Props for the component.
- * @returns A component displaying a section header.
+ * @returns A component displaying a section sub header.
  */
-const SectionHeader: PolymorphicSectionHeaderComponent = forwardRef(
-  <T extends ElementType>({as, children, className, ...rest}: SectionHeaderProps<T>, ref: PolymorphicRef<T>) => {
-    const Element = as || 'h2';
+const SectionSubHeader: PolymorphicSectionSubHeaderComponent = forwardRef(
+  <T extends ElementType>(
+    {as, children, className, textAlign, hero, ...rest}: SectionSubHeaderProps<T>,
+    ref: PolymorphicRef<T>,
+  ) => {
+    const Element = as || 'p';
+
+    const textClasses: string = hero ? 'text-[20px] lg:text-xl' : 'text-[16px] lg:text-[20px]';
 
     return (
       <Element
         ref={ref}
         className={cx(
-          'bmui-section-header',
-          'font-bold tracking-[-0.01em] pb-1 text-[32px] md:text-4xl lg:text-[40px] max-w-sm md:max-w-md lg:max-w-2xl text-center dark:text-white',
+          'bmui-section-sub-header',
+          `font-space-grotesk leading-snug dark:text-[#FFFFFFB2] text-[#00000080] ${textClasses} max-w-md md:max-w-xl lg:max-w-[640px] text-${textAlign}`,
           className,
         )}
-        css={sectionHeaderCss}
+        css={sectionSubHeaderCss}
         {...rest}
       >
         {children}
@@ -82,4 +97,4 @@ const SectionHeader: PolymorphicSectionHeaderComponent = forwardRef(
   },
 );
 
-export default SectionHeader;
+export default SectionSubHeader;
