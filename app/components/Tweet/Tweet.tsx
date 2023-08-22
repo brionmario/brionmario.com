@@ -22,11 +22,12 @@
  * SOFTWARE.
  */
 
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import Image from 'next/image';
 import {ElementType, ReactElement, forwardRef, PropsWithChildren} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
  * Type definition for the polymorphic `Tweet` component that represents a tweet.

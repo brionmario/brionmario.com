@@ -22,10 +22,11 @@
  * SOFTWARE.
  */
 
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {ElementType, forwardRef, ReactElement} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import type {TestableComponent} from '../../models/dom';
 
 /**
  * Type definition for the polymorphic component that renders a date.

@@ -26,11 +26,12 @@ import {ElementType, ReactElement, forwardRef} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import Image from 'next/future/image';
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
+import type {TestableComponent} from '../../models/dom';
 import Avatar from '../Avatar';
 import AvatarGroup from '../AvatarGroup';
 import GitHubProjectIcon from '../Icons/GithubProjectIcon';
-import {Project, ProjectContributor} from '../../models';
+import type {Project, ProjectContributor} from '../../models/projects';
 
 /**
  * Interface for the polymorphic Project Card component that renders a div by default.

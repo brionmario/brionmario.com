@@ -22,12 +22,13 @@
  * SOFTWARE.
  */
 
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {ElementType, ReactElement, ReactNode, forwardRef} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import Link from 'next/link';
 import {NextRouter, useRouter} from 'next/router';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
  * Type definition for the polymorphic `NavLink` component that represents a navigation link.

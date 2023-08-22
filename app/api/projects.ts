@@ -23,7 +23,8 @@
  */
 
 import GitHubProjects from '../data/autogen/gh_projects.json';
-import {Project, RequestResultInterface} from '../models';
+import type {RequestResultInterface} from '../models/remote-fetch';
+import type {Project} from '../models/projects';
 
 /**
  * Hook to retrieve the Projects index.

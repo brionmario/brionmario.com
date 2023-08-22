@@ -22,10 +22,10 @@
  * SOFTWARE.
  */
 
-import {TestableComponent} from '@brionmario/ui';
 import {FC, ReactElement, SVGProps} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
 
 /**
  * The `LogoProps` interface represents the props accepted by the `Logo` component.

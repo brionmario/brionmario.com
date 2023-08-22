@@ -23,11 +23,12 @@
  */
 
 import {Tabs as NextraTabs, Tab} from 'nextra-theme-docs';
-import {PolymorphicComponent, PolymorphicRef, TestableComponent} from '@brionmario/ui';
 import {ElementType, ReactElement, forwardRef} from 'react';
 import useSWR from 'swr';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
+import type {TestableComponent} from '../../models/dom';
+import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
 
 /**
  * Type definition for the polymorphic `Tabs` component that represents a tabbed interface.

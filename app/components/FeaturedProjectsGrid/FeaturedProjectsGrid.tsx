@@ -22,11 +22,11 @@
  * SOFTWARE.
  */
 
-import {TestableComponent} from '@brionmario/ui';
 import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
 import {cx} from '@emotion/css';
+import type {TestableComponent} from '../../models/dom';
 import {useProjects} from '../../api';
-import {Project} from '../../models';
+import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
