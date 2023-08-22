@@ -29,7 +29,6 @@ import {NextRouter, useRouter} from 'next/router';
 import {SerializedStyles, css} from '@emotion/react';
 import type {TestableComponent} from '../../models/dom';
 import ThemeSwitch from '../ThemeSwitch';
-import styles from '../header-logo.module.css';
 import MobileLogo from '../MobileLogo';
 import Logo from '../Logo';
 import NavLink, {MobileNavLink} from '../NavLink';
@@ -60,7 +59,21 @@ export interface NavBarItem extends LinkProps {
  * CSS styles for the `NavBar` component.
  */
 const navBarCss: SerializedStyles = css`
-  /* Custom styles go here */
+  .navbar-mobile-logo {
+    display: block;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  .navbar-logo {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
 `;
 
 /**
@@ -119,9 +132,9 @@ const NavBar = ({items}: NavbarProps): ReactElement => {
                 alt="Site mobile logo"
                 height={40}
                 width={40}
-                className={styles.mobileLogo}
+                className="navbar-mobile-logo"
               />
-              <Logo data-testid="navbar-logo" alt="Site logo" height={32} width={200} className={styles.desktopLogo} />
+              <Logo data-testid="navbar-logo" alt="Site logo" height={32} width={200} className="navbar-logo" />
             </a>
           </Link>
         </div>
