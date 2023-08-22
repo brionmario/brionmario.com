@@ -25,18 +25,6 @@
 import {cx} from '@emotion/css';
 import {CSSProperties, ReactElement} from 'react';
 
-export const HeroText = ({children, className, h1}: {children: React.ReactNode; className?: string; h1?: boolean}) => {
-  const combinedClassname = cx(
-    'font-good-brush tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[80px] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white',
-    className,
-  );
-
-  if (h1) {
-    return <h1 className={combinedClassname}>{children}</h1>;
-  }
-  return <h2 className={combinedClassname}>{children}</h2>;
-};
-
 export const SectionHeader = ({children}: {children: React.ReactNode}) => (
   <h2
     className={cx(

@@ -34,7 +34,7 @@ import type {TestableComponent} from '../../models/dom';
 import Logo from '../Logo';
 import CTAButton from '../CTAButton/CTAButton';
 import FadeIn from '../FadeIn/FadeIn';
-import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
+import {SectionSubtext} from '../pages/home-shared/Headings';
 import DownloadIcon from '../Icons/DownloadIcon';
 
 /**
@@ -175,7 +175,12 @@ const Hero: PolymorphicHeroComponent = forwardRef(
                 Hi there! I&apos;m
               </span>
             </SectionSubtext>
-            <HeroText h1>
+            <h1
+              className={cx(
+                'font-good-brush tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[80px] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white',
+                className,
+              )}
+            >
               <Logo
                 alt="Hero section Logo"
                 width={500}
@@ -183,7 +188,7 @@ const Hero: PolymorphicHeroComponent = forwardRef(
                 className="hero__logo"
                 data-testid="hero-section-logo"
               />
-            </HeroText>
+            </h1>
             <SectionSubtext hero>
               <div>A front-end enthusiast based in Sri Lanka 🇱🇰</div>
               <div className="hero__greeting__caption__employment">
