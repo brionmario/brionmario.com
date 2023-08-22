@@ -30,7 +30,7 @@ import {css, SerializedStyles} from '@emotion/react';
 import type {TestableComponent} from '../../models/dom';
 import useBlogs from '../../hooks/use-blogs';
 import BlogCard from '../BlogCard/BlogCard';
-import {FadeIn} from '../pages/home-shared/FadeIn';
+import FadeIn from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
 import {Blogs} from '../../models/blog';
 

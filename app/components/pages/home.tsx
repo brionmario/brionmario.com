@@ -29,7 +29,7 @@ import FeaturedProjectsGrid from '../FeaturedProjectsGrid';
 import FeaturedBlogsGrid from '../FeaturedBlogsGrid';
 import Hero from '../Hero';
 import CTAButton from '../CTAButton/CTAButton';
-import {FadeIn} from './home-shared/FadeIn';
+import FadeIn from './home-shared/FadeIn';
 
 const HomePage = (): ReactElement => (
   <main className="relative">

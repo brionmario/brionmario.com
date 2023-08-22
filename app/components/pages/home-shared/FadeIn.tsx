@@ -22,29 +22,62 @@
  * SOFTWARE.
  */
 
-import {motion, useInView} from 'framer-motion';
-import {useRef} from 'react';
+import {Variants, motion, useInView} from 'framer-motion';
+import {MutableRefObject, useRef, ReactNode} from 'react';
+import {TestableComponent} from '../../../models/dom';
 
-export const FadeIn = ({
+/**
+ * The `FadeInProps` interface represents the props accepted by the `FadeIn` component.
+ */
+export type FadeInProps = TestableComponent & {
+  /**
+   * The children elements to be animated.
+   */
+  children: ReactNode;
+  /**
+   * Additional CSS class to be applied to the container element.
+   */
+  className?: string;
+  /**
+   * Delay in milliseconds before the animation starts.
+   */
+  delay?: number;
+  /**
+   * Specifies if vertical animation should be disabled.
+   */
+  noVertical?: boolean;
+  /**
+   * Specifies if the animation should trigger before or after the element enters view.
+   */
+  viewTriggerOffset?: boolean;
+};
+
+/**
+ * A component that provides fade-in animation to its children elements when they come into view.
+ *
+ * @param children - The children elements to be animated.
+ * @param className - Additional CSS class to be applied to the container element.
+ * @param noVertical- Specifies if vertical animation should be disabled.
+ * @param delay - Delay in milliseconds before the animation starts.
+ * @param viewTriggerOffset - Specifies if the animation should trigger before or after the element enters view.
+ * @returns A component providing fade-in animation.
+ */
+const FadeIn = ({
   children,
   className,
-  noVertical,
-  delay,
-  viewTriggerOffset,
-}: {
-  children: React.ReactNode;
-  className?: string;
-  delay?: number;
-  noVertical?: boolean;
-  viewTriggerOffset?: boolean;
-}) => {
-  const ref = useRef(null);
-  const inView = useInView(ref, {
+  noVertical = false,
+  delay = 0,
+  viewTriggerOffset = false,
+  ...rest
+}: FadeInProps) => {
+  const ref: MutableRefObject<HTMLDivElement> = useRef<HTMLDivElement>(null);
+
+  const inView: boolean = useInView(ref, {
     once: true,
     margin: viewTriggerOffset ? '-128px' : '0px',
   });
 
-  const fadeUpVariants = {
+  const fadeUpVariants: Variants = {
     initial: {
       opacity: 0,
       y: noVertical ? 0 : 24,
@@ -64,11 +97,14 @@ export const FadeIn = ({
       initial={false}
       transition={{
         duration: 1,
-        delay: delay || 0,
+        delay,
         ease: [0.21, 0.47, 0.32, 0.98],
       }}
+      {...rest}
     >
       {children}
     </motion.div>
   );
 };
+
+export default FadeIn;

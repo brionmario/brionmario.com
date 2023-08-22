@@ -23,7 +23,7 @@
  */
 
 import {cx} from '@emotion/css';
-import {FadeIn} from './FadeIn';
+import FadeIn from './FadeIn';
 import gradients from './gradients.module.css';
 
 export const GradientSectionBorder = ({children}: {children: React.ReactNode}) => (
