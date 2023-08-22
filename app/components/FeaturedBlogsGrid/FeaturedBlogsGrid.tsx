@@ -121,10 +121,10 @@ const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = ({
           <FadeIn
             data-testid={`blog-${page.route}-fade-in`}
             className="flex"
-            key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}
+            key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-fade-in`}
           >
             <BlogCard
-              key={page.route.replace(/\s+/g, '-').toLowerCase()}
+              key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-card`}
               data-testid={`blog-${page.route}`}
               frontMatter={page.children[0].frontMatter}
               onClick={(): void => handleBlogNavigate(page.route)}

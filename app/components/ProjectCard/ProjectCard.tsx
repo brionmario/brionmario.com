@@ -104,8 +104,8 @@ const ProjectCard: PolymorphicProjectCardComponent = forwardRef(
               <AvatarGroup data-testid="project-avatar-contributors" max={4}>
                 {contributors.map((contributor: ProjectContributor) => (
                   <Avatar
-                    className="transition-all ease-in-out"
                     key={contributor.id}
+                    className="transition-all ease-in-out"
                     as={Image}
                     data-testid="project-avatar-contributor"
                     src={contributor.avatar_url}

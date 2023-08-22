@@ -112,6 +112,7 @@ const BlogCard: PolymorphicBlogCardComponent = forwardRef(
               <div className="text-xs opacity-70 mr-2">{dayjs(date).format('MMM DD, YYYY')}</div>
               {authors.map((author: Author) => (
                 <Avatar
+                  key={author.id}
                   as={Image}
                   data-testid="blog-author-avatar"
                   src={author.image}
