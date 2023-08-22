@@ -28,10 +28,11 @@ import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import type {TestableComponent} from '../../models/dom';
-import {Blogs, useBlogs} from '../../hooks';
+import useBlogs from '../../hooks/use-blogs';
 import BlogCard from '../BlogCard/BlogCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
+import {Blogs} from '../../models/blog';
 
 /**
  * The `FeaturedBlogsGridProps` interface represents the props accepted by the `FeaturedBlogsGrid` component.

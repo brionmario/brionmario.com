@@ -25,7 +25,7 @@
 import {FC, HTMLAttributes, ReactElement, ReactNode} from 'react';
 import {cx} from '@emotion/css';
 import type {TestableComponent} from '../../models/dom';
-import {useProjects} from '../../api';
+import {useProjects} from '../../api/projects';
 import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
 import {FadeIn} from '../pages/home-shared/FadeIn';

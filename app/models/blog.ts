@@ -22,6 +22,8 @@
  * SOFTWARE.
  */
 
+import {Page} from 'nextra';
+
 /**
  * Author Schema.
  */
@@ -101,4 +103,14 @@ export interface BlogPostFrontMatter {
    * @example "Create React App vs Gatsby vs Next.js"
    */
   title: string;
+}
+
+/**
+ * Blogs response schema.
+ */
+export interface Blogs {
+  /**
+   * List of blogs.
+   */
+  blogs?: (Page & any)[];
 }

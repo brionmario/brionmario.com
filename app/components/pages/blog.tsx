@@ -25,9 +25,10 @@
 import {NextRouter, useRouter} from 'next/router';
 import {Page} from 'nextra';
 import {ReactElement} from 'react';
-import {Blogs, useBlogs} from '../../hooks';
 import BlogCard from '../BlogCard';
 import {FadeIn} from './home-shared/FadeIn';
+import useBlogs from '../../hooks/use-blogs';
+import {Blogs} from '../../models/blog';
 
 const BlogPage = (): ReactElement => {
   const router: NextRouter = useRouter();

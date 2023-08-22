@@ -25,13 +25,7 @@
 import {Page} from 'nextra';
 import {getPagesUnderRoute} from 'nextra/context';
 import {useMemo} from 'react';
-
-export interface Blogs {
-  /**
-   * List of blogs.
-   */
-  blogs?: (Page & any)[];
-}
+import {Blogs} from '../models/blog';
 
 /**
  * Hook to retrieve the Blog index.
@@ -39,7 +33,7 @@ export interface Blogs {
  * @param options - Set of options.
  * @returns Blogs.
  */
-export const useBlogs = (options?: {limit: number}): Blogs => {
+const useBlogs = (options?: {limit: number}): Blogs => {
   let sortedBlogs: (Page & any)[] = useMemo(
     () =>
       getPagesUnderRoute('/blog').sort((a: Page & any, b: Page & any) =>
@@ -56,3 +50,5 @@ export const useBlogs = (options?: {limit: number}): Blogs => {
     blogs: sortedBlogs,
   };
 };
+
+export default useBlogs;
