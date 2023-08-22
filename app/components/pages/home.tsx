@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import clsx from 'clsx';
+import {cx} from '@emotion/css';
 import Link from 'next/link';
 import {ReactElement} from 'react';
 import FeaturedProjectsGrid from '../FeaturedProjectsGrid';
@@ -34,7 +34,7 @@ import {FadeIn} from './home-shared/FadeIn';
 const HomePage = (): ReactElement => (
   <main className="relative">
     <Hero data-testid="home-page-hero" />
-    <section className={clsx('relative overflow-hidden')}>
+    <section className={cx('relative overflow-hidden')}>
       <FadeIn className="py-16 md:py-24 lg:py-32">
         <FeaturedProjectsGrid
           heading="Opensource Projects"
@@ -52,7 +52,7 @@ const HomePage = (): ReactElement => (
         </FadeIn>
       </FadeIn>
     </section>
-    <section className={clsx('relative overflow-hidden')}>
+    <section className={cx('relative overflow-hidden')}>
       <FadeIn className="py-16 md:py-24 lg:py-32">
         <FeaturedBlogsGrid
           heading="Blog Recommendations"

@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import cn from 'classnames';
+import {cx} from '@emotion/css';
 import gradients from './gradients.module.css';
 
 export const Gradient = ({
@@ -47,7 +47,7 @@ export const Gradient = ({
   width?: number | string;
 }) => (
   <span
-    className={cn(
+    className={cx(
       'absolute',
       gradients.glow,
       {

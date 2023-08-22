@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import cx from 'clsx';
+import {cx} from '@emotion/css';
 import {ReactElement, SVGProps} from 'react';
 
 /**

@@ -22,12 +22,11 @@
  * SOFTWARE.
  */
 
-import {ClassNames} from '@emotion/react';
-import cn from 'classnames';
+import {cx} from '@emotion/css';
 import {CSSProperties, ReactElement} from 'react';
 
 export const HeroText = ({children, className, h1}: {children: React.ReactNode; className?: string; h1?: boolean}) => {
-  const combinedClassname = cn(
+  const combinedClassname = cx(
     'font-good-brush tracking-[-0.04em] leading-none text-[40px] md:text-5xl lg:text-[80px] max-w-lg md:max-w-xl lg:max-w-4xl text-center text-white',
     className,
   );
@@ -40,7 +39,7 @@ export const HeroText = ({children, className, h1}: {children: React.ReactNode; 
 
 export const SectionHeader = ({children}: {children: React.ReactNode}) => (
   <h2
-    className={cn(
+    className={cx(
       'font-bold tracking-[-0.01em] pb-1 text-[32px] md:text-4xl lg:text-[40px] max-w-sm md:max-w-md lg:max-w-2xl text-center dark:text-white',
     )}
   >
@@ -62,24 +61,20 @@ export const SectionSubtext = ({
   const textClasses: string = hero ? 'text-[20px] lg:text-xl' : 'text-[16px] lg:text-[20px]';
 
   return (
-    <ClassNames>
-      {({cx}) => (
-        <p
-          className={cx(
-            `font-space-grotesk leading-snug dark:text-[#FFFFFFB2] text-[#00000080] ${textClasses} max-w-md md:max-w-xl lg:max-w-[640px] text-${textAlign}`,
-            className,
-          )}
-        >
-          {children}
-        </p>
+    <p
+      className={cx(
+        `font-space-grotesk leading-snug dark:text-[#FFFFFFB2] text-[#00000080] ${textClasses} max-w-md md:max-w-xl lg:max-w-[640px] text-${textAlign}`,
+        className,
       )}
-    </ClassNames>
+    >
+      {children}
+    </p>
   );
 };
 
 export const PageHeader = ({children}: {children: React.ReactNode}) => (
   <h2
-    className={cn(
+    className={cx(
       'font-bold tracking-[-0.01em] pb-1 text-[32px] md:text-4xl lg:text-[40px] max-w-sm md:max-w-md lg:max-w-2xl text-center dark:text-white',
     )}
   >

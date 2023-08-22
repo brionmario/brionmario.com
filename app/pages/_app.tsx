@@ -52,7 +52,6 @@ const Nextra = ({Component, pageProps}: NextraAppProps): ReactElement => (
       </svg>
     </>
     <Component {...pageProps} />
-    <Analytics />
   </SSRProvider>
 );
 

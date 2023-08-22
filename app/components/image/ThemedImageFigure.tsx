@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import cn from 'classnames';
+import {cx} from '@emotion/css';
 import React from 'react';
 import {ImageFigureProps} from './ImageFigure';
 import {ThemedImage, ThemedImageProps} from './ThemedImage';
@@ -40,7 +40,7 @@ export const ThemedImageFigure = (props: ThemedImageFigureProps): React.ReactNod
       style={{marginTop: `${margin}px`, marginBottom: `${margin}px`}}
     >
       <div
-        className={cn('relative inline-block max-w-full overflow-hidden border-box text-[0px]', {
+        className={cx('relative inline-block max-w-full overflow-hidden border-box text-[0px]', {
           'rounded-md': borderRadius,
         })}
       >

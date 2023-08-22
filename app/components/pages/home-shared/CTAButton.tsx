@@ -22,7 +22,7 @@
  * SOFTWARE.
  */
 
-import cn from 'classnames';
+import {cx} from '@emotion/css';
 import {MouseEventHandler} from 'react';
 import gradients from './gradients.module.css';
 
@@ -54,7 +54,7 @@ export const CTAButton = ({
       </button>
       {!outline && (
         <div
-          className={cn(
+          className={cx(
             'absolute bg-red-100 w-full h-full top-0 -z-10 rounded-full transition-all duration-300 blur-xl group-hover:opacity-70 opacity-0',
             gradients.translatingGlow,
           )}

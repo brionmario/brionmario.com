@@ -22,23 +22,23 @@
  * SOFTWARE.
  */
 
-import cn from 'classnames';
+import {cx} from '@emotion/css';
 import {FadeIn} from './FadeIn';
 import gradients from './gradients.module.css';
 
 export const GradientSectionBorder = ({children}: {children: React.ReactNode}) => (
-  <section className={cn('relative overflow-hidden')}>
+  <section className={cx('relative overflow-hidden')}>
     <FadeIn noVertical viewTriggerOffset>
-      <span className={cn('w-full absolute white h-[1px] top-0 opacity-25', gradients.gradientSectionBorderDivider)} />
+      <span className={cx('w-full absolute white h-[1px] top-0 opacity-25', gradients.gradientSectionBorderDivider)} />
       <span
-        className={cn(
+        className={cx(
           gradients.gradientSectionBorder,
           gradients.gradientSectionBorderLeft,
           'dark:opacity-35 opacity-[0.15]',
         )}
       />
       <span
-        className={cn(
+        className={cx(
           gradients.gradientSectionBorder,
           gradients.gradientSectionBorderRight,
           'dark:opacity-35 opacity-[0.15]',
