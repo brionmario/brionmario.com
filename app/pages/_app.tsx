@@ -26,7 +26,6 @@ import '../shims';
 import '../styles/custom.css';
 import '../styles/tailwind.css';
 import {SSRProvider} from '@react-aria/ssr';
-import {Analytics} from '@vercel/analytics/react';
 import type {AppProps} from 'next/app';
 import type {ReactElement, ReactNode} from 'react';
 
