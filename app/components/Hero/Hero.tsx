@@ -164,10 +164,12 @@ const Hero: PolymorphicHeroComponent = forwardRef(
             'w-auto pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-40 flex justify-between gap-8 items-center flex-col relative z-0',
             className,
           )}
+          data-testid="hero-section-fade-in"
         >
           <FadeIn
             delay={0.15}
             className="z-50 flex flex-col items-center justify-center gap-5 px-6 text-center lg:gap-6"
+            data-testid="hero-section-slogan-fade-in"
           >
             <SectionSubtext hero data-testid="hero-greeting-wrapper" className="hero__greeting">
               <span className="hero__greeting">
@@ -201,7 +203,11 @@ const Hero: PolymorphicHeroComponent = forwardRef(
               </div>
             </SectionSubtext>
           </FadeIn>
-          <FadeIn delay={0.3} className="z-50 flex flex-col items-center w-full max-w-md gap-5 px-6 md:max-w-lg">
+          <FadeIn
+            data-testid="hero-section-actions-fade-in"
+            delay={0.3}
+            className="z-50 flex flex-col items-center w-full max-w-md gap-5 px-6 md:max-w-lg"
+          >
             <div className="flex flex-col w-116 gap-3 md:!flex-row">
               <CTAButton data-testid="read-the-blog-button">
                 <Link href="/blog">
@@ -216,7 +222,7 @@ const Hero: PolymorphicHeroComponent = forwardRef(
               </CTAButton>
             </div>
           </FadeIn>
-          <FadeIn delay={0.45} className="mask">
+          <FadeIn data-testid="hero-section-headshot-fade-in" delay={0.45} className="mask">
             <Image alt="" src="/images/people/brion-headshot-transparent-001.png" width={400} height={800} />
           </FadeIn>
         </FadeIn>

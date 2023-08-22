@@ -35,13 +35,17 @@ const HomePage = (): ReactElement => (
   <main className="relative">
     <Hero data-testid="home-page-hero" />
     <section className={cx('relative overflow-hidden')}>
-      <FadeIn className="py-16 md:py-24 lg:py-32">
+      <FadeIn data-testid="featured-projects-fade-in" className="py-16 md:py-24 lg:py-32">
         <FeaturedProjectsGrid
           heading="Opensource Projects"
           description="Here are some of the noteworthy projects I've contributed over the years."
           data-testid="featured-projects-grid"
         />
-        <FadeIn noVertical className="relative flex justify-center w-full">
+        <FadeIn
+          data-testid="featured-projects-show-more-fade-in"
+          noVertical
+          className="relative flex justify-center w-full"
+        >
           <div className="max-w-[180px] w-full">
             <CTAButton data-testid="show-more-button" outline>
               <Link href="/projects">
@@ -53,13 +57,17 @@ const HomePage = (): ReactElement => (
       </FadeIn>
     </section>
     <section className={cx('relative overflow-hidden')}>
-      <FadeIn className="py-16 md:py-24 lg:py-32">
+      <FadeIn data-testid="featured-blogs-fade-in" className="py-16 md:py-24 lg:py-32">
         <FeaturedBlogsGrid
           heading="Blog Recommendations"
           description="Here are some of my latest writing curated specially for you."
           data-testid="featured-blogs-grid"
         />
-        <FadeIn noVertical className="relative flex justify-center w-full">
+        <FadeIn
+          data-testid="featured-projects-show-more-fade-in"
+          noVertical
+          className="relative flex justify-center w-full"
+        >
           <div className="max-w-[180px] w-full">
             <CTAButton outline data-testid="show-more-button">
               <Link href="/blog">

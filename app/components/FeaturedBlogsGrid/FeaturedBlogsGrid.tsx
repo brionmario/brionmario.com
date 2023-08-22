@@ -110,13 +110,17 @@ const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = ({
       )}
       {...rest}
     >
-      <FadeIn className="flex flex-col items-center gap-5 md:gap-6">
+      <FadeIn data-testid="featured-blogs-header-fade-in" className="flex flex-col items-center gap-5 md:gap-6">
         <SectionHeader data-testid="featured-blogs-section-header">{heading}</SectionHeader>
         <SectionSubtext>{description}</SectionSubtext>
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
         {blogs.map((page: Page & any) => (
-          <FadeIn className="flex" key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}>
+          <FadeIn
+            data-testid={`blog-${page.route}-fade-in`}
+            className="flex"
+            key={`${page.route.replace(/\s+/g, '-').toLowerCase()}-wrapper`}
+          >
             <BlogCard
               key={page.route.replace(/\s+/g, '-').toLowerCase()}
               data-testid={`blog-${page.route}`}

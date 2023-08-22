@@ -98,13 +98,13 @@ const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = ({
       )}
       {...rest}
     >
-      <FadeIn className="flex flex-col items-center gap-5 md:gap-6">
+      <FadeIn data-testid="featured-projects-header-fade-in" className="flex flex-col items-center gap-5 md:gap-6">
         <SectionHeader data-testid="featured-projects-section-header">{heading}</SectionHeader>
         <SectionSubtext>{description}</SectionSubtext>
       </FadeIn>
       <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6 max-w-[1200px]">
         {data.featured.map((project: Project) => (
-          <FadeIn className="flex" key={`${project.id}-wrapper`}>
+          <FadeIn data-testid={`featured-project-${project.id}-fade-in`} className="flex" key={`${project.id}-wrapper`}>
             <ProjectCard
               key={project.id}
               data-testid={`featured-project-${project.id}`}

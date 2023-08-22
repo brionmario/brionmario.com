@@ -41,9 +41,13 @@ const BlogPage = (): ReactElement => {
   return (
     <div className="grid grid-cols-1 gap-x-4 gap-y-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-6 lg:gap-y-6">
       {blogs.map((page: Page & any) => (
-        <FadeIn className="flex" key={page.route.replace(/\s+/g, '-').toLowerCase()}>
+        <FadeIn
+          data-testid={`blog-${page.route}-fade-in`}
+          className="flex"
+          key={page.route.replace(/\s+/g, '-').toLowerCase()}
+        >
           <BlogCard
-            data-testid={`${page.route}-blog`}
+            data-testid={`blog-${page.route}`}
             frontMatter={page.children[0].frontMatter}
             onClick={(): void => handleBlogNavigate(page.route)}
           />
