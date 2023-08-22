@@ -22,7 +22,6 @@
  * SOFTWARE.
  */
 
-import {DownloadIcon} from '@heroicons/react/solid';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import {useTheme} from 'nextra-theme-docs';
@@ -36,6 +35,7 @@ import Logo from '../Logo';
 import {CTAButton} from '../pages/home-shared/CTAButton';
 import {FadeIn} from '../pages/home-shared/FadeIn';
 import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
+import DownloadIcon from '../Icons/DownloadIcon';
 
 /**
  * Type definition for the polymorphic `Hero` component that renders a hero section.

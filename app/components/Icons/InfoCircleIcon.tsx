@@ -26,35 +26,31 @@ import cx from 'clsx';
 import {ReactElement, SVGProps} from 'react';
 
 /**
- * `DownloadIcon` is a React wrapper on a download icon SVG.
+ * `InfoCircleIcon` is a React wrapper on a info circle icon SVG.
  *
  * Usage:
  *
  * ```jsx
- * <DownloadIcon className="download-icon" height={20} width={20} />;
+ * <InfoCircleIcon className="info-circle-icon" height={20} width={20} />;
  * ```
  *
  * @param props - Props for the component.
- * @returns Download icon as a React Component.
+ * @returns Info circle icon as a React Component.
  */
-const DownloadIcon = ({className, width = 16, height = 16, ...rest}: SVGProps<SVGSVGElement>): ReactElement => (
+const InfoCircleIcon = ({className, width = 16, height = 16, ...rest}: SVGProps<SVGSVGElement>): ReactElement => (
   <svg
     aria-hidden="true"
     version="1.1"
     height={height}
     width={width}
-    viewBox={`0 0 ${height} ${width}`}
+    viewBox="0 0 512 512"
     fill="currentColor"
-    className={cx('bmui-icon', 'download-icon', 'svg', className)}
+    className={cx('bmui-icon', 'info-circle-icon', 'svg', className)}
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <path
-      fillRule="evenodd"
-      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-      clipRule="evenodd"
-    />
+    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
   </svg>
 );
 
-export default DownloadIcon;
+export default InfoCircleIcon;

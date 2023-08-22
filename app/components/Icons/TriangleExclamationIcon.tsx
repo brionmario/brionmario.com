@@ -26,35 +26,36 @@ import cx from 'clsx';
 import {ReactElement, SVGProps} from 'react';
 
 /**
- * `DownloadIcon` is a React wrapper on a download icon SVG.
+ * `TriangleExclamationIcon` is a React wrapper on a Triangle exclamation icon SVG.
  *
  * Usage:
  *
  * ```jsx
- * <DownloadIcon className="download-icon" height={20} width={20} />;
+ * <TriangleExclamationIcon className="triangle-exclamation-icon" height={20} width={20} />;
  * ```
  *
  * @param props - Props for the component.
- * @returns Download icon as a React Component.
+ * @returns Triangle exclamation icon as a React Component.
  */
-const DownloadIcon = ({className, width = 16, height = 16, ...rest}: SVGProps<SVGSVGElement>): ReactElement => (
+const TriangleExclamationIcon = ({
+  className,
+  width = 16,
+  height = 16,
+  ...rest
+}: SVGProps<SVGSVGElement>): ReactElement => (
   <svg
     aria-hidden="true"
     version="1.1"
     height={height}
     width={width}
-    viewBox={`0 0 ${height} ${width}`}
+    viewBox="0 0 512 512"
     fill="currentColor"
-    className={cx('bmui-icon', 'download-icon', 'svg', className)}
+    className={cx('bmui-icon', 'triangle-exclamation-icon', 'svg', className)}
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >
-    <path
-      fillRule="evenodd"
-      d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z"
-      clipRule="evenodd"
-    />
+    <path d="M256 32c14.2 0 27.3 7.5 34.5 19.8l216 368c7.3 12.4 7.3 27.7 .2 40.1S486.3 480 472 480H40c-14.3 0-27.6-7.7-34.7-20.1s-7-27.8 .2-40.1l216-368C228.7 39.5 241.8 32 256 32zm0 128c-13.3 0-24 10.7-24 24V296c0 13.3 10.7 24 24 24s24-10.7 24-24V184c0-13.3-10.7-24-24-24zm32 224a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z" />
   </svg>
 );
 
-export default DownloadIcon;
+export default TriangleExclamationIcon;

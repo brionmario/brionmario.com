@@ -22,18 +22,20 @@
  * SOFTWARE.
  */
 
-import {ExclamationCircleIcon, ExclamationIcon, InformationCircleIcon, LightBulbIcon} from '@heroicons/react/solid';
 import {ElementType, ReactElement, ReactNode, forwardRef} from 'react';
 import {cx} from '@emotion/css';
 import {css, SerializedStyles} from '@emotion/react';
 import type {TestableComponent} from '../../models/dom';
 import type {PolymorphicComponent, PolymorphicRef} from '../../models/component';
-import {AvatarProps} from '../Avatar';
+import InfoCircleIcon from '../Icons/InfoCircleIcon';
+import LightBulbIcon from '../Icons/LightBulbIcon';
+import CircleExclamationIcon from '../Icons/CircleExclamationIcon';
+import TriangleExclamationIcon from '../Icons/TriangleExclamationIcon';
 
 /**
  * Type definition for the polymorphic `Callout` component that renders a callout message.
  */
-type PolymorphicCalloutComponent = <T extends ElementType = 'div'>(props: AvatarProps<T>) => ReactElement | null;
+type PolymorphicCalloutComponent = <T extends ElementType = 'div'>(props: CalloutProps<T>) => ReactElement | null;
 
 /**
  * The `CalloutProps` interface represents the props accepted by the `Callout` component.
@@ -59,7 +61,7 @@ const CalloutTypes: {
 } = {
   info: {
     classes: 'bg-blue-100 text-blue-800 dark:text-blue-300 dark:bg-blue-200 dark:bg-opacity-10',
-    icon: <InformationCircleIcon className="w-5 h-5 mt-1" />,
+    icon: <InfoCircleIcon className="w-5 h-5 mt-1" />,
   },
   idea: {
     classes: 'bg-gray-100 text-gray-800 dark:text-gray-300 dark:bg-gray-200 dark:bg-opacity-10',
@@ -67,11 +69,11 @@ const CalloutTypes: {
   },
   error: {
     classes: 'bg-red-200 text-red-900 dark:text-red-200 dark:bg-red-600 dark:bg-opacity-30',
-    icon: <ExclamationCircleIcon className="w-5 h-5 mt-1" />,
+    icon: <CircleExclamationIcon className="w-5 h-5 mt-1" />,
   },
   default: {
     classes: 'bg-orange-100 text-orange-800 dark:text-orange-300 dark:bg-orange-200 dark:bg-opacity-10',
-    icon: <ExclamationIcon className="w-5 h-5 mt-1" />,
+    icon: <TriangleExclamationIcon className="w-5 h-5 mt-1" />,
   },
 };
 
