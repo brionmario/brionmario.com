@@ -22,9 +22,10 @@
  * SOFTWARE.
  */
 
+import {cx} from '@emotion/css';
 import {Variants, motion, useInView} from 'framer-motion';
 import {MutableRefObject, useRef, ReactNode} from 'react';
-import {TestableComponent} from '../../../models/dom';
+import {TestableComponent} from '../../models/dom';
 
 /**
  * The `FadeInProps` interface represents the props accepted by the `FadeIn` component.
@@ -93,7 +94,7 @@ const FadeIn = ({
       ref={ref}
       animate={inView ? 'animate' : 'initial'}
       variants={fadeUpVariants}
-      className={className}
+      className={cx('bmui-fade-in', className)}
       initial={false}
       transition={{
         duration: 1,

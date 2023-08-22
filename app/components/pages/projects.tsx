@@ -26,7 +26,7 @@ import {ReactElement} from 'react';
 import {useProjects} from '../../api/projects';
 import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
-import FadeIn from './home-shared/FadeIn';
+import FadeIn from '../FadeIn/FadeIn';
 
 const ProjectsPage = (): ReactElement => {
   const {data} = useProjects();

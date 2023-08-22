@@ -33,7 +33,7 @@ import {ThemeTypes} from '../../models/theme';
 import type {TestableComponent} from '../../models/dom';
 import Logo from '../Logo';
 import CTAButton from '../CTAButton/CTAButton';
-import FadeIn from '../pages/home-shared/FadeIn';
+import FadeIn from '../FadeIn/FadeIn';
 import {HeroText, SectionSubtext} from '../pages/home-shared/Headings';
 import DownloadIcon from '../Icons/DownloadIcon';
 

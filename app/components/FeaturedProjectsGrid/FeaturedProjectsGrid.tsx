@@ -28,7 +28,7 @@ import type {TestableComponent} from '../../models/dom';
 import {useProjects} from '../../api/projects';
 import type {Project} from '../../models/projects';
 import ProjectCard from '../ProjectCard';
-import FadeIn from '../pages/home-shared/FadeIn';
+import FadeIn from '../FadeIn/FadeIn';
 import {SectionHeader, SectionSubtext} from '../pages/home-shared/Headings';
 
 /**
