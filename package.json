@@ -21,12 +21,15 @@
     "nextjs"
   ],
   "scripts": {
+    "changeset": "changeset",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx}\"",
     "lint": "turbo run lint",
+    "publish:packages": "changeset publish",
     "test": "turbo run test",
-    "typecheck": "turbo run typecheck"
+    "typecheck": "turbo run typecheck",
+    "version:packages": "changeset version"
   },
   "devDependencies": {
     "@brionmario/eslint-plugin": "^0.2.9",
