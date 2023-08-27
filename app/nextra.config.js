@@ -30,7 +30,7 @@ import Footer from './components/Footer';
 import NavBar from './components/NavBar';
 import ThemeSwitch from './components/ThemeSwitch';
 
-const SITE_ROOT = 'https://brionmario.com';
+const SITE_ROOT = process.env.SITE_URL;
 
 /**
  * @type {import('nextra-theme-docs').DocsThemeConfig}
