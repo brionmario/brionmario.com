@@ -24,12 +24,13 @@
 
 const withNextra = require('nextra')({
   theme: 'nextra-theme-docs',
-  themeConfig: './theme.config.js',
+  themeConfig: './nextra.config.js',
   unstable_flexsearch: true,
   unstable_staticImage: true,
 });
 
 const nextConfig = withNextra({
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
