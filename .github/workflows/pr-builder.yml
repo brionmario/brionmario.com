@@ -217,7 +217,6 @@ jobs:
 
           # Set ENV
           touch .env.local
-          echo "MAINTENANCE_MODE='false'" >> .env.local
           echo "NEXT_PUBLIC_GTM_CONTAINER_ID='${{env.GTM_CONTAINER_ID}}'" >> .env.local
           echo "SITE_URL='https://brionmario.com'" >> .env.local
 
