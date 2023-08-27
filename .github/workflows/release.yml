@@ -9,6 +9,11 @@ on:
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  GTM_CONTAINER_ID: ${{ secrets.GTM_CONTAINER_ID }}
+  SITE_URL: ${{ secrets.SITE_URL }}
+
 jobs:
   release:
     name: 🚀 Release
@@ -43,6 +48,27 @@ jobs:
         id: install-dependencies
         run: pnpm install
 
+      - name: 🏗️ Build
+        id: build-the-mono-repo
+        run: |
+          cd app
+
+          # Duplicate env.sample to .env.local
+          cp .env.local.sample .env.local
+
+          # Set the Google Tag Manager container ID
+          sed -i "s/NEXT_PUBLIC_GTM_CONTAINER_ID=\"\"/NEXT_PUBLIC_GTM_CONTAINER_ID='${{ env.GTM_CONTAINER_ID }}'/g" .env.local
+
+          # Set the deployed URL for site map generation purposes
+          sed -i "s/SITE_URL=\"http:\/\/localhost:3000\"/SITE_URL='${{ env.SITE_URL }}'/g" .env.local
+
+          cd ..
+          pnpm build
+
+          # SEO work
+          cd app
+          pnpm generate:site-map
+
       - name: 📣 Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -52,4 +78,4 @@ jobs:
           version: pnpm version:packages
           commit: "chore(release): version packages 🦋"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}

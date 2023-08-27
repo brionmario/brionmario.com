@@ -30,6 +30,7 @@ const withNextra = require('nextra')({
 });
 
 const nextConfig = withNextra({
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
   eslint: {
     // Warning: This allows production builds to successfully complete even if
     // your project has ESLint errors.
