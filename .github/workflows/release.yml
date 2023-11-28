@@ -86,9 +86,9 @@ jobs:
         id: changesets
         uses: changesets/action@v1
         with:
-          title: "chore(release): version packages"
+          title: "chore(release): version packages 🦋"
           publish: pnpm publish:packages
           version: pnpm version:packages
-          commit: "chore(release): version packages 🦋"
+          commit: "chore(release): version packages 🦋 [skip ci]"
         env:
           GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
