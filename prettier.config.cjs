@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022, Brion Mario
+ * Copyright (c) 2022, Brion Mario.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +22,4 @@
  * SOFTWARE.
  */
 
-module.exports = {
-  env: {
-    es6: true,
-    node: true,
-  },
-  extends: ['turbo', 'plugin:@brionmario/internal', 'plugin:@brionmario/prettier'],
-  plugins: ['@brionmario'],
-};
+module.exports = require('@brionmario/prettier-config');
