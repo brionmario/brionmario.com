@@ -2,7 +2,7 @@
   "private": true,
   "name": "@brionmario/website-workspace",
   "version": "0.1.3",
-  "description": "Welcome to the source code for my personal website.",
+  "description": "The source code of my personal website.",
   "author": "Brion Mario",
   "license": "MIT",
   "homepage": "https://github.com/brionmario/brionmario.com#readme",
@@ -21,8 +21,8 @@
     "nextjs"
   ],
   "scripts": {
-    "changeset": "changeset",
     "build": "turbo run build",
+    "changeset": "changeset",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css,json,md,mdx}\"",
     "lint": "turbo run lint",

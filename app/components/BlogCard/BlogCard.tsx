@@ -86,7 +86,7 @@ const BlogCard: PolymorphicBlogCardComponent = forwardRef(
         key={key}
         css={blogCardCss}
         className={cx(
-          'bmui-blog-card',
+          'brionmario-blog-card',
           'flex flex-col gap-2 h-full justify-between bg-white border border-gray-200 hover:border-transparent rounded-md text-black no-underline dark:text-white dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface focus-ring hover:cursor-pointer',
           className,
         )}

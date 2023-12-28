@@ -66,7 +66,7 @@ const Logo: FC<LogoProps> = ({
   ...rest
 }: LogoProps): ReactElement => (
   <svg
-    className={cx('bmui-logo', className)}
+    className={cx('brionmario-logo', className)}
     width={width}
     height={height}
     viewBox="0 0 191 35"

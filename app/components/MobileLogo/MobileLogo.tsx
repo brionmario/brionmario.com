@@ -66,7 +66,7 @@ const MobileLogo: FC<MobileLogoProps> = ({
   ...rest
 }: MobileLogoProps): ReactElement => (
   <svg
-    className={cx('bmui-mobile-logo', className)}
+    className={cx('brionmario-mobile-logo', className)}
     width={width}
     height={height}
     viewBox="0 0 40 40"

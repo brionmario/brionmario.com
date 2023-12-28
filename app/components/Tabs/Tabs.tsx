@@ -97,7 +97,7 @@ const Tabs: PolymorphicTabsComponent = forwardRef(
         ref={ref}
         key={key}
         css={tabsCss}
-        className={cx('bmui-tabs', className)}
+        className={cx('brionmario-tabs', className)}
         onChange={index => {
           localStorage.setItem(storageKey, JSON.stringify(items[index]));
           mutate(items[index], false);

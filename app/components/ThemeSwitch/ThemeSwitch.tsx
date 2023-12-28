@@ -203,7 +203,7 @@ const ThemeSwitch: PolymorphicThemeSwitchComponent = forwardRef(
           setTheme(resolvedTheme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
         }}
         className={cx(
-          'bmui-theme-switcher',
+          'brionmario-theme-switcher',
           'inline-flex h-14 items-center justify-center overflow-hidden rounded-full p-1 transition',
           {
             'border-secondary hover:border-primary focus:border-primary border-2 focus:outline-none': bordered,

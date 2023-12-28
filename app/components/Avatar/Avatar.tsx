@@ -71,7 +71,11 @@ const Avatar: PolymorphicAvatarComponent = forwardRef(
         ref={ref}
         key={key}
         css={avatarCss}
-        className={cx('bmui-avatar', 'w-6 h-6 rounded-full border-2 border-white dark:border-gray-800', className)}
+        className={cx(
+          'brionmario-avatar',
+          'w-6 h-6 rounded-full border-2 border-white dark:border-gray-800',
+          className,
+        )}
         width={20}
         height={20}
         {...rest}

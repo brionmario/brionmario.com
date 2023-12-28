@@ -86,7 +86,7 @@ const ProjectCard: PolymorphicProjectCardComponent = forwardRef(
         ref={ref}
         css={projectCardCss}
         className={cx(
-          'bmui-project-card',
+          'brionmario-project-card',
           'relative flex flex-col gap-5 p-0 overflow-hidden bg-white text-black no-underline border border-gray-200 hover:border-transparent dark:text-white rounded-md w-full dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface hover:shadow-lg focus-ring hover:cursor-pointer',
           className,
         )}

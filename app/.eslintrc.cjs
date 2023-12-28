@@ -53,8 +53,8 @@ module.exports = {
     },
   ],
   rules: {
+    'import/no-extraneous-dependencies': ['error', {devDependencies: ['**/*.config.*cjs', '**/scripts/*.js']}],
     'react/no-unknown-property': ['error', {ignore: ['css']}],
-    'import/prefer-default-export': 'off',
     // TODO: Disable this in the shared config.
     'no-restricted-exports': [
       'error',

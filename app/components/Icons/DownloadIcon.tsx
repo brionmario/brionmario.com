@@ -45,7 +45,7 @@ const DownloadIcon = ({className, width = 16, height = 16, ...rest}: SVGProps<SV
     version="1.1"
     width={width}
     fill="currentColor"
-    className={cx('bmui-icon', 'download-icon', 'svg', className)}
+    className={cx('brionmario-icon', 'download-icon', 'svg', className)}
     xmlns="http://www.w3.org/2000/svg"
     {...rest}
   >

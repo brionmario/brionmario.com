@@ -102,7 +102,7 @@ const FeaturedBlogsGrid: FC<FeaturedBlogsGridProps> = ({
     <section
       css={featuredBlogsGridCss}
       className={cx(
-        'bmui-featured-blogs-grid',
+        'brionmario-featured-blogs-grid',
         'relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14',
         className,
       )}

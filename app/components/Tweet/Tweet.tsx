@@ -91,7 +91,7 @@ const Tweet: PolymorphicTweetComponent = forwardRef(
         ref={ref}
         key={key}
         css={tweetCss}
-        className={cx('bmui-tweet', 'flex p-4 bg-white rounded-md shadow-xl dark:bg-opacity-10')}
+        className={cx('brionmario-tweet', 'flex p-4 bg-white rounded-md shadow-xl dark:bg-opacity-10')}
         {...rest}
       >
         <div className="flex-shrink-0 mr-4">

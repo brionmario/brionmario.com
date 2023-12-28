@@ -44,7 +44,7 @@ const GitHubProjectIcon = ({className, width = 16, height = 16, ...rest}: SVGPro
     viewBox={`0 0 ${height} ${width}`}
     version="1.1"
     width={width}
-    className={cx('bmui-icon', 'github-project-icon', 'svg', className)}
+    className={cx('brionmario-icon', 'github-project-icon', 'svg', className)}
     {...rest}
   >
     <path

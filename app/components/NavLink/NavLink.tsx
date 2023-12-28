@@ -83,7 +83,7 @@ const NavLink: PolymorphicNavLinkComponent = forwardRef(
         ref={ref}
         key={key}
         css={navLinkCss}
-        className={cx('bmui-navlink', 'px-5 py-2 flex items-center font-sans', className)}
+        className={cx('brionmario-navlink', 'px-5 py-2 flex items-center font-sans', className)}
         href={href}
         {...rest}
       >
@@ -162,7 +162,7 @@ export const MobileNavLink: PolymorphicMobileNavLinkComponent = forwardRef(
         key={key}
         css={mobileNavLinkCss}
         className={cx(
-          'bmui-mobile-navlink',
+          'brionmario-mobile-navlink',
           'm-5 rounded-md border border-gray-200 hover:border-transparent bg-gray-100 dark:border-neutral-800 hover:dark:border-transparent dark:bg-background-surface hover:shadow-lg focus-ring hover:cursor-pointer text-primary font-sans',
           className,
         )}

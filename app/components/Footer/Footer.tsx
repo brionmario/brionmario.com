@@ -71,7 +71,7 @@ const Footer: PolymorphicFooterComponent = forwardRef(
         ref={ref}
         key={key}
         css={footerCss}
-        className={cx('bmui-footer', 'bg-background-main pb-[env(safe-area-inset-bottom)] relative')}
+        className={cx('brionmario-footer', 'bg-background-main pb-[env(safe-area-inset-bottom)] relative')}
         {...rest}
       >
         <hr className="dark:border-neutral-800" />

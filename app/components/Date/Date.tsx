@@ -68,7 +68,7 @@ const Date: PolymorphicDateComponent = forwardRef(
         ref={ref}
         css={dateCss}
         className={cx(
-          'bmui-date',
+          'brionmario-date',
           'text-sm mt-2 text-center text-gray-500 dark:text-gray-400 font-space-grotesk',
           className,
         )}

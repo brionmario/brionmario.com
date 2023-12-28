@@ -91,7 +91,7 @@ const FeaturedProjectsGrid: FC<FeaturedProjectsGridProps> = ({
   return (
     <section
       className={cx(
-        'bmui-featured-projects-grid',
+        'brionmario-featured-projects-grid',
         'relative flex flex-col items-center px-6 pb-16 md:pb-24 lg:pb-32 gap-9 lg:gap-14',
         className,
       )}

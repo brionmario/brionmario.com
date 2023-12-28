@@ -99,7 +99,7 @@ const AvatarGroup: PolymorphicAvatarGroupComponent = forwardRef(
         ref={ref}
         key={key}
         css={avatarGroupCss}
-        className={cx('bmui-avatar-group', 'flex hover:-space-x-0', {'-space-x-4': stack}, className)}
+        className={cx('brionmario-avatar-group', 'flex hover:-space-x-0', {'-space-x-4': stack}, className)}
         {...rest}
       >
         {moderateChildren()}

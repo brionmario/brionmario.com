@@ -27,6 +27,7 @@ import Link, {LinkProps} from 'next/link';
 import {useReducedMotion, AnimatePresence, motion, Transition} from 'framer-motion';
 import {NextRouter, useRouter} from 'next/router';
 import {SerializedStyles, css} from '@emotion/react';
+import {cx} from '@emotion/css';
 import type {TestableComponent} from '../../models/dom';
 import ThemeSwitch from '../ThemeSwitch';
 import styles from '../header-logo.module.css';
@@ -60,7 +61,15 @@ export interface NavBarItem extends LinkProps {
  * CSS styles for the `NavBar` component.
  */
 const navBarCss: SerializedStyles = css`
-  /* Custom styles go here */
+  transition: all var(--brionmario-animations-transition-duration) ease-in-out;
+  border-bottom: 1px solid transparent;
+
+  &.scrolled {
+    background: var(--brionmario-palette-background-main);
+    border-bottom: 1px solid var(--brionmario-pallette-divider);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07),
+      0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  }
 `;
 
 /**
@@ -108,8 +117,30 @@ const NavBar = ({items}: NavbarProps): ReactElement => {
 
   const transition: Transition = shouldReduceMotion ? {duration: 0} : {};
 
+  const handleScroll = (): void => {
+    const isScrolled = window.scrollY > 0;
+    const navBar = document.getElementById('navbar'); // Add an ID to your navbar element
+
+    if (navBar) {
+      if (isScrolled) {
+        navBar.classList.add('scrolled', 'py-3');
+        navBar.classList.remove('py-9');
+      } else {
+        navBar.classList.remove('scrolled', 'py-3');
+        navBar.classList.add('py-9');
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="py-9" css={navBarCss}>
+    <div id="navbar" className="sticky top-0 z-50 py-3" css={navBarCss}>
       <nav className="mx-auto flex h-[var(--nextra-navbar-height)] max-w-[90rem] items-center justify-between gap-2 pl-[max(env(safe-area-inset-left),1.5rem)] pr-[max(env(safe-area-inset-right),1.5rem)]">
         <div className="flex justify-center gap-4 align-middle">
           <Link href="/" passHref>

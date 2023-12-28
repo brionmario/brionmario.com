@@ -160,7 +160,7 @@ const Hero: PolymorphicHeroComponent = forwardRef(
         <FadeIn
           noVertical
           className={cx(
-            'bmui-hero',
+            'brionmario-hero',
             'w-auto pb-16 pt-[48px] md:pb-24 lg:pb-32 md:pt-16 lg:pt-40 flex justify-between gap-8 items-center flex-col relative z-0',
             className,
           )}

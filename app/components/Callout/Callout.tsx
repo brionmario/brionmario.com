@@ -100,7 +100,7 @@ const Callout: PolymorphicCalloutComponent = forwardRef(
       <Element
         ref={ref}
         key={key}
-        className={cx('bmui-callout', `${CalloutTypes[type].classes} flex rounded-lg callout mt-6`, className)}
+        className={cx('brionmario-callout', `${CalloutTypes[type].classes} flex rounded-lg callout mt-6`, className)}
         css={calloutStyles}
         {...rest}
       >
