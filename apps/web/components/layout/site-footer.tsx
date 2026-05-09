@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ArrowRight, ArrowUpRight } from "lucide-react"
 
-import { socials } from "@/lib/data/socials"
+import { socialLinks as allSocialLinks } from "@/lib/data/socials"
 
 const navLinks = [
   { href: "/blog", label: "Blog" },
@@ -11,13 +11,9 @@ const navLinks = [
   { href: "/about", label: "About" },
 ]
 
-const socialLinks = [
-  { href: socials.github, label: "GitHub", external: true },
-  { href: socials.x, label: "X / Twitter", external: true },
-  { href: socials.linkedin, label: "LinkedIn", external: true },
-  { href: socials.medium, label: "Medium", external: true },
-  { href: socials.researchgate, label: "ResearchGate", external: true },
-]
+const socialLinks = allSocialLinks
+  .filter((s) => s.show)
+  .map((s) => ({ href: s.url, label: s.label }))
 
 const EMAIL = "brionbmp@gmail.com"
 

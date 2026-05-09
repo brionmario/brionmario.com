@@ -66,7 +66,7 @@ export function HeroSection() {
           >
             <Image
               alt="Brion Mario"
-              src="/images/people/brion-headshot-transparent-001.png"
+              src="/assets/images/people/brion-headshot-transparent-001.png"
               width={400}
               height={600}
               priority
