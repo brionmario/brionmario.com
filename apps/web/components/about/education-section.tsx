@@ -22,7 +22,7 @@ export function EducationSection({ entries }: EducationSectionProps) {
           />
         </FadeInWhenVisible>
 
-        <StaggerChildren className="flex flex-col gap-5 max-w-2xl" staggerDelay={0.1}>
+        <StaggerChildren className="flex flex-col gap-5" staggerDelay={0.1}>
           {entries.map((entry) => {
             const isFeatured = !!entry.honor
             return (

@@ -5,7 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react"
 
 import { projects } from "@/lib/data/projects"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { GithubIcon } from "@/components/icons/social-icons"
+import { SiGithub } from "@icons-pack/react-simple-icons"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
 
@@ -72,7 +72,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           rel="noopener noreferrer"
           className={cn(buttonVariants({ size: "sm" }), "gap-1.5")}
         >
-          <GithubIcon className="size-4" />
+          <SiGithub color="currentColor" className="size-4" />
           View on GitHub
           <ExternalLink className="size-3.5" />
         </a>

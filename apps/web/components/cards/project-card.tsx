@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 
 import { cn } from "@workspace/ui/lib/utils"
-import { GithubIcon } from "@/components/icons/social-icons"
+import { SiGithub } from "@icons-pack/react-simple-icons"
 import type { Project } from "@/lib/data/projects"
 
 interface ProjectCardProps {
@@ -28,7 +28,7 @@ export function ProjectCard({ project, className }: ProjectCardProps) {
             {project.name}
           </h3>
         </div>
-        <GithubIcon className="size-5 shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
+        <SiGithub color="currentColor" className="size-5 shrink-0 text-muted-foreground group-hover:text-foreground transition-colors" />
       </div>
 
       <p className="flex-1 text-sm text-muted-foreground leading-relaxed">

@@ -13,6 +13,7 @@
     "dataseed": "node scripts/dataseedr.js"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.13.0",
     "@workspace/ui": "workspace:*",
     "framer-motion": "^12.38.0",
     "gray-matter": "^4.0.3",

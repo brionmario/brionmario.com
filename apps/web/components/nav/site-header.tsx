@@ -1,6 +1,7 @@
 "use client"
 
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
@@ -26,11 +27,23 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/"
-          className="font-heading text-xl font-bold tracking-tight text-foreground hover:text-primary transition-colors"
-        >
-          Brion Mario
+        <Link href="/" className="flex items-center opacity-90 transition-opacity hover:opacity-100" aria-label="Brion Mario">
+          <Image
+            src="/assets/images/brand/logo-black.svg"
+            alt="Brion Mario"
+            width={140}
+            height={26}
+            className="block dark:hidden"
+            priority
+          />
+          <Image
+            src="/assets/images/brand/logo-white.svg"
+            alt="Brion Mario"
+            width={140}
+            height={26}
+            className="hidden dark:block"
+            priority
+          />
         </Link>
 
         <nav className="hidden items-center gap-2 md:flex">

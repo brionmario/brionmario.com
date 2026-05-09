@@ -2,12 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import { ArrowUpRight } from "lucide-react"
 import { cn } from "@workspace/ui/lib/utils"
-import {
-  GithubIcon,
-  LinkedinIcon,
-  MediumIcon,
-  XTwitterIcon,
-} from "@/components/icons/social-icons"
+import { SiGithub, SiX, SiMedium, SiResearchgate } from "@icons-pack/react-simple-icons"
 
 import {
   bio,
@@ -31,44 +26,48 @@ import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible"
 const SOCIAL_CONFIG: Record<string, {
   icon: React.ReactNode
   handle: string
-  iconBg: string
-  hoverBorder: string
+  hoverCard: string
+  hoverIcon: string
   hoverGlow: string
 }> = {
   github: {
-    icon: <GithubIcon className="size-6" />,
+    icon: <SiGithub color="currentColor" className="size-8" />,
     handle: "@brionmario",
-    iconBg: "bg-foreground text-background",
-    hoverBorder: "hover:border-zinc-400/60 dark:hover:border-zinc-500/60",
-    hoverGlow: "hover:shadow-zinc-900/10 dark:hover:shadow-zinc-100/10",
+    hoverCard: "hover:border-zinc-500/50 hover:bg-zinc-900/6 dark:hover:border-zinc-400/50 dark:hover:bg-zinc-100/6",
+    hoverIcon: "group-hover:text-zinc-800 dark:group-hover:text-zinc-200",
+    hoverGlow: "hover:shadow-zinc-900/12 dark:hover:shadow-zinc-100/12",
   },
   linkedin: {
-    icon: <LinkedinIcon className="size-6" />,
+    icon: (
+      <svg viewBox="0 0 24 24" fill="currentColor" className="size-8" aria-hidden="true">
+        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+      </svg>
+    ),
     handle: "in/brionmario",
-    iconBg: "bg-[#0077B5] text-white",
-    hoverBorder: "hover:border-blue-400/50",
-    hoverGlow: "hover:shadow-blue-500/15",
+    hoverCard: "hover:border-[#0A66C2]/50 hover:bg-[#0A66C2]/6",
+    hoverIcon: "group-hover:text-[#0A66C2]",
+    hoverGlow: "hover:shadow-[#0A66C2]/15",
   },
   x: {
-    icon: <XTwitterIcon className="size-6" />,
+    icon: <SiX color="currentColor" className="size-8" />,
     handle: "@brion_mario",
-    iconBg: "bg-foreground text-background",
-    hoverBorder: "hover:border-zinc-400/60 dark:hover:border-zinc-500/60",
-    hoverGlow: "hover:shadow-zinc-900/10 dark:hover:shadow-zinc-100/10",
+    hoverCard: "hover:border-zinc-500/50 hover:bg-zinc-900/6 dark:hover:border-zinc-400/50 dark:hover:bg-zinc-100/6",
+    hoverIcon: "group-hover:text-zinc-900 dark:group-hover:text-zinc-100",
+    hoverGlow: "hover:shadow-zinc-900/12 dark:hover:shadow-zinc-100/12",
   },
   medium: {
-    icon: <MediumIcon className="size-6" />,
+    icon: <SiMedium color="currentColor" className="size-8" />,
     handle: "@brionmario",
-    iconBg: "bg-foreground text-background",
-    hoverBorder: "hover:border-zinc-400/60 dark:hover:border-zinc-500/60",
-    hoverGlow: "hover:shadow-zinc-900/10 dark:hover:shadow-zinc-100/10",
+    hoverCard: "hover:border-zinc-500/50 hover:bg-zinc-900/6 dark:hover:border-zinc-400/50 dark:hover:bg-zinc-100/6",
+    hoverIcon: "group-hover:text-zinc-900 dark:group-hover:text-zinc-100",
+    hoverGlow: "hover:shadow-zinc-900/12 dark:hover:shadow-zinc-100/12",
   },
   researchgate: {
-    icon: <span className="text-[11px] font-black leading-none">RG</span>,
+    icon: <SiResearchgate color="currentColor" className="size-8" />,
     handle: "Brion Mario",
-    iconBg: "bg-teal-500 text-white",
-    hoverBorder: "hover:border-teal-400/50",
-    hoverGlow: "hover:shadow-teal-500/15",
+    hoverCard: "hover:border-[#00CCBB]/50 hover:bg-[#00CCBB]/6",
+    hoverIcon: "group-hover:text-[#00CCBB]",
+    hoverGlow: "hover:shadow-[#00CCBB]/15",
   },
 }
 
@@ -151,7 +150,7 @@ export default function AboutPage() {
                     rel="noopener noreferrer"
                     className={cn(
                       "group relative flex flex-col items-center gap-4 overflow-hidden rounded-2xl border border-border/60 bg-card px-5 py-7 text-center transition-all duration-300 hover:shadow-xl",
-                      cfg?.hoverBorder,
+                      cfg?.hoverCard,
                       cfg?.hoverGlow,
                     )}
                   >
@@ -161,11 +160,11 @@ export default function AboutPage() {
                     {/* Arrow chip — top right */}
                     <ArrowUpRight className="absolute right-3.5 top-3.5 size-3.5 text-muted-foreground/25 transition-all duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-muted-foreground/60" />
 
-                    {/* Brand icon badge */}
+                    {/* Icon — no background, tints to brand color on hover */}
                     <span
                       className={cn(
-                        "flex size-14 items-center justify-center rounded-2xl shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg",
-                        cfg?.iconBg ?? "bg-muted text-foreground"
+                        "flex size-14 items-center justify-center text-muted-foreground/50 transition-all duration-300 group-hover:scale-110",
+                        cfg?.hoverIcon
                       )}
                     >
                       {cfg?.icon}
@@ -200,9 +199,7 @@ export default function AboutPage() {
           <FadeInWhenVisible>
             <SectionHeading label="Experience" title="Career Timeline" />
           </FadeInWhenVisible>
-          <div className="max-w-2xl">
-            <ExperienceTimeline experience={experience} />
-          </div>
+          <ExperienceTimeline experience={experience} />
         </SectionWrapper>
       </div>
 

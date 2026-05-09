@@ -2,7 +2,7 @@ import Link from "next/link"
 import { ArrowRight, Star, GitFork } from "lucide-react"
 
 import { cn } from "@workspace/ui/lib/utils"
-import { GithubIcon } from "@/components/icons/social-icons"
+import { SiGithub } from "@icons-pack/react-simple-icons"
 import type { Project } from "@/lib/data/projects"
 
 interface ProjectFeaturedCardProps {
@@ -64,7 +64,7 @@ export function ProjectFeaturedCard({ project, className }: ProjectFeaturedCardP
 
       {/* Side panel */}
       <div className="relative flex shrink-0 flex-col items-center justify-center gap-6 bg-muted/30 p-8 md:w-56 border-t md:border-t-0 md:border-l border-border/60">
-        <GithubIcon className="size-12 text-muted-foreground/40 group-hover:text-primary/50 transition-colors" />
+        <SiGithub color="currentColor" className="size-12 text-muted-foreground/40 group-hover:text-primary/50 transition-colors" />
 
         {(project.stars !== undefined || project.forks !== undefined) && (
           <div className="flex gap-5 text-sm text-muted-foreground">

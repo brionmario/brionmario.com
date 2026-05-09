@@ -32,28 +32,21 @@ export function ExperienceTimeline({ experience }: ExperienceTimelineProps) {
     >
       {/* Spine */}
       <div
-        className="absolute left-6 top-6 w-0.5 bg-linear-to-b from-primary via-primary/20 to-transparent"
+        className="absolute left-7 top-7 w-px bg-linear-to-b from-primary via-primary/30 to-transparent"
         style={{ bottom: "3rem" }}
       />
 
-      <div className="space-y-8">
+      <div className="space-y-6">
         {experience.map((entry, idx) => (
-          <motion.div key={entry.id} variants={cardVariant} className="relative flex gap-7">
+          <motion.div key={entry.id} variants={cardVariant} className="relative flex gap-6">
             {/* Logo node */}
-            <div
-              className={cn(
-                "relative z-10 size-12 shrink-0 overflow-hidden rounded-full bg-background",
-                idx === 0
-                  ? "ring-2 ring-primary ring-offset-2 ring-offset-background shadow-lg shadow-primary/25"
-                  : "ring-1 ring-border"
-              )}
-            >
+            <div className="relative z-10 size-14 shrink-0 overflow-hidden rounded-2xl">
               <Image
                 src={entry.logoUrl}
                 alt={`${entry.company} logo`}
                 fill
                 className="object-cover"
-                sizes="48px"
+                sizes="56px"
               />
             </div>
 
@@ -90,13 +83,13 @@ export function ExperienceTimeline({ experience }: ExperienceTimelineProps) {
                   <div
                     key={role.title}
                     className={cn(
-                      "flex items-center justify-between gap-4 py-3.5 pl-5 pr-6 transition-colors",
+                      "flex items-center justify-between gap-4 py-4 pl-5 pr-6 transition-colors",
                       role.isCurrent
                         ? "bg-emerald-500/5 dark:bg-emerald-500/8"
                         : rIdx > 0 && "opacity-80 hover:opacity-100"
                     )}
                   >
-                    {/* Left accent bar + role info */}
+                    {/* Accent bar + role */}
                     <div className="flex items-center gap-4 min-w-0">
                       <div
                         className={cn(
@@ -104,35 +97,33 @@ export function ExperienceTimeline({ experience }: ExperienceTimelineProps) {
                           role.isCurrent ? "bg-emerald-500" : "bg-border"
                         )}
                       />
-                      <div className="min-w-0">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span
-                            className={cn(
-                              "text-sm font-semibold leading-snug",
-                              role.isCurrent ? "text-foreground" : "text-foreground/80"
-                            )}
-                          >
-                            {role.title}
-                          </span>
-                          {role.isCurrent && (
-                            <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-0.5">
-                              <span className="relative flex size-1.5">
-                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                                <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
-                              </span>
-                              <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
-                                Now
-                              </span>
-                            </span>
+                      <div className="flex flex-wrap items-center gap-2 min-w-0">
+                        <span
+                          className={cn(
+                            "text-sm font-semibold leading-snug",
+                            role.isCurrent ? "text-foreground" : "text-foreground/80"
                           )}
-                        </div>
+                        >
+                          {role.title}
+                        </span>
+                        {role.isCurrent && (
+                          <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-emerald-500/15 px-2.5 py-0.5">
+                            <span className="relative flex size-1.5">
+                              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+                              <span className="relative inline-flex size-1.5 rounded-full bg-emerald-500" />
+                            </span>
+                            <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-600 dark:text-emerald-400">
+                              Now
+                            </span>
+                          </span>
+                        )}
                       </div>
                     </div>
 
-                    {/* Date */}
+                    {/* Period */}
                     <span
                       className={cn(
-                        "shrink-0 rounded-full px-2.5 py-1 text-[11px] font-medium tabular-nums",
+                        "shrink-0 rounded-full px-3 py-1 text-[11px] font-medium tabular-nums",
                         role.isCurrent
                           ? "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400"
                           : "text-muted-foreground"
