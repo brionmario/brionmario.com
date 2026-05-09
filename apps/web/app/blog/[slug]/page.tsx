@@ -10,6 +10,8 @@ import { getAllBlogSlugs, getBlogPost } from "@/lib/blog-local"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 
 interface Props {
+  showExtractedBanner?: boolean
+  showExtractedTitle?: boolean
   params: Promise<{ slug: string }>
 }
 
@@ -28,7 +30,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage({ params, showExtractedBanner = false, showExtractedTitle = false }: Props) {
   const { slug } = await params
   const post = getBlogPost(slug)
   if (!post) notFound()
@@ -49,7 +51,7 @@ export default async function BlogPostPage({ params }: Props) {
         Back to blog
       </Link>
 
-      {post.bannerImage && (
+      {showExtractedBanner && post.bannerImage && (
         <div className="relative mb-8 aspect-video w-full overflow-hidden rounded-xl">
           <Image
             src={post.bannerImage}
@@ -74,9 +76,11 @@ export default async function BlogPostPage({ params }: Props) {
         ))}
       </div>
 
-      <h1 className="font-heading text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-        {post.title}
-      </h1>
+      {showExtractedTitle && (
+        <h1 className="font-heading text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
+          {post.title}
+        </h1>
+      )}
 
       <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
         <span className="flex items-center gap-1.5">
