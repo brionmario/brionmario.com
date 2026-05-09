@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { communityEngagements } from "@/lib/data/community"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { SectionHeading } from "@/components/layout/section-heading"
-import { CommunityCard } from "@/components/cards/community-card"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
+import { CommunityFeaturedCard } from "@/components/cards/community-featured-card"
+import { CommunityAgendaItem } from "@/components/cards/community-agenda-item"
 
 export const metadata: Metadata = {
   title: "Community",
@@ -12,10 +12,23 @@ export const metadata: Metadata = {
     "Speaking engagements, meetups, conferences, and workshops across the tech community.",
 }
 
+const TYPE_ORDER = ["conference", "meetup", "workshop"] as const
+const TYPE_LABELS: Record<string, string> = {
+  conference: "Conferences",
+  meetup: "Meetups",
+  workshop: "Workshops",
+}
+
 export default function CommunityPage() {
-  const meetups = communityEngagements.filter((e) => e.type === "meetup")
-  const conferences = communityEngagements.filter((e) => e.type === "conference")
-  const workshops = communityEngagements.filter((e) => e.type === "workshop")
+  const withVideo = communityEngagements.filter((e) => e.videoUrl)
+  const featured = withVideo[0] ?? communityEngagements[0]
+  const rest = communityEngagements.filter((e) => e.id !== featured?.id)
+
+  const grouped = TYPE_ORDER.reduce<Record<string, typeof rest>>((acc, type) => {
+    const items = rest.filter((e) => e.type === type)
+    if (items.length > 0) acc[type] = items
+    return acc
+  }, {})
 
   return (
     <SectionWrapper>
@@ -25,50 +38,22 @@ export default function CommunityPage() {
         subtitle="Speaking at meetups, conferences, and workshops — sharing what I learn with the broader tech community."
       />
 
-      {meetups.length > 0 && (
-        <div className="mb-16">
-          <h3 className="mb-6 font-heading text-xl font-semibold text-foreground">
-            Meetups
-          </h3>
-          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {meetups.map((engagement) => (
-              <StaggerItem key={engagement.id}>
-                <CommunityCard engagement={engagement} className="h-full" />
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      )}
+      <div className="flex flex-col gap-10">
+        {featured && <CommunityFeaturedCard engagement={featured} />}
 
-      {conferences.length > 0 && (
-        <div className="mb-16">
-          <h3 className="mb-6 font-heading text-xl font-semibold text-foreground">
-            Conferences
-          </h3>
-          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {conferences.map((engagement) => (
-              <StaggerItem key={engagement.id}>
-                <CommunityCard engagement={engagement} className="h-full" />
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      )}
-
-      {workshops.length > 0 && (
-        <div>
-          <h3 className="mb-6 font-heading text-xl font-semibold text-foreground">
-            Workshops
-          </h3>
-          <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {workshops.map((engagement) => (
-              <StaggerItem key={engagement.id}>
-                <CommunityCard engagement={engagement} className="h-full" />
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </div>
-      )}
+        {Object.entries(grouped).map(([type, items]) => (
+          <div key={type}>
+            <h3 className="mb-4 font-heading text-xl font-semibold text-foreground">
+              {TYPE_LABELS[type]}
+            </h3>
+            <div className="divide-y divide-border/60 rounded-xl border border-border/60 bg-card px-6">
+              {items.map((engagement) => (
+                <CommunityAgendaItem key={engagement.id} engagement={engagement} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
     </SectionWrapper>
   )
 }

@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
 import Image from "next/image"
-import Link from "next/link"
 import {
   GithubIcon,
   LinkedinIcon,
@@ -8,14 +7,13 @@ import {
   XTwitterIcon,
 } from "@/components/icons/social-icons"
 
-import { bio, skills, timeline } from "@/lib/data/about"
+import { bio, experience, visitedCountries, travelStats } from "@/lib/data/about"
 import { socials } from "@/lib/data/socials"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { SectionHeading } from "@/components/layout/section-heading"
-import { SkillPill } from "@/components/about/skill-pill"
-import { TimelineEntry } from "@/components/about/timeline-entry"
+import { ExperienceTimeline } from "@/components/about/experience-timeline"
+import { TravelSection } from "@/components/about/travel-section"
 import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
 
 export const metadata: Metadata = {
   title: "About",
@@ -114,23 +112,7 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
-      <div className="border-t border-border/50 bg-muted/30">
-        <SectionWrapper>
-          <FadeInWhenVisible>
-            <SectionHeading
-              label="Expertise"
-              title="Skills & Technologies"
-            />
-          </FadeInWhenVisible>
-          <StaggerChildren className="flex flex-wrap gap-2.5">
-            {skills.map((skill) => (
-              <StaggerItem key={skill}>
-                <SkillPill skill={skill} />
-              </StaggerItem>
-            ))}
-          </StaggerChildren>
-        </SectionWrapper>
-      </div>
+      <TravelSection countries={visitedCountries} tagline={travelStats.tagline} />
 
       <div className="border-t border-border/50">
         <SectionWrapper>
@@ -141,9 +123,7 @@ export default function AboutPage() {
             />
           </FadeInWhenVisible>
           <div className="max-w-2xl">
-            {timeline.map((entry, index) => (
-              <TimelineEntry key={entry.year} entry={entry} index={index} />
-            ))}
+            <ExperienceTimeline experience={experience} />
           </div>
         </SectionWrapper>
       </div>
