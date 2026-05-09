@@ -160,3 +160,141 @@ export const visitedCountries: VisitedCountry[] = [
 export const travelStats = {
   tagline: "5 countries · 4 regions · still counting ✈️",
 } as const
+
+// ─── Currently ────────────────────────────────────────────────────────────────
+
+export interface CurrentlyItem {
+  id: string
+  category: string
+  icon: string
+  title: string
+  subtitle: string
+  note?: string
+}
+
+export const currently: CurrentlyItem[] = [
+  {
+    id: "building",
+    category: "Building",
+    icon: "⚡",
+    title: "Project Thunder",
+    subtitle: "Next-generation open source IAM",
+    note: "The thing keeping me up at night (in a good way).",
+  },
+  {
+    id: "reading",
+    category: "Reading",
+    icon: "📖",
+    title: "Cloud Native",
+    subtitle: "Architecture, patterns & distributed systems",
+    note: "Down the rabbit hole and loving it.",
+  },
+  {
+    id: "listening",
+    category: "Listening",
+    icon: "🎵",
+    title: "Aydan's Picks",
+    subtitle: "Whatever my son is vibing to",
+    note: "No complaints. The kid has taste.",
+  },
+]
+
+// ─── Education ────────────────────────────────────────────────────────────────
+
+export interface EducationEntry {
+  id: string
+  institution: string
+  degree: string
+  period: string
+  location: string
+  honor?: string
+}
+
+export const education: EducationEntry[] = [
+  {
+    id: "westminster",
+    institution: "University of Westminster",
+    degree: "B.Eng Software Engineering (Hons)",
+    period: "2015 – 2019",
+    location: "London, United Kingdom",
+    honor: "First Class Honours",
+  },
+  {
+    id: "holy-cross",
+    institution: "Holy Cross College",
+    degree: "Primary & Secondary Education",
+    period: "1999 – 2012",
+    location: "Kalutara, Sri Lanka",
+  },
+]
+
+// ─── Honors & Awards ──────────────────────────────────────────────────────────
+
+export interface HonorEntry {
+  id: string
+  icon: string
+  title: string
+  issuer: string
+  date: string
+  featured?: boolean
+}
+
+export const honors: HonorEntry[] = [
+  {
+    id: "westminster-outstanding",
+    icon: "🏆",
+    title: "Outstanding Achievements & All Round Performance",
+    issuer: "University of Westminster",
+    date: "Oct 2019",
+    featured: true,
+  },
+  {
+    id: "innoserve-2017",
+    icon: "🥈",
+    title: "Silver Award — Innoserve Awards 2017",
+    issuer: "Industrial Development Bureau, Ministry of Economic Affairs · Taipei, Taiwan",
+    date: "Nov 2017",
+  },
+  {
+    id: "hackln-2017",
+    icon: "🥈",
+    title: "First Runner-up — HackLN 2017",
+    issuer: "University of Kelaniya",
+    date: "Nov 2017",
+  },
+  {
+    id: "nbqsa-2017",
+    icon: "🎖️",
+    title: "Merit Award — National Best Quality ICT Awards (NBQSA)",
+    issuer: "BCS The Chartered Institute for IT",
+    date: "Oct 2017",
+  },
+  {
+    id: "gsea-2017",
+    icon: "🌟",
+    title: "Semi Finalist — Global Student Entrepreneur Awards",
+    issuer: "EO GSEA · Top 8 student entrepreneurs globally",
+    date: "Feb 2017",
+  },
+  {
+    id: "cutting-edge-2016",
+    icon: "🥉",
+    title: "Second Runner-up — Cutting Edge 2016",
+    issuer: "Informatics Institute of Technology",
+    date: "Jun 2016",
+  },
+  {
+    id: "ihack-2016",
+    icon: "💻",
+    title: "Semi Finalist — iHack 2.0",
+    issuer: "University of Colombo School of Computing",
+    date: "Oct 2016",
+  },
+  {
+    id: "creative-writing-2009",
+    icon: "✍️",
+    title: "District Champion — Creative Writing",
+    issuer: "Kalutara Zone",
+    date: "Jan 2009",
+  },
+]

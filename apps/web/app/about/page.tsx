@@ -7,11 +7,22 @@ import {
   XTwitterIcon,
 } from "@/components/icons/social-icons"
 
-import { bio, experience, visitedCountries, travelStats } from "@/lib/data/about"
+import {
+  bio,
+  currently,
+  education,
+  experience,
+  honors,
+  visitedCountries,
+  travelStats,
+} from "@/lib/data/about"
 import { socials } from "@/lib/data/socials"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { SectionHeading } from "@/components/layout/section-heading"
+import { CurrentlySection } from "@/components/about/currently-section"
 import { ExperienceTimeline } from "@/components/about/experience-timeline"
+import { EducationSection } from "@/components/about/education-section"
+import { HonorsSection } from "@/components/about/honors-section"
 import { TravelSection } from "@/components/about/travel-section"
 import { FadeInWhenVisible } from "@/components/animations/fade-in-when-visible"
 
@@ -24,6 +35,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      {/* Profile */}
       <SectionWrapper>
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-2 lg:gap-16">
           <FadeInWhenVisible direction="right">
@@ -112,21 +124,29 @@ export default function AboutPage() {
         </div>
       </SectionWrapper>
 
+      {/* Currently */}
+      <CurrentlySection items={currently} />
+
+      {/* Travel */}
       <TravelSection countries={visitedCountries} tagline={travelStats.tagline} />
 
+      {/* Experience */}
       <div className="border-t border-border/50">
         <SectionWrapper>
           <FadeInWhenVisible>
-            <SectionHeading
-              label="Experience"
-              title="Career Timeline"
-            />
+            <SectionHeading label="Experience" title="Career Timeline" />
           </FadeInWhenVisible>
           <div className="max-w-2xl">
             <ExperienceTimeline experience={experience} />
           </div>
         </SectionWrapper>
       </div>
+
+      {/* Education */}
+      <EducationSection entries={education} />
+
+      {/* Honors & Awards */}
+      <HonorsSection honors={honors} />
     </>
   )
 }

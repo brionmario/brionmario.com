@@ -272,8 +272,8 @@ function GalleryModal({
                   transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
                 >
                   <Image
-                    src={images[imageIndex].url}
-                    alt={images[imageIndex].alt ?? `${country.name} — photo ${imageIndex + 1}`}
+                    src={images[imageIndex]?.url ?? ""}
+                    alt={images[imageIndex]?.alt ?? `${country.name} — photo ${imageIndex + 1}`}
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 512px"
