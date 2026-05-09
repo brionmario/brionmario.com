@@ -90,11 +90,10 @@ export default function AboutPage() {
               {/* Soft glow blob behind the image */}
               <div className="pointer-events-none absolute bottom-0 left-1/2 h-3/4 w-3/4 -translate-x-1/2 rounded-full bg-primary/20 blur-3xl" />
               <div
-                className="relative h-105 w-full sm:h-125 lg:h-135"
+                className="relative h-105 w-full sm:h-125 lg:h-135 dark:mix-blend-lighten"
                 style={{
                   maskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
                   WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
-                  mixBlendMode: "lighten",
                 }}
               >
                 <Image

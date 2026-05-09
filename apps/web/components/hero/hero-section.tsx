@@ -56,12 +56,11 @@ export function HeroSection() {
 
         <StaggerItem>
           <div
-            className="relative mt-12"
+            className="relative mt-12 dark:mix-blend-lighten"
             style={{
               maskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
               WebkitMaskImage: "linear-gradient(to bottom, black 55%, transparent 100%)",
               filter: "grayscale(1)",
-              mixBlendMode: "lighten",
             }}
           >
             <Image
