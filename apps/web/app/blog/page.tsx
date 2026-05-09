@@ -3,8 +3,8 @@ import type { Metadata } from "next"
 import { getAllBlogPosts } from "@/lib/blog-local"
 import { SectionWrapper } from "@/components/layout/section-wrapper"
 import { SectionHeading } from "@/components/layout/section-heading"
-import { BlogCard } from "@/components/cards/blog-card"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
+import { BlogFeaturedCard } from "@/components/cards/blog-featured-card"
+import { BlogSearchList } from "@/components/blog/blog-search-list"
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function BlogPage() {
-  const posts = getAllBlogPosts()
+  const [featured, ...rest] = getAllBlogPosts()
 
   return (
     <SectionWrapper>
@@ -21,13 +21,10 @@ export default function BlogPage() {
         title="Blog"
         subtitle="Thoughts on engineering, identity & access management, open source, and security."
       />
-      <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <StaggerItem key={post.slug}>
-            <BlogCard post={post} className="h-full" />
-          </StaggerItem>
-        ))}
-      </StaggerChildren>
+
+      {featured && <BlogFeaturedCard post={featured} />}
+
+      <BlogSearchList posts={rest} />
     </SectionWrapper>
   )
 }

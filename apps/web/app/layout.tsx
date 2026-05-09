@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import localFont from "next/font/local"
 import { Geist_Mono, Noto_Sans, Space_Grotesk } from "next/font/google"
 
 import "@workspace/ui/globals.css"
@@ -6,6 +7,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { SiteHeader } from "@/components/nav/site-header"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { cn } from "@workspace/ui/lib/utils"
+
+const goodBrush = localFont({
+  src: "../fonts/good-brush.woff",
+  variable: "--font-brush",
+})
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -64,7 +70,8 @@ export default function RootLayout({
         "antialiased",
         geistMono.variable,
         notoSans.variable,
-        spaceGrotesk.variable
+        spaceGrotesk.variable,
+        goodBrush.variable
       )}
     >
       <body className="font-sans">

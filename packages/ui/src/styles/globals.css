@@ -117,6 +117,7 @@
     --color-sidebar-ring: var(--sidebar-ring);
     --font-sans: var(--font-sans);
     --font-heading: var(--font-heading);
+    --font-brush: var(--font-brush);
 }
 
 @layer base {

@@ -1,14 +1,20 @@
+import { ghProjects } from "./autogen/gh-projects"
+
 export interface Project {
   id: string
   name: string
   org: string
   description: string
   githubUrl: string
+  homepage?: string
   tags: string[]
+  stars?: number
+  forks?: number
+  language?: string | null
   featured?: boolean
 }
 
-export const projects: Project[] = [
+const fallbackProjects: Project[] = [
   {
     id: "thunder",
     name: "Thunder",
@@ -40,3 +46,6 @@ export const projects: Project[] = [
     featured: true,
   },
 ]
+
+export const projects: Project[] =
+  ghProjects.length > 0 ? (ghProjects as Project[]) : fallbackProjects

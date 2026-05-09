@@ -6,47 +6,30 @@ import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
 
 import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
-import { BrionMarioLogo } from "@/components/icons/brion-mario-logo"
 
 export function HeroSection() {
   return (
     <section className="relative flex min-h-[calc(100vh-4rem)] flex-col items-center overflow-hidden px-6 pt-12 pb-0 md:pt-20 lg:pt-36">
       <StaggerChildren className="flex flex-col items-center" staggerDelay={0.15}>
         <StaggerItem>
-          <p className="flex items-center gap-2 text-muted-foreground text-lg">
-            <span className="text-2xl">👋</span>
-            Hi there! I&apos;m
-          </p>
-        </StaggerItem>
-
-        <StaggerItem>
-          <h1 className="mt-5">
-            <BrionMarioLogo
-              width={500}
-              height={85}
-              className="w-[min(500px,90vw)] h-auto"
-              brionColor="currentColor"
-              marioColor="#7c6bda"
-              aria-label="Brion Mario"
-            />
+          <h1 className="font-brush text-[clamp(3.5rem,14vw,9rem)] leading-none tracking-tight text-foreground text-center">
+            Frontend<br />Engineer
           </h1>
         </StaggerItem>
 
         <StaggerItem>
-          <div className="mt-8 space-y-2 text-center text-muted-foreground text-lg leading-relaxed">
-            <p>A front-end enthusiast based in Sri Lanka 🇱🇰</p>
-            <p className="flex flex-wrap items-center justify-center gap-1">
-              Currently working as a Senior Software Engineer at{" "}
-              <Link
-                href="https://wso2.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-foreground hover:text-primary transition-colors"
-              >
-                WSO2
-              </Link>
-            </p>
-          </div>
+          <p className="mt-7 text-center text-muted-foreground text-lg">
+            Currently at{" "}
+            <Link
+              href="https://wso2.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-foreground hover:text-primary transition-colors"
+            >
+              WSO2
+            </Link>
+            {" "}— building interfaces that matter.
+          </p>
         </StaggerItem>
 
         <StaggerItem>
