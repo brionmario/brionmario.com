@@ -2,15 +2,15 @@
 slug: "/posts/asgardeo-the-next-generation-idaas-by-wso2/"
 date: "2022-02-26"
 title: "Asgardeo || The Next-Generation IDaaS by WSO2"
-description: "At the time of writing, it’s still in the early-adopter stage and the GA release will be announced soon. Well, let’s start with the name itself. Asgardeo was inspired by the mythical concept of…"
+description: "Asgardeo || The Next-Generation IDaaS by WSO2 On October 13, 2021, WSO2 introduced its brand new IDaaS solution Asgardeo. Asgardeo Twitter Announcement At the time of writing, it’s still in the …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "4 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "asgardeo"
@@ -33,7 +33,7 @@ images:
 
 On October 13, 2021, [WSO2 introduced](https://wso2.com/about/news/wso2-introduces-asgardeo-next-generation-idaas/) its brand new IDaaS solution **Asgardeo**.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We are live 🎉 <br></br><br></br>Asgardeo is an IDaaS enabling developers with little IAM experience to build advanced Customer IAM into apps in minutes!<br></br>Read all about it ➡️ <a href="https://t.co/celmgcwLM3">https://t.co/celmgcwLM3</a><a href="https://twitter.com/hashtag/lowcode?src=hash&amp;ref\_src=twsrc%5Etfw">#lowcode</a> <a href="https://twitter.com/hashtag/appdevelopement?src=hash&amp;ref\_src=twsrc%5Etfw">#appdevelopement</a> <a href="https://twitter.com/hashtag/IAM?src=hash&amp;ref\_src=twsrc%5Etfw">#IAM</a> <a href="https://twitter.com/hashtag/SSO?src=hash&amp;ref\_src=twsrc%5Etfw">#SSO</a> <a href="https://twitter.com/hashtag/MFA?src=hash&amp;ref\_src=twsrc%5Etfw">#MFA</a> <a href="https://twitter.com/hashtag/Cloud?src=hash&amp;ref\_src=twsrc%5Etfw">#Cloud</a> <a href="https://twitter.com/hashtag/Asgardeo?src=hash&amp;ref\_src=twsrc%5Etfw">#Asgardeo</a></p>&mdash; Asgardeo (@asgardeo) <a href="https://twitter.com/asgardeo/status/1448276087994261515?ref\_src=twsrc%5Etfw">October 13, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We are live 🎉 <br></br><br></br>Asgardeo is an IDaaS enabling developers with little IAM experience to build advanced Customer IAM into apps in minutes!<br></br>Read all about it ➡️ <a href="https://t.co/celmgcwLM3">https://t.co/celmgcwLM3</a><a href="https://twitter.com/hashtag/lowcode?src=hash&amp;ref\_src=twsrc%5Etfw">#lowcode</a> <a href="https://twitter.com/hashtag/appdevelopement?src=hash&amp;ref\_src=twsrc%5Etfw">#appdevelopement</a> <a href="https://twitter.com/hashtag/IAM?src=hash&amp;ref\_src=twsrc%5Etfw">#IAM</a> <a href="https://twitter.com/hashtag/SSO?src=hash&amp;ref\_src=twsrc%5Etfw">#SSO</a> <a href="https://twitter.com/hashtag/MFA?src=hash&amp;ref\_src=twsrc%5Etfw">#MFA</a> <a href="https://twitter.com/hashtag/Cloud?src=hash&amp;ref\_src=twsrc%5Etfw">#Cloud</a> <a href="https://twitter.com/hashtag/Asgardeo?src=hash&amp;ref\_src=twsrc%5Etfw">#Asgardeo</a></p>&mdash; WSO2 Identity Platform (@wso2iamplatform) <a href="https://twitter.com/wso2iamplatform/status/1448276087994261515?ref\_src=twsrc%5Etfw">October 13, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 
 At the time of writing, it’s still in the early-adopter stage and the GA release will be announced soon.
 

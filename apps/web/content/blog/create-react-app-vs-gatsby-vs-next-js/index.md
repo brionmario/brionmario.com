@@ -2,15 +2,15 @@
 slug: "/posts/create-react-app-vs-gatsby-vs-next-js/"
 date: "2021-08-13"
 title: "Create React App vs Gatsby vs Next.js"
-description: "This comparison is an ongoing occurrence among developers when it comes to selecting the right option for a front end project. I’m not going to go into much detail but in layman’s terms, React is a…"
+description: "Create React App vs Gatsby vs Next.js This comparison is an ongoing occurrence among developers when it comes to selecting the right option for a front end project. When we consider these three …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "3 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "create-react-app"

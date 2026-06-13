@@ -2,15 +2,15 @@
 slug: "/posts/oauth-2-0-authorization-code-flow-react-spa-demo-using-wso2-identity-server/"
 date: "2020-03-17"
 title: "OAuth 2.0 Authorization code flow React SPA demo using WSO2 Identity Server"
-description: "This blog post will help you test out the OAuth2 authorization code flow in a React SPA application using the WSO2 Identity Server. In the edit view, expand the “Inbound Authentication Configuration”…"
+description: "OAuth 2.0 Authorization code flow React SPA demo using WSO2 Identity Server This blog post will help you test out the OAuth2 authorization code flow in a React SPA application using the WSO2 Identity …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "3 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "wso2-identity-server"

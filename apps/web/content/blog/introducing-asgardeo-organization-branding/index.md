@@ -2,15 +2,15 @@
 slug: "/posts/introducing-asgardeo-organization-branding/"
 date: "2022-02-26"
 title: "Introducing Asgardeo Organization Branding"
-description: "In this blog, I’ll try to cover the problem that’s been addressed and what’s offered with the new feature. When you are using a 3rd party service to log in users to your applications, one of the most…"
+description: "Introducing Asgardeo Organization Branding Asgardeo’s new Organization Branding feature is now available for the public to try out 🎉. In this blog, I’ll try to cover the problem that’s been …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "2 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "asgardeo"

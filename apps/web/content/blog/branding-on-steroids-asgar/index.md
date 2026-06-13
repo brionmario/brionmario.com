@@ -2,15 +2,15 @@
 slug: "/posts/branding-on-steroids-asgar/"
 date: "2022-07-24"
 title: "Branding On Steroids"
-description: "In a previous blog post 👈, I introduced Asgardeo Organization Branding capabilities. And since then, we have added quite a few cool nifty features that could really help users to achieve advanced…"
+description: "Branding On Steroids In a previous blog post 👈, I introduced Asgardeo Organization Branding capabilities. And since then, we have added quite a few cool nifty features that could really help users …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "6 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "asgardeo"
@@ -18,10 +18,10 @@ tags:
   - "organization-management"
   - "ciam"
   - "idaas"
-bannerImage: "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
-ogImage: "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
+bannerImage: "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png"
+ogImage: "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png"
 images:
-  - "https://cdn-images-1.medium.com/max/2600/1*8Xc8la1Vu5J7OafVyw21lg.png"
+  - "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png"
   - "https://cdn-images-1.medium.com/max/2600/1*0obr30ejPhFU7t26csMRvQ.png"
   - "https://cdn-images-1.medium.com/max/2600/1*7IgtkAcPgbvvFbEdQjxEgA.gif"
   - "https://cdn-images-1.medium.com/max/2600/1*X03Tv9CTRk_jAKq-3Jo7UA.png"
@@ -36,7 +36,7 @@ images:
 
 # Branding On Steroids
 
-![](https://cdn-images-1.medium.com/max/800/1*8Xc8la1Vu5J7OafVyw21lg.png)
+![](https://cdn-images-1.medium.com/max/800/1*5zS6pZPFT6mcm9JqJYnfXw.png)
 
 In a previous [blog post](https://medium.com/identity-beyond-borders/introducing-asgardeo-organization-branding-c0b8d66b8074) 👈, I introduced [Asgardeo Organization Branding](https://wso2.com/asgardeo/docs/guides/branding/) capabilities. And since then, we have added quite a few cool nifty features that could really help users to achieve advanced customizations whilst staying in the low code realm.
 

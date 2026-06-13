@@ -2,15 +2,15 @@
 slug: "/posts/how-to-add-stylelint-to-a-gatsby-project/"
 date: "2021-10-05"
 title: "How to add Stylelint to a Gatsby project"
-description: "You will need a Gatsby application to try this out. I will be using the Gatsby Starter project that I built. Feel free to use the same or you can use this approach on any Gatsby project. I followed…"
+description: "How to add Stylelint to a Gatsby project In this post, I will go through the process of adding Stylelint to a Gatsby project. Pre-requisites You will need a Gatsby application to try this out. I will …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "3 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "gatsby"

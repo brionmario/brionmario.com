@@ -2,15 +2,15 @@
 slug: "/posts/how-to-add-cypress-end-to-end-tests-to-a-gatsby-typescript-project/"
 date: "2021-10-05"
 title: "How to add Cypress End-To-End tests to a Gatsby TypeScript project"
-description: "End-To-End tests are vital for any front-end project if you’re concerned about the quality of the experience you provide to users with your application. In this post, I will go through the process of…"
+description: "How to add Cypress End-To-End tests to a Gatsby TypeScript project End-To-End tests are vital for any front-end project if you’re concerned about the quality of the experience you provide to users …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "4 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "gatsby"

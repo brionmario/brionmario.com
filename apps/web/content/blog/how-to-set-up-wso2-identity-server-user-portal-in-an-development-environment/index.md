@@ -2,15 +2,15 @@
 slug: "/posts/how-to-set-up-wso2-identity-server-user-portal-in-an-development-environment/"
 date: "2020-03-17"
 title: "How to set-up WSO2 Identity Server User Portal in an development environment"
-description: "The upcoming WSO2 Identity Server version 5.10.0 will have redesigned UIs with improved UX. The Dashboard has been deprecated and been replaced with a new User Portal. The overall appearance has also…"
+description: "How to set-up WSO2 Identity Server User Portal in a development environment The upcoming WSO2 Identity Server version 5.10.0 will have redesigned UIs with improved UX. The Dashboard has been …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "3 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "wso2-identity-server"
@@ -28,7 +28,7 @@ images:
 
 ---
 
-# How to set-up WSO2 Identity Server User Portal in an development environment
+# How to set-up WSO2 Identity Server User Portal in a development environment
 
 The upcoming [WSO2 Identity Server](https://wso2.com/identity-and-access-management/) version 5.10.0 will have redesigned UIs with improved UX. The Dashboard has been deprecated and been replaced with a new User Portal. The overall appearance has also been upgraded to maintain consistency across the product.
 

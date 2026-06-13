@@ -2,15 +2,15 @@
 slug: "/posts/how-to-deploy-wso2-identity-server-my-account-on-an-external-server/"
 date: "2021-09-30"
 title: "How to deploy WSO2 Identity Server My Account on an external server."
-description: "My Account (previously known as User Portal in Identity Server 5.10.0) is the end-user dashboard of the WSO2 Identity Server(WSO2 IS). With the My Account application, users can manage their…"
+description: "How to deploy WSO2 Identity Server My Account on an external server. My Account (previously known as User Portal in Identity Server 5.10.0) is the end-user dashboard of the WSO2 Identity Server(WSO2 …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "5 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "wso2-identity-server"

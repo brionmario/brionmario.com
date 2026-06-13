@@ -2,15 +2,15 @@
 slug: "/posts/how-to-create-a-blog-in-gatsby-with-mdx-and-import-your-medium-articles-part-1/"
 date: "2022-01-29"
 title: "How to create a blog in Gatsby with MDX"
-description: "In this post, I will go through the process of configuring a Gatsby application to be able to list out a blog index and render out MDX. I will be adding a blog feature to my Gatsby starter project…"
+description: "How to create a blog in Gatsby with MDX In this post, I will go through the process of configuring a Gatsby application to be able to list out a blog index and render out MDX. TL;DR I will be adding …"
 authors:
-  - id: "ca410be341b9"
-    name: "Brion Mario"
-    username: "brionmario"
+  - bio: "Software Engineer working at WSO2."
+    id: "ca410be341b9"
     image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    bio: "Software Engineer working at WSO2."
+    name: "Brion Mario"
     twitterScreenName: "brion_mario"
-readingTime: "5 min read"
+    username: "brionmario"
+readingTime: ""
 draft: false
 tags:
   - "gatsby"
