@@ -4,5 +4,5 @@
   "installCommand": "pnpm install",
   "outputDirectory": "apps/web/.next",
   "framework": "nextjs",
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- apps/web packages"
+  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- apps/web packages turbo.json package.json pnpm-lock.yaml pnpm-workspace.yaml tsconfig.json"
 }
