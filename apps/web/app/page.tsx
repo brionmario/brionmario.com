@@ -38,7 +38,7 @@ function pickHomeEvents(count = 3) {
   const withoutVideo = communityEngagements.filter((e) => !e.videoUrl)
   const highlight = withVideo[0] ?? communityEngagements[0]
   const rest = [...withVideo.slice(1), ...withoutVideo]
-    .filter((e) => e.id !== highlight.id)
+    .filter((e) => e.id !== highlight?.id)
     .slice(0, count - 1)
   return { highlight, rest }
 }
