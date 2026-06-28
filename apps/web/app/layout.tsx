@@ -55,6 +55,19 @@ export const metadata: Metadata = {
     description: "Fullstack Engineer. Open Source. Security Research.",
     creator: "@brion_mario",
   },
+  icons: {
+    icon: [
+      { url: "/images/favicon-light/favicon-16x16.png", sizes: "16x16", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/favicon-light/favicon-32x32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/favicon-dark/favicon-16x16.png", sizes: "16x16", type: "image/png", media: "(prefers-color-scheme: dark)" },
+      { url: "/images/favicon-dark/favicon-32x32.png", sizes: "32x32", type: "image/png", media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: [
+      { url: "/images/favicon-light/apple-touch-icon.png", media: "(prefers-color-scheme: light)" },
+      { url: "/images/favicon-dark/apple-touch-icon.png", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
+  manifest: "/images/favicon-light/site.webmanifest",
 }
 
 export default function RootLayout({
