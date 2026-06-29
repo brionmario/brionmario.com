@@ -1,6 +1,5 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Download } from "lucide-react"
 
 import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
@@ -28,7 +27,7 @@ export function HeroSection() {
             >
               WSO2
             </Link>
-            {" "}— building interfaces that matter.
+            {" "}- building interfaces that matter.
           </p>
         </StaggerItem>
 
@@ -43,14 +42,12 @@ export function HeroSection() {
             >
               Read the blog
             </Link>
-            <a
-              href="/resume.pdf"
-              download="Brion Mario - Resume.pdf"
-              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "min-w-40 gap-2")}
+            <Link
+              href="/projects"
+              className={cn(buttonVariants({ variant: "outline", size: "lg" }), "min-w-40")}
             >
-              Download Resume
-              <Download className="size-4" />
-            </a>
+              See projects
+            </Link>
           </div>
         </StaggerItem>
 
