@@ -7,8 +7,6 @@ const nextConfig = {
       { protocol: "https", hostname: "miro.medium.com" },
       { protocol: "https", hostname: "cdn-images-1.medium.com" },
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
-      { protocol: "https", hostname: "media.licdn.com" },
-      { protocol: "https", hostname: "**.fbcdn.net" },
     ],
   },
 }
