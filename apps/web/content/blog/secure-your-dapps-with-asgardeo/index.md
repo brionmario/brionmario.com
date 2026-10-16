@@ -2,22 +2,9 @@
 slug: "/posts/secure-your-dapps-with-asgardeo/"
 date: "2023-01-08"
 title: "Secure your dApps with Asgardeo"
-description: "Secure your dApps with Asgardeo Ethereum is a decentralized, open-source blockchain platform that was created in 2015 by Vitalik Buterin. It is a blockchain-based platform that enables the creation …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "ethereum"
-  - "sign-in-with-ethereum"
-  - "dapps"
-  - "decentralized-identity"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*TYu_0kIUFnoVeSiV2JrD6A.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*TYu_0kIUFnoVeSiV2JrD6A.png"
 images:

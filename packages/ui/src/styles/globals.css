@@ -7,73 +7,127 @@
 @source "../../../components/**/*.{ts,tsx}";
 @source "../**/*.{ts,tsx}";
 
+/*
+ * Brand ramp — fixed across themes.
+ * The two canvases (ink / paper) swap roles between light and dark, which is what
+ * makes the inverted section treatment work identically in both.
+ */
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.148 0.004 228.8);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.148 0.004 228.8);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.148 0.004 228.8);
-    --primary: oklch(0.45 0.18 283);
-    --primary-foreground: oklch(1 0 0);
-    --secondary: oklch(0.967 0.001 286.375);
-    --secondary-foreground: oklch(0.21 0.006 285.885);
-    --muted: oklch(0.963 0.002 197.1);
-    --muted-foreground: oklch(0.56 0.021 213.5);
-    --accent: oklch(0.963 0.002 197.1);
-    --accent-foreground: oklch(0.218 0.008 223.9);
-    --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.925 0.005 214.3);
-    --input: oklch(0.925 0.005 214.3);
-    --ring: oklch(0.45 0.18 283);
-    --chart-1: oklch(0.879 0.169 91.605);
-    --chart-2: oklch(0.769 0.188 70.08);
-    --chart-3: oklch(0.666 0.179 58.318);
-    --chart-4: oklch(0.555 0.163 48.998);
-    --chart-5: oklch(0.473 0.137 46.201);
-    --radius: 0.625rem;
-    --sidebar: oklch(0.987 0.002 197.1);
-    --sidebar-foreground: oklch(0.148 0.004 228.8);
-    --sidebar-primary: oklch(0.666 0.179 58.318);
-    --sidebar-primary-foreground: oklch(0.987 0.022 95.277);
-    --sidebar-accent: oklch(0.963 0.002 197.1);
-    --sidebar-accent-foreground: oklch(0.218 0.008 223.9);
-    --sidebar-border: oklch(0.925 0.005 214.3);
-    --sidebar-ring: oklch(0.723 0.014 214.4);
+    --bm-ink-950: #0b0d10;
+    --bm-ink-900: #14161a;
+    --bm-ink-800: #1a1e25;
+    --bm-paper-100: #efeae0;
+    --bm-paper-200: #e3ddd0;
+    --bm-paper-dim: #b9b4aa;
+    --bm-gray-500: #8a9099;
+    --bm-gray-600: #5b626c;
+    --bm-gray-700: #4a4f57;
+    --bm-gray-750: #6b7079;
+    --bm-orange-500: #ff5c35;
+
+    --bm-accent: var(--bm-orange-500);
+
+    /* Headlines share Archivo with the body copy — only the weight changes. */
+    --font-heading: var(--font-sans);
 }
 
+/* Light theme — paper is the canvas, ink is the inverted surface. */
+:root {
+    --background: var(--bm-paper-100);
+    --foreground: var(--bm-ink-900);
+    --card: var(--bm-paper-200);
+    --card-foreground: var(--bm-ink-900);
+    --popover: var(--bm-paper-200);
+    --popover-foreground: var(--bm-ink-900);
+    --primary: var(--bm-accent);
+    --primary-foreground: var(--bm-ink-950);
+    --secondary: var(--bm-paper-200);
+    --secondary-foreground: var(--bm-ink-900);
+    --muted: var(--bm-paper-200);
+    --muted-foreground: var(--bm-gray-700);
+    --faint: var(--bm-gray-750);
+    --accent: var(--bm-accent);
+    --accent-foreground: var(--bm-ink-950);
+    --destructive: oklch(0.577 0.245 27.325);
+    --border: rgba(20, 22, 26, 0.18);
+    --border-strong: rgba(20, 22, 26, 0.42);
+    --input: rgba(20, 22, 26, 0.22);
+    --ring: var(--bm-accent);
+    --radius: 0rem;
+    --sidebar: var(--bm-paper-200);
+    --sidebar-foreground: var(--bm-ink-900);
+    --sidebar-primary: var(--bm-accent);
+    --sidebar-primary-foreground: var(--bm-ink-950);
+    --sidebar-accent: var(--bm-paper-200);
+    --sidebar-accent-foreground: var(--bm-ink-900);
+    --sidebar-border: rgba(20, 22, 26, 0.18);
+    --sidebar-ring: var(--bm-accent);
+
+    /* Inverted surface tokens — used by .surface-invert below. */
+    --invert-background: var(--bm-ink-950);
+    --invert-foreground: var(--bm-paper-100);
+    --invert-card: var(--bm-ink-900);
+    --invert-muted-foreground: var(--bm-gray-500);
+    --invert-faint: var(--bm-gray-600);
+    --invert-border: rgba(239, 234, 224, 0.14);
+    --invert-border-strong: rgba(239, 234, 224, 0.85);
+}
+
+/* Dark theme — ink is the canvas, paper is the inverted surface. */
 .dark {
-    --background: #0d1117;
-    --foreground: oklch(0.987 0.002 197.1);
-    --card: oklch(0.18 0.01 250);
-    --card-foreground: oklch(0.987 0.002 197.1);
-    --popover: oklch(0.18 0.01 250);
-    --popover-foreground: oklch(0.987 0.002 197.1);
-    --primary: oklch(0.6 0.18 283);
-    --primary-foreground: oklch(1 0 0);
-    --secondary: oklch(0.274 0.006 286.033);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.22 0.01 250);
-    --muted-foreground: oklch(0.65 0.01 250);
-    --accent: oklch(0.22 0.01 250);
-    --accent-foreground: oklch(0.987 0.002 197.1);
+    --background: var(--bm-ink-950);
+    --foreground: var(--bm-paper-100);
+    --card: var(--bm-ink-900);
+    --card-foreground: var(--bm-paper-100);
+    --popover: var(--bm-ink-900);
+    --popover-foreground: var(--bm-paper-100);
+    --primary: var(--bm-accent);
+    --primary-foreground: var(--bm-ink-950);
+    --secondary: var(--bm-ink-800);
+    --secondary-foreground: var(--bm-paper-100);
+    --muted: var(--bm-ink-900);
+    --muted-foreground: var(--bm-gray-500);
+    --faint: var(--bm-gray-600);
+    --accent: var(--bm-accent);
+    --accent-foreground: var(--bm-ink-950);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 8%);
-    --input: oklch(1 0 0 / 12%);
-    --ring: oklch(0.6 0.18 283);
-    --chart-1: oklch(0.879 0.169 91.605);
-    --chart-2: oklch(0.769 0.188 70.08);
-    --chart-3: oklch(0.666 0.179 58.318);
-    --chart-4: oklch(0.555 0.163 48.998);
-    --chart-5: oklch(0.473 0.137 46.201);
-    --sidebar: oklch(0.218 0.008 223.9);
-    --sidebar-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-primary: oklch(0.769 0.188 70.08);
-    --sidebar-primary-foreground: oklch(0.279 0.077 45.635);
-    --sidebar-accent: oklch(0.275 0.011 216.9);
-    --sidebar-accent-foreground: oklch(0.987 0.002 197.1);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.56 0.021 213.5);
+    --border: rgba(239, 234, 224, 0.14);
+    --border-strong: rgba(239, 234, 224, 0.3);
+    --input: rgba(239, 234, 224, 0.22);
+    --ring: var(--bm-accent);
+    --sidebar: var(--bm-ink-900);
+    --sidebar-foreground: var(--bm-paper-100);
+    --sidebar-primary: var(--bm-accent);
+    --sidebar-primary-foreground: var(--bm-ink-950);
+    --sidebar-accent: var(--bm-ink-800);
+    --sidebar-accent-foreground: var(--bm-paper-100);
+    --sidebar-border: rgba(239, 234, 224, 0.14);
+    --sidebar-ring: var(--bm-accent);
+
+    --invert-background: var(--bm-paper-100);
+    --invert-foreground: var(--bm-ink-900);
+    --invert-card: var(--bm-ink-900);
+    --invert-muted-foreground: var(--bm-gray-700);
+    --invert-faint: var(--bm-gray-750);
+    --invert-border: rgba(20, 22, 26, 0.2);
+    --invert-border-strong: rgba(20, 22, 26, 0.85);
+}
+
+/*
+ * Flip the canvas for a section. Everything inside keeps using bg-background /
+ * text-foreground / border-border and simply lands on the opposite surface.
+ */
+.surface-invert {
+    --background: var(--invert-background);
+    --foreground: var(--invert-foreground);
+    --card: var(--invert-card);
+    --card-foreground: var(--invert-foreground);
+    --muted-foreground: var(--invert-muted-foreground);
+    --faint: var(--invert-faint);
+    --border: var(--invert-border);
+    --border-strong: var(--invert-border-strong);
+    background-color: var(--background);
+    color: var(--foreground);
 }
 
 @theme inline {
@@ -89,24 +143,21 @@
     --color-secondary-foreground: var(--secondary-foreground);
     --color-muted: var(--muted);
     --color-muted-foreground: var(--muted-foreground);
+    --color-faint: var(--faint);
     --color-accent: var(--accent);
     --color-accent-foreground: var(--accent-foreground);
     --color-destructive: var(--destructive);
     --color-border: var(--border);
+    --color-border-strong: var(--border-strong);
     --color-input: var(--input);
     --color-ring: var(--ring);
-    --color-chart-1: var(--chart-1);
-    --color-chart-2: var(--chart-2);
-    --color-chart-3: var(--chart-3);
-    --color-chart-4: var(--chart-4);
-    --color-chart-5: var(--chart-5);
-    --radius-sm: calc(var(--radius) * 0.6);
-    --radius-md: calc(var(--radius) * 0.8);
-    --radius-lg: var(--radius);
-    --radius-xl: calc(var(--radius) * 1.4);
-    --radius-2xl: calc(var(--radius) * 1.8);
-    --radius-3xl: calc(var(--radius) * 2.2);
-    --radius-4xl: calc(var(--radius) * 2.6);
+    --radius-sm: 0rem;
+    --radius-md: 0rem;
+    --radius-lg: 0rem;
+    --radius-xl: 0rem;
+    --radius-2xl: 0rem;
+    --radius-3xl: 0rem;
+    --radius-4xl: 0rem;
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -117,6 +168,7 @@
     --color-sidebar-ring: var(--sidebar-ring);
     --font-sans: var(--font-sans);
     --font-heading: var(--font-heading);
+    --font-mono: var(--font-mono);
     --font-brush: var(--font-brush);
 }
 
@@ -130,4 +182,57 @@
   button:not(:disabled), [role="button"]:not(:disabled) {
     cursor: pointer;
     }
+  ::selection {
+    background: var(--bm-accent);
+    color: var(--bm-ink-950);
+    }
+  html {
+    scroll-behavior: smooth;
+    }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    }
+}
+
+@layer components {
+  /*
+   * The mono eyebrow that labels almost every section in the design:
+   * 11px JetBrains Mono, wide tracking, uppercase.
+   */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    }
+  .eyebrow-sm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    line-height: 1.4;
+    }
+  /* Display headline — the brush script used for the two big statements. */
+  .brush {
+    font-family: var(--font-brush);
+    line-height: 0.92;
+    }
+  /* Heavy condensed-feeling uppercase headline. */
+  .headline {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    line-height: 1.02;
+    text-transform: uppercase;
+    }
+}
+
+@keyframes bm-scrollhint {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(7px); opacity: 1; }
+}
+
+@keyframes bm-dash {
+  to { stroke-dashoffset: -1000; }
 }

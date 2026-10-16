@@ -2,22 +2,9 @@
 slug: "/posts/does-your-company-need-a-design-system/"
 date: "2024-11-05"
 title: "Does Your Company Need a Design System?"
-description: "Does Your Company Need a Design System? In today’s competitive market, a product’s look and feel are as important as its technical capabilities. Users expect seamless, consistent experiences …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "design-systems"
-  - "component-libraries"
-  - "design-tokens"
-  - "ui-library"
-  - "figma"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*CRaj2wbOFRvAybGpCc_uTg.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*CRaj2wbOFRvAybGpCc_uTg.png"
 images:

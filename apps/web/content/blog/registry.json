@@ -1,0 +1,504 @@
+{
+  "count": 31,
+  "generatedAt": "2026-10-16T09:50:16.893Z",
+  "generator": "medmark@0.3.0",
+  "posts": [
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*-qzG7qwpGsHJdGvCWJN7_A.png",
+      "date": "2026-09-01",
+      "description": "",
+      "draft": false,
+      "path": "journey-of-my-portfolio-agentic-era/index.md",
+      "readingTime": "",
+      "slug": "journey-of-my-portfolio-agentic-era",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/journey-of-my-portfolio-agentic-era-916a36de1aa5"
+      },
+      "tags": [],
+      "title": "Journey of My Portfolio: Agentic Era"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*flDEVbSif8m5eyXj-JBScw.png",
+      "date": "2026-09-01",
+      "description": "",
+      "draft": false,
+      "path": "journey-of-my-portfolio-rise-of-frameworks/index.md",
+      "readingTime": "",
+      "slug": "journey-of-my-portfolio-rise-of-frameworks",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/journey-of-my-portfolio-rise-of-frameworks-066529ad1f41"
+      },
+      "tags": [],
+      "title": "Journey of My Portfolio: Rise of Frameworks"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*EOA6Um5YuRNiF602zOKbOQ.png",
+      "date": "2026-05-22",
+      "description": "",
+      "draft": false,
+      "path": "journey-of-my-portfolio-wordpress-era/index.md",
+      "readingTime": "",
+      "slug": "journey-of-my-portfolio-wordpress-era",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/journey-of-my-portfolio-wordpress-era-ac2975a08786"
+      },
+      "tags": [],
+      "title": "Journey of My Portfolio: WordPress Era"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*nOR5qLk5u3a0J4szu2mNdA.png",
+      "date": "2026-05-10",
+      "description": "",
+      "draft": false,
+      "path": "journey-of-my-portfolio-where-it-all-started/index.md",
+      "readingTime": "",
+      "slug": "journey-of-my-portfolio-where-it-all-started",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/journey-of-my-portfolio-where-it-all-started-d9a1b333fb14"
+      },
+      "tags": [],
+      "title": "Journey of My Portfolio: Where It All Started"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*CRaj2wbOFRvAybGpCc_uTg.png",
+      "date": "2024-11-05",
+      "description": "",
+      "draft": false,
+      "path": "does-your-company-need-a-design-system/index.md",
+      "readingTime": "",
+      "slug": "does-your-company-need-a-design-system",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/does-your-company-need-a-design-system-cf6117e6601e"
+      },
+      "tags": [],
+      "title": "Does Your Company Need a Design System?"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*88yGNrfJunnxCrAKVyz2xA.png",
+      "date": "2024-07-06",
+      "description": "",
+      "draft": false,
+      "path": "write-better-commit-messages/index.md",
+      "readingTime": "",
+      "slug": "write-better-commit-messages",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/write-better-commit-messages-2e61a983760d"
+      },
+      "tags": [],
+      "title": "Write better commit messages"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*UdbrZRbA7ASVYpnfFy3WxQ.png",
+      "date": "2024-07-03",
+      "description": "",
+      "draft": false,
+      "path": "the-foundation-of-secure-authentication/index.md",
+      "readingTime": "",
+      "slug": "the-foundation-of-secure-authentication",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/the-foundation-of-secure-authentication-1885c4571f72"
+      },
+      "tags": [],
+      "title": "The Foundation of Secure Authentication"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*XwKN2NbK_OMJEKXJG6-qZg.png",
+      "date": "2024-06-29",
+      "description": "",
+      "draft": false,
+      "path": "the-unofficial-react-auth/index.md",
+      "readingTime": "",
+      "slug": "the-unofficial-react-auth",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/the-unofficial-react-auth-707703f821d0"
+      },
+      "tags": [],
+      "title": "The unofficial `react-auth`"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*V5WOWDIfdTP_F-3YDJtQhQ.png",
+      "date": "2024-04-14",
+      "description": "",
+      "draft": false,
+      "path": "why-we-migrated-to-pnpm/index.md",
+      "readingTime": "",
+      "slug": "why-we-migrated-to-pnpm",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/why-we-migrated-to-pnpm-2d9d00a69ca9"
+      },
+      "tags": [],
+      "title": "Why we migrated to PNPM?"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*H7UN-935wfz6aGs7xLuThQ.png",
+      "date": "2024-04-14",
+      "description": "",
+      "draft": false,
+      "path": "how-to-fix-ts2604-jsx-element-type-does-not-have-any-construct-or-call-signatures/index.md",
+      "readingTime": "",
+      "slug": "how-to-fix-ts2604-jsx-element-type-does-not-have-any-construct-or-call-signatures",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-fix-ts2604-jsx-element-type-does-not-have-any-construct-or-call-signatures-fcad7c58350e"
+      },
+      "tags": [],
+      "title": "How to fix TS2604: JSX element type does not have any construct or call signatures"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*tjDyHycSz4GBa_bGmaVPjg.png",
+      "date": "2024-04-13",
+      "description": "",
+      "draft": false,
+      "path": "the-facelift-begins-unveiling-the-transformation-of-the-wso2-identity-servers-frontend/index.md",
+      "readingTime": "",
+      "slug": "the-facelift-begins-unveiling-the-transformation-of-the-wso2-identity-servers-frontend",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/the-facelift-begins-unveiling-the-transformation-of-the-wso2-identity-servers-frontend-76cdfbbe8bca"
+      },
+      "tags": [],
+      "title": "Unveiling the Transformation of the WSO2 Identity Server’s Frontend"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*4bKZH6F43RpY2RQn4sEBOw.png",
+      "date": "2024-03-08",
+      "description": "",
+      "draft": false,
+      "path": "mastering-iam-simplified-unleash-your-potential-with-asgardeos-novice-friendly-login-flow-visual/index.md",
+      "readingTime": "",
+      "slug": "mastering-iam-simplified-unleash-your-potential-with-asgardeos-novice-friendly-login-flow-visual",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/mastering-iam-simplified-unleash-your-potential-with-asgardeos-novice-friendly-login-flow-visual-69c8c74c726e"
+      },
+      "tags": [],
+      "title": "Mastering IAM Simplified: Unleash Your Potential with Asgardeo’s Novice-Friendly Login Flow Visual…"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*Msv1d59NZ46pUMa4wFgiog.png",
+      "date": "2023-09-03",
+      "description": "",
+      "draft": false,
+      "path": "changesets-is-a-game-changer/index.md",
+      "readingTime": "",
+      "slug": "changesets-is-a-game-changer",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/changesets-is-a-game-changer-fe752af6a8cc"
+      },
+      "tags": [],
+      "title": "🦋 Changesets is a game changer"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*XKb45W4q4xpTi2UZjBTFPw.png",
+      "date": "2023-08-21",
+      "description": "",
+      "draft": false,
+      "path": "visualize-the-user-login-journey-with-asgardeo/index.md",
+      "readingTime": "",
+      "slug": "visualize-the-user-login-journey-with-asgardeo",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/visualize-the-user-login-journey-with-asgardeo-9274b790a441"
+      },
+      "tags": [],
+      "title": "Visualize the user login journey with Asgardeo"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*ZzCD4-lZMtVU0WZyKxrqHA.png",
+      "date": "2023-04-16",
+      "description": "",
+      "draft": false,
+      "path": "why-do-we-rewrite-front-ends/index.md",
+      "readingTime": "",
+      "slug": "why-do-we-rewrite-front-ends",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/why-do-we-rewrite-front-ends-f4697c322f89"
+      },
+      "tags": [],
+      "title": "Why do we rewrite front-ends?"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*TYu_0kIUFnoVeSiV2JrD6A.png",
+      "date": "2023-01-08",
+      "description": "",
+      "draft": false,
+      "path": "secure-your-dapps-with-asgardeo/index.md",
+      "readingTime": "",
+      "slug": "secure-your-dapps-with-asgardeo",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/secure-your-dapps-with-asgardeo-935349239d11"
+      },
+      "tags": [],
+      "title": "Secure your dApps with Asgardeo"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*rvtP2gsBtPsg9ToJiLiqqg.png",
+      "date": "2022-08-06",
+      "description": "",
+      "draft": false,
+      "path": "how-to-fix-support-for-the-experimental-syntax-operator-isn-t-currently-enabled/index.md",
+      "readingTime": "",
+      "slug": "how-to-fix-support-for-the-experimental-syntax-operator-isn-t-currently-enabled",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-fix-support-for-the-experimental-syntax-operator-isn-t-currently-enabled-7ca9902a11bc"
+      },
+      "tags": [],
+      "title": "How to fix “Support for the experimental syntax <OPERATOR> isn’t currently enabled”"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png",
+      "date": "2022-07-24",
+      "description": "",
+      "draft": false,
+      "path": "branding-on-steroids-asgar/index.md",
+      "readingTime": "",
+      "slug": "branding-on-steroids-asgar",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/branding-on-steroids-asgar-e90e19578dae"
+      },
+      "tags": [],
+      "title": "Branding On Steroids"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png",
+      "date": "2022-02-26",
+      "description": "",
+      "draft": false,
+      "path": "introducing-asgardeo-organization-branding/index.md",
+      "readingTime": "",
+      "slug": "introducing-asgardeo-organization-branding",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/introducing-asgardeo-organization-branding-c0b8d66b8074"
+      },
+      "tags": [],
+      "title": "Introducing Asgardeo Organization Branding"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*PTNELAjCeN99cU1P_ryB-g.jpeg",
+      "date": "2022-02-26",
+      "description": "",
+      "draft": false,
+      "path": "asgardeo-the-next-generation-idaas-by-wso2/index.md",
+      "readingTime": "",
+      "slug": "asgardeo-the-next-generation-idaas-by-wso2",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/asgardeo-the-next-generation-idaas-by-wso2-a089e5219ab7"
+      },
+      "tags": [],
+      "title": "Asgardeo || The Next-Generation IDaaS by WSO2"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*N8EhWzgtyz9SssAjqPmmcw.png",
+      "date": "2022-01-29",
+      "description": "",
+      "draft": false,
+      "path": "how-to-create-a-blog-in-gatsby-with-mdx-and-import-your-medium-articles-part-1/index.md",
+      "readingTime": "",
+      "slug": "how-to-create-a-blog-in-gatsby-with-mdx-and-import-your-medium-articles-part-1",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-create-a-blog-in-gatsby-with-mdx-and-import-your-medium-articles-part-1-752e687e3ca0"
+      },
+      "tags": [],
+      "title": "How to create a blog in Gatsby with MDX"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png",
+      "date": "2021-10-05",
+      "description": "",
+      "draft": false,
+      "path": "how-to-add-unit-tests-to-a-gatsby-typescript-project-with-react-testing-library/index.md",
+      "readingTime": "",
+      "slug": "how-to-add-unit-tests-to-a-gatsby-typescript-project-with-react-testing-library",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-add-unit-tests-to-a-gatsby-typescript-project-with-react-testing-library-66f0cf8041a2"
+      },
+      "tags": [],
+      "title": "How to add Unit Tests to a Gatsby Typescript Project with React Testing Library"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*pYn5hJ5wC5zFUp6CbycUuw@2x.png",
+      "date": "2021-10-05",
+      "description": "",
+      "draft": false,
+      "path": "how-to-add-stylelint-to-a-gatsby-project/index.md",
+      "readingTime": "",
+      "slug": "how-to-add-stylelint-to-a-gatsby-project",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-add-stylelint-to-a-gatsby-project-8e47d5cea571"
+      },
+      "tags": [],
+      "title": "How to add Stylelint to a Gatsby project"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*BpLXmjePx14gbaUELsp8yg@2x.png",
+      "date": "2021-10-05",
+      "description": "",
+      "draft": false,
+      "path": "how-to-add-cypress-end-to-end-tests-to-a-gatsby-typescript-project/index.md",
+      "readingTime": "",
+      "slug": "how-to-add-cypress-end-to-end-tests-to-a-gatsby-typescript-project",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-add-cypress-end-to-end-tests-to-a-gatsby-typescript-project-156004013f36"
+      },
+      "tags": [],
+      "title": "How to add Cypress End-To-End tests to a Gatsby TypeScript project"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*vR9zGGWPCS8NSpck2Gl2DA.png",
+      "date": "2021-09-29",
+      "description": "",
+      "draft": false,
+      "path": "how-to-deploy-wso2-identity-server-my-account-on-an-external-server/index.md",
+      "readingTime": "",
+      "slug": "how-to-deploy-wso2-identity-server-my-account-on-an-external-server",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-deploy-wso2-identity-server-my-account-on-an-external-server-e928e35ee817"
+      },
+      "tags": [],
+      "title": "How to deploy WSO2 Identity Server My Account on an external server."
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png",
+      "date": "2021-08-15",
+      "description": "",
+      "draft": false,
+      "path": "how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project/index.md",
+      "readingTime": "",
+      "slug": "how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project-aea3f7c1d7af"
+      },
+      "tags": [],
+      "title": "How to add a custom ESLint configuration to a Create React App project"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*r-qkOyGrghFGU23p6yRmGw@2x.png",
+      "date": "2021-08-14",
+      "description": "",
+      "draft": false,
+      "path": "how-to-avoid-bad-code-from-slipping-into-your-repositories/index.md",
+      "readingTime": "",
+      "slug": "how-to-avoid-bad-code-from-slipping-into-your-repositories",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-avoid-bad-code-from-slipping-into-your-repositories-c0cc0876ddbd"
+      },
+      "tags": [],
+      "title": "How to avoid bad code from slipping into your repositories"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*JIbwahXrdjFBqZ_VRhujXA@2x.png",
+      "date": "2021-08-13",
+      "description": "",
+      "draft": false,
+      "path": "create-react-app-vs-gatsby-vs-next-js/index.md",
+      "readingTime": "",
+      "slug": "create-react-app-vs-gatsby-vs-next-js",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/create-react-app-vs-gatsby-vs-next-js-ca3d2e41bf5d"
+      },
+      "tags": [],
+      "title": "Create React App vs Gatsby vs Next.js"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png",
+      "date": "2020-05-10",
+      "description": "",
+      "draft": false,
+      "path": "how-to-customize-the-user-portal-in-wso2-identity-server-5-10-0/index.md",
+      "readingTime": "",
+      "slug": "how-to-customize-the-user-portal-in-wso2-identity-server-5-10-0",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-customize-the-user-portal-in-wso2-identity-server-5-10-0-51a9ffdbefc4"
+      },
+      "tags": [],
+      "title": "How to customize the User Portal in WSO2 Identity Server 5.10.0"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png",
+      "date": "2020-03-17",
+      "description": "",
+      "draft": false,
+      "path": "how-to-set-up-wso2-identity-server-user-portal-in-an-development-environment/index.md",
+      "readingTime": "",
+      "slug": "how-to-set-up-wso2-identity-server-user-portal-in-an-development-environment",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/how-to-set-up-wso2-identity-server-user-portal-in-an-development-environment-d406d15ec703"
+      },
+      "tags": [],
+      "title": "How to set-up WSO2 Identity Server User Portal in an development environment"
+    },
+    {
+      "authors": [],
+      "bannerImage": "https://cdn-images-1.medium.com/max/2600/1*Z7rCncgTk8CyubIxl2bj_Q.png",
+      "date": "2020-03-17",
+      "description": "",
+      "draft": false,
+      "path": "oauth-2-0-authorization-code-flow-react-spa-demo-using-wso2-identity-server/index.md",
+      "readingTime": "",
+      "slug": "oauth-2-0-authorization-code-flow-react-spa-demo-using-wso2-identity-server",
+      "source": {
+        "provider": "medium",
+        "url": "https://medium.com/@brionmario/oauth-2-0-authorization-code-flow-react-spa-demo-using-wso2-identity-server-5829b890a6d4"
+      },
+      "tags": [],
+      "title": "OAuth 2.0 Authorization code flow React SPA demo using WSO2 Identity Server"
+    }
+  ],
+  "version": 1
+}

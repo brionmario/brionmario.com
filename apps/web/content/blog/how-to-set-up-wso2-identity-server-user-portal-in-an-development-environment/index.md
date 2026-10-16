@@ -2,22 +2,9 @@
 slug: "/posts/how-to-set-up-wso2-identity-server-user-portal-in-an-development-environment/"
 date: "2020-03-17"
 title: "How to set-up WSO2 Identity Server User Portal in an development environment"
-description: "How to set-up WSO2 Identity Server User Portal in a development environment The upcoming WSO2 Identity Server version 5.10.0 will have redesigned UIs with improved UX. The Dashboard has been …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "wso2-identity-server"
-  - "user-portal"
-  - "dev-mode-setup"
-  - "wso2"
-  - "wso2is"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*ArGKJ2HGBymTJYrYkW5LTA.png"
 images:

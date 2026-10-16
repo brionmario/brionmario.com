@@ -1,32 +1,44 @@
 import type { Metadata } from "next"
 
-import { projects } from "@/lib/data/projects"
-import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { SectionHeading } from "@/components/layout/section-heading"
-import { ProjectCard } from "@/components/cards/project-card"
-import { StaggerChildren, StaggerItem } from "@/components/animations/stagger-children"
+import { projectMeta, projects } from "@/lib/data/projects"
+import { IndexRow } from "@/components/cards/index-row"
+import { PageHeader } from "@/components/layout/section-heading"
+import { Reveal } from "@/components/motion/reveal"
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
-    "Open source projects I contribute to — spanning identity, security, and developer tooling.",
+    "Identity, security and developer tooling. Mostly the unglamorous plumbing that other people's logins depend on.",
 }
 
 export default function ProjectsPage() {
   return (
-    <SectionWrapper>
-      <SectionHeading
-        label="Open Source"
-        title="Projects"
-        subtitle="Open source projects I contribute to — spanning identity, security, and developer tooling."
-      />
-      <StaggerChildren className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <StaggerItem key={project.id}>
-            <ProjectCard project={project} className="h-full" />
-          </StaggerItem>
-        ))}
-      </StaggerChildren>
-    </SectionWrapper>
+    <>
+      <section className="mx-auto max-w-[1240px] px-6 pb-10 pt-16 sm:px-7 sm:pt-[72px]">
+        <PageHeader
+          eyebrow="Index / Open source"
+          title="Projects"
+          lede="Identity, security and developer tooling. Mostly the unglamorous plumbing that other people's logins depend on."
+        />
+      </section>
+
+      <section className="mx-auto max-w-[1240px] px-6 pb-28 pt-6 sm:px-7">
+        <div className="border-t border-border">
+          {projects.map((project, index) => (
+            <Reveal key={project.id} delay={Math.min(index, 6) * 55}>
+              <IndexRow
+                num={String(index + 1).padStart(2, "0")}
+                title={project.name}
+                description={project.description}
+                org={project.org}
+                meta={projectMeta(project)}
+                href={project.githubUrl}
+                external
+              />
+            </Reveal>
+          ))}
+        </div>
+      </section>
+    </>
   )
 }

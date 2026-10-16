@@ -2,22 +2,9 @@
 slug: "/posts/changesets-is-a-game-changer/"
 date: "2023-09-03"
 title: "🦋 Changesets is a game changer"
-description: "🦋 Changesets is a game changer In today’s coding landscape, monorepos are all the rage. They offer a centralized, streamlined approach to managing multiple packages within a single …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "technical"
-  - "versioning"
-  - "release-automation"
-  - "changeset"
-  - "open-source"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*Msv1d59NZ46pUMa4wFgiog.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*Msv1d59NZ46pUMa4wFgiog.png"
 images:

@@ -2,22 +2,9 @@
 slug: "/posts/journey-of-my-portfolio-where-it-all-started/"
 date: "2026-05-10"
 title: "Journey of My Portfolio: Where It All Started"
-description: "Journey of My Portfolio: Where It All Started Before React. Before open source. Before identity, SDKs, design systems, and developer platforms. There was a Blogspot website. This series is about my …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "web-development"
-  - "blogspot"
-  - "portfolio"
-  - "software-engineering"
-  - "storytelling"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*nOR5qLk5u3a0J4szu2mNdA.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*nOR5qLk5u3a0J4szu2mNdA.png"
 images:

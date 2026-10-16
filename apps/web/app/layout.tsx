@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
-import { Geist_Mono, Noto_Sans, Space_Grotesk } from "next/font/google"
+import { Archivo, JetBrains_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -13,15 +13,17 @@ const goodBrush = localFont({
   variable: "--font-brush",
 })
 
-const spaceGrotesk = Space_Grotesk({
+// Archivo carries both body and headline weights in the design — one family,
+// 400 through 900, so the display headlines stay in the same voice as the prose.
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: "--font-heading",
+  weight: ["400", "500", "600", "700", "800", "900"],
+  variable: "--font-sans",
 })
 
-const notoSans = Noto_Sans({ subsets: ["latin"], variable: "--font-sans" })
-
-const geistMono = Geist_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono",
 })
 
@@ -81,13 +83,12 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn(
         "antialiased",
-        geistMono.variable,
-        notoSans.variable,
-        spaceGrotesk.variable,
+        jetbrainsMono.variable,
+        archivo.variable,
         goodBrush.variable
       )}
     >
-      <body className="font-sans">
+      <body className="font-sans overflow-x-clip">
         <ThemeProvider>
           <SiteHeader />
           <main className="min-h-screen">{children}</main>

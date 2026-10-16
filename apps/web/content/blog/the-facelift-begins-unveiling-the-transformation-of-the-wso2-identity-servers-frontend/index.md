@@ -2,22 +2,9 @@
 slug: "/posts/the-facelift-begins-unveiling-the-transformation-of-the-wso2-identity-servers-frontend/"
 date: "2024-04-13"
 title: "Unveiling the Transformation of the WSO2 Identity Server’s Frontend"
-description: "Unveiling the Transformation of the WSO2 Identity Server’s Frontend The journey of WSO2 Identity Server’s modern frontend traces back to 2019, marked by the initial commit. At that time, the …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "architecture"
-  - "wso2-identity-server"
-  - "front-end-development"
-  - "frontend-architecture"
-  - "re-architecture"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*tjDyHycSz4GBa_bGmaVPjg.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*tjDyHycSz4GBa_bGmaVPjg.png"
 images:

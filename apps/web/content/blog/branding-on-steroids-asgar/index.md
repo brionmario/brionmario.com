@@ -2,22 +2,9 @@
 slug: "/posts/branding-on-steroids-asgar/"
 date: "2022-07-24"
 title: "Branding On Steroids"
-description: "Branding On Steroids In a previous blog post 👈, I introduced Asgardeo Organization Branding capabilities. And since then, we have added quite a few cool nifty features that could really help users …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "branding"
-  - "organization-management"
-  - "ciam"
-  - "idaas"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*5zS6pZPFT6mcm9JqJYnfXw.png"
 images:

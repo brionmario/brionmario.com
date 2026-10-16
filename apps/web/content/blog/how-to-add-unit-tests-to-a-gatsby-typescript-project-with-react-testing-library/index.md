@@ -2,22 +2,9 @@
 slug: "/posts/how-to-add-unit-tests-to-a-gatsby-typescript-project-with-react-testing-library/"
 date: "2021-10-05"
 title: "How to add Unit Tests to a Gatsby Typescript Project with React Testing Library"
-description: "How to add Unit Tests to a Gatsby Typescript Project with React Testing Library Unit tests makes sure that you are writing working code as developers and these tests can guarantee that the individual …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "gatsby"
-  - "typescript"
-  - "react-testing-library"
-  - "unit-testing"
-  - "quality-assurance"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*D02e_lQYKcWbfwlSLr8lcA@2x.png"
 images:

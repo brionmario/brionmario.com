@@ -2,22 +2,9 @@
 slug: "/posts/visualize-the-user-login-journey-with-asgardeo/"
 date: "2023-08-21"
 title: "Visualize the user login journey with Asgardeo"
-description: "Visualize the user login journey with Asgardeo Up until now, Asgardeo offered a login flow customization tool that was user-friendly, and fairly easy to use. But over time, we understood that users …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "visual-editor"
-  - "low-code"
-  - "authentication"
-  - "login-flow-builder"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*XKb45W4q4xpTi2UZjBTFPw.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*XKb45W4q4xpTi2UZjBTFPw.png"
 images:

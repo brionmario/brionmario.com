@@ -34,3 +34,7 @@ npm-debug.log*
 # Misc
 .DS_Store
 *.pem
+
+# medmark workspace (per-run logs and scaffolding)
+apps/web/medmark/
+apps/web/.medmark/

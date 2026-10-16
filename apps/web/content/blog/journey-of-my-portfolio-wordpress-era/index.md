@@ -2,22 +2,9 @@
 slug: "/posts/journey-of-my-portfolio-wordpress-era/"
 date: "2026-05-23"
 title: "Journey of My Portfolio: WordPress Era"
-description: "Journey of My Portfolio: WordPress Era During the second year of university, we were assigned a module project to build our own portfolio website. And for me, this was a massive deal. Because this …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "wordpress"
-  - "portfolio"
-  - "developer-portfolio"
-  - "personal-website"
-  - "shared-hosting"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*EOA6Um5YuRNiF602zOKbOQ.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*EOA6Um5YuRNiF602zOKbOQ.png"
 images:

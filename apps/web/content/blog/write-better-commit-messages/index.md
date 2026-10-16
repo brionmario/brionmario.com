@@ -2,22 +2,9 @@
 slug: "/posts/write-better-commit-messages/"
 date: "2024-07-06"
 title: "Write better commit messages"
-description: "Write better commit messages Are you this person? commit 1a2b3c4d5e6f7g8h9i0j Author: John Doe <johndoe@example.com> Date:   Thu Jul 6 10:00:00 2023 +0000      Minor Fixes And then you introduce a …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "git"
-  - "best-practices"
-  - "git-commit-messages"
-  - "conventional-commits"
-  - "tips"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*88yGNrfJunnxCrAKVyz2xA.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*88yGNrfJunnxCrAKVyz2xA.png"
 images:

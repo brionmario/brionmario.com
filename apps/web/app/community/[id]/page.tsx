@@ -1,134 +1,161 @@
 import type { Metadata } from "next"
-import { notFound } from "next/navigation"
+import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, CalendarDays, MapPin, ExternalLink } from "lucide-react"
+import { notFound } from "next/navigation"
 
 import { communityEngagements } from "@/lib/data/community"
-import { SectionWrapper } from "@/components/layout/section-wrapper"
-import { buttonVariants } from "@workspace/ui/components/button"
-import { cn } from "@workspace/ui/lib/utils"
+import { TalkPlayer } from "@/components/community/talk-player"
 
 interface Props {
   params: Promise<{ id: string }>
 }
 
-function getYouTubeEmbedUrl(url: string): string | null {
-  const idMatch = url.match(/(?:youtu\.be\/|youtube\.com\/watch\?v=)([a-zA-Z0-9_-]+)/)
-  if (!idMatch) return null
-  const startMatch = url.match(/[?&]t=(\d+)/)
-  const start = startMatch ? `?start=${startMatch[1]}` : ""
-  return `https://www.youtube.com/embed/${idMatch[1]}${start}`
-}
-
 export async function generateStaticParams() {
-  return communityEngagements.map((e) => ({ id: e.id }))
+  return communityEngagements.map((engagement) => ({ id: engagement.id }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id } = await params
-  const engagement = communityEngagements.find((e) => e.id === id)
+  const engagement = communityEngagements.find(
+    (candidate) => candidate.id === id
+  )
   if (!engagement) return {}
-  return {
-    title: engagement.event,
-    description: engagement.description,
-  }
-}
 
-const typeColors: Record<string, string> = {
-  conference: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
-  meetup: "bg-primary/10 text-primary",
-  workshop: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
-}
-
-const typeLabels: Record<string, string> = {
-  conference: "Conference",
-  meetup: "Meetup",
-  workshop: "Workshop",
+  return { title: engagement.talk, description: engagement.description }
 }
 
 export default async function CommunityDetailPage({ params }: Props) {
   const { id } = await params
-  const engagement = communityEngagements.find((e) => e.id === id)
+  const engagement = communityEngagements.find(
+    (candidate) => candidate.id === id
+  )
   if (!engagement) notFound()
 
-  const embedUrl = engagement.videoUrl ? getYouTubeEmbedUrl(engagement.videoUrl) : null
-  const formattedDate = new Date(engagement.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-  })
+  const facts = [
+    { key: "Format", value: engagement.type },
+    { key: "Community", value: engagement.event },
+    { key: "Where", value: engagement.location },
+    { key: "When", value: engagement.monthYear },
+  ]
+  // Only worth a second button when it points somewhere the primary link doesn't.
+  const showSlides = engagement.slides && engagement.slides !== engagement.url
 
   return (
-    <SectionWrapper as="div" className="max-w-3xl">
-      <Link
-        href="/community"
-        className="mb-8 inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
-      >
-        <ArrowLeft className="size-3.5" />
-        Back to community
-      </Link>
-
-      <span
-        className={cn(
-          "mb-4 inline-block rounded-full px-2.5 py-0.5 text-xs font-medium",
-          typeColors[engagement.type]
-        )}
-      >
-        {typeLabels[engagement.type]}
-      </span>
-
-      <h1 className="font-heading text-3xl font-bold leading-tight tracking-tight text-foreground sm:text-4xl">
-        {engagement.event}
-      </h1>
-
-      {engagement.talk && (
-        <p className="mt-3 text-lg font-medium text-primary">
-          &ldquo;{engagement.talk}&rdquo;
-        </p>
-      )}
-
-      <div className="mt-4 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-        <span className="flex items-center gap-1.5">
-          <CalendarDays className="size-3.5" />
-          {formattedDate}
-        </span>
-        <span className="flex items-center gap-1.5">
-          <MapPin className="size-3.5" />
-          {engagement.location}
-        </span>
-      </div>
-
-      {engagement.description && (
-        <p className="mt-6 text-base text-muted-foreground leading-relaxed">
-          {engagement.description}
-        </p>
-      )}
-
-      {embedUrl && (
-        <div className="mt-8">
-          <h2 className="mb-4 font-heading text-xl font-semibold text-foreground">Recording</h2>
-          <div className="aspect-video w-full overflow-hidden rounded-xl bg-muted">
-            <iframe
-              src={embedUrl}
-              title={`${engagement.event} recording`}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="size-full"
-            />
-          </div>
-        </div>
-      )}
-
-      <div className="mt-8 flex flex-wrap gap-3">
-        <a
-          href={engagement.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn(buttonVariants({ variant: "outline", size: "sm" }), "gap-1.5")}
+    <>
+      <section className="mx-auto max-w-[1240px] px-6 pt-14 sm:px-7">
+        <Link
+          href="/community"
+          className="eyebrow inline-block tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
         >
-          View event page
-          <ExternalLink className="size-3.5" />
-        </a>
-      </div>
-    </SectionWrapper>
+          ← All appearances
+        </Link>
+
+        <div className="eyebrow mt-9 flex flex-wrap gap-x-6 gap-y-2.5 tracking-[0.2em] text-muted-foreground">
+          <span className="whitespace-nowrap text-primary">
+            {engagement.type}
+          </span>
+          <span className="whitespace-nowrap">{engagement.monthYear}</span>
+          <span className="whitespace-nowrap">{engagement.event}</span>
+          <span className="whitespace-nowrap">{engagement.location}</span>
+        </div>
+
+        <h1 className="headline mt-5 max-w-[1000px] text-[clamp(2rem,5.2vw,4rem)] text-pretty">
+          {engagement.talk}
+        </h1>
+      </section>
+
+      {engagement.videoId && (
+        <section className="mx-auto max-w-[1240px] px-6 pt-10 sm:px-7">
+          <div className="relative aspect-video border border-border bg-black">
+            <TalkPlayer engagement={engagement} />
+          </div>
+        </section>
+      )}
+
+      {engagement.gallery && engagement.gallery.length > 0 && (
+        <section className="mx-auto max-w-[1240px] px-6 pt-10 sm:px-7">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {engagement.gallery.map((photo, i) => {
+              // A photo that declares its own aspect is one that cannot be
+              // cropped without losing the content, so it gets a full row at
+              // exactly that ratio. Everything else falls into the default
+              // slots: a 2:1 lead, then 4:3 cells.
+              const fullWidth = i === 0 || photo.aspect !== undefined
+              return (
+                <figure
+                  key={photo.url}
+                  className={`relative m-0 overflow-hidden border border-border ${
+                    fullWidth ? "sm:col-span-2" : ""
+                  }`}
+                  style={{ aspectRatio: photo.aspect ?? (i === 0 ? 2 : 4 / 3) }}
+                >
+                  <Image
+                    src={photo.url}
+                    alt={photo.alt}
+                    fill
+                    sizes={
+                      fullWidth
+                        ? "(max-width: 640px) 100vw, 1180px"
+                        : "(max-width: 640px) 100vw, 580px"
+                    }
+                    className="object-cover contrast-[1.05] grayscale transition-[filter,transform] duration-500 hover:scale-[1.02] hover:grayscale-0"
+                  />
+                </figure>
+              )
+            })}
+          </div>
+        </section>
+      )}
+
+      <section className="mx-auto grid max-w-[1240px] grid-cols-1 items-start gap-12 px-6 pt-14 sm:px-7 lg:grid-cols-[minmax(0,1fr)_300px]">
+        <div>
+          <p className="m-0 text-[clamp(1.1rem,2.2vw,1.4rem)] leading-[1.6] text-pretty">
+            {engagement.description}
+          </p>
+          {engagement.body.map((paragraph) => (
+            <p
+              key={paragraph}
+              className="mt-6 text-base leading-[1.8] text-pretty text-muted-foreground"
+            >
+              {paragraph}
+            </p>
+          ))}
+        </div>
+
+        <aside className="flex flex-col gap-6">
+          <dl className="m-0 flex flex-col gap-3">
+            {facts.map((fact) => (
+              <div
+                key={fact.key}
+                className="eyebrow flex items-baseline justify-between gap-3.5 border-b border-border pb-2.5 tracking-[0.16em]"
+              >
+                <dt className="text-faint">{fact.key}</dt>
+                <dd className="m-0 text-right text-foreground">{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+
+          <a
+            href={engagement.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="eyebrow border border-border-strong px-5 py-3.5 text-center tracking-[0.16em] transition-colors hover:border-primary hover:text-foreground"
+          >
+            {engagement.linkLabel} ↗
+          </a>
+
+          {showSlides && (
+            <a
+              href={engagement.slides}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="eyebrow border border-primary px-5 py-3.5 text-center tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+            >
+              Grab the slides ↗
+            </a>
+          )}
+        </aside>
+      </section>
+    </>
   )
 }

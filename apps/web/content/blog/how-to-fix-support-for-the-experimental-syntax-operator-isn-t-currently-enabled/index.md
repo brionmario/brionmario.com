@@ -2,22 +2,9 @@
 slug: "/posts/how-to-fix-support-for-the-experimental-syntax-operator-isn-t-currently-enabled/"
 date: "2022-08-06"
 title: "How to fix “Support for the experimental syntax <OPERATOR> isn’t currently enabled”"
-description: "How to fix “Support for the experimental syntax <OPERATOR> isn’t currently enabled” Problem ❓ I recently played around with the @primer/doctocat-template Gatbsy theme and encountered the …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "babel"
-  - "doctocat"
-  - "primer"
-  - "gatsby"
-  - "transpilation"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*rvtP2gsBtPsg9ToJiLiqqg.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*rvtP2gsBtPsg9ToJiLiqqg.png"
 images:
