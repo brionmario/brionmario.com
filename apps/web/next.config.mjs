@@ -9,6 +9,13 @@ const nextConfig = {
       { protocol: "https", hostname: "avatars.githubusercontent.com" },
     ],
   },
+  async redirects() {
+    // The section was renamed Publications -> Research; keep old links alive.
+    return [
+      { source: "/publications", destination: "/research", permanent: true },
+      { source: "/publications/:id", destination: "/research/:id", permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

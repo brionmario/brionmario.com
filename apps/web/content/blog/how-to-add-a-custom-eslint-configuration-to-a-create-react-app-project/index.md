@@ -2,22 +2,9 @@
 slug: "/posts/how-to-add-a-custom-eslint-configuration-to-a-create-react-app-project/"
 date: "2021-08-15"
 title: "How to add a custom ESLint configuration to a Create React App project"
-description: "How to add a custom ESLint configuration to a Create React App project Background Every front-end project should have some sort of static code analyzing tool. This will ensure that your team sticks …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "eslint"
-  - "typescript"
-  - "javascript"
-  - "create-react-app"
-  - "react"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*j32lk541VB7qNNWbmUd-dQ@2x.png"
 images:

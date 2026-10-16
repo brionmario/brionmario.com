@@ -2,22 +2,9 @@
 slug: "/posts/mastering-iam-simplified-unleash-your-potential-with-asgardeos-novice-friendly-login-flow-visual/"
 date: "2024-03-08"
 title: "Mastering IAM Simplified: Unleash Your Potential with Asgardeo’s Novice-Friendly Login Flow Visual…"
-description: "Mastering IAM Simplified: Unleash Your Potential with Asgardeo’s Novice-Friendly Login Flow Visual Editor App developers seeking simple login integration often find the IAM landscape daunting …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "idaas"
-  - "low-code"
-  - "login-flow-builder"
-  - "authentication"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*4bKZH6F43RpY2RQn4sEBOw.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*4bKZH6F43RpY2RQn4sEBOw.png"
 images:

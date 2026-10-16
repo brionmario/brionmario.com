@@ -2,22 +2,9 @@
 slug: "/posts/introducing-asgardeo-organization-branding/"
 date: "2022-02-26"
 title: "Introducing Asgardeo Organization Branding"
-description: "Introducing Asgardeo Organization Branding Asgardeo’s new Organization Branding feature is now available for the public to try out 🎉. In this blog, I’ll try to cover the problem that’s been …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "branding"
-  - "idaas"
-  - "ciam"
-  - "identity-management"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*ksuycqNBWoRVksNnEJ0hAA.png"
 images:

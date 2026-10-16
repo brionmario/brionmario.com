@@ -2,22 +2,9 @@
 slug: "/posts/how-to-fix-ts2604-jsx-element-type-does-not-have-any-construct-or-call-signatures/"
 date: "2024-04-14"
 title: "How to fix TS2604: JSX element type does not have any construct or call signatures"
-description: "How to fix TS2604: JSX element type does not have any construct or call signatures If you are here, there’s a good chance that you’re scratching your head trying to figure out what caused your …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "front-end-development"
-  - "typescript"
-  - "how-to-series"
-  - "typing"
-  - "troubleshooting"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*H7UN-935wfz6aGs7xLuThQ.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*H7UN-935wfz6aGs7xLuThQ.png"
 images:
@@ -46,7 +33,7 @@ By looking at the stack trace, it was evident that the issue was with one of the
 
 Apparently, React 18 typings have breaking changes and most libraries use `@types/react: "*"` as a [peer-dependency](https://nodejs.org/en/blog/npm/peer-dependencies/) that causes the break.
 
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The React 18 TypeScript typings are out! As with most major releases, they include breaking changes to the types themselves. You can learn more about them here: <a href="https://t.co/e3AfEkjaJu">https://t.co/e3AfEkjaJu</a></p>&mdash; React (@reactjs) <a href="https://twitter.com/reactjs/status/1512453230504124420?ref\_src=twsrc%5Etfw">April 8, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> EMBEDDED\_TWEET\_HTML\_SPIT_DELIMITER](https://twitter.com/reactjs/status/1512453230504124420)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The React 18 TypeScript typings are out! As with most major releases, they include breaking changes to the types themselves. You can learn more about them here: <a href="https://t.co/e3AfEkjaJu">https://t.co/e3AfEkjaJu</a></p>&mdash; React (@reactjs) <a href="https://x.com/reactjs/status/1512453230504124420?ref\_src=twsrc%5Etfw">April 8, 2022</a></blockquote> <script async src="https://platform.x.com/widgets.js" charset="utf-8"></script> EMBEDDED\_TWEET\_HTML\_SPIT_DELIMITER](https://twitter.com/reactjs/status/1512453230504124420)
 
 ### The Fix ☄️
 

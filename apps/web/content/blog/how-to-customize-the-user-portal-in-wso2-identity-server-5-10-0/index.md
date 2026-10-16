@@ -2,22 +2,9 @@
 slug: "/posts/how-to-customize-the-user-portal-in-wso2-identity-server-5-10-0/"
 date: "2020-05-10"
 title: "How to customize the User Portal in WSO2 Identity Server 5.10.0"
-description: "How to customize the User Portal in WSO2 Identity Server 5.10.0 WSO2 Identity Server 5.10.0 is now available for everyone to use. And with that marked the introduction of the much-anticipated User …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "wso2"
-  - "identity-server"
-  - "user-portal"
-  - "theming"
-  - "semantic-ui"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*OyKtARg0RWhlq4fxijiXWg@2x.png"
 images:

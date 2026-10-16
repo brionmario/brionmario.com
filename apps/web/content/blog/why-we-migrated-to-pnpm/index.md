@@ -2,22 +2,9 @@
 slug: "/posts/why-we-migrated-to-pnpm/"
 date: "2024-04-14"
 title: "Why we migrated to PNPM?"
-description: "Why we migrated to PNPM? It’s incredible how much the landscape of front-end development has transformed in the past few years. When I first entered the enterprise front-end engineering domain, the …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "architecture"
-  - "front-end-development"
-  - "pnpm"
-  - "node-package-manager"
-  - "re-architecture"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*V5WOWDIfdTP_F-3YDJtQhQ.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*V5WOWDIfdTP_F-3YDJtQhQ.png"
 images:

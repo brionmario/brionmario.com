@@ -2,22 +2,9 @@
 slug: "/posts/the-foundation-of-secure-authentication/"
 date: "2024-07-03"
 title: "The Foundation of Secure Authentication"
-description: "The Foundation of Secure Authentication When developers evaluate an SDK for authentication, they often prioritize immediate features like ease of integration and functionality. However, overlooking …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "authentication"
-  - "architecture"
-  - "sdk"
-  - "idaas"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*UdbrZRbA7ASVYpnfFy3WxQ.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*UdbrZRbA7ASVYpnfFy3WxQ.png"
 images:

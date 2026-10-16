@@ -2,22 +2,9 @@
 slug: "/posts/the-unofficial-react-auth/"
 date: "2024-06-29"
 title: "The unofficial `react-auth`"
-description: "The unofficial `react-auth` Authentication is a crucial aspect of any modern web application, ensuring that only authorized users have access to specific resources and functionalities. With the rise …"
-authors:
-  - bio: "Software Engineer working at WSO2."
-    id: "ca410be341b9"
-    image: "https://miro.medium.com/fit/c/176/176/1*VyzrTxkrThOJKKnvx20UTg.png"
-    name: "Brion Mario"
-    twitterScreenName: "brion_mario"
-    username: "brionmario"
+description: ""
 readingTime: ""
 draft: false
-tags:
-  - "asgardeo"
-  - "react-auth"
-  - "react-authentication"
-  - "idaas"
-  - "auth0"
 bannerImage: "https://cdn-images-1.medium.com/max/2600/1*XwKN2NbK_OMJEKXJG6-qZg.png"
 ogImage: "https://cdn-images-1.medium.com/max/2600/1*XwKN2NbK_OMJEKXJG6-qZg.png"
 images:
