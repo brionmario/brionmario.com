@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import { socialLinks } from "@/lib/data/socials"
 
 const EMAIL = "brionbmp@gmail.com"
@@ -31,6 +33,14 @@ export function SiteFooter() {
 
       <div className="eyebrow mx-auto mt-6 flex max-w-[1240px] flex-wrap items-center justify-between gap-x-6 gap-y-2 border-t border-border pt-[18px] tracking-[0.16em] text-faint">
         <span>© {new Date().getFullYear()} Brion Mario</span>
+        <div className="flex flex-wrap gap-x-[18px] gap-y-2">
+          <Link href="/privacy" className="transition-colors hover:text-primary">
+            Privacy
+          </Link>
+          <Link href="/terms" className="transition-colors hover:text-primary">
+            Terms
+          </Link>
+        </div>
         <span>Colombo, Sri Lanka</span>
       </div>
     </footer>
