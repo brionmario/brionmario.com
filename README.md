@@ -1,6 +1,6 @@
 <div align="center">
 
-![brionmario.com](.github/banner.png)
+[![brionmario.com](.github/banner.png)](https://brionmario.com)
 
 **[Home](https://brionmario.com)** ·
 **[Blog](https://brionmario.com/blog)** ·
@@ -33,38 +33,6 @@ it turns the whole archive into the posts you see on the blog.
 Go for it. Clone it, strip my content out, put yours in. That's a perfectly reasonable
 way to get a site going, and I'd rather you start from something that works than from a
 blank folder.
-
-You'll need [Node](https://nodejs.org) 20 or newer and [pnpm](https://pnpm.io) 9.
-
-```bash
-git clone https://github.com/brionmario/brionmario.com.git
-cd brionmario.com
-pnpm install
-pnpm dev
-```
-
-That puts the site on <http://localhost:3000>.
-
-From there, the things you'll want to change:
-
-| What                               | Where                                   |
-| ---------------------------------- | --------------------------------------- |
-| Blog posts                         | `apps/web/content/blog/<slug>/index.md` |
-| Projects, talks, research, the map | `apps/web/lib/data/`                    |
-| Photos and images                  | `apps/web/public/images/`               |
-| Colours, fonts, shared components  | `packages/ui/`                          |
-
-A few other useful commands: `pnpm build` for a production build, `pnpm lint`,
-`pnpm typecheck` and `pnpm format`.
-
-Two things that will trip you up if you don't know about them. The projects list is
-generated — `pnpm dataseed` from inside `apps/web` pulls in public repos tagged
-`featured-project` or `portfolio`, so edit the tags on GitHub rather than the generated
-file. And the blog posts are generated too, by Medmark from a Medium export, so if you
-hand-edit one it'll be overwritten the next time that runs.
-
-One ask: swap out the photos, the writing and the name. Those are mine. The code is the
-part worth reusing.
 
 ## Contributing
 

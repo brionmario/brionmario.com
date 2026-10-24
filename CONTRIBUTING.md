@@ -23,22 +23,57 @@ typical open source project — but fixes and improvements are genuinely welcome
 
 ## Getting set up
 
-You'll need [Node](https://nodejs.org) 20 or newer and [pnpm](https://pnpm.io) 9.
+You'll need [Node](https://nodejs.org) 20 or newer and [pnpm](https://pnpm.io) 9 — the
+exact version is pinned in `package.json`, so pnpm will switch to it for you.
+
+If you have Node but not pnpm, `corepack enable pnpm` is the quickest route, though it
+symlinks into Node's bin directory and needs `sudo` when that's root-owned. Installing
+pnpm directly, via [its own instructions](https://pnpm.io/installation), avoids that.
 
 ```bash
+git clone https://github.com/brionmario/brionmario.com.git
+cd brionmario.com
 pnpm install
 pnpm dev
 ```
 
-The site runs at <http://localhost:3000>.
+That starts the dev server at <http://localhost:3000>. It hot-reloads, so leave it
+running while you work. `Ctrl-C` stops it.
 
-Before you open a pull request:
+If port 3000 is busy, `pnpm --filter web dev --port 3001` will move it. Note there's no
+`--` before the flag; add one and it gets passed to Next as a directory argument.
+
+## The commands
+
+| Command          | What it does                            |
+| ---------------- | --------------------------------------- |
+| `pnpm dev`       | Dev server with hot reload              |
+| `pnpm build`     | Production build — run this before a PR |
+| `pnpm lint`      | ESLint across the workspace             |
+| `pnpm typecheck` | `tsc --noEmit` across the workspace     |
+| `pnpm format`    | Prettier, writes in place               |
+
+Before you open a pull request, all four of these should pass:
 
 ```bash
-pnpm lint
-pnpm typecheck
-pnpm format
+pnpm lint && pnpm typecheck && pnpm format && pnpm build
 ```
+
+## Where things live
+
+This is a monorepo. The site itself is `apps/web`; everything shared sits in `packages/`.
+
+| What                               | Where                                   |
+| ---------------------------------- | --------------------------------------- |
+| Pages and routes                   | `apps/web/app/`                         |
+| Blog posts                         | `apps/web/content/blog/<slug>/index.md` |
+| Projects, talks, research, the map | `apps/web/lib/data/`                    |
+| Photos and images                  | `apps/web/public/images/`               |
+| Colours, fonts, shared components  | `packages/ui/`                          |
+
+If you're cloning this to build your own site, those last four rows are the ones to
+gut — and please swap out the photos, the writing and the name. Those are mine. The
+code is the part worth reusing.
 
 ## Two generated things
 
@@ -47,8 +82,9 @@ Some files are produced by tooling, and hand-edits to them get overwritten:
 - **Blog posts** under `apps/web/content/blog/` come from a Medium export, converted by
   [Medmark](https://github.com/brionmario/medmark). To fix a typo in a post, fix it on
   Medium — or open an issue and I'll do it on the next import.
-- **`apps/web/lib/data/autogen/`** is written by `pnpm dataseed`, which reads public
-  repos tagged `featured-project` or `portfolio`.
+- **`apps/web/lib/data/autogen/`** is written by `pnpm dataseed`, run from inside
+  `apps/web`. It reads public repos tagged `featured-project` or `portfolio`, so to add
+  a project, tag the repo on GitHub and re-run it rather than editing the output.
 
 ## Pull requests
 
