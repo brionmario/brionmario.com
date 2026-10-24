@@ -66,16 +66,68 @@ The posts are in a `posts/` folder of HTML files. Confirm it exists and report h
 files it holds. Medium includes every draft and every comment ("reply") as a post file;
 expect the count to be much larger than the number of real articles.
 
-### A3. Run medmark
+### A3. Separate the replies from the real posts
+
+**Medium files every reply you have ever left on someone else's article into the same
+`posts/` folder, with the same filename shape as a real article.** Imported blind they
+become two-word posts in the blog index — "Thanks Stefan.", "Thanks bro.", "Hi Rohan,".
+This has happened before; it is the single most likely way an import goes wrong.
+
+The marker is **`graf--title`**: Medium renders an article's title as a titled graf in
+the body, and a reply has no title, so it has no such element. Measured against a full
+export — 31/31 published articles carry it, 0/7 replies do. Do not reach for
+`data-field="subtitle"` instead; several genuine drafts have no subtitle either, so it
+produces false positives.
+
+`apps/web/scripts/medium-replies.js` applies that rule and prints a list ready for
+medmark's `-s`:
+
+```bash
+cd apps/web && node scripts/medium-replies.js "<scratch>/medium-export/posts" --verbose
+```
+
+Read the `--verbose` list before using it. It is short, and a title you recognise as a
+real article appearing there means the marker has drifted — stop and check rather than
+skipping a genuine post.
+
+### A4. Check whether there is anything new to import at all
+
+An export is a full dump, not a delta, so most re-exports contain nothing you don't
+already have. Match the export's real posts against `content/blog` by **title**, not by
+slug — medmark's slugs come from `titleForSlug` and will not match a naive slugify:
+
+```bash
+cd apps/web && node scripts/medium-new-posts.js "<scratch>/medium-export/posts" content/blog
+```
+
+If it reports no new posts, **do not run medmark**. A re-import of unchanged posts is
+pure churn, and worse, a post whose Medium title changed since the last import lands at
+a new slug and leaves the old directory behind as a duplicate. Delete any reply
+directories that are still there from an earlier import and skip to Step F.
+
+### A5. Run medmark
 
 **medmark is interactive — it uses clack prompts and dies with `ERR_TTY_INIT_FAILED`
 when run without a TTY.** The `Bash` tool has no TTY, so it must go through the user's
 Terminal panel with `mcp__terminal__run_in_terminal`, where the user can answer its
-prompts. Run it from `apps/web`:
+prompts. Run it from `apps/web`, always with the skip list from A3:
 
 ```bash
-npx -y medmark@0.3.0 -i "<scratch>/medium-export/posts" -o content/blog -t scripts/medmark-template.cjs
+npx -y medmark@0.3.0 -i "<scratch>/medium-export/posts" -o content/blog \
+  -t scripts/medmark-template.cjs -s "$(node scripts/medium-replies.js '<scratch>/medium-export/posts')"
 ```
+
+Two things will bite you here:
+
+- **It stops on `Configure advanced options?` and waits.** There is no flag to answer
+  it — `--help` lists only `-i -o -t -d -s -D`. Do not try to feed it newlines through
+  a pseudo-TTY (`script -q /dev/null …`): clack redraws rather than accepting the input,
+  and when stdin reaches EOF medmark exits 0 having converted nothing, which looks like
+  success. Poll with `mcp__terminal__read_terminal`, and when it reaches that prompt ask
+  the user to press Enter in the tab — `No` is already selected.
+- **The first run creates `medmark/` and `.medmark/` inside `apps/web`** even though the
+  template makes `medmark init` unnecessary. They are untracked clutter; delete both
+  when the import is done.
 
 `scripts/medmark-template.cjs` is committed to the repo and produces exactly the
 frontmatter shape the site reads, down to the blank line before the closing `---` — so
@@ -95,14 +147,14 @@ uses before running a full import:
 cd apps/web && node -e "const t=require('./scripts/medmark-template.cjs'),m=require('gray-matter');const o=t.render({published:'2022-02-26',titleForSlug:'x',title:'T',description:'D',authors:[{name:'Brion Mario'}],readingTime:'',draft:false,tags:['a'],images:[{mediumUrl:'https://x/y.png'}],body:'# H'});console.log(JSON.stringify(m(o).data,null,1))"
 ```
 
-Then poll with `mcp__terminal__read_terminal` and answer or relay its prompts. Useful
-flags:
+Useful flags:
 
 - `-d` — also export drafts (off by default; usually leave it off)
-- `-s a.html,b.html` — skip specific export files, for replies or posts that fail to parse
+- `-s a.html,b.html` — skip specific export files; always carries the A3 reply list, and
+  takes any post that fails to parse too
 - `-D` — debug output when a post converts badly
 
-### A4. Review the diff, don't trust it
+### A6. Review the diff, don't trust it
 
 medmark overwrites a slug's `index.md` wholesale, so anything hand-edited after a
 previous import is lost. Before accepting:
@@ -118,9 +170,20 @@ Then check, and report to the user:
 - **Modified existing slugs** — look at the diff. If the only change is noise
   (reordered tags, a reflowed paragraph), revert that file with `git checkout --` rather
   than committing churn.
-- **Reply/comment files** that leaked in as posts — these have a short body and usually
-  no title. Delete the folder and add the source file to `-s` for next time.
+- **Reply/comment files** that leaked in as posts — A3 should have caught them, so one
+  landing here means the marker missed. Delete the folder, and fix
+  `scripts/medium-replies.js` rather than hand-maintaining a `-s` list.
 - **Deleted files** — medmark never deletes; if git shows deletions, something went wrong.
+
+A standing sanity check, since a reply is always far shorter than an article — anything
+under ~60 words is worth opening:
+
+```bash
+cd apps/web/content/blog && for d in */; do
+  [ -f "$d/index.md" ] || continue
+  printf '%6s  %s\n' "$(awk 'c==2{print} /^---$/{c++}' "$d/index.md" | wc -w)" "${d%/}"
+done | sort -n | head
+```
 
 Post bodies keep Medium CDN image URLs (`imageStorageStrategy: "REMOTE"`). Those
 hostnames are already allowed in `apps/web/next.config.mjs` → `images.remotePatterns`.
