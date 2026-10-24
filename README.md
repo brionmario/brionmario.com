@@ -2,7 +2,12 @@
 
 ![brionmario.com](.github/banner.png)
 
-**[brionmario.com](https://brionmario.com)** — personal site. Blog, projects, talks and research.
+**[Home](https://brionmario.com)** ·
+**[Blog](https://brionmario.com/blog)** ·
+**[Projects](https://brionmario.com/projects)** ·
+**[Community](https://brionmario.com/community)** ·
+**[Research](https://brionmario.com/research)** ·
+**[About](https://brionmario.com/about)**
 
 </div>
 
@@ -10,79 +15,67 @@
 
 ## What's here
 
-A Turborepo monorepo with one Next.js app and a shared UI package.
+This is my corner of the internet — the code behind [brionmario.com](https://brionmario.com).
 
-```
-apps/web            the site
-packages/ui         shared components, Tailwind theme, global styles
-packages/eslint-config
-packages/typescript-config
-```
+It's where I write things down, keep a record of what I've built, and collect the talks
+and workshops I've given along the way. There's a page about me, a map of the places
+I've been, and the papers I've published. Nothing here is behind a login or a paywall.
 
-| Route                           | What it is                                                |
-| ------------------------------- | --------------------------------------------------------- |
-| `/`                             | Landing page                                              |
-| `/blog`, `/blog/[slug]`         | Posts, imported from Medium as Markdown                   |
-| `/projects`                     | Open source and side projects                             |
-| `/community`, `/community/[id]` | Talks, workshops and judging panels, with photo galleries |
-| `/research`, `/research/[id]`   | Published papers                                          |
-| `/about`                        | Bio, career timeline and a world map of where I've been   |
+[![Content Powered By Medmark](https://img.shields.io/badge/Content_Powered_By-Medmark-yellow?logo=data%3Aimage%2Fsvg%2Bxml%3Bbase64%2CPHN2ZyB3aWR0aD0iNTUiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA1NSA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgY2xpcC1wYXRoPSJ1cmwoI2NsaXAwXzE4MzZfMikiPgo8cGF0aCBkPSJNNDMuODUgMzYuNTVDNDMuODUgMzcuMDUgNDQuMDE2NyAzNy40NSA0NC4zNSAzNy43NUw0Ny42NSA0MC45VjQxSDMxVjQwLjlMMzQuMzUgMzcuNzVDMzQuNjUgMzcuNDUgMzQuOCAzNy4wNSAzNC44IDM2LjU1VjE2LjQ1QzM0LjggMTUuNDUgMzQuODUgMTQuNDUgMzQuOTUgMTMuNDVMMjMuNjUgNDEuNEgyMy41NUwxMS44NSAxNS43QzExLjM1IDE0LjY2NjcgMTEuMDMzMyAxMy45MzMzIDEwLjkgMTMuNVYzMi42QzEwLjkgMzMuMSAxMS4xMTY3IDMzLjY1IDExLjU1IDM0LjI1TDE2LjYgNDAuOVY0MUg0LjE1VjQwLjlMOS4yIDM0LjI1QzkuNjMzMzMgMzMuNjUgOS44NSAzMy4xIDkuODUgMzIuNlYxMi44QzkuODUgMTIuMiA5LjcgMTEuNzE2NyA5LjQgMTEuMzVMNS4zIDUuOTVWNS44NUgxNy4yNUwyNy43IDI4LjY1TDM2LjkgNS44NUg0Ny42NVY1Ljk1TDQ0LjM1IDkuNkM0NC4wMTY3IDkuOTMzMzMgNDMuODUgMTAuMzUgNDMuODUgMTAuODVWMzYuNTVaIiBmaWxsPSJ3aGl0ZSIvPgo8L2c%2BCjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzE4MzZfMiI%2BCjxyZWN0IHdpZHRoPSI1NSIgaGVpZ2h0PSI0OCIgZmlsbD0id2hpdGUiLz4KPC9jbGlwUGF0aD4KPC9kZWZzPgo8L3N2Zz4K)](https://github.com/brionmario/medmark)
 
-## Screenshots
+I write on [Medium](https://medium.com/@brionmario) and treat it as the source of truth
+for my posts. Rather than copy them over by hand, I run my Medium export through
+[Medmark](https://github.com/brionmario/medmark) — a tool I built for exactly this — and
+it turns the whole archive into the posts you see on the blog.
 
-<table>
-<tr>
-<td width="33%"><img src=".github/screenshots/home.jpg" alt="The landing page" /></td>
-<td width="33%"><img src=".github/screenshots/about.jpg" alt="The about page" /></td>
-<td width="33%"><img src=".github/screenshots/community.jpg" alt="A community talk detail page" /></td>
-</tr>
-<tr>
-<td align="center"><sub>Home</sub></td>
-<td align="center"><sub>About</sub></td>
-<td align="center"><sub>Talk detail</sub></td>
-</tr>
-</table>
+## Want to make your own?
 
-## Stack
+Go for it. Clone it, strip my content out, put yours in. That's a perfectly reasonable
+way to get a site going, and I'd rather you start from something that works than from a
+blank folder.
 
-Next.js 16 (App Router, Turbopack) · React 19 · TypeScript · Tailwind CSS v4 · Turborepo · pnpm
-
-`d3-geo` and `topojson` draw the travel map, and `gray-matter` plus `react-markdown` render the blog. Animations are plain CSS transitions driven by an `IntersectionObserver`, so there's no animation library in the bundle.
-
-## Running it
-
-Requires Node 20+ and pnpm 9.
+You'll need [Node](https://nodejs.org) 20 or newer and [pnpm](https://pnpm.io) 9.
 
 ```bash
+git clone https://github.com/brionmario/brionmario.com.git
+cd brionmario.com
 pnpm install
 pnpm dev
 ```
 
-The site runs at <http://localhost:3000>.
+That puts the site on <http://localhost:3000>.
 
-| Command          | What it does                        |
-| ---------------- | ----------------------------------- |
-| `pnpm dev`       | Dev server, Turbopack               |
-| `pnpm build`     | Production build                    |
-| `pnpm lint`      | ESLint across the workspace         |
-| `pnpm typecheck` | `tsc --noEmit` across the workspace |
-| `pnpm format`    | Prettier                            |
+From there, the things you'll want to change:
 
-## Content
+| What                               | Where                                   |
+| ---------------------------------- | --------------------------------------- |
+| Blog posts                         | `apps/web/content/blog/<slug>/index.md` |
+| Projects, talks, research, the map | `apps/web/lib/data/`                    |
+| Photos and images                  | `apps/web/public/images/`               |
+| Colours, fonts, shared components  | `packages/ui/`                          |
 
-Content lives on disk — there is no CMS.
+A few other useful commands: `pnpm build` for a production build, `pnpm lint`,
+`pnpm typecheck` and `pnpm format`.
 
-- **Blog posts** are Markdown at `apps/web/content/blog/<slug>/index.md`, generated from a Medium export by [medmark](https://github.com/brionmario/medmark) using `apps/web/scripts/medmark-template.cjs`.
-- **Talks, projects, research and the travel map** are typed arrays in `apps/web/lib/data/`.
-- **Images** live in `apps/web/public/images/`, by category.
-- **GitHub projects** are generated into `apps/web/lib/data/autogen/` by `pnpm dataseed` (run from `apps/web`), which picks up public repos tagged `featured-project` or `portfolio`.
+Two things that will trip you up if you don't know about them. The projects list is
+generated — `pnpm dataseed` from inside `apps/web` pulls in public repos tagged
+`featured-project` or `portfolio`, so edit the tags on GitHub rather than the generated
+file. And the blog posts are generated too, by Medmark from a Medium export, so if you
+hand-edit one it'll be overwritten the next time that runs.
 
-There's a Claude Code skill at `.claude/skills/update-site-data` that walks through each of these — importing a Medium export, swapping the embedded Instagram reels, adding trip photos and re-running the project seeder.
+One ask: swap out the photos, the writing and the name. Those are mine. The code is the
+part worth reusing.
 
-## Deployment
+## Contributing
 
-Pushes to `main` deploy to Vercel.
+Found a bug, or something that reads wrong? Issues and pull requests are welcome — see
+[CONTRIBUTING.md](CONTRIBUTING.md) for how to get set up and what to expect.
 
 ## License
 
-No license file yet, so default copyright applies and all rights are reserved. If you want the source to be reusable, add a `LICENSE` — note that the written content, photographs and brand assets would usually be carved out of it.
+There's no license file here yet, which means default copyright applies and all rights
+are reserved. I'm happy for people to learn from the code and build their own site from
+it — if you want that in writing before you rely on it, open an issue and I'll sort out
+a proper license.
+
+Either way, the writing, photographs and brand assets aren't part of any code license.
