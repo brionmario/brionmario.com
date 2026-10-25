@@ -44,12 +44,6 @@ const DRY_RUN = process.argv.includes("--dry-run")
 const log = (...a) => console.log(...a)
 const err = (...a) => console.error(...a)
 
-function prettifyName(name) {
-  return name
-    .replace(/[-_]/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase())
-}
-
 const headers = {
   Accept: "application/vnd.github+json",
   "X-GitHub-Api-Version": "2022-11-28",
@@ -118,7 +112,9 @@ async function mapRepo(repo) {
 
   return {
     id: repo.name,
-    name: prettifyName(repo.name),
+    // The full `owner/repo`, exactly as GitHub spells it — titles on the site
+    // should be copy-pasteable back into a clone command or a search box.
+    name: repo.full_name,
     org: repo.owner?.type === "Organization" ? repo.owner.login : "Personal",
     description: repo.description ?? "",
     githubUrl: repo.html_url,
@@ -173,7 +169,7 @@ async function main() {
   const projects = await Promise.all(matched.map(mapRepo))
   projects.forEach((p) =>
     log(
-      `    • ${p.name}  (${p.org})  ⭐ ${p.stars}` +
+      `    • ${p.name}  ⭐ ${p.stars}` +
         (p.upstream ? `  ⑂ forked from ${p.upstream.repo}` : "")
     )
   )
