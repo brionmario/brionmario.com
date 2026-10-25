@@ -2,9 +2,10 @@ import { ArrowUpRight } from "lucide-react"
 import type { Metadata } from "next"
 
 import { experience, honors, visitedCountries } from "@/lib/data/about"
+import { instagramAccounts } from "@/lib/data/instagram"
 import { Disclosure } from "@/components/about/disclosure"
 import { HeroPhotos } from "@/components/about/hero-photos"
-import { InstagramReel } from "@/components/about/instagram-reel"
+import { InstagramGrid } from "@/components/about/instagram-grid"
 import { TravelMap } from "@/components/about/travel-map"
 import { SectionHeading } from "@/components/layout/section-heading"
 import { Reveal } from "@/components/motion/reveal"
@@ -14,26 +15,6 @@ export const metadata: Metadata = {
   description:
     "Fullstack engineer, 6+ years, most of it in identity and access management. Based in Colombo, Sri Lanka.",
 }
-
-const INSTAGRAM = [
-  {
-    handle: "@brionmario",
-    url: "https://www.instagram.com/brionmario/",
-    reelsUrl: "https://www.instagram.com/brionmario/reels/",
-    label: "Photography",
-    note: "Cameras, street light and the occasional accidental portrait.",
-    // Shortcode of the reel to embed — swap for a newer one any time.
-    reel: "DeRzI3gS38T",
-  },
-  {
-    handle: "@hungry.dude.dudette",
-    url: "https://www.instagram.com/hungry.dude.dudette/",
-    reelsUrl: "https://www.instagram.com/hungry.dude.dudette/reels/",
-    label: "Food diary",
-    note: "Two people, a lot of plates. Our running food diary.",
-    reel: "Ddd82zPutX5",
-  },
-]
 
 export default function AboutPage() {
   const regions = new Set(visitedCountries.map((country) => country.region))
@@ -129,8 +110,9 @@ export default function AboutPage() {
           </Disclosure>
 
           <p className="mt-7 text-[17px] leading-[1.75] text-pretty text-muted-foreground">
-            Away from the keyboard I&rsquo;m usually behind a camera, eating my
-            way through a city with my wife, or planning the next trip.
+            Away from the keyboard I&rsquo;m a part-time reel creator &mdash;
+            usually behind a camera, eating my way through a city with my wife,
+            or planning the next trip.
           </p>
         </div>
       </section>
@@ -140,7 +122,7 @@ export default function AboutPage() {
           <SectionHeading index="01" title="Off the clock" />
 
           <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {INSTAGRAM.map((account) => (
+            {instagramAccounts.map((account) => (
               <Reveal key={account.handle}>
                 <div className="group flex h-full flex-col bg-card transition-[box-shadow] duration-200 hover:shadow-[10px_10px_0_var(--bm-accent)]">
                   <div className="p-6">
@@ -160,21 +142,21 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="">
-                    <InstagramReel
-                      code={account.reel}
+                  <div className="px-6">
+                    <InstagramGrid
+                      posts={account.posts}
                       handle={account.handle}
                     />
                   </div>
 
                   <div className="mt-auto flex flex-wrap items-center justify-between gap-3 p-6">
                     <a
-                      href={account.reelsUrl}
+                      href={account.archiveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="eyebrow-sm inline-flex items-center gap-1.5 text-faint no-underline transition-colors hover:text-primary"
                     >
-                      All reels
+                      {account.archiveLabel}
                       <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
                     </a>
                     <a
