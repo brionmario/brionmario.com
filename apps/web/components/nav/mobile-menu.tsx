@@ -30,10 +30,11 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen) return null
 
   return (
-    <div className="border-t border-border bg-background md:hidden">
-      <nav className="mx-auto flex max-w-[1240px] flex-col px-6 py-2 sm:px-7">
+    <div className="bg-background md:hidden">
+      <nav className="mx-auto flex max-w-[1240px] flex-col gap-1 px-6 pt-1 pb-5 sm:px-7">
         {navLinks.map((link) => {
-          const active = pathname === link.href || pathname.startsWith(`${link.href}/`)
+          const active =
+            pathname === link.href || pathname.startsWith(`${link.href}/`)
 
           return (
             <Link
@@ -42,8 +43,10 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               onClick={onClose}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "eyebrow border-b border-border py-4 transition-colors last:border-b-0",
-                active ? "text-primary" : "text-muted-foreground hover:text-foreground"
+                "eyebrow py-3 transition-colors",
+                active
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               {link.label}

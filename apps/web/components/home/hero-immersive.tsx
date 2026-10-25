@@ -1,3 +1,4 @@
+import { ArrowDown } from "lucide-react"
 import Image from "next/image"
 
 export function HeroImmersive() {
@@ -24,7 +25,7 @@ export function HeroImmersive() {
       </p>
 
       {/* Grayscale portrait blended into the canvas and faded out at the bottom. */}
-      <div className="relative mt-10 w-[400px] max-w-[86vw] [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)] [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)] grayscale mix-blend-multiply dark:mix-blend-lighten">
+      <div className="relative mt-10 w-[400px] max-w-[86vw] [mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)] mix-blend-multiply grayscale [-webkit-mask-image:linear-gradient(to_bottom,black_55%,transparent_100%)] dark:mix-blend-lighten">
         <Image
           src="/images/people/brion-headshot.png"
           alt="Brion Mario"
@@ -35,11 +36,9 @@ export function HeroImmersive() {
         />
       </div>
 
-      <div className="eyebrow-sm absolute inset-x-0 bottom-[26px] flex animate-[bm-scrollhint_2.2s_ease-in-out_infinite] flex-col items-center gap-2 tracking-[0.3em] text-faint motion-reduce:animate-none">
+      <div className="eyebrow-sm absolute inset-x-0 bottom-[26px] flex animate-[bm-scrollhint_2.2s_ease-in-out_infinite] flex-col items-center gap-2 text-faint motion-reduce:animate-none">
         <span>Scroll</span>
-        <span aria-hidden className="text-sm">
-          ↓
-        </span>
+        <ArrowDown className="size-4" aria-hidden />
       </div>
     </section>
   )

@@ -1,3 +1,4 @@
+import { ArrowLeft, ArrowUpRight, Calendar, MapPin, Users } from "lucide-react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -5,6 +6,7 @@ import { notFound } from "next/navigation"
 
 import { communityEngagements } from "@/lib/data/community"
 import { TalkPlayer } from "@/components/community/talk-player"
+import { MetaChip, MetaItem, MetaRow } from "@/components/ui/meta-row"
 
 interface Props {
   params: Promise<{ id: string }>
@@ -45,19 +47,18 @@ export default async function CommunityDetailPage({ params }: Props) {
       <section className="mx-auto max-w-[1240px] px-6 pt-14 sm:px-7">
         <Link
           href="/community"
-          className="eyebrow inline-block tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+          className="eyebrow inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
         >
-          ← All appearances
+          <ArrowLeft className="size-4 shrink-0" aria-hidden />
+          All appearances
         </Link>
 
-        <div className="eyebrow mt-9 flex flex-wrap gap-x-6 gap-y-2.5 tracking-[0.2em] text-muted-foreground">
-          <span className="whitespace-nowrap text-primary">
-            {engagement.type}
-          </span>
-          <span className="whitespace-nowrap">{engagement.monthYear}</span>
-          <span className="whitespace-nowrap">{engagement.event}</span>
-          <span className="whitespace-nowrap">{engagement.location}</span>
-        </div>
+        <MetaRow className="mt-9">
+          <MetaChip>{engagement.type}</MetaChip>
+          <MetaItem icon={Calendar}>{engagement.monthYear}</MetaItem>
+          <MetaItem icon={Users}>{engagement.event}</MetaItem>
+          <MetaItem icon={MapPin}>{engagement.location}</MetaItem>
+        </MetaRow>
 
         <h1 className="headline mt-5 max-w-[1000px] text-[clamp(2rem,5.2vw,4rem)] text-pretty">
           {engagement.talk}
@@ -66,7 +67,7 @@ export default async function CommunityDetailPage({ params }: Props) {
 
       {engagement.videoId && (
         <section className="mx-auto max-w-[1240px] px-6 pt-10 sm:px-7">
-          <div className="relative aspect-video border border-border bg-black">
+          <div className="relative aspect-video bg-black">
             <TalkPlayer engagement={engagement} />
           </div>
         </section>
@@ -84,7 +85,7 @@ export default async function CommunityDetailPage({ params }: Props) {
               return (
                 <figure
                   key={photo.url}
-                  className={`relative m-0 overflow-hidden border border-border ${
+                  className={`relative m-0 overflow-hidden ${
                     fullWidth ? "sm:col-span-2" : ""
                   }`}
                   style={{ aspectRatio: photo.aspect ?? (i === 0 ? 2 : 4 / 3) }}
@@ -127,7 +128,7 @@ export default async function CommunityDetailPage({ params }: Props) {
             {facts.map((fact) => (
               <div
                 key={fact.key}
-                className="eyebrow flex items-baseline justify-between gap-3.5 border-b border-border pb-2.5 tracking-[0.16em]"
+                className="eyebrow flex items-baseline justify-between gap-3.5 py-1"
               >
                 <dt className="text-faint">{fact.key}</dt>
                 <dd className="m-0 text-right text-foreground">{fact.value}</dd>
@@ -139,9 +140,10 @@ export default async function CommunityDetailPage({ params }: Props) {
             href={engagement.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="eyebrow border border-border-strong px-5 py-3.5 text-center tracking-[0.16em] transition-colors hover:border-primary hover:text-foreground"
+            className="eyebrow flex items-center justify-center gap-2 border border-border-strong px-5 py-3.5 text-center transition-colors hover:border-primary hover:text-foreground"
           >
-            {engagement.linkLabel} ↗
+            {engagement.linkLabel}
+            <ArrowUpRight className="size-4 shrink-0" aria-hidden />
           </a>
 
           {showSlides && (
@@ -149,9 +151,10 @@ export default async function CommunityDetailPage({ params }: Props) {
               href={engagement.slides}
               target="_blank"
               rel="noopener noreferrer"
-              className="eyebrow border border-primary px-5 py-3.5 text-center tracking-[0.16em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="eyebrow flex items-center justify-center gap-2 border border-primary px-5 py-3.5 text-center text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              Grab the slides ↗
+              Grab the slides
+              <ArrowUpRight className="size-4 shrink-0" aria-hidden />
             </a>
           )}
         </aside>

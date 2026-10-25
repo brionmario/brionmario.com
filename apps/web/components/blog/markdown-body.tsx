@@ -8,16 +8,22 @@ export function MarkdownBody({ children }: { children: string }) {
       remarkPlugins={[remarkGfm]}
       components={{
         h1: ({ children }) => (
-          <h2 className="headline mb-4 mt-12 text-[clamp(1.5rem,3vw,2.1rem)]">{children}</h2>
+          <h2 className="headline mt-12 mb-4 text-[clamp(1.5rem,3vw,2.1rem)]">
+            {children}
+          </h2>
         ),
         h2: ({ children }) => (
-          <h2 className="headline mb-4 mt-12 text-[clamp(1.35rem,2.6vw,1.85rem)]">{children}</h2>
+          <h2 className="headline mt-12 mb-4 text-[clamp(1.35rem,2.6vw,1.85rem)]">
+            {children}
+          </h2>
         ),
         h3: ({ children }) => (
-          <h3 className="mb-3 mt-9 text-xl font-extrabold tracking-[-0.02em]">{children}</h3>
+          <h3 className="mt-9 mb-3 text-xl font-extrabold tracking-[-0.02em]">
+            {children}
+          </h3>
         ),
         p: ({ children }) => (
-          <p className="mb-6 text-[17px] leading-[1.8] text-muted-foreground text-pretty">
+          <p className="mb-6 text-[17px] leading-[1.8] text-pretty text-muted-foreground">
             {children}
           </p>
         ),
@@ -42,7 +48,7 @@ export function MarkdownBody({ children }: { children: string }) {
           </ol>
         ),
         blockquote: ({ children }) => (
-          <blockquote className="my-10 border-l-[3px] border-primary pl-6 [&>p]:m-0 [&>p]:text-[clamp(1.2rem,2.4vw,1.6rem)] [&>p]:font-bold [&>p]:leading-[1.35] [&>p]:tracking-[-0.02em] [&>p]:text-foreground">
+          <blockquote className="my-10 border-l-[3px] border-primary pl-6 [&>p]:m-0 [&>p]:text-[clamp(1.2rem,2.4vw,1.6rem)] [&>p]:leading-[1.35] [&>p]:font-bold [&>p]:tracking-[-0.02em] [&>p]:text-foreground">
             {children}
           </blockquote>
         ),
@@ -57,28 +63,37 @@ export function MarkdownBody({ children }: { children: string }) {
           )
         },
         pre: ({ children }) => (
-          <pre className="my-7 overflow-x-auto border border-border bg-card p-5 font-mono text-[13px] leading-relaxed">
+          <pre className="my-7 overflow-x-auto bg-card p-5 font-mono text-[13px] leading-relaxed">
             {children}
           </pre>
         ),
         img: ({ src, alt }) => (
           // eslint-disable-next-line @next/next/no-img-element
-          <img src={typeof src === "string" ? src : ""} alt={alt ?? ""} className="my-8 w-full" loading="lazy" />
+          <img
+            src={typeof src === "string" ? src : ""}
+            alt={alt ?? ""}
+            className="my-8 w-full"
+            loading="lazy"
+          />
         ),
         hr: () => <hr className="my-10 border-border" />,
         strong: ({ children }) => (
           <strong className="font-extrabold text-foreground">{children}</strong>
         ),
         table: ({ children }) => (
-          <div className="my-8 overflow-x-auto border border-border">
+          <div className="my-8 overflow-x-auto">
             <table className="w-full text-sm">{children}</table>
           </div>
         ),
         th: ({ children }) => (
-          <th className="eyebrow bg-card px-4 py-3 text-left text-foreground">{children}</th>
+          <th className="eyebrow bg-card px-4 py-3 text-left text-foreground">
+            {children}
+          </th>
         ),
         td: ({ children }) => (
-          <td className="border-t border-border px-4 py-3 text-muted-foreground">{children}</td>
+          <td className="border-t border-border px-4 py-3 text-muted-foreground">
+            {children}
+          </td>
         ),
       }}
     >

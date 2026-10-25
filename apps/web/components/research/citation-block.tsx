@@ -1,5 +1,6 @@
 "use client"
 
+import { Check, Copy } from "lucide-react"
 import { useEffect, useState } from "react"
 
 export function CitationBlock({ citation }: { citation: string }) {
@@ -24,15 +25,25 @@ export function CitationBlock({ citation }: { citation: string }) {
 
   return (
     <div>
-      <pre className="m-0 overflow-x-auto border border-border bg-card p-4 font-mono text-[11px] leading-relaxed text-muted-foreground">
+      <pre className="m-0 overflow-x-auto bg-card p-4 font-mono text-[11px] leading-relaxed text-muted-foreground">
         {citation}
       </pre>
       <button
         type="button"
         onClick={copy}
-        className="eyebrow mt-2.5 border border-border-strong px-4 py-2.5 tracking-[0.16em] text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
+        className="eyebrow mt-2.5 inline-flex items-center gap-2 border border-border-strong px-4 py-2.5 text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
       >
-        {copied ? "Copied" : "Copy BibTeX"}
+        {copied ? (
+          <>
+            <Check className="size-4 shrink-0 text-primary" aria-hidden />
+            Copied
+          </>
+        ) : (
+          <>
+            <Copy className="size-4 shrink-0" aria-hidden />
+            Copy BibTeX
+          </>
+        )}
       </button>
     </div>
   )

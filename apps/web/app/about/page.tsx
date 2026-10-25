@@ -1,3 +1,4 @@
+import { ArrowUpRight } from "lucide-react"
 import type { Metadata } from "next"
 
 import { experience, honors, visitedCountries } from "@/lib/data/about"
@@ -70,7 +71,7 @@ export default function AboutPage() {
             {experience.map((entry) => (
               <div
                 key={entry.id}
-                className="grid grid-cols-1 gap-x-8 gap-y-2.5 border-b border-border py-6 md:grid-cols-[200px_minmax(0,1fr)]"
+                className="grid grid-cols-1 gap-x-8 gap-y-2.5 py-7 md:grid-cols-[200px_minmax(0,1fr)]"
               >
                 <div>
                   <h3 className="m-0 text-lg font-extrabold tracking-[-0.02em]">
@@ -88,7 +89,7 @@ export default function AboutPage() {
                     >
                       <span className="text-[15px]">{role.title}</span>
                       <span
-                        className={`eyebrow-sm tracking-[0.14em] ${role.isCurrent ? "text-primary" : "text-faint"}`}
+                        className={`eyebrow-sm ${role.isCurrent ? "text-primary" : "text-faint"}`}
                       >
                         {role.period}
                       </span>
@@ -112,11 +113,9 @@ export default function AboutPage() {
             {honors.map((honor) => (
               <div
                 key={honor.id}
-                className="grid grid-cols-1 gap-x-7 gap-y-2 border-b border-border py-5 md:grid-cols-[110px_minmax(0,1fr)]"
+                className="grid grid-cols-1 gap-x-7 gap-y-2 py-6 md:grid-cols-[110px_minmax(0,1fr)]"
               >
-                <span className="eyebrow-sm pt-1 tracking-[0.16em] text-faint">
-                  {honor.date}
-                </span>
+                <span className="eyebrow-sm pt-1 text-faint">{honor.date}</span>
                 <div>
                   <h3 className="m-0 text-[15px] leading-[1.4] font-semibold text-pretty">
                     {honor.title}
@@ -143,7 +142,7 @@ export default function AboutPage() {
           <div className="mt-9 grid grid-cols-1 gap-5 sm:grid-cols-2">
             {INSTAGRAM.map((account) => (
               <Reveal key={account.handle}>
-                <div className="group flex h-full flex-col border border-border bg-card transition-[box-shadow,border-color] duration-200 hover:border-primary hover:shadow-[10px_10px_0_var(--bm-accent)]">
+                <div className="group flex h-full flex-col bg-card transition-[box-shadow] duration-200 hover:shadow-[10px_10px_0_var(--bm-accent)]">
                   <div className="p-6">
                     <p className="eyebrow-sm mb-2 text-primary">
                       {account.label}
@@ -161,7 +160,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="border-y border-border">
+                  <div className="">
                     <InstagramReel
                       code={account.reel}
                       handle={account.handle}
@@ -173,17 +172,19 @@ export default function AboutPage() {
                       href={account.reelsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="eyebrow-sm text-faint no-underline transition-colors hover:text-primary"
+                      className="eyebrow-sm inline-flex items-center gap-1.5 text-faint no-underline transition-colors hover:text-primary"
                     >
-                      All reels ↗
+                      All reels
+                      <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
                     </a>
                     <a
                       href={account.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="eyebrow-sm text-faint no-underline transition-colors hover:text-primary"
+                      className="eyebrow-sm inline-flex items-center gap-1.5 text-faint no-underline transition-colors hover:text-primary"
                     >
-                      Open on Instagram ↗
+                      Open on Instagram
+                      <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
                     </a>
                   </div>
                 </div>
@@ -191,7 +192,7 @@ export default function AboutPage() {
             ))}
 
             <Reveal className="sm:col-span-2">
-              <div className="border border-border p-7">
+              <div className="bg-card p-7">
                 <div className="flex flex-wrap items-baseline justify-between gap-4">
                   <div>
                     <p className="eyebrow-sm mb-2 text-primary">Passport</p>
@@ -209,7 +210,7 @@ export default function AboutPage() {
                   {visitedCountries.map((country) => (
                     <div
                       key={country.isoCode}
-                      className="eyebrow-sm flex items-baseline justify-between gap-3.5 border-b border-border pb-2.5"
+                      className="eyebrow-sm flex items-baseline justify-between gap-3.5 py-1"
                     >
                       <span className="normal-case">
                         <span className="mr-2 text-[15px]">{country.flag}</span>

@@ -4,7 +4,7 @@ import type { ReactNode } from "react"
 import { cn } from "@workspace/ui/lib/utils"
 
 const rowClass =
-  "group grid grid-cols-[48px_1fr] gap-x-6 border-b border-border px-5 py-7 transition-[background-color,padding-left] duration-[250ms] hover:bg-primary/8 hover:pl-[34px] hover:text-foreground sm:grid-cols-[64px_1fr]"
+  "group grid grid-cols-[48px_1fr] gap-x-6 px-5 py-9 transition-[background-color,padding-left] duration-[250ms] hover:bg-primary/8 hover:pl-[34px] hover:text-foreground sm:grid-cols-[64px_1fr]"
 
 interface IndexRowProps {
   /** Two-digit counter shown in the gutter. */
@@ -13,7 +13,7 @@ interface IndexRowProps {
   description?: string
   /** Accent-coloured label on the right, e.g. the owning org. */
   org?: string
-  meta?: string
+  meta?: ReactNode
   href: string
   external?: boolean
 }
@@ -30,22 +30,22 @@ export function IndexRow({
 }: IndexRowProps) {
   const body = (
     <>
-      <span className="eyebrow pt-2.5 tracking-[0.14em] text-faint">{num}</span>
+      <span className="eyebrow pt-2.5 text-faint">{num}</span>
       <div className="flex flex-wrap items-baseline justify-between gap-x-7 gap-y-3">
         <div className="min-w-0 flex-[1_1_420px]">
-          <h3 className="m-0 text-[clamp(1.6rem,3.4vw,2.6rem)] font-extrabold leading-[1.05] tracking-[-0.03em]">
+          <h3 className="m-0 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.05] font-extrabold tracking-[-0.03em]">
             {title}
           </h3>
           {description && (
-            <p className="mt-2.5 max-w-[640px] text-[15px] leading-[1.6] text-muted-foreground text-pretty">
+            <p className="mt-2.5 max-w-[640px] text-[15px] leading-[1.6] text-pretty text-muted-foreground">
               {description}
             </p>
           )}
         </div>
         {(org || meta) && (
-          <div className="eyebrow flex shrink-0 flex-col items-end gap-2 tracking-[0.14em] text-faint">
+          <div className="eyebrow flex shrink-0 flex-col items-end gap-2 text-faint">
             {org && <span className="text-primary">{org}</span>}
-            {meta && <span>{meta}</span>}
+            {meta}
           </div>
         )}
       </div>
@@ -54,7 +54,12 @@ export function IndexRow({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={rowClass}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={rowClass}
+      >
         {body}
       </a>
     )
@@ -97,15 +102,15 @@ export function CompactRow({
   className,
 }: CompactRowProps) {
   const rowClasses = cn(
-    "grid grid-cols-1 items-baseline gap-x-[22px] gap-y-2 border-t border-border px-3.5 py-5 transition-[background-color,padding-left] duration-200 hover:bg-primary/10 hover:pl-6 hover:text-foreground",
+    "grid grid-cols-1 items-baseline gap-x-[22px] gap-y-2 px-3.5 py-7 transition-[background-color,padding-left] duration-200 hover:bg-primary/10 hover:pl-6 hover:text-foreground",
     leadWidths[leadWidth],
     className
   )
 
   const body = (
     <>
-      <span className="eyebrow tracking-[0.12em] normal-case text-faint">{lead}</span>
-      <h3 className="m-0 text-[clamp(1.05rem,2vw,1.4rem)] font-bold leading-[1.3] tracking-[-0.02em] text-pretty">
+      <span className="eyebrow text-faint">{lead}</span>
+      <h3 className="m-0 text-[clamp(1.05rem,2vw,1.4rem)] leading-[1.3] font-bold tracking-[-0.02em] text-pretty">
         {title}
       </h3>
       {trail && <span className="eyebrow-sm text-primary">{trail}</span>}
@@ -114,7 +119,12 @@ export function CompactRow({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={rowClasses}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={rowClasses}
+      >
         {body}
       </a>
     )

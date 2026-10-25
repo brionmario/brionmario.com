@@ -6,7 +6,7 @@ import { cn } from "@workspace/ui/lib/utils"
 type Variant = "solid" | "outline" | "accent"
 
 const base =
-  "inline-flex min-w-[172px] items-center justify-center px-7 py-4 font-mono text-xs font-bold uppercase tracking-[0.16em] transition-[transform,box-shadow,border-color,color] duration-200"
+  "inline-flex min-w-[172px] items-center justify-center px-7 py-4 text-[15px] font-bold tracking-[-0.01em] transition-[transform,box-shadow,border-color,color] duration-200"
 
 const variants: Record<Variant, string> = {
   // Paper block with a hard accent shadow that deepens as it lifts.
@@ -19,7 +19,10 @@ const variants: Record<Variant, string> = {
     "border border-primary text-primary hover:bg-primary hover:text-primary-foreground",
 }
 
-interface ActionLinkProps extends Omit<ComponentProps<typeof Link>, "className"> {
+interface ActionLinkProps extends Omit<
+  ComponentProps<typeof Link>,
+  "className"
+> {
   variant?: Variant
   className?: string
   children: ReactNode

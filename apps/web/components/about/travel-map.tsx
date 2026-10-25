@@ -347,7 +347,7 @@ export function TravelMap() {
   return (
     <div
       ref={hostRef}
-      className="relative h-[min(72vh,660px)] w-full border-y border-border bg-background [--map-border:rgba(20,22,26,0.16)] [--map-dot-ring:var(--bm-paper-100)] [--map-graticule:rgba(20,22,26,0.07)] [--map-home:var(--bm-ink-900)] [--map-land:var(--bm-paper-200)] dark:[--map-border:rgba(239,234,224,0.14)] dark:[--map-dot-ring:var(--bm-ink-950)] dark:[--map-graticule:rgba(239,234,224,0.055)] dark:[--map-home:var(--bm-paper-100)] dark:[--map-land:#161a20]"
+      className="relative h-[min(72vh,660px)] w-full bg-background [--map-border:rgba(20,22,26,0.16)] [--map-dot-ring:var(--bm-paper-100)] [--map-graticule:rgba(20,22,26,0.07)] [--map-home:var(--bm-ink-900)] [--map-land:var(--bm-paper-200)] dark:[--map-border:rgba(239,234,224,0.14)] dark:[--map-dot-ring:var(--bm-ink-950)] dark:[--map-graticule:rgba(239,234,224,0.055)] dark:[--map-home:var(--bm-paper-100)] dark:[--map-land:#161a20]"
     >
       <svg
         ref={svgRef}

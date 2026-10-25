@@ -196,22 +196,26 @@
 
 @layer components {
   /*
-   * The mono eyebrow that labels almost every section in the design:
-   * 11px JetBrains Mono, wide tracking, uppercase.
+   * The small label that sits above or beside section content. Archivo in
+   * sentence case: uppercase mono at wide tracking is the one thing that read
+   * as a generated template, so the whole UI now runs on a single family.
+   * Mono is kept for code and nothing else.
    */
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
     line-height: 1.4;
     }
   .eyebrow-sm {
-    font-family: var(--font-mono);
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    line-height: 1.4;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1.45;
     }
   /* Display headline — the brush script used for the two big statements. */
   .brush {

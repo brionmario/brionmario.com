@@ -23,17 +23,10 @@ export function SiteHeader() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
 
-  // The immersive home hero runs straight off the header with no seam; the
-  // content pages use a rule to separate the sticky bar from the page.
-  const isHome = pathname === "/"
-
+  // No rule under the bar and no underline on the active link: the nav is
+  // separated from the page by space alone.
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 bg-background/80 backdrop-blur-[14px]",
-        !isHome && "border-b border-border"
-      )}
-    >
+    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-[14px]">
       <div className="mx-auto flex h-[76px] max-w-[1240px] items-center justify-between gap-6 px-6 sm:px-7">
         <Link
           href="/"
@@ -46,9 +39,10 @@ export function SiteHeader() {
         {/* Nav and the toggle share the right-hand group so the nav stays
             flush right, as in the design, rather than centring itself. */}
         <div className="flex items-center gap-1">
-          <nav className="hidden items-center gap-1 md:flex">
+          <nav className="hidden items-center gap-2 md:flex">
             {navLinks.map((link) => {
-              const active = pathname === link.href || pathname.startsWith(`${link.href}/`)
+              const active =
+                pathname === link.href || pathname.startsWith(`${link.href}/`)
 
               return (
                 <Link
@@ -56,18 +50,13 @@ export function SiteHeader() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "eyebrow group relative px-3.5 py-2.5 tracking-[0.14em] transition-colors",
-                    active ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    "eyebrow px-4 py-3 transition-colors",
+                    active
+                      ? "font-semibold text-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   )}
                 >
                   {link.label}
-                  <span
-                    aria-hidden
-                    className={cn(
-                      "absolute inset-x-3.5 bottom-1 h-0.5 origin-left bg-primary transition-transform duration-200",
-                      active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                    )}
-                  />
                 </Link>
               )
             })}
@@ -81,7 +70,11 @@ export function SiteHeader() {
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((prev) => !prev)}
           >
-            {mobileOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+            {mobileOpen ? (
+              <X className="size-4" />
+            ) : (
+              <Menu className="size-4" />
+            )}
           </button>
         </div>
       </div>

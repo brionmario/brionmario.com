@@ -22,9 +22,7 @@ export default function BlogPage() {
           <h1 className="headline m-0 text-[clamp(3rem,11vw,8rem)] leading-[0.84] tracking-[-0.05em]">
             Writing
           </h1>
-          <p className="eyebrow tracking-[0.24em] text-muted-foreground">
-            {posts.length} posts
-          </p>
+          <p className="eyebrow text-muted-foreground">{posts.length} posts</p>
         </div>
       </section>
 
@@ -32,7 +30,7 @@ export default function BlogPage() {
 
       {externalArticles.length > 0 && (
         <section className="mx-auto max-w-[1240px] px-6 pb-24 sm:px-7">
-          <p className="eyebrow mb-4 tracking-[0.26em] text-faint">Published elsewhere</p>
+          <p className="eyebrow mb-4 text-faint">Published elsewhere</p>
           {externalArticles.map((article) => (
             <CompactRow
               key={article.url}

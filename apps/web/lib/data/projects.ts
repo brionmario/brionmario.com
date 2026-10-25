@@ -57,7 +57,8 @@ const curatedProjects: Project[] = [
     id: "brionmario-com",
     name: "brionmario.com",
     org: "Personal",
-    description: "Source code for this site — Next.js, Turborepo, MDX content pipeline.",
+    description:
+      "Source code for this site — Next.js, Turborepo, MDX content pipeline.",
     githubUrl: "https://github.com/brionmario/brionmario.com",
     tags: ["TypeScript", "Next.js"],
   },
@@ -104,7 +105,10 @@ function normalizeRepoUrl(url: string): string {
 }
 
 const seedByUrl = new Map(
-  (ghProjects as Project[]).map((project) => [normalizeRepoUrl(project.githubUrl), project])
+  (ghProjects as Project[]).map((project) => [
+    normalizeRepoUrl(project.githubUrl),
+    project,
+  ])
 )
 
 export const projects: Project[] = curatedProjects.map((project) => {
@@ -120,15 +124,7 @@ export const projects: Project[] = curatedProjects.map((project) => {
   }
 })
 
-/**
- * The meta line on the projects index: language, then whichever social proof
- * the repo actually has.
- */
-export function projectMeta(project: Project): string {
-  const parts: string[] = []
-  if (project.language) parts.push(project.language)
-  else if (project.tags[0]) parts.push(project.tags[0])
-  if (project.stars) parts.push(`★ ${project.stars}`)
-  if (project.forks) parts.push(`⑂ ${project.forks}`)
-  return parts.join(" · ")
+/** What the repo is written in: the language GitHub reports, else its first tag. */
+export function projectTech(project: Project): string {
+  return project.language ?? project.tags[0] ?? ""
 }

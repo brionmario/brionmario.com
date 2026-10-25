@@ -1,3 +1,4 @@
+import { ArrowRight, ArrowUpRight, Calendar, MapPin, Users } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 
@@ -11,6 +12,7 @@ import {
 import { LiftCard } from "@/components/cards/lift-card"
 import { TalkPlayer } from "@/components/community/talk-player"
 import { Reveal } from "@/components/motion/reveal"
+import { MetaChip, MetaItem, MetaRow } from "@/components/ui/meta-row"
 
 export const metadata: Metadata = {
   title: "Community",
@@ -34,7 +36,7 @@ export default function CommunityPage() {
           <h1 className="headline m-0 text-[clamp(3rem,11vw,8rem)] leading-[0.84] tracking-[-0.05em]">
             On stage
           </h1>
-          <p className="eyebrow max-w-[340px] tracking-[0.2em] text-muted-foreground">
+          <p className="eyebrow max-w-[340px] text-muted-foreground">
             {communityEngagements.length} talks, workshops and panels across
             four countries
           </p>
@@ -43,15 +45,15 @@ export default function CommunityPage() {
 
       <section className="mx-auto max-w-[1240px] px-6 pt-10 sm:px-7">
         <Reveal>
-          <div className="grid grid-cols-1 border border-border md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
+          <div className="grid grid-cols-1 bg-card md:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)]">
             <div className="relative aspect-video bg-black">
               <TalkPlayer engagement={featuredEngagement} />
             </div>
             <div className="flex flex-col justify-between gap-7 p-9">
               <div>
-                <p className="eyebrow mb-4 tracking-[0.26em] text-primary">
-                  Featured talk
-                </p>
+                <MetaRow className="mb-4">
+                  <MetaChip>Featured talk</MetaChip>
+                </MetaRow>
                 <h2 className="headline m-0 text-[clamp(1.6rem,3.4vw,2.6rem)] tracking-[-0.035em] text-pretty">
                   {featuredEngagement.talk}
                 </h2>
@@ -59,15 +61,19 @@ export default function CommunityPage() {
                   {featuredEngagement.description}
                 </p>
               </div>
-              <div className="eyebrow flex flex-wrap items-center justify-between gap-3 text-muted-foreground">
-                <span>
-                  {featuredEngagement.event} · {featuredEngagement.location}
-                </span>
+              <div className="flex flex-wrap items-center justify-between gap-x-5 gap-y-3">
+                <MetaRow>
+                  <MetaItem icon={Users}>{featuredEngagement.event}</MetaItem>
+                  <MetaItem icon={MapPin}>
+                    {featuredEngagement.location}
+                  </MetaItem>
+                </MetaRow>
                 <Link
                   href={`/community/${featuredEngagement.id}`}
-                  className="text-foreground transition-colors hover:text-primary"
+                  className="eyebrow inline-flex items-center gap-2 text-foreground transition-colors hover:text-primary"
                 >
-                  Event details →
+                  Event details
+                  <ArrowRight className="size-4 shrink-0" aria-hidden />
                 </Link>
               </div>
             </div>
@@ -78,7 +84,7 @@ export default function CommunityPage() {
       <section className="mx-auto max-w-[1240px] px-6 pt-16 pb-28 sm:px-7">
         {engagementGroups.map((group) => (
           <div key={group.label} className="pb-11">
-            <div className="mb-6 flex items-baseline gap-4 border-b border-border pb-3">
+            <div className="mb-6 flex items-baseline gap-4 pb-3">
               <h2 className="eyebrow m-0 text-muted-foreground">
                 {group.label}
               </h2>
@@ -100,7 +106,7 @@ export default function CommunityPage() {
                         the cover's height. */}
                     <div className="flex h-full flex-col">
                       {cover(engagement) && (
-                        <div className="relative aspect-[4/3] overflow-hidden border-b border-border">
+                        <div className="relative aspect-[4/3] overflow-hidden">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
                             src={cover(engagement)!}
@@ -111,12 +117,12 @@ export default function CommunityPage() {
                         </div>
                       )}
                       <div className="flex min-h-[280px] flex-1 flex-col justify-between gap-5 p-6">
-                        <div className="eyebrow flex items-start justify-between gap-4 border-b border-dashed border-border pb-3.5 tracking-[0.18em]">
-                          <span>{engagement.type}</span>
-                          <span className="normal-case">
+                        <MetaRow className="justify-between">
+                          <MetaChip>{engagement.type}</MetaChip>
+                          <MetaItem icon={Calendar}>
                             {engagement.monthYear}
-                          </span>
-                        </div>
+                          </MetaItem>
+                        </MetaRow>
                         <div>
                           <h3 className="headline m-0 text-2xl text-pretty">
                             {engagement.talk}
@@ -125,13 +131,17 @@ export default function CommunityPage() {
                             {engagement.description}
                           </p>
                         </div>
-                        <div className="eyebrow-sm flex items-center justify-between gap-3 text-muted-foreground">
-                          <span>
-                            {engagement.event} · {engagement.location}
-                          </span>
-                          <span aria-hidden className="text-primary">
-                            →
-                          </span>
+                        <div className="flex items-end justify-between gap-3">
+                          <div className="eyebrow-sm flex flex-col gap-2 text-muted-foreground">
+                            <MetaItem icon={Users}>{engagement.event}</MetaItem>
+                            <MetaItem icon={MapPin}>
+                              {engagement.location}
+                            </MetaItem>
+                          </div>
+                          <ArrowRight
+                            aria-hidden
+                            className="size-4 shrink-0 text-primary"
+                          />
                         </div>
                       </div>
                     </div>
@@ -142,7 +152,7 @@ export default function CommunityPage() {
           </div>
         ))}
 
-        <div className="mt-5 flex flex-wrap items-center justify-between gap-5 border border-border p-7">
+        <div className="mt-5 flex flex-wrap items-center justify-between gap-5 bg-card p-7">
           <div>
             <p className="eyebrow-sm mb-2 text-primary">Organiser</p>
             <h3 className="headline m-0 text-[26px]">JavaScript Colombo</h3>
@@ -154,9 +164,10 @@ export default function CommunityPage() {
             href="https://www.javascriptcolombo.com/"
             target="_blank"
             rel="noopener noreferrer"
-            className="eyebrow border border-border-strong px-6 py-3.5 tracking-[0.16em] transition-colors hover:border-primary hover:text-foreground"
+            className="eyebrow inline-flex items-center gap-2 border border-border-strong px-6 py-3.5 transition-colors hover:border-primary hover:text-foreground"
           >
-            javascriptcolombo.com ↗
+            javascriptcolombo.com
+            <ArrowUpRight className="size-4 shrink-0" aria-hidden />
           </a>
         </div>
       </section>

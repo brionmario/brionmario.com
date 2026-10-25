@@ -28,7 +28,10 @@ export function ManifestoStage() {
       const rect = stage.getBoundingClientRect()
       const progress = Math.max(
         0,
-        Math.min(1, 1 - (rect.top + rect.height * 0.2) / (window.innerHeight || 1))
+        Math.min(
+          1,
+          1 - (rect.top + rect.height * 0.2) / (window.innerHeight || 1)
+        )
       )
 
       glow.style.transform = `translate3d(${-6 + progress * 12}vw, ${7 - progress * 14}vh, 0) scale(${0.94 + progress * 0.12})`
@@ -76,7 +79,7 @@ export function ManifestoStage() {
 
       <div className="relative max-w-[1100px] text-center">
         <Reveal>
-          <p className="eyebrow mb-6 tracking-[0.34em] text-primary">What I actually do</p>
+          <p className="eyebrow mb-6 text-primary">What I actually do</p>
         </Reveal>
         <Reveal delay={90}>
           <h2 className="headline m-0 text-[clamp(2.2rem,6.4vw,5rem)] text-balance">
@@ -86,9 +89,9 @@ export function ManifestoStage() {
           </h2>
         </Reveal>
         <Reveal delay={180}>
-          <p className="mx-auto mt-7 max-w-[620px] text-[17px] leading-[1.65] text-muted-foreground text-pretty">
-            Login screens, tokens, sessions, consent. Boring when it works, front-page news when it
-            doesn&rsquo;t.
+          <p className="mx-auto mt-7 max-w-[620px] text-[17px] leading-[1.65] text-pretty text-muted-foreground">
+            Login screens, tokens, sessions, consent. Boring when it works,
+            front-page news when it doesn&rsquo;t.
           </p>
         </Reveal>
       </div>

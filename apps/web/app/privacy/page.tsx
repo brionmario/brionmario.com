@@ -1,7 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 
-import { LegalDocument, type LegalSection } from "@/components/layout/legal-document"
+import {
+  LegalDocument,
+  type LegalSection,
+} from "@/components/layout/legal-document"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -81,11 +84,17 @@ export default function PrivacyPage() {
       footnote={
         <>
           Questions about any of this? Write to{" "}
-          <a href={`mailto:${EMAIL}`} className="text-foreground underline underline-offset-4 hover:text-primary">
+          <a
+            href={`mailto:${EMAIL}`}
+            className="text-foreground underline underline-offset-4 hover:text-primary"
+          >
             {EMAIL}
           </a>
           . The companion document is the{" "}
-          <Link href="/terms" className="text-foreground underline underline-offset-4 hover:text-primary">
+          <Link
+            href="/terms"
+            className="text-foreground underline underline-offset-4 hover:text-primary"
+          >
             Terms of Service
           </Link>
           .

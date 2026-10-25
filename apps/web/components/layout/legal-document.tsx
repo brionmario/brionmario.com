@@ -41,7 +41,7 @@ export function LegalDocument({
 }: LegalDocumentProps) {
   return (
     <>
-      <section className="mx-auto max-w-[1240px] px-6 pb-12 pt-16 sm:px-7 sm:pt-[72px]">
+      <section className="mx-auto max-w-[1240px] px-6 pt-16 pb-12 sm:px-7 sm:pt-[72px]">
         <PageHeader
           eyebrow={eyebrow}
           title={title}
@@ -54,12 +54,12 @@ export function LegalDocument({
         <div className="max-w-[760px]">
           {sections.map((section, index) => (
             <Reveal key={section.heading} delay={index * 45}>
-              <article className="grid gap-4 border-t border-border py-9">
+              <article className="grid gap-4 py-9">
                 <div className="flex items-baseline gap-4">
                   <span className="eyebrow text-primary">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h2 className="m-0 text-[clamp(1.15rem,2.4vw,1.5rem)] font-extrabold leading-[1.2] tracking-[-0.025em] text-pretty">
+                  <h2 className="m-0 text-[clamp(1.15rem,2.4vw,1.5rem)] leading-[1.2] font-extrabold tracking-[-0.025em] text-pretty">
                     {section.heading}
                   </h2>
                 </div>
@@ -67,7 +67,7 @@ export function LegalDocument({
                 {section.body?.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="m-0 text-[15px] leading-[1.75] text-muted-foreground text-pretty"
+                    className="m-0 text-[15px] leading-[1.75] text-pretty text-muted-foreground"
                   >
                     {paragraph}
                   </p>
@@ -78,7 +78,7 @@ export function LegalDocument({
                     {section.bullets.map((bullet) => (
                       <li
                         key={bullet}
-                        className="grid grid-cols-[14px_minmax(0,1fr)] gap-3 text-[15px] leading-[1.75] text-muted-foreground text-pretty"
+                        className="grid grid-cols-[14px_minmax(0,1fr)] gap-3 text-[15px] leading-[1.75] text-pretty text-muted-foreground"
                       >
                         <span aria-hidden className="text-primary">
                           —
@@ -93,7 +93,7 @@ export function LegalDocument({
           ))}
 
           {footnote && (
-            <p className="m-0 border-t border-border pt-9 text-[15px] leading-[1.75] text-muted-foreground text-pretty">
+            <p className="m-0 pt-9 text-[15px] leading-[1.75] text-pretty text-muted-foreground">
               {footnote}
             </p>
           )}

@@ -217,7 +217,7 @@ export const communityEngagements: CommunityEngagement[] = [
     linkLabel: "Grab the slides",
     slides:
       "https://brionmario.github.io/me/workshops/idealize-2023-nodejs-firebase/",
-    image: "/images/community/idealize-2023-02-http-methods.jpg",
+    image: "/images/community/idealize-2023-03-code.jpg",
     gallery: [
       {
         url: "/images/community/idealize-2023-01-speakers.jpg",

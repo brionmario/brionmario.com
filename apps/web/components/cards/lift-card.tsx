@@ -13,8 +13,8 @@ interface LiftCardProps {
 }
 
 /**
- * A panel raised one step off the canvas by a hairline border, which lifts into
- * a hard accent shadow and an accent border on hover.
+ * A panel raised one step off the canvas by its own surface colour, which lifts
+ * into a hard accent shadow on hover.
  */
 export function LiftCard({
   children,
@@ -24,8 +24,8 @@ export function LiftCard({
   lift = "sm",
 }: LiftCardProps) {
   const classes = cn(
-    "block border border-border bg-card transition-[transform,box-shadow,border-color] duration-[220ms]",
-    href && "hover:-translate-x-1 hover:-translate-y-1 hover:border-primary hover:text-foreground",
+    "block bg-card transition-[transform,box-shadow] duration-[220ms]",
+    href && "hover:-translate-x-1 hover:-translate-y-1 hover:text-foreground",
     href &&
       (lift === "lg"
         ? "hover:shadow-[12px_12px_0_var(--bm-accent)]"
@@ -39,7 +39,12 @@ export function LiftCard({
 
   if (external) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={classes}
+      >
         {children}
       </a>
     )

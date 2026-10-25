@@ -1,3 +1,10 @@
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Calendar,
+  User,
+} from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -6,6 +13,7 @@ import { getAllBlogPosts, getAllBlogSlugs, getBlogPost } from "@/lib/blog-local"
 import { withTopic } from "@/lib/blog-topics"
 import { CompactRow } from "@/components/cards/index-row"
 import { MarkdownBody } from "@/components/blog/markdown-body"
+import { MetaChip, MetaItem, MetaRow } from "@/components/ui/meta-row"
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -35,7 +43,10 @@ export default async function BlogPostPage({ params }: Props) {
   const post = withTopic(raw)
   const related = getAllBlogPosts()
     .map(withTopic)
-    .filter((candidate) => candidate.slug !== post.slug && candidate.topic === post.topic)
+    .filter(
+      (candidate) =>
+        candidate.slug !== post.slug && candidate.topic === post.topic
+    )
     .slice(0, 3)
 
   return (
@@ -43,20 +54,21 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="mx-auto max-w-[820px] px-6 pt-14 sm:px-7">
         <Link
           href="/blog"
-          className="eyebrow inline-block tracking-[0.2em] text-muted-foreground transition-colors hover:text-primary"
+          className="eyebrow inline-flex items-center gap-2 text-muted-foreground transition-colors hover:text-primary"
         >
-          ← All writing
+          <ArrowLeft className="size-4 shrink-0" aria-hidden />
+          All writing
         </Link>
 
-        <div className="eyebrow mt-9 flex flex-wrap gap-x-6 gap-y-2.5 tracking-[0.2em] text-muted-foreground">
-          <span className="whitespace-nowrap text-primary">{post.topic}</span>
-          <span className="whitespace-nowrap">
+        <MetaRow className="mt-9">
+          <MetaChip>{post.topic}</MetaChip>
+          <MetaItem icon={Calendar}>
             {post.day}, {post.year}
-          </span>
-          <span className="whitespace-nowrap">Brion Mario</span>
-        </div>
+          </MetaItem>
+          <MetaItem icon={User}>Brion Mario</MetaItem>
+        </MetaRow>
 
-        <h1 className="mt-5 text-[clamp(2.2rem,5.6vw,4.2rem)] font-black leading-[1.02] tracking-[-0.04em] text-balance">
+        <h1 className="mt-5 text-[clamp(2.2rem,5.6vw,4.2rem)] leading-[1.02] font-black tracking-[-0.04em] text-balance">
           {post.title}
         </h1>
 
@@ -74,7 +86,7 @@ export default async function BlogPostPage({ params }: Props) {
       <section className="mx-auto max-w-[820px] px-6 pt-10 sm:px-7">
         <MarkdownBody>{post.content}</MarkdownBody>
 
-        <div className="eyebrow mt-11 flex flex-wrap items-center justify-between gap-4 border-t border-border pt-6 text-muted-foreground">
+        <div className="eyebrow mt-11 flex flex-wrap items-center justify-between gap-4 pt-6 text-muted-foreground">
           <span>
             {post.topic} · {post.year}
           </span>
@@ -82,22 +94,23 @@ export default async function BlogPostPage({ params }: Props) {
             href="https://medium.com/@brionmario"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-foreground transition-colors hover:text-primary"
+            className="inline-flex items-center gap-1.5 text-foreground transition-colors hover:text-primary"
           >
-            Read on Medium ↗
+            Read on Medium
+            <ArrowUpRight className="size-3.5 shrink-0" aria-hidden />
           </a>
         </div>
       </section>
 
       {related.length > 0 && (
-        <section className="mx-auto max-w-[820px] px-6 pb-28 pt-16 sm:px-7">
-          <p className="eyebrow mb-4 tracking-[0.26em] text-faint">Keep reading</p>
+        <section className="mx-auto max-w-[820px] px-6 pt-16 pb-28 sm:px-7">
+          <p className="eyebrow mb-4 text-faint">Keep reading</p>
           {related.map((item) => (
             <CompactRow
               key={item.slug}
               lead={item.day}
               title={item.title}
-              trail="→"
+              trail={<ArrowRight className="size-4 shrink-0" aria-hidden />}
               href={`/blog/${item.slug}`}
             />
           ))}

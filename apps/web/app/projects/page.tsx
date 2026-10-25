@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
 
-import { projectMeta, projects } from "@/lib/data/projects"
+import { projects } from "@/lib/data/projects"
 import { IndexRow } from "@/components/cards/index-row"
 import { PageHeader } from "@/components/layout/section-heading"
 import { Reveal } from "@/components/motion/reveal"
+import { ProjectMeta } from "@/components/projects/project-meta"
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <section className="mx-auto max-w-[1240px] px-6 pb-10 pt-16 sm:px-7 sm:pt-[72px]">
+      <section className="mx-auto max-w-[1240px] px-6 pt-16 pb-10 sm:px-7 sm:pt-[72px]">
         <PageHeader
           eyebrow="Index / Open source"
           title="Projects"
@@ -22,8 +23,8 @@ export default function ProjectsPage() {
         />
       </section>
 
-      <section className="mx-auto max-w-[1240px] px-6 pb-28 pt-6 sm:px-7">
-        <div className="border-t border-border">
+      <section className="mx-auto max-w-[1240px] px-6 pt-6 pb-28 sm:px-7">
+        <div>
           {projects.map((project, index) => (
             <Reveal key={project.id} delay={Math.min(index, 6) * 55}>
               <IndexRow
@@ -31,7 +32,7 @@ export default function ProjectsPage() {
                 title={project.name}
                 description={project.description}
                 org={project.org}
-                meta={projectMeta(project)}
+                meta={<ProjectMeta project={project} />}
                 href={project.githubUrl}
                 external
               />

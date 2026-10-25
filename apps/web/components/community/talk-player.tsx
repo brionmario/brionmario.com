@@ -1,8 +1,13 @@
 "use client"
 
+import { Play } from "lucide-react"
 import { useState } from "react"
 
-import { embedUrl, thumbnailUrl, type CommunityEngagement } from "@/lib/data/community"
+import {
+  embedUrl,
+  thumbnailUrl,
+  type CommunityEngagement,
+} from "@/lib/data/community"
 
 interface TalkPlayerProps {
   engagement: CommunityEngagement
@@ -45,8 +50,8 @@ export function TalkPlayer({ engagement, className }: TalkPlayerProps) {
         alt=""
         className="absolute inset-0 size-full object-cover opacity-55 transition-opacity duration-300 group-hover:opacity-70"
       />
-      <span className="eyebrow relative flex items-center gap-3 bg-primary px-6 py-3.5 tracking-[0.16em] text-primary-foreground transition-transform duration-200 group-hover:scale-105">
-        <span aria-hidden>▶</span>
+      <span className="eyebrow relative flex items-center gap-3 bg-primary px-6 py-3.5 text-primary-foreground transition-transform duration-200 group-hover:scale-105">
+        <Play className="size-3.5 shrink-0 fill-current" aria-hidden />
         Play the talk
       </span>
     </button>
