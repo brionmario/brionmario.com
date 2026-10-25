@@ -4,7 +4,6 @@ import {
   SiHtml5,
   SiJavascript,
   SiNextdotjs,
-  SiOpenjdk,
   SiPhp,
   SiReact,
   SiSass,
@@ -14,10 +13,15 @@ import type { ComponentType, CSSProperties, SVGProps } from "react"
 
 import { cn } from "@workspace/ui/lib/utils"
 
+import { Java } from "./java"
+
 interface Tech {
   icon: ComponentType<SVGProps<SVGSVGElement>>
-  /** The mark's own brand colour. */
-  color: string
+  /**
+   * The mark's own brand colour. Left out for marks that carry their own
+   * colours in the artwork, which are then rendered untinted.
+   */
+  color?: string
   /**
    * Only for marks whose brand colour is black or white, which would vanish
    * against one of the two canvases.
@@ -33,8 +37,8 @@ const tech: Record<string, Tech> = {
   go: { icon: SiGo, color: "#00ADD8" },
   typescript: { icon: SiTypescript, color: "#3178C6" },
   javascript: { icon: SiJavascript, color: "#F7DF1E" },
-  // OpenJDK's own blue, lightened on ink so the mark does not disappear.
-  java: { icon: SiOpenjdk, color: "#437291", darkColor: "#7AB0D4" },
+  // The two-colour coffee cup, which brings its own fills.
+  java: { icon: Java },
   react: { icon: SiReact, color: "#61DAFB" },
   "next.js": { icon: SiNextdotjs, color: "#000000", darkColor: "#FFFFFF" },
   css: { icon: SiCss, color: "#663399", darkColor: "#9B6FD4" },
@@ -58,6 +62,10 @@ export function TechIcon({ name, className }: TechIconProps) {
   if (!entry) return null
 
   const { icon: Icon, color, darkColor } = entry
+
+  if (!color) {
+    return <Icon className={className} aria-hidden focusable="false" />
+  }
 
   return (
     <Icon
