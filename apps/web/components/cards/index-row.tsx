@@ -16,9 +16,21 @@ interface IndexRowProps {
   meta?: ReactNode
   href: string
   external?: boolean
+  /**
+   * A second line under the description that may contain its own links, such
+   * as a fork's upstream repo. It sits above the row's own overlay link, so
+   * anything interactive here wins the click.
+   */
+  aside?: ReactNode
 }
 
-/** The big numbered list row used for the Projects index. */
+/**
+ * The big numbered list row used for the Projects index.
+ *
+ * The row's link is an overlay stretched across the whole row rather than a
+ * wrapper around it, so that `aside` can hold a link of its own — nesting one
+ * anchor inside another is invalid and the inner one would never fire.
+ */
 export function IndexRow({
   num,
   title,
@@ -27,12 +39,29 @@ export function IndexRow({
   meta,
   href,
   external = false,
+  aside,
 }: IndexRowProps) {
-  const body = (
-    <>
-      <span className="eyebrow pt-2.5 text-faint">{num}</span>
+  const overlayClass = "absolute inset-0"
+
+  return (
+    <div className={cn(rowClass, "relative")}>
+      {external ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={overlayClass}
+          aria-label={title}
+        />
+      ) : (
+        <Link href={href} className={overlayClass} aria-label={title} />
+      )}
+
+      <span className="eyebrow pointer-events-none pt-2.5 text-faint">
+        {num}
+      </span>
       <div className="flex flex-wrap items-baseline justify-between gap-x-7 gap-y-3">
-        <div className="min-w-0 flex-[1_1_420px]">
+        <div className="pointer-events-none min-w-0 flex-[1_1_420px]">
           <h3 className="m-0 text-[clamp(1.6rem,3.4vw,2.6rem)] leading-[1.05] font-extrabold tracking-[-0.03em]">
             {title}
           </h3>
@@ -41,34 +70,18 @@ export function IndexRow({
               {description}
             </p>
           )}
+          {aside && (
+            <div className="pointer-events-auto relative mt-2.5">{aside}</div>
+          )}
         </div>
         {(org || meta) && (
-          <div className="eyebrow flex shrink-0 flex-col items-end gap-2 text-faint">
+          <div className="eyebrow pointer-events-none flex shrink-0 flex-col items-end gap-2 text-faint">
             {org && <span className="text-primary">{org}</span>}
             {meta}
           </div>
         )}
       </div>
-    </>
-  )
-
-  if (external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={rowClass}
-      >
-        {body}
-      </a>
-    )
-  }
-
-  return (
-    <Link href={href} className={rowClass}>
-      {body}
-    </Link>
+    </div>
   )
 }
 

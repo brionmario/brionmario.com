@@ -7,7 +7,9 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "turbo format",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "dataseed": "pnpm --filter web dataseed",
+    "dataseed:dry": "pnpm --filter web exec node scripts/dataseedr.js --dry-run"
   },
   "devDependencies": {
     "@workspace/eslint-config": "workspace:*",

@@ -6,8 +6,14 @@ allowed-tools: Read, Write, Edit, Bash, Glob, Grep, AskUserQuestion, SendUserFil
 
 # Site data updater — brionmario.com
 
-All of this site's content lives on disk in `apps/web`. There is no CMS. This skill
-covers the four things that go stale, each of which has its own route below.
+All of this site's content lives on disk in `apps/web`. There is no CMS. This skill is
+the single entry point for refreshing it — run `/update-site-data` and pick a route, or
+name what you want in the request. It covers the four things that go stale.
+
+Only one of them is fully scriptable: the projects list, which is `pnpm dataseed` and
+nothing more. The blog needs a Medium export zip, and the Instagram grid and travel
+photos need images pulled and looked at, so those routes are the agent following the
+steps below rather than a command you can run unattended.
 
 Paths in this document are relative to the repo root.
 
@@ -29,7 +35,7 @@ options:
   - label: "Travel photos"
     description: "Add photos for a country so they show in the world map tooltip."
   - label: "GitHub projects"
-    description: "Re-run the data seeder that generates lib/data/autogen/gh-projects.ts."
+    description: "Re-run the seeder that builds the projects page from featured-project repos."
 ```
 
 Run the selected routes in order, then do **Step F — Finish** once at the end.
@@ -350,18 +356,57 @@ Also update the hardcoded country list in the `aria-label` on the map's `<svg>`.
 
 ## Route D — GitHub projects
 
-`apps/web/lib/data/autogen/gh-projects.ts` is generated — never hand-edit it. It pulls
-public repos tagged with the `featured-project` or `portfolio` topic:
+The projects page **is** the seed. `apps/web/lib/data/autogen/gh-projects.ts` is
+generated and never hand-edited; `apps/web/lib/data/projects.ts` just re-exports it.
+Membership is the `featured-project` repo topic and nothing else, and the names and
+blurbs are the repo's own.
+
+See what the topic currently picks up, without writing anything:
 
 ```bash
-cd apps/web && pnpm dataseed
+pnpm dataseed:dry
 ```
 
-Unauthenticated calls are rate-limited to 60/hour. If it fails on rate limits, re-run
-with a token: `node scripts/dataseedr.js --token=<PAT>`. Ask the user for the token;
-never read one out of their shell history, env files or config.
+It prints the matched repos and a count of the untagged ones. Then write it:
 
-To add a project to the site, the user tags the repo on GitHub — then re-run this.
+```bash
+pnpm dataseed
+```
+
+Both work from the repo root. The flags live on the script itself —
+`--dry-run`, `--topic=<other>`, `--owner=<user>`, `--token=<PAT>`.
+
+### D1. Adding or removing a project
+
+The user tags or untags the repo on GitHub (Settings → Topics → `featured-project`),
+then re-runs the seed. Nothing in this repo changes. If they ask you to do the tagging,
+confirm the exact repo list with them first — it edits their GitHub repos — and then:
+
+```bash
+gh api -X PUT repos/<owner>/<repo>/topics -f names[]=featured-project -f names[]=<existing>…
+```
+
+That endpoint **replaces** the whole topic list, so read the current topics first and
+pass them all back, or you will wipe them.
+
+### D2. Known limits
+
+- **Only repos the user owns.** The seed reads `users/<owner>/repos`, so a repo under an
+  org they do not control (asgardeo, wso2) can never carry their topic and will never
+  appear. Thunder, the Asgardeo JS SDK and WSO2 Identity Server came off the page for
+  this reason when it went tag-driven. If the user wants them back, that needs an
+  explicit allowlist in the seeder — ask before building one.
+- **The blurb is the GitHub description**, emoji and backticks included. The fix is to
+  edit the description on GitHub, not to patch it here.
+- **Forks carry their source.** The list endpoint says `fork: true` but not what it
+  forked from, so the seeder spends one extra call per fork on `repos/{full_name}` and
+  stores `upstream` (the chain's root, not the immediate parent). The projects row
+  renders it as a "Forked from owner/repo" link, which is why `IndexRow`'s own link is
+  an overlay rather than a wrapper — an anchor inside an anchor would never fire.
+- Unauthenticated calls are rate-limited to 60/hour and the account has 200+ repos, so
+  each run costs 3 requests. If it fails on rate limits, re-run with
+  `--token=<PAT>`. Ask the user for the token; never read one out of their shell
+  history, env files or config.
 
 ---
 

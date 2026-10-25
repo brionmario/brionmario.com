@@ -1,3 +1,4 @@
+import { GitFork } from "lucide-react"
 import type { Metadata } from "next"
 
 import { projects } from "@/lib/data/projects"
@@ -35,6 +36,19 @@ export default function ProjectsPage() {
                 meta={<ProjectMeta project={project} />}
                 href={project.githubUrl}
                 external
+                aside={
+                  project.upstream && (
+                    <a
+                      href={project.upstream.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="eyebrow-sm inline-flex items-center gap-1.5 text-faint no-underline transition-colors hover:text-primary"
+                    >
+                      <GitFork className="size-3.5 shrink-0" aria-hidden />
+                      Forked from {project.upstream.repo}
+                    </a>
+                  )
+                }
               />
             </Reveal>
           ))}

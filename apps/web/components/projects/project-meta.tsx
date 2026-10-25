@@ -17,7 +17,9 @@ export function ProjectMeta({ project }: { project: Project }) {
         {tech}
       </span>
 
-      {(project.stars || project.forks) && (
+      {/* Boolean, not the counts themselves: every seeded repo carries numbers
+          now, and `0 || 0` is `0`, which React would render as a stray "0". */}
+      {Boolean(project.stars || project.forks) && (
         <span className="inline-flex items-center gap-4 whitespace-nowrap">
           {project.stars ? (
             <span className="inline-flex items-center gap-1.5">

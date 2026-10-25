@@ -1,10 +1,13 @@
 #!/usr/bin/env node
 /**
- * Data Seeder — fetches GitHub repos tagged with 'featured-project' or 'portfolio'
- * and generates lib/data/autogen/gh-projects.ts for use in the site.
+ * Data Seeder — fetches the GitHub repos tagged with the 'featured-project'
+ * topic and generates lib/data/autogen/gh-projects.ts, which *is* the projects
+ * page. Tag a repo on GitHub, re-run this, and it appears on the site.
  *
  * Usage:
  *   node scripts/dataseedr.js
+ *   node scripts/dataseedr.js --dry-run              # list matches, write nothing
+ *   node scripts/dataseedr.js --topic=portfolio      # match a different topic
  *   node scripts/dataseedr.js --token=<GitHub PAT>
  *   node scripts/dataseedr.js --token=<PAT> --owner=someoneelse
  */
@@ -17,8 +20,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
-const TOPICS_TO_MATCH = ["featured-project", "portfolio"]
-const SYSTEM_TOPICS = new Set([...TOPICS_TO_MATCH, "hacktoberfest"])
+const DEFAULT_TOPIC = "featured-project"
+// Topics that say something about the site rather than the project, so they are
+// never shown as tags even on a repo that carries them.
+const SYSTEM_TOPICS = new Set([DEFAULT_TOPIC, "portfolio", "hacktoberfest"])
 const DEFAULTS = { owner: "brionmario", perPage: 100 }
 const OUTPUT_PATH = join(__dirname, "..", "lib", "data", "autogen", "gh-projects.ts")
 
@@ -31,6 +36,8 @@ function getArg(name) {
 
 const TOKEN = getArg("token")
 const OWNER = getArg("owner") ?? DEFAULTS.owner
+const TOPIC = getArg("topic") ?? DEFAULT_TOPIC
+const DRY_RUN = process.argv.includes("--dry-run")
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -80,13 +87,34 @@ async function fetchAllRepos() {
   return all
 }
 
+/**
+ * The list endpoint says a repo is a fork but not what it forked from, so each
+ * fork costs one extra call. `source` is the root of the chain and `parent` the
+ * immediate one; they differ only for a fork of a fork.
+ */
+async function fetchUpstream(fullName) {
+  const res = await fetch(`https://api.github.com/repos/${fullName}`, { headers })
+  if (!res.ok) {
+    err(`  ! Could not read ${fullName} (${res.status}); leaving its source off.`)
+    return null
+  }
+
+  const detail = await res.json()
+  const origin = detail.source ?? detail.parent
+  if (!origin) return null
+
+  return { repo: origin.full_name, url: origin.html_url }
+}
+
 // ─── Mapping ──────────────────────────────────────────────────────────────────
 
-function mapRepo(repo) {
+async function mapRepo(repo) {
   const tags = [
     repo.language,
     ...repo.topics.filter((t) => !SYSTEM_TOPICS.has(t)),
   ].filter(Boolean)
+
+  const upstream = repo.fork ? await fetchUpstream(repo.full_name) : null
 
   return {
     id: repo.name,
@@ -100,6 +128,8 @@ function mapRepo(repo) {
     forks: repo.forks_count,
     language: repo.language ?? null,
     featured: true,
+    ...(repo.fork ? { fork: true } : {}),
+    ...(upstream ? { upstream } : {}),
   }
 }
 
@@ -122,25 +152,43 @@ export const ghProjects = ${JSON.stringify(projects, null, 2)}
 async function main() {
   log("\n🌱  brionmario.com Data Seeder\n")
   log(`   Owner : ${OWNER}`)
-  log(`   Auth  : ${TOKEN ? "Bearer token ✓" : "Unauthenticated (60 req/hr limit)"}\n`)
+  log(`   Topic : ${TOPIC}`)
+  log(`   Auth  : ${TOKEN ? "Bearer token ✓" : "Unauthenticated (60 req/hr limit)"}`)
+  if (DRY_RUN) log("   Mode  : dry run — nothing will be written")
+  log("")
 
   log("📡  Fetching repos from GitHub…")
   const all = await fetchAllRepos()
   log(`    Found ${all.length} public repos.\n`)
 
-  const matched = all.filter(
-    (r) => !r.private && r.topics?.some((t) => TOPICS_TO_MATCH.includes(t))
-  )
+  const matched = all.filter((r) => !r.private && r.topics?.includes(TOPIC))
 
   if (!matched.length) {
-    err(`⛔  No repos matched topics [${TOPICS_TO_MATCH.join(", ")}].`)
-    err("    Tag repos on GitHub with one of those topics and re-run.\n")
+    err(`⛔  No repos carry the '${TOPIC}' topic.`)
+    err(`    Tag one on GitHub (Settings → Topics) and re-run.\n`)
     process.exit(1)
   }
 
-  log(`🔍  Matched ${matched.length} repo(s) with topics [${TOPICS_TO_MATCH.join(", ")}]:`)
-  const projects = matched.map(mapRepo)
-  projects.forEach((p) => log(`    • ${p.name}  (${p.org})  ⭐ ${p.stars}`))
+  log(`🔍  Matched ${matched.length} repo(s) tagged '${TOPIC}':`)
+  const projects = await Promise.all(matched.map(mapRepo))
+  projects.forEach((p) =>
+    log(
+      `    • ${p.name}  (${p.org})  ⭐ ${p.stars}` +
+        (p.upstream ? `  ⑂ forked from ${p.upstream.repo}` : "")
+    )
+  )
+
+  // The untagged ones, so it is obvious what the topic is leaving out.
+  const skipped = all.filter((r) => !r.private && !r.topics?.includes(TOPIC))
+  if (skipped.length) {
+    log(`\n💤  ${skipped.length} public repo(s) untagged, e.g.:`)
+    skipped.slice(0, 5).forEach((r) => log(`    · ${r.name}`))
+  }
+
+  if (DRY_RUN) {
+    log("\n🌵  Dry run — nothing written.\n")
+    return
+  }
 
   writeOutput(projects)
   log(`\n✅  Written → ${OUTPUT_PATH}\n`)
