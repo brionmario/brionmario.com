@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import localFont from "next/font/local"
-import { Archivo, JetBrains_Mono } from "next/font/google"
+import { Space_Grotesk, JetBrains_Mono } from "next/font/google"
 
 import "@workspace/ui/globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -13,11 +13,12 @@ const goodBrush = localFont({
   variable: "--font-brush",
 })
 
-// Archivo carries both body and headline weights in the design — one family,
-// 400 through 900, so the display headlines stay in the same voice as the prose.
-const archivo = Archivo({
+// Space Grotesk carries both body and headline weights in the design — one
+// family, 400 through 700, so the display headlines stay in the same voice as
+// the prose. Headings asking for 800/900 fall back to 700, the heaviest cut.
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700"],
   variable: "--font-sans",
 })
 
@@ -84,7 +85,7 @@ export default function RootLayout({
       className={cn(
         "antialiased",
         jetbrainsMono.variable,
-        archivo.variable,
+        spaceGrotesk.variable,
         goodBrush.variable
       )}
     >

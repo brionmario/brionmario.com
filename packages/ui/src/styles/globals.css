@@ -27,7 +27,7 @@
 
     --bm-accent: var(--bm-orange-500);
 
-    /* Headlines share Archivo with the body copy — only the weight changes. */
+    /* Headlines share Space Grotesk with the body copy — only the weight changes. */
     --font-heading: var(--font-sans);
 }
 
@@ -196,7 +196,7 @@
 
 @layer components {
   /*
-   * The small label that sits above or beside section content. Archivo in
+   * The small label that sits above or beside section content. Space Grotesk in
    * sentence case: uppercase mono at wide tracking is the one thing that read
    * as a generated template, so the whole UI now runs on a single family.
    * Mono is kept for code and nothing else.
