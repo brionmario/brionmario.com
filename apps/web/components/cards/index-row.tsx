@@ -32,8 +32,6 @@ interface IndexRowProps {
   num: string
   title: string
   description?: string
-  /** Accent-coloured label on the right, e.g. the owning org. */
-  org?: string
   meta?: ReactNode
   href: string
   external?: boolean
@@ -56,7 +54,6 @@ export function IndexRow({
   num,
   title,
   description,
-  org,
   meta,
   href,
   external = false,
@@ -100,9 +97,8 @@ export function IndexRow({
             <div className="pointer-events-auto relative mt-2.5">{aside}</div>
           )}
         </div>
-        {(org || meta) && (
+        {meta && (
           <div className="eyebrow pointer-events-none flex shrink-0 flex-col items-end gap-2 text-faint">
-            {org && <span className="text-primary">{org}</span>}
             {meta}
           </div>
         )}

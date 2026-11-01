@@ -32,7 +32,6 @@ export default function ProjectsPage() {
                 num={String(index + 1).padStart(2, "0")}
                 title={project.name}
                 description={project.description}
-                org={project.org}
                 meta={<ProjectMeta project={project} />}
                 href={project.githubUrl}
                 external
