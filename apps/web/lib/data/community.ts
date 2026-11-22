@@ -170,6 +170,25 @@ export const communityEngagements: CommunityEngagement[] = [
     ],
   },
   {
+    id: "sliitxtreme-2026",
+    type: "Workshop",
+    monthYear: "2026",
+    talk: "Why Competitive Programming Still Matters in the AI Era",
+    description:
+      "A session for the SLIIT Xtreme 5.0 cohort on what competitive programming still teaches when a model can write the solution for you.",
+    body: [
+      "Run in the lead-up to IEEEXtreme 20.0, for students about to spend 24 hours solving problems a language model would answer in seconds — and wondering why they should bother.",
+      "The argument: the value was never the typing. Reading a problem precisely, choosing the shape of a solution, and reasoning about why it is correct are the parts that survive, and they are exactly the parts a contest forces you to practise.",
+    ],
+    event: "SLIIT Xtreme 5.0",
+    location: "Online",
+    url: "https://brionmario.github.io/me/workshops/sliitxtreme-2026-cp-in-the-ai-era/",
+    linkLabel: "Grab the slides",
+    slides:
+      "https://brionmario.github.io/me/workshops/sliitxtreme-2026-cp-in-the-ai-era/",
+    image: "/images/community/sliitxtreme-2026-01-poster.jpg",
+  },
+  {
     id: "sliit-cssc-intern-ready-3",
     type: "Workshop",
     monthYear: "2026",
